@@ -14,12 +14,11 @@
     delegate_to: localhost
     community.general.archive:
       path:
-      - "{{ path }}/*"
+      - "{{ path }}/mysql"
+      - "{{ path }}/Dockerfile"
+      - "{{ path }}/docker-compose.yml"
+      - "{{ path }}/README.md"
       dest: "{{ path }}/cagette.tar.bz2"
-      exclude_path:
-      - "{{ path }}/.git"
-      - "{{ path }}/ansible"
-      - "{{ path }}/terraform"
       format: bz2
 
   - name: unarchive cagette source code
