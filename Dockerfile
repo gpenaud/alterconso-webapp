@@ -62,14 +62,13 @@ FROM debian:bullseye-slim
 COPY --from=cagette-sourcecode /app  /var/www/cagette
 
 RUN \
-  apt-get --yes update && apt-get --yes install \
+  apt-get --yes update && apt-get --no-install-recommends --yes install \
     apache2 \
     curl \
-    git \
     haxe \
+    imagemagick \
     libapache2-mod-neko \
-    imagemagick
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+    libcurl3-gnutls
 
 # Haxe environment variables
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
