@@ -46,3 +46,4 @@ codes.sh
 # --------
 .terraform/
 .terraform.lock.hcl
+cagette.tar.bz2
