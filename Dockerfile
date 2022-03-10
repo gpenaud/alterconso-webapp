@@ -126,5 +126,4 @@ WORKDIR /var/www/cagette
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
-CMD ["-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
