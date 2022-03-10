@@ -3,3 +3,4 @@ terraform.tfstate
 .terraform.lock.hcl
 ops/terraform/terraform.tfstate
 ops/terraform/terraform.tfstate.backup
+cagette.tar.bz2
