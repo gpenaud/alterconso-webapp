@@ -1,5 +1,0 @@
--D redux-connect=0.2.1
-# @install: lix --silent download "haxelib:/redux-connect#0.2.1" into redux-connect/0.2.1/haxelib
--lib redux
--cp ${HAXE_LIBCACHE}/redux-connect/0.2.1/haxelib/src
---macro redux.react.ReactConnectorMacro.addBuilder()

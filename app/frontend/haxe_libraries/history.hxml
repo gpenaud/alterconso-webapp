@@ -1,3 +1,0 @@
--D history=0.0.1
-# @install: lix --silent download "haxelib:/history#0.0.1" into history/0.0.1/haxelib
--cp ${HAXE_LIBCACHE}/history/0.0.1/haxelib/src

@@ -1,3 +1,0 @@
--D hxleaflet=1.0.0
-# @install: lix --silent download "gh://github.com/bablukid/hxleaflet#fa581f6a20bd65c910dd37530eecb9205d1f98e1" into hxleaflet/1.0.0/github/fa581f6a20bd65c910dd37530eecb9205d1f98e1
--cp ${HAXE_LIBCACHE}/hxleaflet/1.0.0/github/fa581f6a20bd65c910dd37530eecb9205d1f98e1/src

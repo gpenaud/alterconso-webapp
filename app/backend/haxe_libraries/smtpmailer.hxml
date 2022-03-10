@@ -1,6 +1,0 @@
--D smtpmailer=0.4.0
-# @install: lix --silent download "gh://github.com/benmerckx/smtpmailer#85b6be7b08197952bdd0ccb29d731fc6ebb38def" into smtpmailer/0.4.0/github/85b6be7b08197952bdd0ccb29d731fc6ebb38def
--lib asys
--lib mime
--lib tink_await
--cp ${HAXE_LIBCACHE}/smtpmailer/0.4.0/github/85b6be7b08197952bdd0ccb29d731fc6ebb38def/src

@@ -1,3 +1,0 @@
--D redux-thunk=0.0.2
-# @install: lix --silent download "haxelib:/redux-thunk#0.0.2" into redux-thunk/0.0.2/haxelib
--cp ${HAXE_LIBCACHE}/redux-thunk/0.0.2/haxelib/src

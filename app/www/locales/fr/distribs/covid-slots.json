@@ -1,7 +1,0 @@
-{
-  "cardTitle": "Distribution {{date}}",
-  "alert": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vel eligendi fuga cum minus architecto eveniet iusto quaerat, assumenda minima libero possimus qui! Perspiciatis, voluptate repellat quaerat magni ut officia!.",
-  "slot-description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vel eligendi fuga cum minus architecto eveniet iusto quaerat, assumenda minima libero possimus qui! Perspiciatis, voluptate repellat quaerat magni ut officia!.",
-  "slot-id": "Créneau n°{{id}}",
-  "confirmBtnLabel": "Activer ces créneaux"
-}

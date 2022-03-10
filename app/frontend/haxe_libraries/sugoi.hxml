@@ -1,3 +1,0 @@
--D sugoi=1.0.0
-# @install: lix --silent download "gh://github.com/bablukid/sugoi#049fb6b31c3b07482a0e81447f8c12f386e62457" into sugoi/1.0.0/github/049fb6b31c3b07482a0e81447f8c12f386e62457
--cp ${HAXE_LIBCACHE}/sugoi/1.0.0/github/049fb6b31c3b07482a0e81447f8c12f386e62457/src
