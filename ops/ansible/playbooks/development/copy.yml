@@ -11,10 +11,6 @@
       src: "{{ path }}/{{ file }}"
       dest: "/home/ubuntu/{{ file }}"
     loop:
-    - app/Dockerfile
-    # - docker-compose.yml
-    # - app/backend/haxe_libraries/dbadmin.hxml
-    # - app/backend/cagette.hxml
-    # - app/backend/.haxerc
+    - Dockerfile
     loop_control:
       loop_var: file
