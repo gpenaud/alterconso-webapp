@@ -4,10 +4,6 @@
 
 FROM node:17-bullseye-slim AS cagette-sourcecode
 
-RUN \
-  apt-get -y update && apt-get -y install \
-    git
-
 # Haxe environment variables
 ENV HAXE_STD_PATH /root/haxe/neko
 ENV HAXE_LIBCACHE /root/haxe/haxe_libraries
@@ -18,7 +14,20 @@ ENV NEKOPATH        /root/haxe/neko
 ENV LD_LIBRARY_PATH /root/haxe/neko
 ENV PATH            /root/haxe/neko/:$PATH
 
-COPY ./app /app
+RUN \
+  apt-get --yes update && apt-get --yes install \
+    curl \
+    zip
+
+RUN \
+  curl --output /tmp/cagette.zip --show-error --location "https://github.com/CagetteNet/cagette/releases/download/last_full_haxe_cagette/last_full_haxe._cagette.zip" && \
+  unzip /tmp/cagette.zip -d "/tmp" && rm -f /tmp/cagette.zip && \
+  mv "/tmp/last_full_hx _cagette/app" /app
+
+RUN \
+  npm install --global \
+    lix \
+    haxe-modular
 
 # Backend part
 # ------------------------------------------------------------------------------
@@ -26,7 +35,6 @@ COPY ./app /app
 WORKDIR /app/backend
 
 RUN \
-  npm i -g lix && \
   # cagette-pro is a private repository and requires authentication
   rm haxe_libraries/cagette-pro.hxml && \
   lix download
@@ -44,10 +52,7 @@ RUN haxe cagette.hxml
 
 WORKDIR /app/frontend
 
-RUN npm i -g haxe-modular
-RUN \
-  npm i -g lix && \
-  lix download
+RUN lix download
 
 # Fix git version problem - we use a ziped package there, not a git repository
 RUN sed -i 's/.*public static var VERSION.*/        public static var VERSION = "1.0.0";/' /app/js/App.hx
