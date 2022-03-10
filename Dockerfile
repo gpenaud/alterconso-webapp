@@ -72,7 +72,9 @@ RUN \
     ca-certificates \
     haxe \
     imagemagick \
-    libapache2-mod-neko
+    libapache2-mod-neko \
+    # allow setcap command to be used
+    libcap2-bin
 
 # Haxe environment variables
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
@@ -88,16 +90,7 @@ RUN \
   cd /usr/lib && \
   haxelib run templo
 
-# clean up
-# ------------------------------------------------------------------------------
-
-RUN \
-  apt-get --yes --purge remove \
-    haxe \
-    imagemagick \
-  && rm -rf /var/lib/apt/lists/*
-
-# configure and execute apache2
+# configure apache2
 # ------------------------------------------------------------------------------
 
 ENV APACHE_RUN_USER  www-data
@@ -105,16 +98,33 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR   /var/log/apache2
 
 RUN \
-  chown -R www-data:www-data /var/log/apache2 /etc/apache2 /var/www && \
   a2enmod rewrite && \
   a2enmod neko && \
   sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf && \
   sed -i 's!/var/www/html!/var/www/cagette/www!g' /etc/apache2/sites-available/000-default.conf && \
+  chmod --recursive o+rwx /var/log/apache2 /var/run/apache2 && \
+  # allow apache2 to be executed by user www-data
+  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2 && \
+  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2ctl && \
   service apache2 restart
 
-USER root
+# clean up packages
+# ------------------------------------------------------------------------------
+
+RUN \
+  apt-get --yes --purge remove \
+    haxe \
+    imagemagick \
+    libcap2-bin \
+  && rm -rf /var/lib/apt/lists/*
+
+# execute apache2
+# ------------------------------------------------------------------------------
+
+USER www-data
 WORKDIR /var/www/cagette
 
 EXPOSE 80
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D", "FOREGROUND"]
