@@ -64,11 +64,10 @@ COPY --from=cagette-sourcecode /app  /var/www/cagette
 RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
     apache2 \
-    curl \
+    ca-certificates \
     haxe \
     imagemagick \
-    libapache2-mod-neko \
-    libcurl3-gnutls
+    libapache2-mod-neko
 
 # Haxe environment variables
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
@@ -80,9 +79,18 @@ ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/neko
 
 RUN \
   haxelib setup /usr/share/haxelib && \
-  haxelib install templo
+  haxelib install templo && \
+  cd /usr/lib && \
+  haxelib run templo
 
-RUN cd /usr/bin && haxelib run templo
+# clean up
+# ------------------------------------------------------------------------------
+
+RUN \
+  apt-get --yes --purge remove \
+    haxe \
+    imagemagick \
+  && rm -rf /var/lib/apt/lists/*
 
 # configure and execute apache2
 # ------------------------------------------------------------------------------
