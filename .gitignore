@@ -45,5 +45,6 @@ codes.sh
 # ops part
 # --------
 .terraform/
+terraform.tfstate
 .terraform.lock.hcl
 cagette.tar.bz2
