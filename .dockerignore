@@ -1,6 +1,5 @@
 Dockerfile
 docker-compose.yml
-cagette.tar.bz2
 terraform.tfstate
 .git
 ops
