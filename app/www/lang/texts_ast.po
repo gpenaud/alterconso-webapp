@@ -1,0 +1,4118 @@
+msgid ""
+msgstr ""
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/App.hx:2527 src/db/User.hx:15991 lang/master/tpl/member/import.mtt:612 lang/master/tpl/member/import.mtt:1355
+msgid "First name"
+msgstr ""
+
+#: src/App.hx:2573 src/db/User.hx:16028 lang/master/tpl/member/import.mtt:647 lang/master/tpl/member/import.mtt:1389
+msgid "Last name"
+msgstr ""
+
+#: src/App.hx:2750 src/db/User.hx:16559
+msgid "Password"
+msgstr ""
+
+#: src/App.hx:2794 src/App.hx:2837
+msgid "address"
+msgstr ""
+
+#: src/App.hx:8531
+msgid "Please configure the email settings in a <href='/admin/emails'>this section</a>"
+msgstr ""
+
+#: src/controller/Account.hx:892 src/controller/Account.hx:1087
+msgid "Email ::em:: is invalid"
+msgstr ""
+
+#: src/controller/Account.hx:1257
+msgid "Your account has been updated"
+msgstr ""
+
+#: src/controller/Account.hx:1342
+msgid "Modify my account"
+msgstr ""
+
+#: src/controller/Account.hx:1629
+msgid "You left the group ::groupName::"
+msgstr ""
+
+#: src/controller/admin/Admin.hx:1790
+msgid "Configuration updated"
+msgstr ""
+
+#: src/controller/admin/Admin.hx:1852
+msgid "Email service configuration"
+msgstr ""
+
+#: src/controller/Amap.hx:539
+msgid "You don't have access to this section"
+msgstr ""
+
+#: src/controller/Amap.hx:954
+msgid "The group has been updated."
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:338 src/controller/AmapAdmin.hx:1435 src/controller/ContractAdmin.hx:2414
+msgid "Access forbidden"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:591 lang/master/tpl/contract/default.mtt:4697 lang/master/tpl/member/payments.mtt:903
+msgid "Payments"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:1689
+msgid "The sent image was too big. The maximum allowed size is 12MB"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:2482 src/controller/Vendor.hx:2957
+msgid "Image updated"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:3580 lang/master/tpl/contractadmin/distributionp.mtt:627
+msgid "Member"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:3857
+msgid "Group administrator"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:3927
+msgid "Membership management"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:3998
+msgid "Messages"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:4418 src/db/User.hx:16455 lang/master/tpl/amapadmin/rights.mtt:239 lang/master/tpl/member/view.mtt:6331
+msgid "Rights"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:4655
+msgid "All contracts"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:5177
+msgid "Contracts management"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:6236
+msgid "You cannot strip yourself of admin rights."
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:6441
+msgid "Rights removed"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:6512
+msgid "Rights created or modified"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:6605
+msgid "Give rights to a user"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:6663
+msgid "Modify the rights of ::user::"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:7099 src/controller/AmapAdmin.hx:7371
+msgid "Name "
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:7163 src/controller/AmapAdmin.hx:7436
+msgid "Rate "
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:7896
+msgid "Rate updated"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:7944
+msgid "Edit VAT rates"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:8214
+msgid "Currency used by your group."
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:8359
+msgid "Currency symbol"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:8482
+msgid "3 digit ISO code"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:8781
+msgid "Currency updated"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:9217
+msgid "Authorized payment types"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:9493
+msgid "Make the check payable to"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:9624
+msgid "IBAN of your bank account for transfers"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:9989
+msgid "Payment options updated"
+msgstr ""
+
+#: src/controller/AmapAdmin.hx:10052
+msgid "Options of payment"
+msgstr ""
+
+#: src/controller/api/Order.hx:982 src/controller/api/Order.hx:3006 src/controller/ContractAdmin.hx:17946 src/controller/ContractAdmin.hx:19024 src/controller/ContractAdmin.hx:19860 src/controller/ContractAdmin.hx:22707 src/controller/ContractAdmin.hx:23570 src/controller/ContractAdmin.hx:24469 src/controller/ContractAdmin.hx:25228 src/controller/ContractAdmin.hx:26539 src/controller/ContractAdmin.hx:26838 src/controller/ContractAdmin.hx:28662 src/controller/ContractAdmin.hx:29404 src/controller/ContractAdmin.hx:29971
+msgid "You do not have the authorization to manage this contract"
+msgstr ""
+
+#: src/controller/api/Order.hx:1087 src/controller/api/Order.hx:3111 src/controller/ContractAdmin.hx:29579 src/controller/ContractAdmin.hx:30146
+msgid "This delivery has been already validated"
+msgstr ""
+
+#: src/controller/api/Order.hx:2898
+msgid "::user:: is not member of this group"
+msgstr ""
+
+#: src/controller/api/Order.hx:4034 src/controller/ContractAdmin.hx:32241
+msgid "Unable to find product ::pid::"
+msgstr ""
+
+#: src/controller/api/Order.hx:4416 src/controller/ContractAdmin.hx:31474 src/controller/ContractAdmin.hx:32639
+msgid "Unable to find user #::num::"
+msgstr ""
+
+#: src/controller/api/Order.hx:4520 src/controller/ContractAdmin.hx:32749
+msgid "::user:: is not part of this group"
+msgstr ""
+
+#: src/controller/api/Order.hx:4612 src/controller/ContractAdmin.hx:32844
+msgid "Both selected accounts must be different ones"
+msgstr ""
+
+#: src/controller/api/Order.hx:4872
+msgid "Error : product \"::product::\" quantities should be integers"
+msgstr ""
+
+#: src/controller/Categories.hx:480
+msgid "The category list is not empty."
+msgstr ""
+
+#: src/controller/Categories.hx:916
+msgid "Product types"
+msgstr ""
+
+#: src/controller/Categories.hx:941
+msgid "Vegetables"
+msgstr ""
+
+#: src/controller/Categories.hx:960
+msgid "Fruits"
+msgstr ""
+
+#: src/controller/Categories.hx:975
+msgid "Fish"
+msgstr ""
+
+#: src/controller/Categories.hx:988
+msgid "Red meat"
+msgstr ""
+
+#: src/controller/Categories.hx:1005
+msgid "Breads"
+msgstr ""
+
+#: src/controller/Categories.hx:1020
+msgid "Grocery"
+msgstr ""
+
+#: src/controller/Categories.hx:1036
+msgid "Beverages"
+msgstr ""
+
+#: src/controller/Categories.hx:1064
+msgid "Labels"
+msgstr ""
+
+#: src/controller/Categories.hx:1082
+msgid "Certified organic agriculture"
+msgstr ""
+
+#: src/controller/Categories.hx:1120
+msgid "Uncertified organic agriculture"
+msgstr ""
+
+#: src/controller/Categories.hx:1160
+msgid "Non organic"
+msgstr ""
+
+#: src/controller/Categories.hx:1224
+msgid "Default categories have been created"
+msgstr ""
+
+#: src/controller/Categories.hx:1576 src/db/CategoryGroup.hx:1087
+msgid "Color"
+msgstr ""
+
+#: src/controller/Categories.hx:1725
+msgid "Group modified"
+msgstr ""
+
+#: src/controller/Categories.hx:1779
+msgid "Modify the group "
+msgstr ""
+
+#: src/controller/Categories.hx:2275
+msgid "Group added"
+msgstr ""
+
+#: src/controller/Categories.hx:2326
+msgid "Create a group of categories"
+msgstr ""
+
+#: src/controller/Categories.hx:2710
+msgid "Category added"
+msgstr ""
+
+#: src/controller/Categories.hx:2764
+msgid "Create a category"
+msgstr ""
+
+#: src/controller/Categories.hx:3131
+msgid "Modify the category "
+msgstr ""
+
+#: src/controller/Categories.hx:3370
+msgid "All categories must be removed from this group before it can be deleted."
+msgstr ""
+
+#: src/controller/Categories.hx:3525
+msgid "Group deleted"
+msgstr ""
+
+#: src/controller/Categories.hx:3769
+msgid "Category deleted"
+msgstr ""
+
+#: src/controller/Contract.hx:1257
+msgid "You are not a member of this group"
+msgstr ""
+
+#: src/controller/Contract.hx:4339 src/controller/Contract.hx:6353 src/controller/Distribution.hx:691 src/controller/Distribution.hx:4308 src/controller/Distribution.hx:10322 src/controller/Distribution.hx:13055 src/controller/Member.hx:21440 src/controller/Product.hx:2036 src/controller/Vendor.hx:1741
+msgid "Forbidden action"
+msgstr ""
+
+#: src/controller/Contract.hx:4789
+msgid "If you would like to add fees to the order, define a rate (%) and a label."
+msgstr ""
+
+#: src/controller/Contract.hx:5005
+msgid ""
+"Warning about management of stock. Please fill the field \"stock\" for all "
+"your products"
+msgstr ""
+
+#: src/controller/Contract.hx:5342
+msgid "Managing stock is not available for CSA contracts"
+msgstr ""
+
+#: src/controller/Contract.hx:6040
+msgid "Contract updated"
+msgstr ""
+
+#: src/controller/Contract.hx:6503
+msgid "Create a contract with fixed orders"
+msgstr ""
+
+#: src/controller/Contract.hx:6551
+msgid "Create a contract with variable orders"
+msgstr ""
+
+#: src/controller/Contract.hx:7259
+msgid "New contract created"
+msgstr ""
+
+#: src/controller/Contract.hx:7521
+msgid "You don't have the authorization to remove a contract"
+msgstr ""
+
+#: src/controller/Contract.hx:7974
+msgid "You cannot delete this contract because some orders are linked to it."
+msgstr ""
+
+#: src/controller/Contract.hx:8385
+msgid "Contract deleted"
+msgstr ""
+
+#: src/controller/Contract.hx:8453 src/controller/Product.hx:3695
+msgid "Token error"
+msgstr ""
+
+#: src/controller/Contract.hx:9036 src/controller/Contract.hx:12412
+msgid "This contract is not opened for orders"
+msgstr ""
+
+#: src/controller/Contract.hx:11351 src/controller/Contract.hx:14550
+msgid "Could not find the product ::produ:: and delivery ::deliv::"
+msgstr ""
+
+#: src/controller/Contract.hx:11931 src/controller/Contract.hx:17883
+msgid "Your order has been updated"
+msgstr ""
+
+#: src/controller/Contract.hx:15217
+msgid "Your CSA order has been saved"
+msgstr ""
+
+#: src/controller/Contract.hx:15302
+msgid "In order to save your order, please choose a means of payment."
+msgstr ""
+
+#: src/controller/Contract.hx:15870
+msgid "This delivery has already taken place, you can no longer modify the order."
+msgstr ""
+
+#: src/controller/Contract.hx:15998
+msgid ""
+"<br/>As the manager of the contract you can modify the order from this page: "
+"<a href='/contractAdmin'>Management of contracts</a>"
+msgstr ""
+
+#: src/controller/Contract.hx:17307
+msgid "Error, could not find the order"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:428
+msgid "You don't have the authorization to manage contracts"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:2669
+msgid ""
+"Warning, at least one product does not have any category. <a href='/product/categorize/::contractid::'>Click "
+"here to add categories</a>"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:4210
+msgid "Copy products in: "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:4514
+msgid "Copy products from: "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:4631
+msgid "Delete existing products (all orders will be deleted!)"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:5259
+msgid "Products copied from "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:5930
+msgid "Contract start "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:6109
+msgid "Contract end "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:6409
+msgid "Delivery "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:6725
+msgid "Opening of orders "
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:6978
+msgid "End of orders"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:7795 src/db/Contract.hx:8130
+msgid "Start date"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:7932 src/db/Contract.hx:8169 src/db/Operation.hx:12263
+msgid "End date"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:8287 src/controller/ContractAdmin.hx:10874
+msgid "Global view of orders"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:9467 src/controller/ContractAdmin.hx:12109 src/controller/ContractAdmin.hx:13575
+msgid "There is no delivery at this date"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:10521
+msgid "Delivery date"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:10920
+msgid "This page allows you to have a global view on orders of all contracts"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:11015
+msgid "<br/>Select a delivery date:"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:15081
+msgid "There is no delivery during this period"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:17298
+msgid "Orders from the ::fromDate:: to the ::toDate:: per supplier.csv"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:19639
+msgid "Prices are now up to date."
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:20075
+msgid "Name of the new contract"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:20188
+msgid "Copy products"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:20267
+msgid "Copy deliveries"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:22364
+msgid "The contract has been duplicated"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:23138 src/controller/ContractAdmin.hx:24032
+msgid "No delivery in this contract"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:28820
+msgid "The contract has been canceled"
+msgstr ""
+
+#: src/controller/ContractAdmin.hx:33871 src/controller/ContractAdmin.hx:33968
+msgid "The order has been updated"
+msgstr ""
+
+#: src/controller/Cron.hx:8218
+msgid "Opening of orders for the delivery of <b>::date::</b>"
+msgstr ""
+
+#: src/controller/Cron.hx:8354
+msgid "The following suppliers are involved :"
+msgstr ""
+
+#: src/controller/Cron.hx:8632
+msgid ""
+"The web address of your group is: <a href=\" + ::groupurl:: + \"> ::groupurl:: "
+"</a><br>"
+msgstr ""
+
+#: src/controller/Cron.hx:8813
+msgid "Do not forget the delivery: <b>::delivery::</b><br/>"
+msgstr ""
+
+#: src/controller/Cron.hx:8928
+msgid "Your products to collect:<br/><ul>"
+msgstr ""
+
+#: src/controller/Cron.hx:9169 lang/master/tpl/contractadmin/orders.mtt:2464
+msgid "alternated with"
+msgstr ""
+
+#: src/controller/Cron.hx:9471
+msgid ""
+"<b>Warning: you are in charge of the delivery ! Do not forget to print the "
+"attendance sheet.</b>"
+msgstr ""
+
+#: src/controller/Cron.hx:10013 lang/master/tpl/shop/default.mtt:670
+msgid "Distribution on ::date::"
+msgstr ""
+
+#: src/controller/Cron.hx:10855
+msgid "<p>This step is important in order to:</p>"
+msgstr ""
+
+#: src/controller/Cron.hx:10920
+msgid ""
+"<ul><li>Update orders if delivered quantities are different from ordered "
+"quantities</li>"
+msgstr ""
+
+#: src/controller/Cron.hx:11031
+msgid ""
+"<li>Confirm the reception of payments (checks, cash, transfers) in order "
+"to mark orders as 'paid'</li></ul>"
+msgstr ""
+
+#: src/controller/Cron.hx:11639
+msgid "Validation of the distribution of the "
+msgstr ""
+
+#: src/controller/Cron.hx:11861
+msgid "<p>Your delivery just finished, don't forget to <b>validate</b> it</p>"
+msgstr ""
+
+#: src/controller/Cron.hx:11973 src/controller/Cron.hx:13193
+msgid ""
+"<p><a href='::distriburl::'>Click here to validate the delivery</a> (You "
+"must be connected to your group Cagette)"
+msgstr ""
+
+#: src/controller/Cron.hx:12882
+msgid ": Validation of the delivery of the "
+msgstr ""
+
+#: src/controller/Cron.hx:13102
+msgid "<p>Reminder: you have a delivery to validate.</p>"
+msgstr ""
+
+#: src/controller/Cron.hx:14935
+msgid ": Validation of the distribution of the "
+msgstr ""
+
+#: src/controller/Cron.hx:15032
+msgid ""
+"<p>As you did not validate it manually after 10 days, <br/>the delivery of "
+"the ::deliveryDate:: has been validated automatically</p>"
+msgstr ""
+
+#: src/controller/Distribution.hx:983
+msgid "One person per page"
+msgstr ""
+
+#: src/controller/Distribution.hx:1044
+msgid "One person per page sorted by contract"
+msgstr ""
+
+#: src/controller/Distribution.hx:1119
+msgid "All"
+msgstr ""
+
+#: src/controller/Distribution.hx:1164
+msgid "All but without prices and totals"
+msgstr ""
+
+#: src/controller/Distribution.hx:4420
+msgid "Deletion non possible: some orders are saved for this delivery."
+msgstr ""
+
+#: src/controller/Distribution.hx:4644
+msgid "the delivery has been deleted"
+msgstr ""
+
+#: src/controller/Distribution.hx:5146 src/controller/Distribution.hx:7138 src/controller/Distribution.hx:10910
+msgid "End time"
+msgstr ""
+
+#: src/controller/Distribution.hx:5335 src/controller/Distribution.hx:7509
+msgid "Orders opening date"
+msgstr ""
+
+#: src/controller/Distribution.hx:5455 src/controller/Distribution.hx:7660
+msgid "Orders closing date"
+msgstr ""
+
+#: src/controller/Distribution.hx:6120
+msgid "Edit a distribution"
+msgstr ""
+
+#: src/controller/Distribution.hx:6554
+msgid "The delivery is now up to date"
+msgstr ""
+
+#: src/controller/Distribution.hx:6640
+msgid "Modify a delivery"
+msgstr ""
+
+#: src/controller/Distribution.hx:8220
+msgid ""
+"Your request for a delivery has been sent to <b>::supplierName::</b>.<br/>Be "
+"patient, you will receive an e-mail indicating if the request has been validated "
+"or refused."
+msgstr ""
+
+#: src/controller/Distribution.hx:8652
+msgid "Distribution request sent"
+msgstr ""
+
+#: src/controller/Distribution.hx:8793
+msgid "The distribution has been recorded"
+msgstr ""
+
+#: src/controller/Distribution.hx:8961
+msgid "Create a distribution"
+msgstr ""
+
+#: src/controller/Distribution.hx:9240 src/controller/Distribution.hx:12172
+msgid "The date of the delivery must be prior to the end of the contract (::contractEndDate::)"
+msgstr ""
+
+#: src/controller/Distribution.hx:9479 src/controller/Distribution.hx:12417
+msgid "The date of the delivery must be after the begining of the contract (::contractBeginDate::)"
+msgstr ""
+
+#: src/controller/Distribution.hx:10710
+msgid "Start time"
+msgstr ""
+
+#: src/controller/Distribution.hx:11265
+msgid "Opening time"
+msgstr ""
+
+#: src/controller/Distribution.hx:11564
+msgid "Closing time"
+msgstr ""
+
+#: src/controller/Distribution.hx:12672
+msgid "The delivery has been saved"
+msgstr ""
+
+#: src/controller/Distribution.hx:12830
+msgid "Schedule a recurrent delivery"
+msgstr ""
+
+#: src/controller/Distribution.hx:13356
+msgid "Recurrent deliveries deleted"
+msgstr ""
+
+#: src/controller/Distribution.hx:15141 src/controller/Product.hx:474 src/controller/Product.hx:3198 src/controller/Product.hx:3867 src/controller/Product.hx:6025 src/controller/Product.hx:6780 src/controller/Product.hx:7543 src/controller/Product.hx:8261 src/controller/Validate.hx:1457 src/controller/Validate.hx:2931 src/controller/Vendor.hx:286
+msgid "Forbidden access"
+msgstr ""
+
+#: src/controller/Group.hx:1050
+msgid "You are already in the waiting list of this group"
+msgstr ""
+
+#: src/controller/Group.hx:1230 src/controller/Group.hx:3051
+msgid "You are already member of this group."
+msgstr ""
+
+#: src/controller/Group.hx:1411 src/controller/Group.hx:3419 src/controller/Install.hx:1079
+msgid "Your firstname"
+msgstr ""
+
+#: src/controller/Group.hx:1496 src/controller/Group.hx:3504 src/controller/Install.hx:1161
+msgid "Your lastname"
+msgstr ""
+
+#: src/controller/Group.hx:1578 src/controller/Group.hx:3580
+msgid "Your e-mail"
+msgstr ""
+
+#: src/controller/Group.hx:1676
+msgid "Leave a message"
+msgstr ""
+
+#: src/controller/Group.hx:2055
+msgid "You already subscribed to Cagette, please log in on this page"
+msgstr ""
+
+#: src/controller/Group.hx:2384
+msgid ""
+"Your subscription to the waiting list has been recorded. You will receive "
+"an e-mail as soon as your request is processed."
+msgstr ""
+
+#: src/controller/Group.hx:2541
+msgid "Subscription to \"::groupeName::\" waiting list"
+msgstr ""
+
+#: src/controller/Group.hx:3181
+msgid "Join the group"
+msgstr ""
+
+#: src/controller/Group.hx:3259
+msgid "Confirm your subscription to \"::groupName::\""
+msgstr ""
+
+#: src/controller/Group.hx:3728
+msgid "Address"
+msgstr ""
+
+#: src/controller/Group.hx:3808 src/db/Place.hx:1501 src/db/User.hx:16394 src/db/Vendor.hx:1357
+msgid "Zip code"
+msgstr ""
+
+#: src/controller/Group.hx:3883 src/controller/Member.hx:17112 src/db/Place.hx:1533 src/db/User.hx:16426 src/db/Vendor.hx:1392 lang/master/tpl/member/import.mtt:995 lang/master/tpl/member/import.mtt:1727
+msgid "City"
+msgstr ""
+
+#: src/controller/Group.hx:3955 src/db/User.hx:16092 src/db/Vendor.hx:1245 lang/master/tpl/contractadmin/view.mtt:1043 lang/master/tpl/member/import.mtt:711 lang/master/tpl/member/import.mtt:1451 lang/master/tpl/member/payments.mtt:540 lang/master/tpl/member/waiting.mtt:234
+msgid "Phone"
+msgstr ""
+
+#: src/controller/Group.hx:4511
+msgid "You already subscribed to Cagette.net, please log in on this page"
+msgstr ""
+
+#: src/controller/Group.hx:4799
+msgid "Your subscription has been taken into account"
+msgstr ""
+
+#: src/controller/Group.hx:4879
+msgid "Subscription to \"::groupName::\""
+msgstr ""
+
+#: src/controller/Group.hx:5076
+msgid "Create a new Cagette Group"
+msgstr ""
+
+#: src/controller/Group.hx:5190 src/controller/Install.hx:992
+msgid "Name of your group"
+msgstr ""
+
+#: src/controller/Group.hx:5276
+msgid "CSA"
+msgstr ""
+
+#: src/controller/Group.hx:5310
+msgid "Grouped orders"
+msgstr ""
+
+#: src/controller/Group.hx:5355
+msgid "Farmers collective"
+msgstr ""
+
+#: src/controller/Group.hx:5404
+msgid "Farm shop"
+msgstr ""
+
+#: src/controller/Group.hx:5495 src/db/Amap.hx:9640
+msgid "Group type"
+msgstr ""
+
+#: src/controller/Group.hx:6968
+msgid "Market square"
+msgstr ""
+
+#: src/controller/Group.hx:7426
+msgid "CSA contract Vegetables - Example"
+msgstr ""
+
+#: src/controller/Group.hx:7496
+msgid ""
+"This contract is an example where the customer has to commit to buy the whole "
+"year as with AMAPs"
+msgstr ""
+
+#: src/controller/Group.hx:7940 src/controller/Install.hx:2877
+msgid "Big basket of vegetables"
+msgstr ""
+
+#: src/controller/Group.hx:8111 src/controller/Install.hx:3041
+msgid "Small basket of vegetables"
+msgstr ""
+
+#: src/controller/Group.hx:8638
+msgid "Farm Galinette"
+msgstr ""
+
+#: src/controller/Group.hx:8707
+msgid "Bazas"
+msgstr ""
+
+#: src/controller/Group.hx:8852
+msgid "Chicken Contract - Example"
+msgstr ""
+
+#: src/controller/Group.hx:8914
+msgid ""
+"Example of contract with variable orders. It is allowed to order something "
+"else at every delivery."
+msgstr ""
+
+#: src/controller/Group.hx:9418
+msgid "12 eggs"
+msgstr ""
+
+#: src/controller/Group.hx:9592
+msgid "Chicken"
+msgstr ""
+
+#: src/controller/Install.hx:1996
+msgid "Marketplace"
+msgstr ""
+
+#: src/controller/Install.hx:2062
+msgid "Place Jules Verne"
+msgstr ""
+
+#: src/controller/Install.hx:2136
+msgid "St Martin de la Cagette"
+msgstr ""
+
+#: src/controller/Install.hx:2276
+msgid "Jean Martin EURL"
+msgstr ""
+
+#: src/controller/Install.hx:2499
+msgid "Vegetables Contract Example"
+msgstr ""
+
+#: src/controller/Install.hx:3714
+msgid ""
+"Group and user 'admin' created. Your email is 'admin@cagette.net' and your "
+"password is 'admin'"
+msgstr ""
+
+#: src/controller/Install.hx:4335
+msgid "You must update your database to version "
+msgstr ""
+
+#: src/controller/Install.hx:4467
+msgid "Current version"
+msgstr ""
+
+#: src/controller/Install.hx:4887
+msgid "Installation of the dictionnary of products (taxonomy)"
+msgstr ""
+
+#: src/controller/Install.hx:4999
+msgid "Improvement on saving orders"
+msgstr ""
+
+#: src/controller/Install.hx:5186
+msgid "Following update have been performed:<ul>"
+msgstr ""
+
+#: src/controller/Main.hx:2009 src/controller/Shop.hx:659
+msgid ""
+"Members of this group should provide a phone number. <a href='/account/edit'>Please "
+"click here to update your account</a>."
+msgstr ""
+
+#: src/controller/Member.hx:1440
+msgid "Without contracts"
+msgstr ""
+
+#: src/controller/Member.hx:1801
+msgid "With orders"
+msgstr ""
+
+#: src/controller/Member.hx:2162 src/controller/Messages.hx:4001
+msgid "Memberships to be renewed"
+msgstr ""
+
+#: src/controller/Member.hx:2524
+msgid "Never connected"
+msgstr ""
+
+#: src/controller/Member.hx:2711
+msgid "Unknown selection"
+msgstr ""
+
+#: src/controller/Member.hx:3107 lang/master/tpl/design.mtt:2865 lang/master/tpl/member/default.mtt:782
+msgid "Members"
+msgstr ""
+
+#: src/controller/Member.hx:4037
+msgid "is now on waiting list."
+msgstr ""
+
+#: src/controller/Member.hx:4543
+msgid "This user is already a member of your group."
+msgstr ""
+
+#: src/controller/Member.hx:4777
+msgid "Membership request accepted"
+msgstr ""
+
+#: src/controller/Member.hx:5059
+msgid "membership request deleted"
+msgstr ""
+
+#: src/controller/Member.hx:5555 src/controller/Member.hx:6118 src/controller/Messages.hx:2485
+msgid "An error occurred while sending emails, please retry"
+msgstr ""
+
+#: src/controller/Member.hx:5665
+msgid "Invitation sent."
+msgstr ""
+
+#: src/controller/Member.hx:6222
+msgid "Congratulations, you just sent <b>::userLength::</b> invitations"
+msgstr ""
+
+#: src/controller/Member.hx:6539
+msgid "This person does not belong to your group"
+msgstr ""
+
+#: src/controller/Member.hx:9457
+msgid "You cannot modify the account of an administrator"
+msgstr ""
+
+#: src/controller/Member.hx:10129
+msgid ""
+"For security reasons, you cannot modify the e-mail of this person because "
+"this person is a member of more than 1 group."
+msgstr ""
+
+#: src/controller/Member.hx:10392
+msgid ""
+"This person did not define yet a password. You are exceptionaly authorized "
+"to do it. Please don't forget to tell this person."
+msgstr ""
+
+#: src/controller/Member.hx:10824 src/controller/Member.hx:23487
+msgid "Phone number is required in this group."
+msgstr ""
+
+#: src/controller/Member.hx:11432
+msgid ""
+"This e-mail was used by another user account. As this user account was not "
+"used, it has been merged into the current user account."
+msgstr ""
+
+#: src/controller/Member.hx:11609
+msgid "Warning, this e-mail or this name already exists for another account : "
+msgstr ""
+
+#: src/controller/Member.hx:11834
+msgid "These accounts can't be merged because the second account has orders"
+msgstr ""
+
+#: src/controller/Member.hx:12318 src/controller/User.hx:3190 src/db/User.hx:15036 lang/master/tpl/design.mtt:4456 lang/master/tpl/mail/design.mtt:298
+msgid "Cagette.net"
+msgstr ""
+
+#: src/controller/Member.hx:12394
+msgid "Change your e-mail in your account Cagette.net"
+msgstr ""
+
+#: src/controller/Member.hx:12539 src/controller/Member.hx:13076
+msgid ""
+" just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+"now:"
+msgstr ""
+
+#: src/controller/Member.hx:12933
+msgid "Change the e-mail of your account Cagette.net"
+msgstr ""
+
+#: src/controller/Member.hx:13279
+msgid "This member has beed updated"
+msgstr ""
+
+#: src/controller/Member.hx:13549
+msgid "You cannot do that."
+msgstr ""
+
+#: src/controller/Member.hx:13648
+msgid "You cannot delete yourself."
+msgstr ""
+
+#: src/controller/Member.hx:13836
+msgid ""
+"Warning, this account has orders. <a class='btn btn-default btn-xs' href='/member/delete/::userid::?token=::argstoken::&confirm=1'>Remove "
+"anyway</a>"
+msgstr ""
+
+#: src/controller/Member.hx:14166
+msgid "::user:: has been removed from your group"
+msgstr ""
+
+#: src/controller/Member.hx:14279
+msgid "This person does not belong to \"::amapname::\""
+msgstr ""
+
+#: src/controller/Member.hx:14597
+msgid "Merge an account with another one"
+msgstr ""
+
+#: src/controller/Member.hx:14654
+msgid ""
+"This action allows you to merge two accounts (when you have duplicates in "
+"the database for example).<br/>Contracts of account 2 will be moved to account "
+"1, and account 2 will be deleted. Warning, it is not possible to cancel this "
+"action."
+msgstr ""
+
+#: src/controller/Member.hx:15143
+msgid "Account 1"
+msgstr ""
+
+#: src/controller/Member.hx:15261
+msgid "Account 2"
+msgstr ""
+
+#: src/controller/Member.hx:16460
+msgid "Both accounts have been merged"
+msgstr ""
+
+#: src/controller/Member.hx:16876
+msgid "Firstname"
+msgstr ""
+
+#: src/controller/Member.hx:16894
+msgid "Lastname"
+msgstr ""
+
+#: src/controller/Member.hx:16911 lang/master/tpl/member/view.mtt:638 lang/master/tpl/member/view.mtt:766
+msgid "E-mail"
+msgstr ""
+
+#: src/controller/Member.hx:16926
+msgid "Mobile phone"
+msgstr ""
+
+#: src/controller/Member.hx:16947
+msgid "Partner's firstname"
+msgstr ""
+
+#: src/controller/Member.hx:16975
+msgid "Partner's lastname"
+msgstr ""
+
+#: src/controller/Member.hx:17002
+msgid "Partner's e-mail"
+msgstr ""
+
+#: src/controller/Member.hx:17027
+msgid "Partner's Mobile phone"
+msgstr ""
+
+#: src/controller/Member.hx:17058 src/db/Place.hx:1430 src/db/User.hx:16323 src/db/Vendor.hx:1280 lang/master/tpl/member/import.mtt:894 lang/master/tpl/member/import.mtt:1629
+msgid "Address 1"
+msgstr ""
+
+#: src/controller/Member.hx:17076 src/db/Place.hx:1466 src/db/User.hx:16359 src/db/Vendor.hx:1319 lang/master/tpl/member/import.mtt:928 lang/master/tpl/member/import.mtt:1662
+msgid "Address 2"
+msgstr ""
+
+#: src/controller/Member.hx:17094
+msgid "Post code"
+msgstr ""
+
+#: src/controller/Member.hx:17495
+msgid "You must fill the name and the firstname of the person. This line is incomplete: "
+msgstr ""
+
+#: src/controller/Member.hx:17664
+msgid ""
+"Each person must have an e-mail to be able to log in. ::user0:: ::user1:: "
+"don't have one. "
+msgstr ""
+
+#: src/controller/Member.hx:19493
+msgid "The E-mail ::useremail:: is invalid, please modify your file"
+msgstr ""
+
+#: src/controller/Member.hx:19830
+msgid ""
+"The E-mail of the partner of ::userFirstName:: ::userLastName:: '::userEmail::' "
+"is invalid, please check your file"
+msgstr ""
+
+#: src/controller/Member.hx:21859
+msgid "Send an E-mail to the person in charge of the group"
+msgstr ""
+
+#: src/controller/Member.hx:22571
+msgid "This person is already member of this group"
+msgstr ""
+
+#: src/controller/Member.hx:22926
+msgid ""
+"This person already had an account on Cagette.net, and is now member of your "
+"group."
+msgstr ""
+
+#: src/controller/Member.hx:23132
+msgid ""
+"Not possible to add this person because there are already some people in "
+"the database having the same firstname and name. Please contact the administrator."
+msgstr ""
+
+#: src/controller/Member.hx:23945
+msgid ""
+"::admin:: just keyed-in contact details of a new member: <br/><strong>::newMember::</strong><br/> "
+"<a href='::url::'>See contact details</a>"
+msgstr ""
+
+#: src/controller/Member.hx:24252 lang/master/tpl/member/default.mtt:2200
+msgid "New member"
+msgstr ""
+
+#: src/controller/Member.hx:24411
+msgid "This person is now member of the group"
+msgstr ""
+
+#: src/controller/Membership.hx:397
+msgid "This person is not a member of your group"
+msgstr ""
+
+#: src/controller/Membership.hx:862 lang/master/tpl/membership/default.mtt:203
+msgid "Period"
+msgstr ""
+
+#: src/controller/Membership.hx:986
+msgid "Date of payment of subscription"
+msgstr ""
+
+#: src/controller/Membership.hx:1206
+msgid "This subscription has been already keyed-in"
+msgstr ""
+
+#: src/controller/Membership.hx:1482
+msgid "Subscription saved"
+msgstr ""
+
+#: src/controller/Membership.hx:2105
+msgid "This subscription does not exist"
+msgstr ""
+
+#: src/controller/Membership.hx:2213
+msgid "Subscription deleted"
+msgstr ""
+
+#: src/controller/Messages.hx:829
+msgid "Sender name"
+msgstr ""
+
+#: src/controller/Messages.hx:917
+msgid "Sender E-Mail"
+msgstr ""
+
+#: src/controller/Messages.hx:1002
+msgid "Recipients"
+msgstr ""
+
+#: src/controller/Messages.hx:1114 lang/master/tpl/messages/message.mtt:117
+msgid "Subject:"
+msgstr ""
+
+#: src/controller/Messages.hx:1212
+msgid "Message:"
+msgstr ""
+
+#: src/controller/Messages.hx:2591
+msgid "The message has been sent"
+msgstr ""
+
+#: src/controller/Messages.hx:3170
+msgid "Non authorized access"
+msgstr ""
+
+#: src/controller/Messages.hx:3681
+msgid "Everyone"
+msgstr ""
+
+#: src/controller/Messages.hx:3722
+msgid "The board: persons in charge + contracts + memberships"
+msgstr ""
+
+#: src/controller/Messages.hx:3829
+msgid "TEST: me + spouse"
+msgstr ""
+
+#: src/controller/Messages.hx:3892
+msgid "Members without contract/order"
+msgstr ""
+
+#: src/controller/Messages.hx:4161
+msgid "Subscribers"
+msgstr ""
+
+#: src/controller/Place.hx:918
+msgid ""
+"Oops, we're unable to find where is located this address. This place will "
+"not be shown on the map."
+msgstr ""
+
+#: src/controller/Place.hx:1130
+msgid "this place has been updated"
+msgstr ""
+
+#: src/controller/Place.hx:1210
+msgid "Edit a place"
+msgstr ""
+
+#: src/controller/Place.hx:1477
+msgid "The place has been registred"
+msgstr ""
+
+#: src/controller/Place.hx:1559
+msgid "Register a new delivery place"
+msgstr ""
+
+#: src/controller/Place.hx:1831
+msgid ""
+"You can't delete this place because one or more distributions are linked "
+"to this place."
+msgstr ""
+
+#: src/controller/Place.hx:1995
+msgid "Place deleted"
+msgstr ""
+
+#: src/controller/Product.hx:1741
+msgid "The product has been updated"
+msgstr ""
+
+#: src/controller/Product.hx:1866
+msgid "Modify a product"
+msgstr ""
+
+#: src/controller/Product.hx:2932
+msgid "The product has been saved"
+msgstr ""
+
+#: src/controller/Product.hx:3061
+msgid "Key-in a new product"
+msgstr ""
+
+#: src/controller/Product.hx:3433
+msgid "Not possible to delete this product because some orders are referencing it"
+msgstr ""
+
+#: src/controller/Product.hx:3632
+msgid "Product deleted"
+msgstr ""
+
+#: src/controller/Product.hx:6140
+msgid "You must first define categories before you can assign a category to a product"
+msgstr ""
+
+#: src/controller/Product.hx:8083
+msgid "Modifications saved"
+msgstr ""
+
+#: src/controller/Shop.hx:4303
+msgid "In order to confirm your order, You need to authenticate."
+msgstr ""
+
+#: src/controller/Shop.hx:4743
+msgid "Your order is empty"
+msgstr ""
+
+#: src/controller/Shop.hx:5276
+msgid "This cart is invalid"
+msgstr ""
+
+#: src/controller/Shop.hx:5457 src/controller/Shop.hx:5775
+msgid "This distribution does not supply the product <b>::pname::</b>"
+msgstr ""
+
+#: src/controller/Shop.hx:6200
+msgid "Order of ::pname:: reduced to ::oquantity:: to match remaining stock"
+msgstr ""
+
+#: src/controller/Shop.hx:7016
+msgid "Your order has been confirmed"
+msgstr ""
+
+#: src/controller/Transaction.hx:382 src/controller/Transaction.hx:2432 src/controller/Transaction.hx:4195
+msgid "Action forbidden"
+msgstr ""
+
+#. label or name for a payment
+#: src/controller/Transaction.hx:633 src/controller/Transaction.hx:2738 src/controller/Validate.hx:1755 src/controller/Validate.hx:3141
+msgid "Label"
+msgstr ""
+
+#: src/controller/Transaction.hx:751 src/controller/Transaction.hx:2859 src/controller/Validate.hx:1853 src/controller/Validate.hx:3251
+msgid "Amount"
+msgstr ""
+
+#: src/controller/Transaction.hx:839 src/controller/Transaction.hx:2952 src/controller/Validate.hx:3339 src/db/Distribution.hx:7260 src/db/Operation.hx:12230 lang/master/tpl/contractadmin/selectDistrib.mtt:199 lang/master/tpl/member/lastMessages.mtt:52
+msgid "Date"
+msgstr ""
+
+#: src/controller/Transaction.hx:1052
+msgid "Payment type"
+msgstr ""
+
+#: src/controller/Transaction.hx:1394 src/controller/Transaction.hx:3467
+msgid "As a payment for :"
+msgstr ""
+
+#: src/controller/Transaction.hx:2084
+msgid "Payment recorded"
+msgstr ""
+
+#: src/controller/Transaction.hx:2141
+msgid "Record a payment for ::user::"
+msgstr ""
+
+#: src/controller/Transaction.hx:2558
+msgid "Editing a credit card payment is not allowed"
+msgstr ""
+
+#: src/controller/Transaction.hx:3046
+msgid "Confirmed"
+msgstr ""
+
+#: src/controller/Transaction.hx:3965
+msgid "Operation updated"
+msgstr ""
+
+#: src/controller/Transaction.hx:4314
+msgid "Deleting a credit card payment is not allowed"
+msgstr ""
+
+#: src/controller/Transaction.hx:4459 src/controller/Validate.hx:1021
+msgid "Operation deleted"
+msgstr ""
+
+#: src/controller/Transaction.hx:4771 src/controller/Transaction.hx:5198 src/controller/Transaction.hx:6679 src/controller/Transaction.hx:8076
+msgid "Your cart is empty"
+msgstr ""
+
+#: src/controller/Transaction.hx:5815
+msgid "Check for the order of ::date::"
+msgstr ""
+
+#: src/controller/Transaction.hx:6189 src/controller/Validate.hx:3437 src/payment/Check.hx:309
+msgid "Check"
+msgstr ""
+
+#: src/controller/Transaction.hx:6265
+msgid ""
+"Your payment by check has been saved. It will be validated by a coordinator "
+"at the delivery."
+msgstr ""
+
+#: src/controller/Transaction.hx:7268
+msgid "Transfer for the order of ::date::"
+msgstr ""
+
+#: src/controller/Transaction.hx:7604 src/payment/Transfer.hx:318
+msgid "Bank transfer"
+msgstr ""
+
+#: src/controller/Transaction.hx:7686
+msgid "Your payment by transfer has been saved. It will be validated by a coordinator."
+msgstr ""
+
+#: src/controller/Transaction.hx:8560
+msgid "Cash for the order of ::date::"
+msgstr ""
+
+#: src/controller/Transaction.hx:8892
+msgid "Cash payment"
+msgstr ""
+
+#: src/controller/Transaction.hx:8955
+msgid "Your order is validated, you commited to pay in cash at the delivery."
+msgstr ""
+
+#: src/controller/User.hx:879
+msgid "You are not connected"
+msgstr ""
+
+#: src/controller/User.hx:2098
+msgid "Please key-in your E-Mail address"
+msgstr ""
+
+#: src/controller/User.hx:2261 src/controller/User.hx:4805
+msgid "Your new password"
+msgstr ""
+
+#: src/controller/User.hx:2401 src/controller/User.hx:4872
+msgid "Again your new password"
+msgstr ""
+
+#: src/controller/User.hx:2894
+msgid "This E-mail is not linked to a known account"
+msgstr ""
+
+#: src/controller/User.hx:3299
+msgid ": password change"
+msgstr ""
+
+#: src/controller/User.hx:3719
+msgid "Invalid request"
+msgstr ""
+
+#: src/controller/User.hx:4125 src/controller/User.hx:5339
+msgid "You must key-in two times the same password"
+msgstr ""
+
+#: src/controller/User.hx:4688
+msgid "You already have a password"
+msgstr ""
+
+#: src/controller/User.hx:5230
+msgid "Congratulations, your account is now protected by a password."
+msgstr ""
+
+#: src/controller/User.hx:5440
+msgid "Create a password for your account"
+msgstr ""
+
+#: src/controller/User.hx:5735
+msgid "Your invitation is invalid or expired ($k)"
+msgstr ""
+
+#: src/controller/User.hx:6066
+msgid "Congratulations ::userName::, your account is validated!"
+msgstr ""
+
+#: src/controller/Validate.hx:1316
+msgid "Operation validated"
+msgstr ""
+
+#: src/controller/Validate.hx:1678
+msgid "payment"
+msgstr ""
+
+#: src/controller/Validate.hx:1769
+msgid "Refund"
+msgstr ""
+
+#: src/controller/Validate.hx:2161
+msgid "Means of payment"
+msgstr ""
+
+#: src/controller/Validate.hx:2680
+msgid "Refund saved"
+msgstr ""
+
+#: src/controller/Validate.hx:2727
+msgid "Key-in a refund for ::user::"
+msgstr ""
+
+#: src/controller/Validate.hx:3155
+msgid "Additional payment"
+msgstr ""
+
+#: src/controller/Validate.hx:3399 src/payment/Cash.hx:310
+msgid "Cash"
+msgstr ""
+
+#: src/controller/Validate.hx:3477
+msgid "Transfer"
+msgstr ""
+
+#: src/controller/Validate.hx:3581
+msgid "Payment mean"
+msgstr ""
+
+#: src/controller/Validate.hx:4103
+msgid "Payment saved"
+msgstr ""
+
+#: src/controller/Validate.hx:4151
+msgid "Key-in a payment for ::user::"
+msgstr ""
+
+#: src/controller/Validate.hx:4800
+msgid "Order validated"
+msgstr ""
+
+#: src/controller/Vendor.hx:1183
+msgid "This supplier has been updated"
+msgstr ""
+
+#: src/controller/Vendor.hx:1584
+msgid "This supplier has been saved"
+msgstr ""
+
+#: src/controller/Vendor.hx:1892
+msgid ""
+"You cannot delete this supplier because some contracts (current or old) are "
+"referencing this supplier."
+msgstr ""
+
+#: src/controller/Vendor.hx:2070
+msgid "Supplier deleted"
+msgstr ""
+
+#: src/db/Amap.hx:4899
+msgid "Product type"
+msgstr ""
+
+#: src/db/Amap.hx:8820
+msgid ""
+"Welcome in the group of ::name::!\n You can look at the delivery planning "
+"or make a new order."
+msgstr ""
+
+#: src/db/Amap.hx:9317
+msgid "Group name"
+msgstr ""
+
+#: src/db/Amap.hx:9356
+msgid "Short description"
+msgstr ""
+
+#: src/db/Amap.hx:9401
+msgid "Homepage text"
+msgstr ""
+
+#: src/db/Amap.hx:9444
+msgid "Text for distribution lists"
+msgstr ""
+
+#: src/db/Amap.hx:9498
+msgid "Group website URL"
+msgstr ""
+
+#: src/db/Amap.hx:9555
+msgid "Membership renewal date"
+msgstr ""
+
+#: src/db/Amap.hx:9604 src/db/Contract.hx:8321 src/db/User.hx:16528
+msgid "Options"
+msgstr ""
+
+#: src/db/Amap.hx:9679
+msgid "Registration setting"
+msgstr ""
+
+#: src/db/Amap.hx:9727 lang/master/tpl/amap/default.mtt:719
+msgid "Main contact"
+msgstr ""
+
+#: src/db/CategoryGroup.hx:1000
+msgid "Category group name"
+msgstr ""
+
+#: src/db/CategoryGroup.hx:1047
+msgid "Pinned on top"
+msgstr ""
+
+#: src/db/Contract.hx:8087
+msgid "Contract name"
+msgstr ""
+
+#: src/db/Contract.hx:8209 src/db/Product.hx:4037 src/db/Vendor.hx:1175
+msgid "Description"
+msgstr ""
+
+#: src/db/Contract.hx:8254
+msgid "Number of required distributors (0 to 4)"
+msgstr ""
+
+#: src/db/Contract.hx:8363
+msgid "Fees percentage"
+msgstr ""
+
+#: src/db/Contract.hx:8412
+msgid "Fees label"
+msgstr ""
+
+#: src/db/Contract.hx:8454 lang/master/tpl/group/view.mtt:3243
+msgid "Contact"
+msgstr ""
+
+#: src/db/Contract.hx:8492 lang/master/tpl/contractadmin/view.mtt:748
+msgid "Farmer"
+msgstr ""
+
+#: src/db/Distribution.hx:7229 src/db/Operation.hx:12199
+msgid "Text"
+msgstr ""
+
+#: src/db/Distribution.hx:7293
+msgid "End hour"
+msgstr ""
+
+#: src/db/Distribution.hx:7328 src/db/Operation.hx:12298 lang/master/tpl/distribution/list.mtt:564
+msgid "Place"
+msgstr ""
+
+#: src/db/Distribution.hx:7366 src/db/Operation.hx:12336
+msgid "Distributor #1"
+msgstr ""
+
+#: src/db/Distribution.hx:7413 src/db/Operation.hx:12383
+msgid "Distributor #2"
+msgstr ""
+
+#: src/db/Distribution.hx:7460 src/db/Operation.hx:12430
+msgid "Distributor #3"
+msgstr ""
+
+#: src/db/Distribution.hx:7507 src/db/Operation.hx:12477
+msgid "Distributor #4"
+msgstr ""
+
+#: src/db/DistributionCycle.hx:5242
+msgid "The delivery of the ::delivDate:: could not be deleted because it has orders."
+msgstr ""
+
+#: src/db/Message.hx:978
+msgid "Generic error: "
+msgstr ""
+
+#: src/db/Message.hx:1049
+msgid "Mailbox does not exist"
+msgstr ""
+
+#: src/db/Message.hx:1112
+msgid "Mailbox full or blocked"
+msgstr ""
+
+#: src/db/Message.hx:1168
+msgid "Message considered as spam"
+msgstr ""
+
+#: src/db/Message.hx:1228
+msgid "This user unsubscribed"
+msgstr ""
+
+#: src/db/Message.hx:1287
+msgid "Sender incorrect (Unsigned)"
+msgstr ""
+
+#: src/db/Message.hx:1396
+msgid "Sent"
+msgstr ""
+
+#: src/db/Operation.hx:4214 src/db/Operation.hx:5640
+msgid "deliveries"
+msgstr ""
+
+#: src/db/Operation.hx:4673 lang/master/tpl/member/view.mtt:4011
+msgid "Order for ::date::"
+msgstr ""
+
+#: src/db/Place.hx:1399 lang/master/tpl/amapadmin/rights.mtt:211 lang/master/tpl/contractadmin/products.mtt:1844 lang/master/tpl/contractadmin/view.mtt:848 lang/master/tpl/distribution/listByDate.mtt:406 lang/master/tpl/distribution/listByDateShort.mtt:435 lang/master/tpl/member/waiting.mtt:177 lang/master/tpl/product/import.mtt:1931
+msgid "Name"
+msgstr ""
+
+#: src/db/Place.hx:1563
+msgid "Latitude"
+msgstr ""
+
+#: src/db/Place.hx:1597
+msgid "Longitude"
+msgstr ""
+
+#: src/db/Product.hx:3930
+msgid "Product name"
+msgstr ""
+
+#: src/db/Product.hx:3968 lang/master/tpl/contractadmin/products.mtt:1781
+msgid "Product ID"
+msgstr ""
+
+#: src/db/Product.hx:4005 lang/master/tpl/contract/order.mtt:806 lang/master/tpl/contract/orderAndPay.mtt:904 lang/master/tpl/contractadmin/edit.mtt:1084 lang/master/tpl/contractadmin/products.mtt:1874 lang/master/tpl/member/view.mtt:3186 lang/master/tpl/product/import.mtt:1961
+msgid "Price"
+msgstr ""
+
+#: src/db/Product.hx:4075 lang/master/tpl/contractadmin/products.mtt:1950
+msgid "Stock"
+msgstr ""
+
+#: src/db/Product.hx:4110
+msgid "Base unit"
+msgstr ""
+
+#: src/db/Product.hx:4144 lang/master/tpl/contract/orderByDate.mtt:757 lang/master/tpl/contractadmin/edit.mtt:1114 lang/master/tpl/contractadmin/stats.mtt:800
+msgid "Quantity"
+msgstr ""
+
+#: src/db/Product.hx:4186
+msgid "Allow fractional quantities"
+msgstr ""
+
+#: src/db/Product.hx:4244
+msgid "Available"
+msgstr ""
+
+#: src/db/Product.hx:4285 lang/master/tpl/shop/productInfo.mtt:1271
+msgid "Organic agriculture"
+msgstr ""
+
+#: src/db/Product.hx:4333
+msgid "VAT Rate"
+msgstr ""
+
+#: src/db/Product.hx:4377
+msgid "Variable price based on weight"
+msgstr ""
+
+#: src/db/Product.hx:4442
+msgid "Multi-weighing"
+msgstr ""
+
+#: src/db/User.hx:14335
+msgid "This user cannot receive an invitation"
+msgstr ""
+
+#: src/db/User.hx:14839
+msgid "Invitation"
+msgstr ""
+
+#: src/db/User.hx:14902
+msgid "Invitation Cagette.net"
+msgstr ""
+
+#: src/db/User.hx:16062 src/db/Vendor.hx:1213 lang/master/tpl/contractadmin/view.mtt:942 lang/master/tpl/member/import.mtt:681 lang/master/tpl/member/import.mtt:1422 lang/master/tpl/member/payments.mtt:625 lang/master/tpl/member/payments.mtt:752 lang/master/tpl/member/waiting.mtt:205
+msgid "Email"
+msgstr ""
+
+#: src/db/User.hx:16125 lang/master/tpl/member/import.mtt:741 lang/master/tpl/member/import.mtt:1480
+msgid "Partner first name"
+msgstr ""
+
+#: src/db/User.hx:16171 lang/master/tpl/member/import.mtt:784 lang/master/tpl/member/import.mtt:1522
+msgid "Partner last name"
+msgstr ""
+
+#: src/db/User.hx:16213 lang/master/tpl/member/import.mtt:826 lang/master/tpl/member/import.mtt:1563
+msgid "Partner email"
+msgstr ""
+
+#: src/db/User.hx:16251
+msgid "Partner phone"
+msgstr ""
+
+#: src/db/User.hx:16288 lang/master/tpl/contract/default.mtt:6269
+msgid "Language"
+msgstr ""
+
+#: src/db/User.hx:16486 lang/master/tpl/member/waiting.mtt:263
+msgid "Registration date"
+msgstr ""
+
+#: src/db/UserAmap.hx:2179
+msgid "Administrator"
+msgstr ""
+
+#: src/db/UserAmap.hx:2227 lang/master/tpl/design.mtt:3219
+msgid "Messaging"
+msgstr ""
+
+#: src/db/UserAmap.hx:2273
+msgid "Members management"
+msgstr ""
+
+#: src/db/UserAmap.hx:2364
+msgid "Management of all contracts"
+msgstr ""
+
+#: src/db/UserAmap.hx:2469
+msgid "Contract management"
+msgstr ""
+
+#: src/db/UserContract.hx:3046 lang/master/tpl/contractadmin/orders.mtt:4345 lang/master/tpl/contractadmin/ordersByDate.mtt:3082 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:2123 lang/master/tpl/distribution/list.mtt:2926 lang/master/tpl/distribution/listByDate.mtt:1856 lang/master/tpl/distribution/listByDateOnePage.mtt:2390 lang/master/tpl/distribution/listByDateOnePageContract.mtt:2928 lang/master/tpl/distribution/listByDateShort.mtt:1835
+msgid "Canceled"
+msgstr ""
+
+#: src/db/UserContract.hx:5688
+msgid "multi-weighing products should be ordered only with integer quantities"
+msgstr ""
+
+#: src/db/UserContract.hx:7581
+msgid "There is no more '::productName::' in stock, we removed it from your order"
+msgstr ""
+
+#: src/db/UserContract.hx:8036 src/db/UserContract.hx:10172
+msgid ""
+"We reduced your order of '::productName::' to quantity ::oQuantity:: because "
+"there is no available products anymore"
+msgstr ""
+
+#: src/db/UserContract.hx:11655
+msgid "Delivery ::contractName:: of the "
+msgstr ""
+
+#: src/db/UserContract.hx:15286
+msgid "Delivery ::contractName:: "
+msgstr ""
+
+#: src/db/UserContract.hx:15626
+msgid "Per member"
+msgstr ""
+
+#: src/db/Vendor.hx:758 lang/master/tpl/vendor/view.mtt:103
+msgid "Supplier"
+msgstr ""
+
+#: src/db/Vendor.hx:1135
+msgid "Supplier name"
+msgstr ""
+
+#: src/db/Vendor.hx:1429
+msgid "Link text"
+msgstr ""
+
+#: src/db/Vendor.hx:1470
+msgid "Link URL"
+msgstr ""
+
+#: src/payment/Cash.hx:340
+msgid "Pay by cash at product distribution"
+msgstr ""
+
+#: src/service/UserService.hx:533
+msgid "There is no account with this email"
+msgstr ""
+
+#: src/service/UserService.hx:671
+msgid ""
+"Your account have not been validated yet. We sent an e-mail to ::email:: "
+"to finalize your subscription!"
+msgstr ""
+
+#: src/service/UserService.hx:944
+msgid "Invalid password"
+msgstr ""
+
+#: src/service/UserService.hx:1515
+msgid "Invalid email address"
+msgstr ""
+
+#: src/service/UserService.hx:1630
+msgid "We already have an account with this email address"
+msgstr ""
+
+#. kilogramms
+#: src/View.hx:3354 common/Formatting.hx:1386
+msgid "Kg."
+msgstr ""
+
+#. gramms
+#: src/View.hx:3396 common/Formatting.hx:1427
+msgid "g."
+msgstr ""
+
+#. unit of a product)
+#: src/View.hx:3448
+msgid "pieces"
+msgstr ""
+
+#. unit of a product)
+#: src/View.hx:3487 common/Formatting.hx:1311 common/Formatting.hx:1463
+msgid "piece"
+msgstr ""
+
+#. liter
+#: src/View.hx:3539 common/Formatting.hx:1514
+msgid "L."
+msgstr ""
+
+#. centiliter
+#: src/View.hx:3579 common/Formatting.hx:1554
+msgid "cl."
+msgstr ""
+
+#: src/View.hx:4135
+msgid "Sunday"
+msgstr ""
+
+#: src/View.hx:4150
+msgid "Monday"
+msgstr ""
+
+#: src/View.hx:4165
+msgid "Tuesday"
+msgstr ""
+
+#: src/View.hx:4181
+msgid "Wednesday"
+msgstr ""
+
+#: src/View.hx:4199
+msgid "Thursday"
+msgstr ""
+
+#: src/View.hx:4216
+msgid "Friday"
+msgstr ""
+
+#: src/View.hx:4231
+msgid "Saturday"
+msgstr ""
+
+#: src/View.hx:4262
+msgid "January"
+msgstr ""
+
+#: src/View.hx:4278
+msgid "February"
+msgstr ""
+
+#: src/View.hx:4295
+msgid "March"
+msgstr ""
+
+#: src/View.hx:4309
+msgid "April"
+msgstr ""
+
+#: src/View.hx:4323
+msgid "May"
+msgstr ""
+
+#: src/View.hx:4335
+msgid "June"
+msgstr ""
+
+#: src/View.hx:4348
+msgid "July"
+msgstr ""
+
+#: src/View.hx:4361
+msgid "August"
+msgstr ""
+
+#: src/View.hx:4376
+msgid "September"
+msgstr ""
+
+#: src/View.hx:4394
+msgid "October"
+msgstr ""
+
+#: src/View.hx:4410
+msgid "November"
+msgstr ""
+
+#: src/View.hx:4427
+msgid "December"
+msgstr ""
+
+#: src/View.hx:4675 src/View.hx:5211
+msgid "no date set"
+msgstr ""
+
+#. time : at 12:30
+#: src/View.hx:4958
+msgid "at"
+msgstr ""
+
+#: lang/master/tpl/amap/default.mtt:634 lang/master/tpl/contract/default.mtt:4608 lang/master/tpl/contractadmin/default.mtt:3264 lang/master/tpl/contractadmin/default.mtt:3899 lang/master/tpl/contractadmin/deliveries.mtt:874 lang/master/tpl/contractadmin/orders.mtt:2911 lang/master/tpl/contractadmin/orders.mtt:3094 lang/master/tpl/contractadmin/products.mtt:3513 lang/master/tpl/contractadmin/view.mtt:563 lang/master/tpl/member/payments.mtt:1146 lang/master/tpl/member/view.mtt:1375
+msgid "Edit"
+msgstr ""
+
+#: lang/master/tpl/amap/default.mtt:1807 lang/master/tpl/contract/view.mtt:2017
+msgid "Coordinator"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/addimage.mtt:43 lang/master/tpl/amapadmin/default.mtt:467
+msgid "Choose a logo"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/addimage.mtt:263
+msgid "Format : JPG, GIF or PNG"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/addimage.mtt:347 lang/master/tpl/product/addimage.mtt:403 lang/master/tpl/vendor/addimage.mtt:442
+msgid "Send"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/default.mtt:166 lang/master/tpl/member/default.mtt:560
+msgid "members"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/default.mtt:228
+msgid "contracts in progress"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/default.mtt:301
+msgid "Edit properties"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/default.mtt:540
+msgid ""
+"Your group has a public page, You can use it as a micro-website.<br/>Copy-paste "
+"the address of this page and share it !"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/default.mtt:995
+msgid "Display"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/design.mtt:167
+msgid "My group"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/design.mtt:306
+msgid "Access rights"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/design.mtt:377
+msgid "VAT rates"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/design.mtt:446 lang/master/tpl/categories/default.mtt:40 lang/master/tpl/contractadmin/products.mtt:478 lang/master/tpl/product/categorize.mtt:45 lang/master/tpl/shop/productInfo.mtt:2573
+msgid "Categories"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/design.mtt:514
+msgid "Currency"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/rights.mtt:42
+msgid "Management of rights and access"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/rights.mtt:106
+msgid "Add a right"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/rights.mtt:269
+msgid "Actions"
+msgstr ""
+
+#: lang/master/tpl/amapadmin/rights.mtt:566 lang/master/tpl/categories/default.mtt:1165
+msgid "Modify"
+msgstr ""
+
+#: lang/master/tpl/base.mtt:3436
+msgid "Close"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:78
+msgid ""
+"Categories allow to sort your products per category, for example \"vegetables, "
+"meet, backery, etc.\"<br/>	It is possible to create many groups of categories "
+"in order to sort products as we wish."
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:322
+msgid ""
+"You currently have no category. Would you like to create the list of categories "
+"by default ?"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:491
+msgid "Create the list of default categories"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:752
+msgid "Modify group"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:894
+msgid "Remove group"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:1297
+msgid "Remove"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:1445
+msgid "Add a category in this group"
+msgstr ""
+
+#: lang/master/tpl/categories/default.mtt:1611
+msgid "Add a group"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:53
+msgid "Last orders"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:179
+msgid "CSA Contracts"
+msgstr ""
+
+#. short version for quantity
+#: lang/master/tpl/contract/default.mtt:351 lang/master/tpl/contract/default.mtt:2639 lang/master/tpl/contract/order.mtt:896 lang/master/tpl/contract/orderAndPay.mtt:994 lang/master/tpl/contractadmin/orders.mtt:3685 lang/master/tpl/contractadmin/ordersByDate.mtt:2462 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1528 lang/master/tpl/distribution/list.mtt:2543 lang/master/tpl/distribution/listByDate.mtt:475 lang/master/tpl/distribution/listByDateOnePage.mtt:443 lang/master/tpl/distribution/listByDateOnePageContract.mtt:473 lang/master/tpl/distribution/listByDateShort.mtt:504 lang/master/tpl/member/view.mtt:3098 lang/master/tpl/member/view.mtt:4144 lang/master/tpl/validate/user.mtt:812
+msgid "Qty"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:406 lang/master/tpl/contract/default.mtt:2695 lang/master/tpl/contract/order.mtt:775 lang/master/tpl/contract/orderAndPay.mtt:873 lang/master/tpl/contract/orderByDate.mtt:603 lang/master/tpl/contractadmin/edit.mtt:1052 lang/master/tpl/contractadmin/orders.mtt:3720 lang/master/tpl/contractadmin/ordersByDate.mtt:2520 lang/master/tpl/contractadmin/ordersByProduct.mtt:647 lang/master/tpl/contractadmin/ordersByProductList.mtt:1626 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1586 lang/master/tpl/contractadmin/stats.mtt:833 lang/master/tpl/contractadmin/vendorsByDate.mtt:630 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:788 lang/master/tpl/distribution/list.mtt:2601 lang/master/tpl/distribution/listByDate.mtt:503 lang/master/tpl/distribution/listByDateOnePage.mtt:468 lang/master/tpl/distribution/listByDateOnePageContract.mtt:498 lang/master/tpl/distribution/listByDateShort.mtt:532 lang/master/tpl/member/view.mtt:3154 lang/master/tpl/member/view.mtt:4202 lang/master/tpl/validate/user.mtt:868
+msgid "Product"
+msgstr ""
+
+#. short version of price per unit
+#: lang/master/tpl/contract/default.mtt:536 lang/master/tpl/contract/default.mtt:2826 lang/master/tpl/contractadmin/orders.mtt:3852 lang/master/tpl/member/view.mtt:4335
+msgid "U.P"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:600 lang/master/tpl/contract/default.mtt:2891 lang/master/tpl/contract/orderByDate.mtt:664 lang/master/tpl/contractadmin/orders.mtt:3901 lang/master/tpl/contractadmin/ordersByDate.mtt:2680 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1746 lang/master/tpl/distribution/list.mtt:2664 lang/master/tpl/member/view.mtt:4398 lang/master/tpl/validate/user.mtt:1026
+msgid "Sub-total"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:633 lang/master/tpl/contract/default.mtt:2925 lang/master/tpl/contract/orderByDate.mtt:698 lang/master/tpl/contractadmin/orders.mtt:3936 lang/master/tpl/contractadmin/ordersByDate.mtt:2715 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1781 lang/master/tpl/distribution/list.mtt:2699 lang/master/tpl/distribution/listByDate.mtt:564 lang/master/tpl/distribution/listByDateOnePage.mtt:523 lang/master/tpl/distribution/listByDateOnePageContract.mtt:553 lang/master/tpl/member/view.mtt:4434 lang/master/tpl/validate/user.mtt:1060
+msgid "Fees"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:661 lang/master/tpl/contract/default.mtt:2954 lang/master/tpl/contract/orderByDate.mtt:727 lang/master/tpl/contractadmin/edit.mtt:3881 lang/master/tpl/contractadmin/orders.mtt:3966 lang/master/tpl/contractadmin/orders.mtt:5444 lang/master/tpl/contractadmin/ordersByDate.mtt:2745 lang/master/tpl/contractadmin/ordersByProduct.mtt:755 lang/master/tpl/contractadmin/ordersByProductList.mtt:1731 lang/master/tpl/contractadmin/ordersByProductList.mtt:2259 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1811 lang/master/tpl/contractadmin/vendorsByDate.mtt:738 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:896 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:1458 lang/master/tpl/distribution/list.mtt:2729 lang/master/tpl/distribution/listByDate.mtt:593 lang/master/tpl/distribution/listByDateOnePage.mtt:549 lang/master/tpl/distribution/listByDateOnePageContract.mtt:579 lang/master/tpl/member/view.mtt:4465 lang/master/tpl/validate/user.mtt:1089
+msgid "Total"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:690 lang/master/tpl/contract/default.mtt:1919 lang/master/tpl/contractadmin/orders.mtt:3997 lang/master/tpl/contractadmin/orders.mtt:5188 lang/master/tpl/contractadmin/ordersByDate.mtt:2776 lang/master/tpl/contractadmin/ordersByDate.mtt:4046 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1842 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:3068 lang/master/tpl/validate/user.mtt:1119
+msgid "Paid"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:1128 lang/master/tpl/member/view.mtt:3461
+msgid "Order alternated with"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:1990
+msgid "Unpaid"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:2510
+msgid "Order delivered on"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:4102
+msgid "Profile"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:4313
+msgid ""
+"Do you really want to quit this group ? You won't be a member anymore: you "
+"won't receive any new message and won't be able to see your previous orders "
+"in this group."
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:4549
+msgid "Leave this group"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:4784 lang/master/tpl/member/payments.mtt:1643 lang/master/tpl/member/view.mtt:5759
+msgid "Balance"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:5185 lang/master/tpl/member/view.mtt:6173
+msgid "Payments details"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:5292
+msgid "Tutorials"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:5613 lang/master/tpl/contractadmin/view.mtt:367
+msgid "Start"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:5804
+msgid "Stop"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:5983
+msgid "Tutorial stopped"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:6046
+msgid "You'll be able to restart it here."
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:6319
+msgid "Display the interface in another language"
+msgstr ""
+
+#: lang/master/tpl/contract/default.mtt:6439
+msgid "Current language is"
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:57
+msgid "Choose a type of contract:"
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:286
+msgid "Create a <b>CSA</b> contract"
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:357
+msgid ""
+"It is a contract with a duration of one year or for one season. Products "
+"are always the same at each delivery"
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:508
+msgid ""
+"Example: there is a contract for vegetables that is 1 year long. Jean takes "
+"a basket that costs 10&euro; per delivery, and Brigitte takes a basket that "
+"costs 15&euro; per delivery."
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:914
+msgid "Create a contract with <b>variable orders</b>"
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:1000
+msgid ""
+"It is a contract in which members can change their orders at each delivery. "
+"There is a different order for each delivery."
+msgstr ""
+
+#: lang/master/tpl/contract/insertChoose.mtt:1160
+msgid ""
+"Example: Jean orders a basket that costs 10&euro; for the first delivery, "
+"then nothing for the second delivery, then a basket for 20&euro; etc."
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:91 lang/master/tpl/contract/orderAndPay.mtt:91 lang/master/tpl/contract/view.mtt:3027 lang/master/tpl/contract/view.mtt:3378 lang/master/tpl/home.mtt:8232 lang/master/tpl/macros.mtt:4970 lang/master/tpl/shop/choose.mtt:2169 lang/master/tpl/shop/default.mtt:3931
+msgid "Order"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:158 lang/master/tpl/contract/orderAndPay.mtt:162 lang/master/tpl/contractadmin/edit.mtt:223
+msgid "For the delivery of the"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:255
+msgid ""
+"As long as orders are open, you can come back on this page and modify your "
+"order.<br/>You can check any time your current orders on the following page "
+"<a href='/contract'>my account</a>."
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:2499 lang/master/tpl/contract/orderAndPay.mtt:2578
+msgid "There is currently no open order"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:3127
+msgid "Tip: to remove an order please key-in the quantity 0"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:3263 lang/master/tpl/contract/orderAndPay.mtt:3255 lang/master/tpl/contractadmin/edit.mtt:4523
+msgid "Validate the order"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:3410 lang/master/tpl/contract/orderAndPay.mtt:3410
+msgid "Supplier:"
+msgstr ""
+
+#: lang/master/tpl/contract/order.mtt:3476 lang/master/tpl/contract/orderAndPay.mtt:3474
+msgid "Contact in charge:"
+msgstr ""
+
+#: lang/master/tpl/contract/orderAndPay.mtt:269
+msgid ""
+"Key-in here your orders in advance for this supplier.<br/>You can check your "
+"current orders any time on the following page <a href=\"/contract\">my account</a>.<br/>Tip: "
+"to remove an order please key-in the quantity 0"
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:97
+msgid "Modify the order delivered on ::date::"
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:192
+msgid ""
+"You can modify here an existing order. If you would like to remove a product, "
+"just key-in the quantity 0.<br/>You may not be able to modify all elements "
+"as the order could be closed for some suppliers"
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:635 lang/master/tpl/contractadmin/ordersByDate.mtt:2646 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1712 lang/master/tpl/distribution/list.mtt:2634 lang/master/tpl/distribution/listByDate.mtt:535 lang/master/tpl/distribution/listByDateOnePage.mtt:497 lang/master/tpl/distribution/listByDateOnePageContract.mtt:527 lang/master/tpl/validate/user.mtt:993
+msgid "U.P."
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:1587
+msgid "Order closed or already paid"
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:1778 lang/master/tpl/distribution/list.mtt:3920 lang/master/tpl/distribution/listByDate.mtt:2718 lang/master/tpl/distribution/listByDateOnePage.mtt:3345 lang/master/tpl/distribution/listByDateOnePageContract.mtt:3936 lang/master/tpl/member/view.mtt:5462
+msgid "TOTAL"
+msgstr ""
+
+#: lang/master/tpl/contract/orderByDate.mtt:1954
+msgid "Update the order"
+msgstr ""
+
+#: lang/master/tpl/contract/view.mtt:1902 lang/master/tpl/shop/productInfo.mtt:2369
+msgid "Read more"
+msgstr ""
+
+#: lang/master/tpl/contract/view.mtt:2556
+msgid "Next distributions"
+msgstr ""
+
+#: lang/master/tpl/contract/view.mtt:3162
+msgid "No planned distributions."
+msgstr ""
+
+#: lang/master/tpl/contract/view.mtt:3491 lang/master/tpl/shop/default.mtt:4550
+msgid "You can check your previous orders in 'my account' section"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/calendar.mtt:238 lang/master/tpl/contractadmin/default.mtt:2148
+msgid "Calendar"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/contract.mtt:152 lang/master/tpl/contractadmin/design.mtt:548 lang/master/tpl/contractadmin/products.mtt:46 lang/master/tpl/contractadmin/stocks.mtt:50 lang/master/tpl/contractadmin/view.mtt:1196 lang/master/tpl/stats/default.mtt:142 lang/master/tpl/stats/default.mtt:220
+msgid "Products"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/contract.mtt:235 lang/master/tpl/contractadmin/contract.mtt:884
+msgid "Deliveries"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/contract.mtt:313 lang/master/tpl/contractadmin/design.mtt:852 lang/master/tpl/contractadmin/orders.mtt:47 lang/master/tpl/contractadmin/selectDistrib.mtt:87 lang/master/tpl/contractadmin/selectDistrib.mtt:731
+msgid "Orders"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:124
+msgid "Distributions to validate"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:174
+msgid "You need to validate these distributions which took place recently"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:574 lang/master/tpl/contractadmin/default.mtt:2002
+msgid "Old contracts"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:614 lang/master/tpl/design.mtt:3050
+msgid "Contracts"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:1492
+msgid "Manage"
+msgstr ""
+
+#. short version of delete
+#: lang/master/tpl/contractadmin/default.mtt:1605 lang/master/tpl/contractadmin/default.mtt:3979 lang/master/tpl/contractadmin/deliveries.mtt:1709 lang/master/tpl/contractadmin/products.mtt:3720 lang/master/tpl/member/payments.mtt:1204 lang/master/tpl/validate/user.mtt:3260
+msgid "Del."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:1830
+msgid "New contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:2389
+msgid "Global orders view"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:2621
+msgid "Same day"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:2746
+msgid "Timeframe"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:2896 lang/master/tpl/design.mtt:2623 lang/master/tpl/distribution/list.mtt:860
+msgid "Farmers"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:3427 lang/master/tpl/contractadmin/products.mtt:3680
+msgid "Picture"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:3616
+msgid "New farmer"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:3749
+msgid "Delivery places"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/default.mtt:4126
+msgid "New delivery place"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:46 lang/master/tpl/contractadmin/design.mtt:708
+msgid "Distributions"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:935 lang/master/tpl/membership/default.mtt:464
+msgid "Delete"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1112 lang/master/tpl/contractadmin/orders.mtt:1033 lang/master/tpl/home.mtt:5934
+msgid "Distribution list"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1288 lang/master/tpl/contractadmin/deliveries.mtt:1901
+msgid "Distribution cycle"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1454
+msgid "Weekly"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1487
+msgid "Monthly"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1521
+msgid "Every 2 weeks"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1561
+msgid "Every 3 weeks"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:1826
+msgid "One time distribution"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:2107
+msgid "Distributions engagement"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/deliveries.mtt:2245
+msgid "Old distributions"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/design.mtt:314 lang/master/tpl/contractadmin/view.mtt:46
+msgid "Summary"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/design.mtt:398
+msgid "Edit contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/design.mtt:942
+msgid "Stats"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:45
+msgid "Participate to deliveries"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:105
+msgid "This page allows to see if members have participated to deliveries enough."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:281
+msgid "::distribs:: deliveries requiring ::distributorNum:: person(s)"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:424
+msgid "person(s) using this contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:484
+msgid "participations to deliveries to do per family."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:670
+msgid "Number of participations to deliveries<br />( done or planned )"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/distributionp.mtt:1064
+msgid "Insufficient"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:68
+msgid "Key-in an order"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:117
+msgid "Key-in an order for"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:687
+msgid "Member:"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:1182 lang/master/tpl/member/lastMessages.mtt:107 lang/master/tpl/messages/message.mtt:642
+msgid "Status"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:1238
+msgid "Alternately with :"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:1727
+msgid "(inactive)"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:2388
+msgid "Paid:"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:3141
+msgid "Reverse the alternation"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:3466
+msgid "Total order"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/edit.mtt:4049 lang/master/tpl/contractadmin/products.mtt:3953
+msgid "Check all"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:104 lang/master/tpl/distribution/listByDateOnePage.mtt:315 lang/master/tpl/distribution/listByDateOnePage.mtt:1915 lang/master/tpl/distribution/listByDateOnePageContract.mtt:315 lang/master/tpl/distribution/listByDateOnePageContract.mtt:1958
+msgid "Delivery of the"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:391 lang/master/tpl/contractadmin/orders.mtt:554
+msgid "New order"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:860 lang/master/tpl/contractadmin/orders.mtt:1273
+msgid "Summary by products"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:1378
+msgid ""
+"Be careful, there are <b>::disabledProducts::</b> order(s) containing <b>disabled "
+"products</b>."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:3651
+msgid "Prod. ID"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:3815
+msgid "Unit price including taxes"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:5263 lang/master/tpl/contractadmin/ordersByDate.mtt:4119 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:3141
+msgid "Not paid"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/orders.mtt:5646
+msgid "<b>::totalAdh::</b> member(s) in this distribution."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:295 lang/master/tpl/distribution/validate.mtt:556 lang/master/tpl/distribution/validate.mtt:2118
+msgid "Validated"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:333 lang/master/tpl/distribution/validate.mtt:761
+msgid "Not validated"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:589 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:464
+msgid "CSV Export"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:779 lang/master/tpl/distribution/list.mtt:80 lang/master/tpl/distribution/listByDate.mtt:80 lang/master/tpl/distribution/listByDateOnePage.mtt:80 lang/master/tpl/distribution/listByDateOnePageContract.mtt:80 lang/master/tpl/distribution/listByDateShort.mtt:80
+msgid "Attendance sheet"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:952
+msgid "Totals per member"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:1124
+msgid "Sub-totals per contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:1298 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:626
+msgid "Totals per supplier"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:2121 lang/master/tpl/distribution/listByDate.mtt:1050 lang/master/tpl/distribution/listByDateOnePage.mtt:1093 lang/master/tpl/distribution/validate.mtt:1585
+msgid "Num"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:2289 lang/master/tpl/distribution/list.mtt:2246 lang/master/tpl/distribution/listByDate.mtt:1179 lang/master/tpl/distribution/listByDateOnePage.mtt:1541 lang/master/tpl/distribution/listByDateOnePageContract.mtt:1584 lang/master/tpl/distribution/listByDateShort.mtt:1158
+msgid "alternately with"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:2428 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1494 lang/master/tpl/distribution/listByDateOnePageContract.mtt:443 lang/master/tpl/member/view.mtt:3216 lang/master/tpl/member/view.mtt:4497 lang/master/tpl/validate/user.mtt:779
+msgid "Contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:2491 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1557 lang/master/tpl/distribution/list.mtt:2572 lang/master/tpl/validate/user.mtt:840
+msgid "Ref"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:2615 lang/master/tpl/contractadmin/ordersByProductList.mtt:1688 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:1681 lang/master/tpl/contractadmin/vendorsByDate.mtt:694 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:852 lang/master/tpl/validate/user.mtt:962
+msgid "Unit price incl. VAT"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:4844 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:3866
+msgid "Total member"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByDate.mtt:5191 lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:4213
+msgid "Total of all orders:"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:47 lang/master/tpl/contractadmin/ordersByProductList.mtt:1174
+msgid "Summary table per product"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:180
+msgid "Delivery of the <b>::date::</b>"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:267 lang/master/tpl/contractadmin/ordersByProductList.mtt:1217
+msgid ""
+"Be careful, if the price of the product was modified during the sale, every "
+"order of a member is taken into account with the price as it was at the time "
+"of the creation of the order"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:578 lang/master/tpl/contractadmin/ordersByProductList.mtt:1559
+msgid "Weight/Vol."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:613 lang/master/tpl/contractadmin/ordersByProductList.mtt:1593 lang/master/tpl/contractadmin/vendorsByDate.mtt:596 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:754
+msgid "Quantities"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:678 lang/master/tpl/contractadmin/ordersByProductList.mtt:1656 lang/master/tpl/contractadmin/vendorsByDate.mtt:661 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:819
+msgid "Reference"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:711
+msgid "Unit Price incl. VAT"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProduct.mtt:1666 lang/master/tpl/contractadmin/ordersByProduct.mtt:1905 lang/master/tpl/plugin/pro/delivery/view.mtt:1665
+msgid "Order form"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByProductList.mtt:2376
+msgid "Push \"Control + P\" to print this page."
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:126
+msgid "Orders from the"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/ordersByTimeFrame.mtt:167 lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:142
+msgid "to"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/products.mtt:99
+msgid "New product"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/products.mtt:266
+msgid "Import from Excel/CSV"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/products.mtt:696 lang/master/tpl/contractadmin/products.mtt:1056
+msgid "You need to select at least one product to perform this action"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/products.mtt:4143
+msgid "Enable"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/products.mtt:4282
+msgid "Disable"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/selectDistrib.mtt:228
+msgid "Location"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/selectDistrib.mtt:980
+msgid "Click here to manage deliveries"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/selectDistrib.mtt:1122
+msgid "Old orders"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:106
+msgid "Seniority of subscribers"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:210
+msgid "Sharing between orders"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:308
+msgid "Seniority of subscribers of ::contract::"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:458
+msgid "Number"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:489
+msgid "Year"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:696
+msgid "Sharing between orders of"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:865
+msgid "Total price"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:901
+msgid "% of orders"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/stats.mtt:1221
+msgid "products"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/vendorsByDate.mtt:92
+msgid "Global view of orders - delivery of"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/vendorsByTimeFrame.mtt:88
+msgid "Global view of orders - from"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/view.mtt:158
+msgid "Contract type"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/view.mtt:238
+msgid "CSA Contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/view.mtt:281
+msgid "Variable order contract"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/view.mtt:459
+msgid "End"
+msgstr ""
+
+#: lang/master/tpl/contractadmin/view.mtt:650
+msgid "Duplicate"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:807
+msgid "Change group"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:1058 lang/master/tpl/plugin/pro/design.mtt:669
+msgid "et"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:1314 lang/master/tpl/plugin/pro/design.mtt:921
+msgid "Log out"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:1534 lang/master/tpl/group/view.mtt:2388
+msgid "Log in"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:1661
+msgid "Look for another group"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:2411
+msgid "Home"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:2518
+msgid "My account"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:3387
+msgid "Group"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:3523
+msgid "Admin"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:4540
+msgid "HELP"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:4640
+msgid "Documentation"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:4776
+msgid "Facebook group"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:5062
+msgid "Vous êtes producteur ?"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:5110
+msgid "Découvrez nos formations gratuites pour utiliser <b>Cagette Pro</b> "
+msgstr ""
+
+#: lang/master/tpl/design.mtt:5388
+msgid "CONTACT US"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:5539
+msgid "Propose features"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:5650
+msgid "FOLLOW US"
+msgstr ""
+
+#: lang/master/tpl/design.mtt:7077
+msgid ""
+"Cagette.net is made by <a href='https://www.alilo.fr' target='_blank'><img "
+"src='/img/alilo-trans-black.png' /></a>"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:297
+msgid "Delivery on ::dow:: ::dom:: ::month::, at ::hour::"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:736
+msgid "Contact in charge of the contract"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:1013
+msgid "Members on duty"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:2760 lang/master/tpl/distribution/listByDate.mtt:623 lang/master/tpl/distribution/listByDateOnePage.mtt:580 lang/master/tpl/distribution/listByDateOnePageContract.mtt:610 lang/master/tpl/distribution/listByDateShort.mtt:564
+msgid "Signature"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:4210
+msgid "Total order:"
+msgstr ""
+
+#: lang/master/tpl/distribution/list.mtt:4437 lang/master/tpl/distribution/listByDate.mtt:6289 lang/master/tpl/distribution/listByDateOnePage.mtt:3603 lang/master/tpl/distribution/listByDateOnePageContract.mtt:4194 lang/master/tpl/distribution/listByDateShort.mtt:2248
+msgid "Push on \"Control + P\" to print this page."
+msgstr ""
+
+#: lang/master/tpl/distribution/listByDate.mtt:435 lang/master/tpl/distribution/listByDateShort.mtt:464
+msgid "Contact details"
+msgstr ""
+
+#: lang/master/tpl/distribution/listByDate.mtt:3035
+msgid "Payment:"
+msgstr ""
+
+#: lang/master/tpl/distribution/listByDate.mtt:4210 lang/master/tpl/distribution/listByDate.mtt:5755
+msgid "To be paid"
+msgstr ""
+
+#: lang/master/tpl/distribution/listByDate.mtt:4304 lang/master/tpl/distribution/listByDate.mtt:5884
+msgid "Pay back"
+msgstr ""
+
+#: lang/master/tpl/distribution/listByDate.mtt:4660
+msgid "Balance of the member:"
+msgstr ""
+
+#: lang/master/tpl/distribution/planning.mtt:92
+msgid "Planning of deliveries:"
+msgstr ""
+
+#: lang/master/tpl/distribution/planning.mtt:167
+msgid ""
+"Subscribe now by selecting checkboxes corresponding to dates which are convenient "
+"for you. The goal of attendances consists in helping during the delivery "
+"of products."
+msgstr ""
+
+#: lang/master/tpl/distribution/planning.mtt:2061 lang/master/tpl/distribution/planning.mtt:2270
+msgid "full"
+msgstr ""
+
+#: lang/master/tpl/distribution/planning.mtt:2897 lang/master/tpl/shop/default.mtt:4487
+msgid "Validate"
+msgstr ""
+
+#: lang/master/tpl/distribution/validate.mtt:217 lang/master/tpl/validate/user.mtt:127
+msgid "Validate the delivery of the"
+msgstr ""
+
+#: lang/master/tpl/distribution/validate.mtt:1049
+msgid "Back to the summary sheet of orders"
+msgstr ""
+
+#: lang/master/tpl/distribution/validate.mtt:1927
+msgid "To be validated"
+msgstr ""
+
+#: lang/master/tpl/error.mtt:33
+msgid "Error"
+msgstr ""
+
+#: lang/master/tpl/error.mtt:62
+msgid "An error occurred during the request to the page."
+msgstr ""
+
+#: lang/master/tpl/error.mtt:136
+msgid ""
+"If the website is unavailable, please try again in few minutes. If this happen "
+"repeatedly please let us know so we can solve the issue."
+msgstr ""
+
+#: lang/master/tpl/error.mtt:294
+msgid "Technical description of the error"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:794
+msgid "Go to my account"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:972
+msgid ""
+"Contact the person in charge in order to subscribe to this group and get "
+"to know membership conditions."
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:1282
+msgid "Membership request"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:1374
+msgid ""
+"This group accepts subscriptions on waiting list. A coordinator will contact "
+"you."
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:1633
+msgid "Subscription on waiting list"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:1884
+msgid "Free subscription"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:1975
+msgid "This group is full and do not accept any more subscription."
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:2175
+msgid "Already member? Log in:"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:2709
+msgid "Next deliveries"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:3854
+msgid "Suppliers and products"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:3910
+msgid "Non-complete extract of available products:"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:4697
+msgid "http://www.cagette.net"
+msgstr ""
+
+#: lang/master/tpl/group/view.mtt:4730
+msgid "Cagette.net, the free software of food direct-selling"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:244
+msgid "Welcome to Cagette.net !"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:300
+msgid ""
+"Congratulations, you just created a new group !<br/>As an example, we created "
+"a fake farmer and fake products.<br/>It will show you how things work together "
+"in Cagette.net.<br/>Of course, you'll be able to delete them."
+msgstr ""
+
+#: lang/master/tpl/home.mtt:564
+msgid ""
+"As a starter, we recommand you to follow the <b>guided tour</b> to discover "
+"step by step the main sections of the software."
+msgstr ""
+
+#: lang/master/tpl/home.mtt:836
+msgid "Start the guided tour"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:1148
+msgid "Open orders"
+msgstr ""
+
+#. on homepage when there is no plannde deliveries
+#: lang/master/tpl/home.mtt:1503
+msgid "You delivery planning is currently empty"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:2493 lang/master/tpl/home.mtt:6683
+msgid "Modify my order"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:2704
+msgid "Add products"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:2769 lang/master/tpl/shop/default.mtt:3326
+msgid "Order closed"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:3320
+msgid "My ordered products"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:3675
+msgid "Delivery"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:4426
+msgid "Order canceled"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:4858
+msgid "alternated with ::mate::"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:5071 lang/master/tpl/home.mtt:5297
+msgid "It's your turn"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:5142 lang/master/tpl/home.mtt:5368
+msgid "It's his/her turn"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:6290
+msgid "Permanence"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:6457
+msgid "Contract details"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:7591
+msgid "Warning, you're engaged in this distribution !"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:8469
+msgid "Order closed since"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:8567
+msgid "Order will open on"
+msgstr ""
+
+#. Delivery from 18:00 to 19:30
+#: lang/master/tpl/home.mtt:9202
+msgid "Delivery from ::start:: to ::end::"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:10707
+msgid "Permanences"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:10743
+msgid "Don't forget to register for permanences"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:11056
+msgid "Warning, you don't have defined a password yet !"
+msgstr ""
+
+#: lang/master/tpl/home.mtt:11243
+msgid "Set my password"
+msgstr ""
+
+#: lang/master/tpl/install/default.mtt:82 lang/master/tpl/install/default.mtt:421
+msgid "Update"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:674 lang/master/tpl/macros.mtt:704
+msgid "Previous"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:799 lang/master/tpl/macros.mtt:825 js/Tuto.hx:2551
+msgid "Next"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:2130
+msgid "Delete ?"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:2472
+msgid "Excel/CSV Export"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:3619
+msgid "THIS MORNING"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:3720
+msgid "AFTERNOON"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:3766
+msgid "THIS EVENING"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:4518
+msgid "No contact"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:5073
+msgid "CSA&nbsp;contract"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:5158 lang/master/tpl/macros.mtt:5267 lang/master/tpl/validate/user.mtt:2580
+msgid "Payment"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:5378
+msgid "Subscription"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:5785
+msgid "Check to be given at the collection of products"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:5922
+msgid "Cash to be given at the collection of products"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:6062
+msgid "This transfer must be validated by a coordinator"
+msgstr ""
+
+#: lang/master/tpl/macros.mtt:6612 lang/master/tpl/messages/message.mtt:1281 lang/master/tpl/place/view.mtt:610 lang/master/tpl/vendor/addimage.mtt:566
+msgid "Back"
+msgstr ""
+
+#: lang/master/tpl/mail/design.mtt:237
+msgid "This e-mail was sent from"
+msgstr ""
+
+#: lang/master/tpl/mail/design.mtt:359
+msgid "You receive this message because you are part of"
+msgstr ""
+
+#: lang/master/tpl/mail/forgottenPassword.mtt:38 lang/master/tpl/mail/invitation.mtt:245 lang/master/tpl/user/choose.mtt:58
+msgid "Hello"
+msgstr ""
+
+#: lang/master/tpl/mail/forgottenPassword.mtt:76
+msgid "You asked to modify your password,"
+msgstr ""
+
+#: lang/master/tpl/mail/forgottenPassword.mtt:142
+msgid "Click here to perform this operation"
+msgstr ""
+
+#: lang/master/tpl/mail/forgottenPassword.mtt:207
+msgid "Be careful, this link is valid only 24 hours for security reasons."
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:337
+msgid "As a member of <b>::groupName::</b>"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:420 lang/master/tpl/mail/invitation.mtt:500
+msgid "you have been pre-registered on Cagette.net"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:591
+msgid ""
+"This software makes the organisation of the group easy by informing you about "
+"the next delivery dates, orders and current contracts"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:748
+msgid "In order to finalize the subscription, please choose your password"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:840
+msgid "You will then be able to connect anytime by using your e-mail"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:982
+msgid "and your password on the website"
+msgstr ""
+
+#: lang/master/tpl/mail/invitation.mtt:1304
+msgid "Finalize your subscription"
+msgstr ""
+
+#: lang/master/tpl/maintain.mtt:33
+msgid "Maintenance"
+msgstr ""
+
+#: lang/master/tpl/maintain.mtt:68
+msgid "The website is currently under maintenance."
+msgstr ""
+
+#: lang/master/tpl/member/balance.mtt:54
+msgid "Balance of members"
+msgstr ""
+
+#: lang/master/tpl/member/balance.mtt:154
+msgid "Balanced"
+msgstr ""
+
+#: lang/master/tpl/member/balance.mtt:522
+msgid "In debt"
+msgstr ""
+
+#: lang/master/tpl/member/balance.mtt:887
+msgid "In credit"
+msgstr ""
+
+#. show a sublist of members which has been selected
+#: lang/master/tpl/member/default.mtt:99
+msgid "Selection :"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:206
+msgid "Members without any contracts"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:286
+msgid "Members whose membership should be renewed"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:375
+msgid "Members who has never logged in"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:453
+msgid "Members with orders or contracts"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:608 lang/master/tpl/member/default.mtt:728
+msgid "Back to main page"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:672 lang/master/tpl/member/default.mtt:3516
+msgid "Search"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:895
+msgid ""
+"You can invite by email all the members who never logged in, in one single "
+"clic."
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:1158
+msgid "Send invitations"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:1931
+msgid "Page"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2393
+msgid "Import members"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2514
+msgid "Selections"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2574
+msgid "All members"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2649
+msgid "Without orders or contracts"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2738
+msgid "With orders or contracts"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2824
+msgid "Never logged in"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:2941
+msgid "Memberships to renew"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3048
+msgid "Members balance"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3651 lang/master/tpl/member/waiting.mtt:83
+msgid "Waiting list"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3693
+msgid "There is <b>::waitingList::</b> people on waiting list."
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3853 lang/master/tpl/member/default.mtt:4163
+msgid "Display the list"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3965
+msgid "New members"
+msgstr ""
+
+#: lang/master/tpl/member/default.mtt:3999
+msgid "There is <b>::newUsers::</b> members who never logged in"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:79 lang/master/tpl/product/import.mtt:355
+msgid "Import"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:359
+msgid "Users to import"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:864 lang/master/tpl/member/import.mtt:1600
+msgid "phone"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:962 lang/master/tpl/member/import.mtt:1695
+msgid "zip code"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:1204
+msgid "Existing accounts"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:1964 lang/master/tpl/product/import.mtt:972
+msgid "Warning"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:1994
+msgid ""
+"Before validating this import, please check that this table est correctly "
+"filled.<br/>If some datas are shifted or are not linked to the right column, "
+"please check your CSV file."
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2224 lang/master/tpl/member/import.mtt:2626
+msgid "Try again"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2322
+msgid "Finalize import"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2414
+msgid "Oups !"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2443
+msgid ""
+"It looks like there is no data to import. Please check your CSV file or check "
+"that the users you want to import are not already registred."
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2794
+msgid ""
+"Congratulations ! You just imported <b>::numImported::</b> users in your "
+"group."
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:2943
+msgid ""
+"You may now consider <a href='/member/?select=newusers'>inviting them</a> "
+"to log into Cagette.net"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:3076
+msgid ""
+"You did'nt import anything in your database because your file was empty, "
+"or contained already registred users"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:3235
+msgid "Go back to the main page"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:3333 lang/master/tpl/product/import.mtt:2726
+msgid "Help"
+msgstr ""
+
+#: lang/master/tpl/member/import.mtt:3359
+msgid ""
+"Here you can import a large amount of members in your database from a simple "
+"Excel or Libre Office file.<br/><ul><li>The first step is to <a href=\"/adherents.xls\">download "
+"this demo file.</a></li><li>Fill out the table, of modify your existing file "
+"to striclty match the columns order.</li><li>Once your file is completed, "
+"click on \"save as\" in your spreadsheet software, and select \"CSV\" format</li><li>Select "
+"the following options : separator : <b>coma</b> or <b>dot-coma</b>, encoding "
+": <b>Unicode UTF-8</b></li><li>Save the file</li><li>finally, click on  \"select "
+"a file\" on this page and upload it.</li></ul>"
+msgstr ""
+
+#: lang/master/tpl/member/lastMessages.mtt:78
+msgid "Subject"
+msgstr ""
+
+#: lang/master/tpl/member/payments.mtt:55 lang/master/tpl/member/view.mtt:55
+msgid "Contact informations"
+msgstr ""
+
+#: lang/master/tpl/member/payments.mtt:1937
+msgid "Insert a payement"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:547
+msgid "Téléphone"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:906
+msgid "Last login"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1015
+msgid "This member never logged in"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1082
+msgid "Registred since"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1286
+msgid "This member has not set a password"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1431
+msgid "Remove from group"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1580
+msgid "Put on waiting list"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:1812
+msgid "Received messages"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2063
+msgid "Send an invitation"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2240
+msgid "Log in as this member"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2340
+msgid "Membership fee"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2450
+msgid "Membership up to date"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2511
+msgid "Membership to renew"
+msgstr ""
+
+#. full sentence : Membership up to date for the period 2017-2018
+#: lang/master/tpl/member/view.mtt:2554
+msgid "for the period"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2763
+msgid "Manage membership fees"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2867
+msgid "Current orders"
+msgstr ""
+
+#: lang/master/tpl/member/view.mtt:2990
+msgid "CSA contracts"
+msgstr ""
+
+#: lang/master/tpl/member/waiting.mtt:304
+msgid "Message"
+msgstr ""
+
+#: lang/master/tpl/member/waiting.mtt:716
+msgid "Accept membership request"
+msgstr ""
+
+#: lang/master/tpl/member/waiting.mtt:912
+msgid "Deny request"
+msgstr ""
+
+#: lang/master/tpl/membership/default.mtt:80
+msgid "Subscription payment of"
+msgstr ""
+
+#: lang/master/tpl/membership/default.mtt:233
+msgid "Subscription payment date"
+msgstr ""
+
+#: lang/master/tpl/membership/default.mtt:662
+msgid "Key-in a subscription payment"
+msgstr ""
+
+#: lang/master/tpl/messages/default.mtt:221
+msgid "All sent messages"
+msgstr ""
+
+#: lang/master/tpl/messages/default.mtt:276
+msgid "Last sent messages"
+msgstr ""
+
+#: lang/master/tpl/messages/default.mtt:656
+msgid "Send an e-mail"
+msgstr ""
+
+#: lang/master/tpl/messages/message.mtt:192
+msgid "Sent on the"
+msgstr ""
+
+#: lang/master/tpl/messages/message.mtt:280
+msgid "Sender"
+msgstr ""
+
+#: lang/master/tpl/messages/message.mtt:477
+msgid "Receiver(s)"
+msgstr ""
+
+#: lang/master/tpl/product/addimage.mtt:47
+msgid "Import a photo of the product"
+msgstr ""
+
+#: lang/master/tpl/product/addimage.mtt:281
+msgid "Size of the photo: 300 x 300px"
+msgstr ""
+
+#: lang/master/tpl/product/addimage.mtt:330 lang/master/tpl/vendor/addimage.mtt:363
+msgid "Format : JPEG"
+msgstr ""
+
+#: lang/master/tpl/product/addimage.mtt:539 lang/master/tpl/product/import.mtt:2617
+msgid "Back to the management of products"
+msgstr ""
+
+#: lang/master/tpl/product/categorize.mtt:86
+msgid ""
+"You can link your products to categories, in order to better organize them "
+"in the \"shop mode\".<br/><b>To add categories: </b>select checkboxes of "
+"products and then select a category in the list at the bottom of the page. "
+"Click then on \"add\".<br /><b>To remove a category:<b/> click on it."
+msgstr ""
+
+#: lang/master/tpl/product/categorize.mtt:707
+msgid "Select all"
+msgstr ""
+
+#: lang/master/tpl/product/categorize.mtt:1148
+msgid "Add the category"
+msgstr ""
+
+#: lang/master/tpl/product/categorize.mtt:1235
+msgid "Save modifications"
+msgstr ""
+
+#: lang/master/tpl/product/categorize.mtt:1467
+msgid "Manage categories"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:78
+msgid "Import products"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:1016
+msgid ""
+"Before validating the import, please check if the table above is correctly "
+"filled.<br/>If data are not in line or not corresponding to the right column, "
+"it means that your CSV file is not correct."
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:1392
+msgid "Import these products in the database"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:1512
+msgid "Ouch!"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:1541
+msgid "It seems that there is no data to import."
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:1765
+msgid "Products already available in the database"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:2273
+msgid "Congratulations! You have imported ::num:: products in your database"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:2410
+msgid ""
+"You did not import anything in your database because your file was empty "
+"or contained products already present in the database."
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:2748
+msgid ""
+"This page will allow you to import a large number of products in your database "
+"from an Excel file."
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:2885
+msgid "To start, <a href=\"/produits.xls\">Download this demo file</a>"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:2975
+msgid ""
+"Fill correctly this file, or modify your existing file to respect strictly "
+"the order of columns"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:3097
+msgid ""
+"When your file is ready, click on\"Save as\" in your Excel sheet and choose "
+"the format CSV"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:3214
+msgid ""
+"Choose the following options: separation characters: <b>comma</b>, encoding: "
+"<b>Unicode UTF8<b/>"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:3338
+msgid "Save your file"
+msgstr ""
+
+#: lang/master/tpl/product/import.mtt:3379
+msgid "Then click on the button above \"Choose a file\" and send your file"
+msgstr ""
+
+#: lang/master/tpl/shop/choose.mtt:80
+msgid "Choose a delivery"
+msgstr ""
+
+#: lang/master/tpl/shop/choose.mtt:231
+msgid "There is currently no delivery planned."
+msgstr ""
+
+#: lang/master/tpl/shop/choose.mtt:2285
+msgid "Opening of orders"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:835
+msgid "Orders will close on"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:1400
+msgid "Autres"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:3226
+msgid "Out of stock"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:3468
+msgid "Only ::pstock:: items in stock"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:4331
+msgid "My order"
+msgstr ""
+
+#: lang/master/tpl/shop/default.mtt:4795
+msgid "All products"
+msgstr ""
+
+#: lang/master/tpl/shop/needLogin.mtt:208 lang/master/tpl/shop/needLogin.mtt:559 lang/master/tpl/user/default.mtt:134
+msgid "Connection"
+msgstr ""
+
+#: lang/master/tpl/shop/needLogin.mtt:305
+msgid "In order to confirm your basket, <br/>You need to authenticate."
+msgstr ""
+
+#: lang/master/tpl/shop/needLogin.mtt:753
+msgid "Sign up"
+msgstr ""
+
+#: lang/master/tpl/shop/productInfo.mtt:304
+msgid "incl. VAT"
+msgstr ""
+
+#: lang/master/tpl/shop/productInfo.mtt:473
+msgid "VAT included"
+msgstr ""
+
+#: lang/master/tpl/shop/productInfo.mtt:599
+msgid "included"
+msgstr ""
+
+#. product has a variable weight
+#: lang/master/tpl/shop/productInfo.mtt:897
+msgid "about ::qt:: ::unit::"
+msgstr ""
+
+#: lang/master/tpl/shop/productInfo.mtt:1398
+msgid "Variable price depending on weight"
+msgstr ""
+
+#: lang/master/tpl/transaction/cash.mtt:226 lang/master/tpl/transaction/check.mtt:226 lang/master/tpl/transaction/transfer.mtt:224
+msgid "Your order has been recorded !"
+msgstr ""
+
+#: lang/master/tpl/transaction/cash.mtt:356
+msgid "You chose to pay by cash at the product distribution"
+msgstr ""
+
+#: lang/master/tpl/transaction/cash.mtt:451
+msgid "Please prepare the following amount for the distribution :"
+msgstr ""
+
+#: lang/master/tpl/transaction/cash.mtt:703 lang/master/tpl/transaction/check.mtt:954 lang/master/tpl/transaction/transfer.mtt:927
+msgid "Check my orders"
+msgstr ""
+
+#: lang/master/tpl/transaction/check.mtt:353
+msgid "You chose to pay by check at the product distribution"
+msgstr ""
+
+#: lang/master/tpl/transaction/check.mtt:456
+msgid "Prepare a check of <b>::amount:: ::currency::</b> payable to : <b>::checkOrder::</b>"
+msgstr ""
+
+#: lang/master/tpl/transaction/check.mtt:653
+msgid ""
+"Mention this reference at the back of the check in order to facilitate its "
+"process:"
+msgstr ""
+
+#: lang/master/tpl/transaction/pay.mtt:93
+msgid "Order payment"
+msgstr ""
+
+#: lang/master/tpl/transaction/pay.mtt:139
+msgid "Your current balance is"
+msgstr ""
+
+#: lang/master/tpl/transaction/pay.mtt:255
+msgid "Amount to pay"
+msgstr ""
+
+#: lang/master/tpl/transaction/pay.mtt:343
+msgid ""
+"Your basket has been recorded, please select a payment method to confirm "
+"it."
+msgstr ""
+
+#: lang/master/tpl/transaction/pay.mtt:606
+msgid "Currently no payment method has been defined for this group."
+msgstr ""
+
+#: lang/master/tpl/transaction/transfer.mtt:350
+msgid "You chose to pay by transfer"
+msgstr ""
+
+#: lang/master/tpl/transaction/transfer.mtt:416
+msgid "Please make a transfer of"
+msgstr ""
+
+#: lang/master/tpl/transaction/transfer.mtt:512
+msgid "to the following bank account:"
+msgstr ""
+
+#: lang/master/tpl/transaction/transfer.mtt:562
+msgid "IBAN:"
+msgstr ""
+
+#: lang/master/tpl/transaction/transfer.mtt:627
+msgid ""
+"Mention this reference in the label of the transfer in order to facilitate "
+"its process:"
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:272
+msgid ""
+"Connect to your <b>Cagette Pro</b> account to manage your products, catalogs "
+"and deliveries."
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:913
+msgid "Please click on the <b>Cagette group</b> you want to connect to."
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:1595
+msgid "You don't belong to any group yet"
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:1760 lang/master/tpl/user/choose.mtt:2214
+msgid "Create my own group"
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:2055
+msgid "Find other groups near me"
+msgstr ""
+
+#: lang/master/tpl/user/choose.mtt:2371
+msgid "Subscriptions on waiting list"
+msgstr ""
+
+#: lang/master/tpl/user/default.mtt:70
+msgid "Password forgotten"
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:31
+msgid "Change of password"
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:166 lang/master/tpl/user/forgottenPassword.mtt:244
+msgid ""
+"If you have forgotten your password or if you would like to change it, please "
+"key-in below your e-mail address:"
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:344 lang/master/tpl/user/forgottenPassword.mtt:465
+msgid "An e-mail was sent to you to allow you changing your password."
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:455 lang/master/tpl/user/forgottenPassword.mtt:586
+msgid "Key-in your new password:"
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:541 lang/master/tpl/user/forgottenPassword.mtt:714
+msgid "Congratulations, your password have been modified!"
+msgstr ""
+
+#: lang/master/tpl/user/definePassword.mtt:666
+msgid "Log in with"
+msgstr ""
+
+#: lang/master/tpl/user/forgottenPassword.mtt:847
+msgid "Log in with your new password"
+msgstr ""
+
+#: lang/master/tpl/user/insert.mtt:187
+msgid "These persons are already in the database, but are not member of this group:"
+msgstr ""
+
+#: lang/master/tpl/user/insert.mtt:432
+msgid "These persons are already member of this group:"
+msgstr ""
+
+#: lang/master/tpl/user/register.mtt:71
+msgid "Sign up!"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:2209
+msgid "Total ordered"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:3195
+msgid "This payment was received"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:3628
+msgid "Total paid"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:3894
+msgid "This order has been made when payments were disabled"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:4451
+msgid "Paid too much, credit of ::amount::"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:4598
+msgid "Missing"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:4713
+msgid "Everything is allright !"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:4863 lang/master/tpl/validate/user.mtt:7129
+msgid "Key-in a refund"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:4964 lang/master/tpl/validate/user.mtt:7230
+msgid "Key-in a payment"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:5271 lang/master/tpl/validate/user.mtt:5767 lang/master/tpl/validate/user.mtt:7503 lang/master/tpl/validate/user.mtt:7950
+msgid "Validate this order"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:5409
+msgid ""
+"You cannot validate this order because the amount paid<br/> by the member "
+"does not correspond to the total amount of his order!"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:6167
+msgid "Details"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:6535
+msgid "This payment has been received"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:7642
+msgid "You cannot validate this order<br/>because the balance of the member is negative"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:8237
+msgid "Back to the delivery validation"
+msgstr ""
+
+#: lang/master/tpl/validate/user.mtt:8381
+msgid "Payment history of this member"
+msgstr ""
+
+#: lang/master/tpl/vendor/addimage.mtt:300
+msgid "Recommended size of the photo: 300 x 300px"
+msgstr ""
+
+#: lang/master/tpl/vendor/default.mtt:79
+msgid "Suppliers"
+msgstr ""
+
+#: lang/master/tpl/vendor/default.mtt:649
+msgid "New suppliers"
+msgstr ""
+
+#: lang/master/tpl/vendor/default.mtt:774
+msgid "On this page you can manage the list of suppliers of your group."
+msgstr ""
+
+#: js/Tuto.hx:1016
+msgid "This tutorial is over."
+msgstr ""
+
+#: js/Tuto.hx:1155
+msgid "Come back to tutorials page"
+msgstr ""
+
+#: js/Tuto.hx:1914
+msgid "OK"
+msgstr ""
+
+#: common/Common.hx:6275
+msgid "Guided tour for the coordinator"
+msgstr ""
+
+#: common/Common.hx:6369
+msgid ""
+"<p>In order to better discover Cagette.net, we propose to do a guided tour "
+"of the user interface of the software. <br/> You will then have a global "
+"overview on the different tools that are available to you.</p><p>You will "
+"be able to stop and start again this tutorial whenever you want.</p>"
+msgstr ""
+
+#: common/Common.hx:6781
+msgid ""
+"This part of the navigation bar is visible by all members.</br>It allows "
+"to access to the three main pages:	<ul><li> The <b>home page</b> which displays "
+"orders and the delivery planning.</li><li> On the <b>My account</b> page, "
+"you can update your personal information and check your orders history</li><li> "
+"On the <b>Farmers</b> page,  you can see all farmers and coordinators of "
+"the group</ul>"
+msgstr ""
+
+#: common/Common.hx:7303
+msgid ""
+"This part is <b>for coordinators only.</b>Here you will be able to manage "
+"the register of members, orders,  products, etc.<br/><p>Now click on the "
+"<b>Members</b> section</p>"
+msgstr ""
+
+#: common/Common.hx:7614
+msgid ""
+"The purpose of this section is to administrate the list of your members.<br/>Every "
+"time that you register a new membrer, an account will be created for him/her. "
+"Now the member can join you at Cagette.net and order or consult the planning "
+"of the deliveries.<p>Now click on a <b>member</b> in the list</p>"
+msgstr ""
+
+#: common/Common.hx:8049
+msgid ""
+"This is the page of a member. Here you can : <ul><li>see and change their "
+"contact details</li><li>manage the membership fee of your group</li><li>see "
+"a summary of their orders</li></ul>"
+msgstr ""
+
+#: common/Common.hx:8355
+msgid ""
+"Now let's have a look at the <b>contracts</b> section which is very important "
+"for coordinators."
+msgstr ""
+
+#: common/Common.hx:8579
+msgid ""
+"Here you find the list of <b>contracts</b>.They inculde a start date, a end "
+"date, and represent your relationship with a farmer. <br/><p>Here you can "
+"manage :<ul><li>the list of products of this farmer</li><li>the orders of "
+"members for this farmer</li><li>and plan the delivery schedule</li></ul></p>"
+msgstr ""
+
+#: common/Common.hx:8990
+msgid ""
+"Here you can manage the list of <b>delivery places</b>.<br/>Don't forget "
+"to key-in the complete address as a map will be displayed based on this address"
+msgstr ""
+
+#: common/Common.hx:9279
+msgid "Let's look closer at how to manage a contract. <b>Click on this button</b>"
+msgstr ""
+
+#: common/Common.hx:9518
+msgid ""
+"Here is a summary of the contract.<br/>There are two types of contracts:<ul><li>Constant "
+"contracts: the member commits on buying the same products during the whole "
+"duration of the contract</li><li>Variable contracts: the member can choose "
+"what he buys for each delivery.</li></ul>"
+msgstr ""
+
+#: common/Common.hx:9927
+msgid "Let's see now the page <b>Products</b>"
+msgstr ""
+
+#: common/Common.hx:10118
+msgid ""
+"On this page, you can manage the list of products offered by this supplier.<br/>Define "
+"at least the name and the price of products. It is also possible to add a "
+"description and a picture."
+msgstr ""
+
+#: common/Common.hx:10434
+msgid "Let's see the <b>deliveries</b> page"
+msgstr ""
+
+#: common/Common.hx:10628
+msgid ""
+"Here we can manage the list of deliveries for this supplier.<br/>In the software, "
+"a delivery has a date, a start time, and an end time. The location of the "
+"delivery must also be defined, by using the list that we have already seen."
+msgstr ""
+
+#: common/Common.hx:10985
+msgid "Let's see now the <b>Orders</b> page"
+msgstr ""
+
+#: common/Common.hx:11240
+msgid ""
+"Here we can manage the list of orders for this supplier.<br/>If you choose "
+"to \"open orders\" to members, they will be able to make their orders online "
+"themselves.<br/>This page will centralize automatically the orders for this "
+"supplier.  Otherwise, as a coordinator, you will be able to enter orders "
+"on behalf of a member."
+msgstr ""
+
+#: common/Common.hx:11690
+msgid ""
+"<p>We have seen the main features related to contracts.</p><p>Let's see the "
+"<b>messaging</b> section.</p>"
+msgstr ""
+
+#: common/Common.hx:11923
+msgid ""
+"<p>The messaging section allows you to send e-mails to different lists of "
+"members. It is not necessary anymore to maintain a lot of lists of e-mails "
+"depending on contracts, as all these lists are automatically generated.</p> "
+" <p>E-mails are sent with your e-mail address as sender, so you will receive "
+"answers in your own mailbox.</p>"
+msgstr ""
+
+#: common/Common.hx:12383
+msgid "Click here now on this page"
+msgstr ""
+
+#: common/Common.hx:12544
+msgid ""
+"<p>In this last page, you can configure everything that is related to your "
+"group.</p><p>The page <b>Access rights</b> is important as it is where you "
+"can define other coordinators among members. They will then be able to manage "
+"one or many contracts, send emails, etc.</p>"
+msgstr ""
+
+#: common/Common.hx:12933
+msgid ""
+"<p>This is the last step of this tutorial. I hope that it gave you a good "
+"overview of this software.<br/>To go further, do not hesitate to look at "
+"the <b>documentation</b>. The link is always available at the bottom of the "
+"screen.</p>"
+msgstr ""

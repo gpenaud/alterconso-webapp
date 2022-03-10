@@ -1,0 +1,47 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article">
+		
+		<h2>::_("Waiting list")::</h2>
+		
+		<table class="table">
+			
+			<tr>
+				<th>::_("Name")::</th>
+				<th>::_("Email")::</th>
+				<th>::_("Phone")::</th>
+				<th>::_("Registration date")::</th>
+				<th>::_("Message")::</th>
+				<th></th>
+			</tr>
+			
+			::foreach w waitingList::
+			<tr>
+				::set u = w._user::
+				
+				<td>::u.getName()::</td>
+				<td>::u.email::</td>
+				<td>$$nullSafe(::u.phone::)</td>
+				<td>::hDate(w.date)::</td>
+				<td>"::w.message::"</td>
+				<td class="col-md-4">
+					<a href="/member/waiting?add=::u.id::" class="btn btn-primary btn-sm">
+						<i class="icon icon-check"></i>
+						::_("Accept membership request")::
+					</a>
+					
+					<a href="/member/waiting?remove=::u.id::" class="btn btn-default btn-sm">
+						<i class="icon icon-delete"></i>
+						::_("Deny request")::</a>
+					</td>
+			</tr>
+			::end::
+			
+		</table>
+	
+	</div>
+</div>
+
+
+
+::end::

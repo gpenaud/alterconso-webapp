@@ -1,0 +1,617 @@
+<macros>
+
+	<macro name="jsConfirm(?text)">confirm(::if text==null::'Confirmer cette action ?'::else::'::escapeJS(text)::'::end::)</macro>
+	
+	<macro name="confirm(?text)" onclick="return $$jsConfirm(::text::)"/>
+	
+	<macro name="file(id,?def)">
+		::if id == null && def != null::
+			::def::
+		::else::
+			/file/::makeFileSign(id)::.jpg
+		::end::
+	</macro>
+
+	<macro name="userMenu(user)">
+		::if user != null::
+			<!-- Home -->			
+			<div class="dropdown pull-right text-right">
+				
+				<a  class="dropdown-toggle" type="button" id="dropdownMenuUser" data-toggle="dropdown">
+					<i class="icon icon-user"></i>
+					::user.getName()::
+					::if user.firstName2!=null::
+						::_("et"):: ::user.lastName2:: ::user.firstName2::  						
+					::end::
+				</a>
+
+				<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuUser">
+					::if(isAdmin)::
+					<li><a href="/admin"><i class="icon icon-cog"></i> ::_("Admin")::</a></li>
+					<li><a href="/db"><i class="icon icon-cog"></i> ::_("Database")::</a></li>
+					::end::
+					<li><a href="/user/logout"><i class="icon icon-delete"></i> ::_("Log out")::</a></li>
+				</ul>
+				
+			</div>			
+		::else::
+			<div class="pull-right text-right">
+				<a href="/user/login" class="btn btn-default btn-sm"><i class="icon icon-user"></i> ::_("Log in")::</a>
+				<a class="btn btn-default btn-sm" href="/group/map"><i class="icon icon-search"></i> ::_("Look for another group")::</a>	
+			</div>
+		::end::
+
+		<!-- Help -->
+		<div class="dropdown pull-right text-right" id="helpMenu">
+					
+			<a  class="dropdown-toggle" type="button" id="dropdownMenuHelp" data-toggle="dropdown">
+				<i class="icon icon-info"></i> ::_("Aide")::
+			</a>
+
+			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuHelp">
+				<li>
+					<a href="http://wiki.cagette.net" target="_blank"><i class="icon icon-book"></i> Documentation</a> 
+				</li>
+				<li>
+					<a href="https://www.facebook.com/groups/EntraideCagette/" target="_blank"><i class="icon icon-facebook"></i> Groupe Facebook</a> 
+				</li>
+				<li>
+					<a href="https://www.cagette.pro" target="_blank"><i class="icon icon-student"></i> Formations pour producteurs</a> 
+				</li>				
+			</ul>
+			
+		</div>
+
+		<!-- Home -->
+		<div class="pull-right">
+			<a class="" href="/user/choose?show=1" >
+				<i class="icon icon-chevron-left"></i> ::_("Home")::
+			</a>
+		</div>
+
+			
+
+			
+	</macro>
+	
+	<macro name="img(id,?def)"><img src="$$file(::id::,::def::)"/></macro>
+
+	<macro name="browse(b,url)">$$browseCustom(::b::,::url::,Page ::b.page:: ::if b.pages::/::b.pages:: ::end::)</macro>
+
+	<macro name="browseCustom(b,url,custom)">
+		&lt; 
+		::if b.prev::<a href="::url::/?page=::b.prev::">::_("Previous")::</a>::else:: ::_("Previous"):: ::end::
+		| ::custom:: |
+		::if b.next::<a href="::url::/?page=::b.next::">::_("Next")::</a>::else:: ::_("Next"):: ::end:: &gt;
+	</macro>
+	
+	<macro name="nullSafe(text)">::if text==null::::else::::text::::end::</macro>
+	
+	<macro name="edit(text,url)">		
+		<a href="::url::" class="btn btn-default btn-sm">
+			<i class="icon icon-edit"></i>
+			&nbsp;::text::
+		</a>	
+	</macro>
+	
+	<macro name="insert(text,url)">
+		<!--<img src="/img/icons/add.png" style="vertical-align:middle;" />&nbsp;<a href="::url::">::text::</a>-->
+		<a href="::url::" class="btn btn-default btn-sm">
+				<i class="icon icon-plus"></i>
+			&nbsp;::text::
+		</a>	
+	</macro>
+	
+	<macro name="delete(text,url)">
+		<a href="::url::" $$confirm(::_("Delete ?")::) class="btn btn-default btn-sm" >
+				<i class="icon icon-delete"></i>
+		::if text!=null && text!=""::	
+			&nbsp;::text::
+		::end::
+		</a>
+	</macro>
+	
+	<macro name="export(url)">
+		<a href="::url::" class="btn btn-default btn-sm"><i class="icon icon-download"></i> ::_("Excel/CSV Export")::</a>	
+	</macro>
+	
+	<macro name="bool(v)">
+		::if v==true::
+		<i class="icon icon-circle" style="color:#84bd55"></i>
+		::else::
+		<i class="icon icon-circle-empty" style="color:#888"></i>
+		::end::
+	</macro>
+
+	<macro name="bigBool(v)">
+		::if v==true::
+		<div class="iconBadge" style="background-color:#84bd55;">
+			<i class="icon icon-check"></i>
+		</div>
+		::else::
+		<div class="iconBadge" style="background-color:#CCC;">
+			<i class="icon icon-delete"></i>
+		</div>
+		
+		::end::
+	</macro>
+	
+	<macro name="check(v)">
+		::if(v==true || v==1)::
+		<i class="icon icon-check" style="color:#84bd55"></i>
+		::else::
+		<i class="icon icon-alert" style="color:#a94442"></i>
+		::end::
+	</macro>
+	
+	<macro name="balance(balance)">
+		::if balance<0:: 
+			::set color = "C00"::
+		::else::
+			::set color = "0C0"::
+		::end::
+		<span style="color:#::color::;">
+			::formatNum(balance)::&nbsp;::currency()::
+		</span>
+	</macro>
+	
+	<macro name="date(dow,d,m,y,place)">
+		<div class="dateBox" >
+			<div class="box">
+				<div>::dow::</div>
+				<div style="font-size:28px;color:#990000;">::d::</div>
+				<div>::m::</div>				
+			</div>
+			::if place!=null:: 
+			<div style="margin-top:6px;">
+                <i class="icon icon-map-marker"></i>
+                <a onclick="_.openPlaceDialog('::dow::-::d::-::m::-::y::',::place.id::)">::place::</a>		
+            </div>
+            ::end::
+            <div style="width: 0px; height: 0px; overflow: hidden">
+                <span id="::dow::-::d::-::m::-::y::"></span>	
+            </div>
+		</div>		
+    </macro>
+    
+    <macro name="placeOsm(place,unique)">
+        <i class="icon icon-map-marker"></i>		
+		<a onclick="_.openPlaceDialog('::unique::',::place.id::)">::place::</a>	
+		<br/>
+		<span class="address">
+			$$nullSafe(::place.address1::)
+			$$nullSafe(::place.address2::)
+			$$nullSafe(::place.zipCode::)
+			$$nullSafe(::place.city::)
+        </span>
+        <div style="width: 0px; height: 0px; overflow: hidden">
+            <span id="::unique::"></span>	
+        </div>
+	</macro>
+	
+	<macro name="today(dow,d,m,y,h,place)">
+		<div class="dateBox" style="background-color:#080;" >
+			<img src="/img/go.png"/>
+			<div style="font-size:16px;margin-bottom:8px;">
+				::if parseInt(h)<=12::
+					::_("THIS MORNING")::
+				::elseif parseInt(h)<18::
+					<span style="font-size:14px;">CET<br/>::_("AFTERNOON")::</span>
+				::else::
+					::_("THIS EVENING")::
+				::end::
+				
+			</div>
+			::if place!=null:: 
+			<div style="margin-top:6px;">
+                <i class="icon icon-map-marker"></i>
+                <span id="::dow::-::d::-::m::-::y::"></span>
+                <a onclick="_.openPlaceDialog('::dow::-::d::-::m::-::y::',::place.id::)">::place::</a>
+			</div>
+			::end::
+		</div>		
+	</macro>
+	
+	<macro name="contact(u)">
+		
+		<i class="icon-user"></i>
+		
+		::if u!=null::
+			<b>::u.firstName:: ::u.lastName::</b><br/>
+			<span ::cond u.email!=null::>
+					<i class="icon icon-mail"></i> <a href="mailto: ::u.email::">::u.email::</a><br/>			
+			</span>
+			<span ::cond u.phone!=null::>
+					<i class="icon icon-phone"></i>  ::u.phone::<br/>			
+			</span>
+		::else:: 
+			::_("No contact")::
+		::end::
+		
+	</macro>
+
+	
+	<macro name="alert(msg)">
+		<div class="alert alert-danger">
+			<i class="icon icon-alert"></i>
+			
+			::raw msg::					
+		</div>
+	</macro>
+	
+	
+	<macro name="operation(t)">
+	::set x = t.getTypeIndex()::
+	<!--::if x==2:: ::set class="text-right":: ::end:: -->
+	<td class="::class::">
+		::if x==0::
+		<i class="icon icon-basket" aria-hidden="true"></i>&nbsp;::_("Order")::
+		::elseif x==1::
+		<i class="icon icon-basket" aria-hidden="true"></i>&nbsp;::raw _("CSA&nbsp;contract")::
+		::elseif x==2::
+		<!--<span style="margin-left:48px;">::_("Payment"):: ::_(t.getPaymentType())::</span>-->
+		<i class="icon icon-euro" aria-hidden="true"></i> ::t.getPaymentTypeName()::
+		::else::						
+		<i class="fa fa-user" aria-hidden="true"></i> ::_("Subscription")::
+		::end::
+	</td>
+	
+	<td>
+		::if t.pending==true::			
+			<i class="fa fa-circle-thin" style="color:#CCC;" aria-hidden="true"></i>			
+		::else::		
+			<i class="fa fa-check" aria-hidden="true"></i>
+		::end::
+	</td>
+	<td style="font-size:1em;">
+		
+		::t.name::<br/>
+		
+		::if x==2 && t.pending==true::		
+			::if(t.getPaymentType()=="check")::
+				<span style="color:red;">::_("Check to be given at the collection of products")::</span>
+			::elseif(t.getPaymentType()=="cash")::
+				<span style="color:red;">::_("Cash to be given at the collection of products")::</span>
+			::elseif(t.getPaymentType()=="transfer")::
+				<span style="color:red;">::_("This transfer must be validated by a coordinator")::</span>		
+			::elseif(t.getPaymentType()=="onthespot")::
+				<span style="color:red;">::_("You need to pay on the spot at the collection of products")::</span>
+			::end::
+			
+		::else::
+			<span style="font-size:0.90em;color:#AAA;">::hDate(t.date)::</span>
+		::end::
+	</td>
+	<td class="text-right">
+		::if(t.amount<0)::
+			-
+		::end::
+	</td>
+	<td>
+		::if(t.amount<0)::
+			::formatNum(0-t.amount)::&nbsp;::currency()::
+		::else::
+			::formatNum(t.amount)::&nbsp;::currency()::
+		::end::
+	</td>
+	::set class=""::
+	</macro>
+
+	<macro name="back()">	
+	<a href="#" onclick="window.history.back();" class="btn btn-default btn-sm"><i class="icon icon-chevron-left"></i> ::_("Back")::</a>
+	</macro>
+
+	<macro name="empty(txt)">	
+		<div style="text-align:center;width:100%;height:300px;color: #AAA;">
+			<img src="/img/empty.png" />
+			<p>
+				::txt::
+			</p>			
+		</div>		
+	</macro>
+
+	<macro name="timeframe(timeframe)">
+		::set next = timeframe.next()::
+		::set previous = timeframe.previous()::
+		<div class="btn-group">
+			<a href="?_from=::previous.from.toString().substr(0,10)::&_to=::previous.to.toString().substr(0,10)::" class="btn btn-default">
+				<i class="icon icon-chevron-left"></i>
+			</a>
+			<a class="btn btn-default disabled">Du ::dDate(timeframe.from):: au ::dDate(timeframe.to)::</a>
+			<a href="?_from=::next.from.toString().substr(0,10)::&_to=::next.to.toString().substr(0,10)::" class="btn btn-default">
+				<i class="icon icon-chevron-right"></i>
+			</a>
+		</div>
+	</macro>	
+	
+	
+	<macro name="deliveryPro(k,showBtns)">
+		::set _now = now()::
+		<div class="row">
+			<div class="col-md-4 text-center">
+				<!-- find color/icon to display -->
+				::set open = 0::
+				::set notyetopened = 0::
+				::set closed = 0::
+			
+				::foreach d k::
+					::if d.orderStartDate!=null::
+						::if _now.getTime() > d.orderStartDate.getTime() && _now.getTime() < d.orderEndDate.getTime()::
+							<!-- commande en cours -->
+							::set open = open+1::
+						::elseif _now.getTime() > d.orderEndDate.getTime()::
+							<!-- commande terminée -->
+							::set closed = closed+1::
+						::else::
+							<!-- commande pas ouverte -->
+							::set notyetopened = notyetopened+1::
+						::end::
+					::else::
+						<!-- AMAP : commande terminée -->
+						::set closed = closed+1::
+					::end::
+				::end::
+				
+				<div style="display:inline-block;">
+					::set x = getDate(k[0].date)::
+					$$date(::x.dow::,::x.d::,::x.m::,::x.y::,::k[0]._place::)
+				</div>
+				
+				<div style="text-align: center;font-weight: bold;margin-top: 12px;font-size: 1.2em;color:#666;">::x.h+":"+x.i::</div>
+				
+			</div>
+			<div class="col-md-8">
+				
+				
+				
+				::if (open==k.length)::
+				<span class="iconBadge" style="background-color:#F80;" data-toggle="tooltip" title="Commande en cours.">
+					<i class="icon icon-basket"></i>
+				</span>
+				::elseif(closed==k.length)::
+				<span class="iconBadge" style="background-color:#0A0;" data-toggle="tooltip" title="Commande close. Préparez votre livraison">
+					<i class="icon icon-truck-shipping"></i>
+				</span>
+				::elseif(notyetopened==k.length)::
+				<span class="iconBadge" style="background-color:#999;" data-toggle="tooltip" title="Commande pas encore ouverte">
+					<i class="icon icon-clock"></i>
+				</span>				
+				::else::
+				<span class="iconBadge" style="background-color:#999;" data-toggle="tooltip" title="Statut mixte">
+					<i class="icon icon-truck-shipping"></i>
+				</span>			
+				::end::
+				
+				<b>::k[0]._catalog._group.name::</b><br/>
+				
+				<table>
+				::foreach d k::
+					<tr>
+						<td>
+							::if d.orderStartDate!=null::
+								::if _now.getTime() > d.orderStartDate.getTime() && _now.getTime() < d.orderEndDate.getTime()::
+								<!-- commande en cours -->
+								<i class="icon icon-circle" style="color:#F80;" data-toggle="tooltip" title="Commande en cours."></i>
+								::elseif _now.getTime() > d.orderEndDate.getTime()::
+								<!-- commande terminée -->
+								<i class="icon icon-circle" style="color:#0A0;" data-toggle="tooltip" title="Commande close. Préparez votre livraison"></i>
+								::else::
+								<!-- commande pas ouverte -->
+								<i class="icon icon-circle-empty" style="color:#666;" data-toggle="tooltip" title="Commande pas encore ouverte"></i>
+								::end::
+							::else::
+								<!-- AMAP -->
+								<i class="icon icon-circle" style="color:#0A0;" data-toggle="tooltip" title="Commande close. Préparez votre livraison"></i>
+							::end::
+							
+							::set c = getCatalog(d)::
+							<a href="/p/pro/delivery/view/::d.id::">::c.name::</a>&nbsp;&nbsp;
+						</td>
+						<td>
+							::if showBtns::
+							<div class="btn-group">
+								<a href="/p/pro/delivery/edit/::d.id::" title="::_("Edit")::" data-toggle="tooltip" class="btn btn-default btn-sm">
+									<i class="icon icon-edit"></i>
+								</a>
+								<a href="/p/pro/delivery/delete/::d.id::?token=::token::"  title="::_("Delete")::" data-toggle="tooltip" $$confirm(::_("Delete ?")::) class="btn btn-default btn-sm" >
+									<i class="icon icon-delete"></i>
+								</a>
+							</div>
+							::end::
+						</td>
+					</tr>
+				::end::	
+				</table>
+				
+			</div>
+		</div>
+	</macro>
+
+	<macro name="footer()">	
+			<div class="row" id="footer">
+			
+					<div class="col-md-3" >
+						<a href="http://www.cagette.net" target="_blank">
+							<img src="/img/logo.png" alt="::_("Cagette.net")::"/>
+						</a>  
+					</div>
+					<div class="col-md-3" >
+						::_("HELP")::
+						<ul>
+							<li> 
+								<a href="http://www.cagette.net/wiki" target="_blank">::_("Documentation")::</a> 
+							</li>
+							<li>
+								<a href="https://www.facebook.com/groups/EntraideCagette/" target="_blank">::_("Facebook group")::</a> 
+							</li>
+							<li>
+								<a href="https://www.cagette.pro" target="_blank">Formations pour producteurs</a> 
+							</li>
+							<li>
+								::if (user!=null && user.isAmapManager()):: <a href="https://cagette.uservoice.com" target="_blank">::_("Propose features")::</a>  ::end::
+							</li>
+						</ul>
+						
+					</div>
+					<div class="col-md-3" >
+						SOUTENEZ-NOUS
+						<ul>
+							<li>
+								<a href="http://www.lilo.org/fr/cagette-net/?utm_source=cagette-net" target="_blank">Notre page sur Lilo.org</a>
+							</li>
+						</ul>
+						<!-- PAYPAL !-->
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-top:12px;">
+							<input type="hidden" name="cmd" value="_s-xclick"/>
+							<input type="hidden" name="hosted_button_id" value="S9KT7FQS7P622"/>
+							<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+							<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+						</form>
+					</div>
+					<div class="col-md-3" >
+						::_("FOLLOW US")::
+						<ul class="cagsocialmedia">
+							<li class="cagfb">
+								<a title="Facebook" href="https://www.facebook.com/cagette" target="_blank"> <i class="icon icon-facebook"></i></a>	
+							</li>
+							<li class="cagtwitter">
+								<a title="Twitter" href="https://twitter.com/Cagettenet" target="_blank"> <i class="icon icon-twitter"></i></a> 
+							</li>
+							<li class="cagyoutube">
+								<a title="Youtube" href="https://www.youtube.com/channel/UC3cvGxAUrbN9oSZmr1oZEaw" target="_blank"> <i class="icon icon-youtube"></i></a> 						
+							</li>
+							<li style="background-color:#333;">
+								<a title="Github" href="https://github.com/bablukid/cagette" target="_blank"> <i class="icon icon-github"></i></a> 						
+							</li>
+						</ul>
+	
+						<br/>
+						Cagette.net est réalisé <br/>
+						par la <a href='https://www.alilo.fr' target='_blank'>SCOP Alilo</a>
+					</div>
+					
+				
+				
+			</div>
+			
+			<div class="row" id="subfooter">
+				<span>version ::VERSION::-::getPlatform()::</span>
+			</div>	
+	</macro>
+
+	<macro name="ga()">
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async="1" src="https://www.googletagmanager.com/gtag/js?id=UA-81371329-2"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-81371329-2');
+		</script>
+
+	</macro>
+
+	<macro name="vendorType(s)">		
+		::if(s==0)::
+			Cagette Pro				
+		::elseif(s==1)::
+			Gratuit
+		::elseif(s==2)::
+			Invité
+		::elseif(s==3)::
+			Invité sur un Cagette Pro
+		::elseif(s==4)::
+			Cagette Pro en test 
+		::elseif(s==5)::
+			Cagette Pro pédagogique
+		::elseif(s==6)::
+			Cagette Pro inscrit à une formation
+		::end::
+	</macro>
+
+	<macro name="timeSlotUserMessage(slots,status,d)">
+		
+		::if(status.registered==false)::
+			<script>
+				var registerToTimeSlot = function(){
+					var elementId = 'distrib-time-slot::d.id::';
+					_NeolithicViewsGenerator.userDistribSlotsSelector(elementId,{
+						distribId: ::d.id::,
+						onCancel: function() {
+							document.getElementById(elementId).innerHTML=""
+						},
+						onRegister: function() {
+							document.location.reload(true);
+						}
+					});
+				};
+
+			</script>
+		
+			<a onclick="registerToTimeSlot()" class="btn btn-danger">Inscrivez-vous à un créneau horaire</a>
+
+		::elseif(status.has=="inNeed")::
+
+			
+			::if(status.voluntaryOf!=null)::
+				<b>::status.voluntaryOf.firstName:: ::status.voluntaryOf.lastName::</b> s'est engagé à retirer votre commande et à vous l'apporter.
+			::else::
+				Vous avez demandé à ce que votre commande soit retirée par quelqu'un d'autre.<br/>
+				Personne n'a encore proposé son aide pour retirer votre commande.
+			::end::
+
+		::elseif(status.has=="voluntary")::
+			<p ::cond status.voluntaryFor.length>0::>
+			Vous récupérez aussi la commande de :<br/>
+			::foreach u status.voluntaryFor::
+			<b>::u.firstName:: ::u.lastName::</b>, Tél: $$nullSafe(::u.phone::), Adresse : $$nullSafe(::u.address1::) $$nullSafe(::u.address2::) $$nullSafe(::u.zipCode::) $$nullSafe(::u.city::)  <br/>
+			::end::
+			</p>
+
+			::if(status.isResolved)::
+				<p>
+					<b style="text-decoration:underline;">
+						Merci de bien vouloir venir chercher votre commande entre 
+						::hHour(slots[status.selectedSlotId].start):: et ::hHour(slots[status.selectedSlotId].end)::
+					</b>									
+				</p>
+			
+			::else::
+				<p>
+					Créneaux choisis : <br/>
+					::foreach s status.registeredSlotIds::
+					<b>de ::hHour(slots[s].start):: à ::hHour(slots[s].end)::.</b><br/>
+					::end::
+				</p>
+				<p>
+					Votre créneau définitif vous sera attribué à la fermeture des commandes.
+				</p>
+			::end::
+			
+
+		::elseif(status.has=="solo")::
+
+			<p>Vous avez choisi de ne retirer que votre propre commande.</p>
+			
+			::if(status.isResolved)::
+				<p>
+					<b style="text-decoration:underline;">
+						Merci de bien vouloir venir chercher votre commande entre 
+						::hHour(slots[status.selectedSlotId].start):: et ::hHour(slots[status.selectedSlotId].end)::
+					</b>									
+				</p>
+			::else::
+				<p>Créneaux choisis : <br/>
+					::foreach s status.registeredSlotIds::
+					<b>de ::hHour(slots[s].start):: à ::hHour(slots[s].end)::.</b><br/>
+					::end::
+				</p>
+				<p>Votre créneau définitif vous sera attribué à la fermeture des commandes.</p>
+			::end::
+			
+		::end::
+
+	</macro>
+	
+</macros>

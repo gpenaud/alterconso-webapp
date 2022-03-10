@@ -1,0 +1,8 @@
+"warning there should be 2 header lines !";;;;;;;;;;;;;;
+"Nom du produit";"Réf";"Description";"Unité";"Bio";"qt a virgule";"Catégorisation";"Nom offre";"Référence unique";"Quantité";"Prix H.T";"taux de TVA";"actif";"URL Image";"Date Image"
+"Philtre d'Amour (Pomme/citron/cassis/épices) 75 cl";"AA-0001";;;1;;671;;"AA-0001";;2,56;5,5;1;;"2018-01-01"
+"Jus de pomme cassis 75cl";"AA-0002";;;1;;671;;"AA-0002";;2,56;5,5;1;;"2018-01-01"
+"Jus de pomme passion 75cl bio*";"AA-0003";;;1;;671;;"AA-0003";;2,56;5,5;1;;"2018-01-01"
+"Jus d'orange 25cl";"AA-0025";;;1;;671;;"AA-0025";;1,4;5,5;1;;"2018-01-01"
+"Jus de pomme";"AA-0026";"Bon jus de pomme";"cl";1;;671;;"AA-0026-1";25;1,15;5,5;1;;"2018-01-01"
+;;;;;;;;"AA-0026-2";1000;4;5,5;1;;

@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+  ServerName cagette
+  DirectoryIndex index.n
+  DocumentRoot %TRAVIS_BUILD_DIR%/www
+
+  <Directory %TRAVIS_BUILD_DIR%/>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+  </Directory>
+</VirtualHost>

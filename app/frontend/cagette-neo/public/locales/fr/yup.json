@@ -1,0 +1,19 @@
+{
+  "mixed": {
+    "required": "Ce champ est requis",
+    "notType": "Type invalide",
+    "oneOf": "Option invalide"
+  },
+  "string": {
+    "min": "Ce champ doit contenir au moin {{min}} caractères",
+    "max": "Ce champ doit contenir au maximun {{max}} caractères",
+    "length": "Ce champs doit contenir uniquement {{length}} caractères",
+    "email": "Ce champs doit être une adresse mail valide"
+  },
+  "custom": {
+    "luhn": "Invalide",
+    "legalAge": "Doit être majeur",
+    "iban": "IBAN invalide",
+    "bic": "BIC invalide"
+  }
+}

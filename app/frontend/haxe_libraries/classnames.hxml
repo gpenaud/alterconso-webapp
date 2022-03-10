@@ -1,0 +1,3 @@
+-D classnames=0.1.6
+# @install: lix --silent download "haxelib:/classnames#0.1.6" into classnames/0.1.6/haxelib
+-cp ${HAXE_LIBCACHE}/classnames/0.1.6/haxelib/src

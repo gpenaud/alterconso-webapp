@@ -1,0 +1,45 @@
+:: use 'mail/design.mtt'::
+
+<div style="max-width:400px;margin:auto;border:solid 1px #AAA;border-radius:8px;padding:12px;text-align:center;font-family:Arial;">
+	
+	<img src="http://::HOST::/img/logo2.png" title="Cagette.net" />
+	
+	<p>
+		::_("Hello"):: $$nullSafe(::name::),
+	</p>
+	
+	<p>
+		::if groupName!=null::
+		
+			::raw __("As a member of <b>::groupName::</b>",{groupName:groupName})::
+			<br/>		
+			::_("you have been pre-registered on Cagette.net")::
+		
+		::else::
+		
+			<b>::_("you have been pre-registered on Cagette.net")::</b>
+		
+		::end::
+	</p>
+	
+	<p>
+		::_("This software makes the organisation of the group easy by informing you about the orders and next delivery dates")::
+	</p>
+	<p>
+		::_("In order to finalize the subscription, please choose your password")::
+	</p>
+	<p>
+		::_("You will then be able to connect anytime by using your e-mail"):: 
+		( <i>::email:: ::if email2!=null:: ou ::email2:: ::end::</i> ) 
+		::_("and your password on the website"):: <a href="http://::HOST::">::HOST::</a>
+		
+		<a href="http://::HOST::/user/validate/::k::" class="btn" style="display:block;padding:8px;background:#227700;border-radius:8px;width:auto;color: white;margin: 12px; text-decoration: none;margin-top:16px;font-size:120%;">
+			&raquo; ::_("Finalize your subscription")::
+		</a>
+		
+	</p>
+	
+</div>
+
+
+::end::

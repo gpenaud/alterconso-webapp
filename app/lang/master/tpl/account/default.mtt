@@ -1,0 +1,263 @@
+::use 'design.mtt'::
+<div class="col-md-8">
+	<h2>::_("Last orders")::</h2>
+
+	::set payments = user.getGroup().hasPayments()::
+	
+	<div class="article">
+		
+	<!-- CONSTANT ORDERS -->
+	::if(count(subscriptionsByCatalog)>0)::
+
+		<h4><i class="icon icon-refresh"></i> Contrats AMAP</h4>
+
+		::foreach catalog subscriptionsByCatalog.keys()::
+			<h5>::catalog.name::</h5>
+			<table class="table table-condensed table-bordered">
+				<tr class="greyhead">
+					<th class="text-center col-md-3">Engagement</th>
+					<th class="text-center col-md-4">Période d'engagement</th>
+					<th class="text-center col-md-2">Nombre de distributions</th>
+					<th class="text-center col-md-2">Total</th>
+					<th class="text-center col-md-1">Payé</th>
+				</tr>
+				::foreach subscription subscriptionsByCatalog.get(catalog)::
+					::set orderName = subscriptionService.getDescription(subscription)::
+					::if orderName == null::
+						::set class="danger text-danger"::
+					::else::
+						::set class=""::
+					::end::
+					<tr style="text-align: center;">
+						<td class="::class::" style="vertical-align: middle;">
+							::if orderName == null::
+								AUCUNE COMMANDE
+							::else::
+								::raw orderName::
+							::end::
+						</td>
+						<td style="vertical-align: middle;">
+							Du ::sDate(subscription.startDate)::
+							au ::sDate(subscription.endDate)::
+						</td>
+						<td style="vertical-align: middle;">
+							::subscriptionService.getSubscriptionNbDistributions(subscription)::
+						</td>
+						<td style="vertical-align: middle;">
+							::subscriptionService.getSubscriptionTotalPrice(subscription)::&nbsp;::currency()::
+						</td>
+						<td style="vertical-align: middle;">
+							$$check(::subscriptionService.isSubscriptionPaid(subscription)::)
+						</td>
+					</tr>
+				::end::
+			</table>
+		::end::
+		<hr/>
+	::end::
+	
+	
+
+	<!-- VARYING ORDERS -->
+	::if count(distribs)>0::
+		<h4><i class="icon icon-basket"></i>  Commandes variables</h4>
+		
+		::foreach d distribs::
+
+			::set basket = d.getUserBasket(user)::
+			::if(basket!=null)::
+				::set orders = basket.getOrders(1)::
+			::else:: 
+				::set orders = null::
+			::end::
+			::if(orders!=null && orders.length>0)::
+
+			<h5>::_("Order delivered on"):: ::hDate(d.getDate())::</h5>
+			<table class="table table-bordered table-condensed" >
+				<tr class="greyhead">
+					<th class="col-md-1">::_("Qty||short version for quantity")::</th>
+					<th class="col-md-4">::_("Product")::</th>
+					<th class="col-md-1"><a href="#" data-toggle="tooltip" data-placement="top" title="::_('Unit price including taxes')::">::_("U.P||short version of price per unit")::</a></th>
+					<th class="col-md-2">::_("Sub-total")::</th>
+					<th class="col-md-1">::_("Fees")::</th>
+					<th class="col-md-1">::_("Total")::</th>
+					<th class="col-md-1" ::cond !payments::>::_("Paid")::</th>			
+				</tr>
+				::set total = 0::
+				::foreach o prepare(orders)::
+					<tr>
+						<td>							
+							::raw o.smartQt::
+						</td>
+						<td>
+							<a href="#" onclick="_.overlay('/shop/productInfo/::o.productId::','::o.productName::')">
+								<img src="::o.productImage::" style="width:32px;height:32px;" />
+								 ::o.productName::
+							</a>
+						</td>
+						<td>
+							::formatNum(o.productPrice)::&nbsp;::currency()::
+						</td>
+						<td>
+							::formatNum(o.subTotal)::&nbsp;::currency()::
+						</td>
+						<td>							
+							$$nullSafe(::formatNum(o.fees)::)
+						</td>
+						<td>
+							::formatNum(o.total)::&nbsp;::currency()::
+							::set total = total + o.total::
+						</td>
+						<td ::cond !payments:: class="text-center">
+							$$check(::o.paid::)
+						</td>
+					
+					</tr>
+				::end::	
+				<tr>
+					<td colspan="4">
+						::if !user.getGroup().hasPayments():: 
+							$$edit(Modifier cette commande,/contract/editVarOrders/::d.id::)
+						::end::
+					</td>
+					<td>TOTAL</td>
+					<td><b>::formatNum(total)::&nbsp;::currency()::</b></td>
+				</tr>
+			</table>
+			::end::
+		::end::
+	
+	::end::	
+	</div>
+	
+</div>
+<div class="col-md-4">
+	<h3>::_("Profile")::</h3>
+	<div class="article">
+		
+		<p>
+			$$contact(::user::)	
+		</p>
+		
+		
+		<div class="pull-right">
+			<a href="::user.getQuitGroupLink(user.getGroup())::" class="btn btn-default btn-sm">
+				<i class="icon icon-delete"></i>
+				::_("Leave this group")::
+			</a>
+		</div>
+		
+		$$edit(::_("Edit")::,/account/edit)
+		
+	</div>
+	
+	::if user.getGroup().hasPayments()::
+	<h3>::_("Payments")::</h3>
+	<div  class="article">
+		<span style="font-size:1.3em;">
+			::_("Balance"):: : 
+			::if userGroup.balance<0:: 
+				::set color = "C00"::
+			::else::
+				::set color = "0C0"::
+			::end::
+			<span style="color:#::color::;">
+				::userGroup.balance:: ::currency()::
+			</span>
+		</span>
+		
+		<span style="margin-left:30px;">
+			<a href="/account/payments" class="btn btn-default btn-small">
+				<i class="fa fa-credit-card" aria-hidden="true"></i>
+				::_("Payments details")::
+			</a>
+		</span>
+	</div>
+	::end::
+
+	<!--Membership-->
+	::if user.getGroup().hasMembership::
+	<h3>Adhésion</h3>
+		::set hasValidMembership = userGroup.hasValidMembership()::
+		::if(hasValidMembership)::
+			::set css = "alert alert-success"::
+		::else::
+			::set css = "alert alert-danger"::
+		::end::
+
+		<div class="::css::">
+		$$check(::hasValidMembership::)
+		::if hasValidMembership::
+			::_("Membership up to date")::
+		::else::
+			 ::_("Membership to renew")::
+		::end::
+		::_("for the period||full sentence : Membership up to date for the period 2017-2018"):: <b>::user.getGroup().getPeriodName(null)::</b>
+		<br/>
+	</div>
+	::end::
+	
+	
+	::if user.isAmapManager()::
+	<h3>::_("Tutorials")::</h3>
+	<div class="article">
+		<table class="table">
+			
+			::foreach t tutos::
+				<tr>
+					<td>::t.name::</td>
+					<td>  
+						::if t.completion==null::
+							<a href="/account/?startTuto=::t.key::" class="btn btn-default btn-xs">
+								<i class="icon icon-chevron-right"></i> ::_("Start")::
+							</a>
+						::else::
+							
+							<a href="/account/?stopTuto=::t.key::" class="btn btn-primary btn-xs">
+								<i class="icon icon-delete"></i> ::_("Stop")::
+							</a>								
+						::end::
+					</td>
+				</tr>
+			::end::
+			
+		</table>
+		
+			::if stopTuto:: 
+			::set msg = _("You'll be able to restart it here.")::
+			<div id="stopTuto" data-toggle="popover" title='::_("Tutorial stopped")::' data-placement="left" data-content="::msg::" ></div>
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					setTimeout(function() {
+						var el = document.getElementById("stopTuto");
+						el.Popover.show();
+					}, 1000);
+				});
+			</script>
+			::end::		
+	</div>	
+	::end::
+	
+	<h3>::_("Language")::</h3>
+	<div class="article">
+		::_("Display the interface in another language"):: (beta)
+		:
+		<ul>
+
+			::raw langLinks::
+			
+		</ul>
+		<p>
+			::_("Current language is")::
+			<b>
+				::langText::
+			</b>
+		</p>
+	</div>
+
+	
+	
+</div>
+
+
+::end::

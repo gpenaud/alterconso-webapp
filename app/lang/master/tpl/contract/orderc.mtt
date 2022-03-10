@@ -1,0 +1,273 @@
+::use 'design.mtt'::
+<div id="content" class="col-md-8">
+	
+	::set catalog = c::
+	::set distribs = catalog.getDistribs(true,null)::
+
+	<div class="article">
+		<h2>::c.name::</h2>
+
+		<p>
+			::if isUserOrderAvailable::
+				::if isCSACatalog::
+					::if unvalidatedSubscription==null && subscriptions.length>0::				
+						Votre souscription a été validée, vous ne pouvez plus la modifier.
+					::elseif(subscriptions.length==0)::
+						Si vous souhaitez souscrire à ce contrat, saisissez votre commande sur cette page.
+					::else::
+						Tant que votre souscription n'a pas encore été validée, vous pouvez revenir sur cette page et modifier votre commande. 				
+						::_("Tip: to remove an order please key-in the quantity 0")::				
+					::end::
+				::else::
+					Tant que les commandes sont ouvertes, vous pouvez revenir sur cette page et modifier votre commande.
+				::end::
+			::else::
+				Les commandes sont fermées pour ce contrat.
+			::end::
+		</p>
+		
+		<!-- order form -->
+		<form name="order" id="order" method="POST" action="">
+			<input type="hidden" name="token" value="::token::"/>
+			
+			::if distribution!=null::
+			<input type="hidden" name="distribution" value="::distribution.id::"/>
+			::end::
+
+			<table class="table table-bordered">
+			<tr>
+				<td></td>
+				<th>::_("Product")::</th>
+				<th>::_("Price")::</th>
+				::foreach d userOrders::
+					::if d.distrib==null::
+						<th>::_("Qty")::</th>
+					::else::
+						<th>::dDate(d.distrib.date)::</th>
+					::end::
+				::end::
+			</tr>
+				
+			::if userOrders.length>0::	
+			
+				::foreach uo userOrders[0].data::
+				<tr>
+					<td>
+						<img src="::uo.product.getImage()::" style="width:32px;height:32px;" />
+					</td>
+					<td>
+						<span ::cond uo.product.organic:: title ="Agriculture biologique" data-toggle="tooltip" data-placement="bottom">
+							<img src="/img/AB.png"/>&nbsp;						
+						</span>
+						<a href="#" onclick="_.overlay('/shop/productInfo/::uo.product.id::','::escapeJS(uo.product.getName())::')">							
+							::uo.product.getName()::
+						</a>
+					</td>
+					<td>
+						::set price = uo.product.price + uo.product._catalog.computeFees(uo.product.price)::
+						::formatNum(price)::&nbsp;::currency()::
+					</td>
+					
+					
+					::set i = repeat.uo.index::
+					
+					::foreach d userOrders::
+					<td>
+		
+						::set o = d.data[i]::
+						
+						::if o.order==null::
+							::set q = ""::
+						::else::
+							::set q = o.order.quantity::
+						::end::
+						
+						
+						
+						::if canOrder::							
+							::if isCSACatalog::
+								<!-- CSA catalog -->							
+								<input type="text" class="form-control" name="::"d-p"+o.product.id::" id="product::o.product.id::" value="::q::" />
+							::else::
+								<!-- Variable -->
+								<input type="text" class="form-control" name="::"d"+d.distrib.id+"-p"+o.product.id::" id="product::o.product.id::" value="::q::" />
+							::end::
+						::else::
+							::q::
+						::end::
+			
+							
+						
+					</td>
+					::end::
+					
+				</tr>
+				::end::
+			
+			::else::
+				<tr>
+					<td colspan="4">::_("There is currently no open order")::</td>
+				</tr>
+			::end::
+			
+			<!--TOTAL-->
+			<tr>
+				<th colspan="3" class="text-right">Total</th>
+				::foreach d userOrders::
+					<th>
+					::set total=0::
+					::foreach o d.data::
+					
+						::if o.order!=null::
+							::set q = o.order.quantity::
+							::set price = o.product.price + o.product._catalog.computeFees(o.product.price)::
+							
+							::set total = total+(q*price)::
+						::end::
+					
+					::end::
+					::formatNum(total)::&nbsp;::currency()::
+					</th>
+				::end::
+			</tr>
+			</table>
+		
+			<p class="text-right">
+				::if canOrder::
+					<input type="submit" class="btn btn-lg btn-primary" value="Enregistrer ma commande" name="submit" id="submit" />		
+				::end::
+				
+			</p>
+					
+		</form>
+	
+	</div>
+
+	<!--Subscription-->
+	<div class="article" ::cond isCSACatalog::>
+		
+		::if(subscriptions==null || subscriptions.length==0)::
+			<p class="text-center">
+				Si vous souscrivez à ce contrat,
+				vous vous engagerez pour la période<br/>
+				du <b>::dDate(now()):: au ::dDate(catalog.endDate)::</b><br/>
+				soit <b>::distribs.length::</b> distributions.
+			</p>
+		::else::
+			
+			<h4>Ma souscription</h4>
+
+			<table class="table table-condensed table-bordered">
+				<tr class="greyhead">
+					<th class="text-center col-md-3">Engagement</th>
+					<th class="text-center col-md-4">Période d'engagement</th>
+					<th class="text-center col-md-2">Nombre de distributions</th>
+					<th class="text-center col-md-2">Total</th>
+					<th class="text-center col-md-1">Payé</th>
+				</tr>
+				::foreach subscription subscriptions::
+					::set orderName = subscriptionService.getDescription(subscription)::
+					::if orderName == null::
+						::set class="danger text-danger"::
+					::else::
+						::set class=""::
+					::end::
+					<tr style="text-align: center;">
+						<td class="::class::" style="vertical-align: middle;">
+							::if orderName == null::
+								AUCUNE COMMANDE
+							::else::
+								::raw orderName::
+							::end::
+						</td>
+						<td style="vertical-align: middle;">
+							Du ::sDate(subscription.startDate)::
+							au ::sDate(subscription.endDate)::
+						</td>
+						<td style="vertical-align: middle;">
+							::subscriptionService.getSubscriptionNbDistributions(subscription)::
+						</td>
+						<td style="vertical-align: middle;">
+							::subscriptionService.getSubscriptionTotalPrice(subscription)::&nbsp;::currency()::
+						</td>
+						<td style="vertical-align: middle;">
+							$$check(::subscriptionService.isSubscriptionPaid(subscription)::)
+						</td>
+					</tr>
+				::end::
+			</table>
+		::end::
+	</div>
+
+
+
+</div>
+<div class="col-md-4">
+
+		::if(catalog.description!=null)::
+		<div class="article">
+			<h4><i class="icon icon-info"></i> Informations</h4>
+			::nl2br(catalog.description)::
+		</div>
+		::end::
+
+		<div ::cond visibleDocuments.length != 0:: class="article">
+			<h4><i class="icon icon-file-pdf"></i> Documents</h4>
+			<ul>
+				::foreach doc visibleDocuments::
+					<li><a href="::file(doc._file)::" target="_blank">  ::doc._file.name::</a><br/>					</li>
+				::end::
+			</ul>
+		</div>
+
+		<div class="article">
+			::set vendor = catalog._vendor::
+			<h4><i class="icon icon-farmer"></i> ::_("Vendor")::</h4>
+			
+			<b>::vendor.name::</b><br/>			
+			<b>::vendor.city::</b> (::vendor.zipCode::)
+			<p ::cond vendor.desc!=null:: style="font-size: 13px;">
+				::raw nl2br(vendor.desc)::
+			</p>
+			
+			::if vendor.linkUrl!=null::
+			<p>
+				::if vendor.linkText!=null::
+				<a href="::vendor.linkUrl::" target="_blank" class="btn btn-default btn-sm"><i class="icon icon-chevron-right"></i> ::vendor.linkText::</a>
+				::else::
+				<a href="::vendor.linkUrl::" target="_blank" class="btn btn-default btn-sm"><i class="icon icon-chevron-right"></i> ::_("Read more")::</a>
+				::end::
+			</p>
+			::end::
+		</div>
+
+		<div class="article">		
+			<h4><i class="icon icon-user"></i> ::_("Coordinator")::</h4>
+			::if catalog._contact!=null::
+			<b>::catalog._contact.firstName:: ::catalog._contact.lastName::</b><br/>
+			<span ::cond catalog._contact.email!=null::><i class="icon icon-mail"></i> <a href="mailto: ::catalog._contact.email::">::catalog._contact.email::</a><br/></span>
+			<span ::cond catalog._contact.phone!=null::><i class="icon icon-phone"></i> ::catalog._contact.phone::<br/></span>
+			::end::
+		</div>
+
+		<div class="article">
+			<h3>Prochaines distributions</h3>
+			
+			
+			<ul style="max-height:300px;overflow-y:auto;">
+				::foreach d distribs::
+				<li>				
+					<b>::dDate(d.date)::</b>
+					<br/>::d._place.name::		
+				</li>						
+				::end::	
+			</ul>
+			
+			::if distribs.length==0::
+			<p>
+				::_("No planned distributions.")::
+			</p>
+			::end::
+		</div>
+</div>
+::end::

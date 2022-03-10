@@ -1,0 +1,4 @@
+-D thx.semver=0.2.2
+# @install: lix --silent download "haxelib:/thx.semver#0.2.2" into thx.semver/0.2.2/haxelib
+-cp ${HAXE_LIBCACHE}/thx.semver/0.2.2/haxelib/src
+-D thx_semver

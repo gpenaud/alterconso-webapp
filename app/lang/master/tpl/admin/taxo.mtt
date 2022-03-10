@@ -1,0 +1,36 @@
+﻿::use 'admin/design.mtt'::
+		
+		<h2>Dictionnaire de produits</h2>
+		$$export(?csv=1)
+		<table class="table table-bordered">
+		::foreach c categ::
+			<tr>
+				<th>
+					<h4>#::c.id::</h4>
+					<img src="/img/taxo/::c.image::.png" style="width:120px;" />
+					<br/>
+					<h4><a href="/db/TxpCategory/edit/::c.id::" target="_blank">::c.name::</a></h4>
+				</th>
+				<td>
+					::foreach sc c.getSubCategories()::
+					<p>
+						<b>#::sc.id:: <a href="/db/TxpSubCategory/edit/::sc.id::" target="_blank">::sc.name::</a></b>
+						<br/>
+						::foreach p sc.getProducts()::
+						 <a href="/db/TxpProduct/edit/::p.id::" target="_blank">#::p.id:: ::p.name::</a> ,
+						::end::
+						
+					</p>
+					::end::
+				</td>
+
+			</tr>
+			
+
+			
+			
+		::end::
+		</table>
+		
+::end::
+

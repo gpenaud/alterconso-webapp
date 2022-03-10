@@ -1,0 +1,323 @@
+::use 'design.mtt'::
+	<div class="article">
+	<div class="row">
+
+		<div class="col-md-12">
+			<div class="text-center">
+				<h3>
+					::_("Validate the delivery of the"):: ::hDate(date)::
+				</h3>	
+				<h4
+					><i class="icon icon-map-marker"></i>::place::
+				</h4>
+				
+			</div>	
+			
+			::set total = 0::
+			<table class="table table-condensed table-bordered">
+				<tr style="background-color:#DDD;">
+					<th colspan="6" class="text-center">Commande</th>
+					<th colspan="3" class="text-center">
+						<a class="btn btn-default btn-xs"
+						onclick="_.initOrderBox( ::member.id::, ::md.id::, null, 1, '::escapeJS(hDate(date))::', '::escapeJS(place.toString())::', '::escapeJS(member.getName())::','::currency()::', ::user.getGroup().hasPayments()::, '/validate/::md.id::/::member.id::')">
+							<i class="icon icon-edit"></i>
+								::_("Edit")::
+						</a>			
+					</th>										
+				</tr>
+				<tr class="head">
+					<td colspan="9">
+						
+						<div class="basketNumber" ::cond basket!=null:: >
+							<i class="fa fa-shopping-basket" aria-hidden="true"></i> N°::basket.num::
+						</div>
+						
+						<a href="/member/view/::member.id::" target="_blank">::member.getName()::</a>
+					</td>
+				</tr>
+				<tr>
+					<th>::_("Catalog")::</th>
+					<th>::_("Qty")::</th>
+					<th>::_("Ref")::</th>
+					<th>::_("Product")::</th>
+					<th><a href="#" data-toggle="tooltip" data-placement="top" title="::_("Unit price incl. VAT")::">::_("U.P.")::</a></th>
+					<th>::_("Sub-total")::</th>
+					<th>::_("Fees")::</th>
+					<th>::_("Total")::</th>
+					<th>::_("Paid")::</th>
+				</tr>
+				::foreach o orders::
+				<tr>
+					<td>
+						<a href="/contractAdmin/view/::o.catalogId::">
+							::short(o.catalogName,40)::
+						</a>
+					</td>
+					<td>
+						::raw o.smartQt:
+					</td>
+					<td class="ref">
+						$$nullSafe(::o.productRef::)
+					</td>
+					<td>
+						::short(o.productName,40)::
+					</td>
+					<td>
+						::formatNum(o.productPrice)::&nbsp;::currency()::
+					</td>
+					<td>
+						::formatNum(o.subTotal)::&nbsp;::currency()::
+					</td>
+					<td>
+						<!-- fees -->
+						::if o.percentageValue!=null::
+						<a href="#" data-toggle="tooltip" data-placement="top" title="::o.percentageName:: : ::o.percentageValue:: %">
+							::formatNum(o.fees)::&nbsp;::currency()::
+						</a>
+						::end::
+					</td>
+					<td>
+						<!-- total -->
+						::formatNum(o.total)::&nbsp;::currency()::
+						::set total = total + o.total::
+						
+					</td>
+					<td>
+						$$check(::o.paid::)
+					</td>
+					
+				</tr>
+				::end::
+				
+				<tr class="subrow">					
+					<th colspan="7" class="text-right">::_("Total ordered")::</th>
+					<th>::formatNum(total)::&nbsp;::currency()::</th>					
+					<th></th>
+				</tr>
+				
+			</table>
+		</div>	
+		
+		
+		<div class="col-md-12">
+			
+			<!--  PAYMENT CHECK FOR SHOP MODE-->
+			<table class="table table-condensed table-bordered">
+				<tr style="background-color:#DDD;">
+					<th colspan="9" class="text-center">::_("Payment")::</th>
+				</tr>
+				
+				::set op = basket.getOrderOperation(false)::
+				
+				::if op!=null::
+					<tr>
+						$$operation(::op::)
+						<td></td>
+					</tr>
+					
+					::set tpaid = 0::
+					::foreach tt op.getRelatedPayments()::	
+					<tr>
+						$$operation(::tt::)
+						::if !tt.pending::
+						::set tpaid = tpaid + tt.amount::
+						::end::
+						<td>
+							::if(tt.pending)::
+								::if(tt._data.type != "onthespot")::
+									<p>
+										<a href="/validate/::md.id::/::member.id::/validateOp/::tt.id::?token=::token::" class="btn btn-primary btn-sm">
+											<i class="icon icon-check"></i>
+											::_("I have received this payment")::
+										</a>
+									</p>
+								::else::
+									::foreach type onTheSpotAllowedPaymentTypes::
+									<p>
+										<a href="/validate/::md.id::/::member.id::/validateOp/::tt.id::?token=::token::&type=::type.type::" class="btn btn-primary btn-sm">
+											<i class="icon icon-check"></i>
+											::if(type.type == "cash")::
+												::_(" I have received this payment in cash")::
+											::elseif(type.type == "check")::
+												::_(" I have received this payment by check")::			
+											::elseif(type.type == "transfer")::
+												::_(" I have received this payment by transfer")::											
+											::else::
+												::__(" I have received this payment by ::paymentType::", {paymentType: type.name.toLowerCase()})::
+											::end::										
+										</a>
+									</p>
+									::end::
+								::end::
+								$$delete(::_("Del.")::,/validate/::md.id::/::member.id::/deleteOp/::tt.id::?token=::token::)
+							::end::
+						</td>
+					</tr>
+					::end::
+					
+					::set amount = numClean(op.amount)::
+					::set tpaid = numClean(tpaid)::
+					
+					<!-- total -->
+					<tr style="background-color:#DDD;">
+						<td colspan="2"></td>
+						<th class="text-right">::_("Total paid")::</th>
+						<th>
+							::tpaid::&nbsp;::currency()::
+						</th>
+						<td colspan="2">
+							
+						</td>
+					</tr>
+				::else::
+					<tr><td>
+						<div class="alert alert-danger text-center" style="width:50%;margin:auto;">
+							::_("This order has been made when payments were disabled")::
+						</div>
+					</td></tr>
+				::end::				
+			</table>
+			
+
+		</div>
+
+		
+		
+		
+		<div class="col-md-12" style="margin-bottom: 24px;">
+			
+			::if(basket.isValidated())::
+
+				<div class="alert alert-success text-center" style="width:50%;margin:12px auto">$$check(::true::) Commande validée.</div>
+				<p class="text-center">
+					<a href="/member/invoice/::member.id::/::md.id::" target="_blank" class="btn btn-default btn-sm">
+						<i class="icon icon-file"></i> Reçu client
+					</a>
+				</p>
+
+			::else::
+
+				<!-- credit / debit / ok message -->
+				::if(tpaid!=null && amount!=null)::
+				
+					::if(tpaid+amount != 0)::
+						::set class="danger"::
+					::else::
+						::set class="success"::
+					::end::
+					<div class="alert alert-::class:: text-center" style="width:50%;margin:12px auto">
+						::if(tpaid+amount > 0):: 
+
+							$$check(::false::)		
+							::set str = formatNum(abs(tpaid+amount))+"&nbsp;"+currency()::
+							::raw __("Paid too much, credit of ::amount::",{amount:str})::
+							
+						::elseif(tpaid+amount < 0)::
+						
+							$$check(::false::)						
+							::_("Missing"):: ::formatNum(abs(tpaid+amount))::&nbsp;::currency()::
+							
+						::else::	
+						
+							$$check(::true::) ::_("Everything is allright !"):: 
+							
+						::end::
+					</div>
+				::end::
+
+				<!-- actions -->
+				<p class="text-center" ::cond op!=null::>				
+					$$insert(::_("Key-in a refund")::,/validate/::md.id::/::member.id::/addRefund?basketid=::basket.id::)				
+					$$insert(::_("Key-in a payment")::,/validate/::md.id::/::member.id::/addPayment/)
+					
+				</p>
+
+				<!-- validate button-->
+				<p class="text-center">	
+					<a href="/validate/::md.id::/::member.id::/validate/?token=::token::" class="btn btn-primary btn-lg">
+						<i class="icon icon-check"></i>
+						::_("Validate this order")::
+					</a>
+				</p>
+			::end::
+		</div>
+
+
+		<!-- Membership -->
+		
+		<div class="col-md-6">
+			<table class="table table-condensed table-bordered">
+				<tr style="background-color:#DDD;">
+					<th class="text-center">::_("Membership")::</th>
+				</tr>
+				<tr>
+					::if (user.getGroup().hasMembership && userGroup!=null)::
+						
+							::if userGroup.hasValidMembership()::
+								<td class="text-center alert-success" style="padding:24px;">
+									$$check(true) ::_("Membership up to date"):: pour la période <b>::user.getGroup().getPeriodName(null)::</b>
+								</td>
+							::else::
+								<td class="text-center alert-danger">
+									$$check(false) ::_("Membership to renew"):: pour la période <b>::user.getGroup().getPeriodName(null)::</b>
+									<br/>
+									<a onclick="_.membershipBox(::member.id::,::place._group.id::,'/validate/::distribution.id::/::member.id::',::distribution.id::)" class="btn btn-danger btn-sm">::_("Manage membership fees")::</a>
+								</td>
+							::end::
+			
+					::else::
+						<td>
+							<span class="disabled">Pas de gestion des adhésions dans ce groupe</span>
+						</td>
+					::end::
+				</tr>
+
+			</table>
+		</div>
+		
+
+		<!-- BALANCE -->
+		::if (user.getGroup().hasShopMode())::
+		<div class="col-md-6">
+			<table class="table table-condensed table-bordered">
+				<tr style="background-color:#DDD;">
+					<th class="text-center">Solde du membre</th>
+				</tr>
+				
+				<tr>
+					::if(balance<0)::
+					<td class="text-center alert-danger">
+						<b>$$balance(::balance::)</b>
+						<br/>
+						<a href="/member/payments/::member.id::" target="_blank" class="btn btn-danger btn-sm">
+							<i class="icon icon-euro"></i> ::_("Payment history of this member")::
+						</a>
+					</td>
+					::else::
+					<td class="text-center alert-success">
+						<b>$$balance(::balance::)</b>
+						<br/>
+						<a href="/member/payments/::member.id::" target="_blank" class="btn btn-default btn-sm">
+							<i class="icon icon-euro"></i> ::_("Payment history of this member")::
+						</a>
+					</td>
+					::end::
+				</tr>
+
+
+			</table>
+		</div>
+		::end::
+
+			
+		<!-- Footer -->
+		<div class="col-md-12">
+			<p class="text-center">
+				<a href="/distribution/validate/::md.id::" class="btn btn-default btn-sm">
+					<i class="icon icon-chevron-left"></i> ::_("Back to the delivery validation")::
+				</a>
+			</p>		
+		</div>
+	</div>
+	</div>
+::end::

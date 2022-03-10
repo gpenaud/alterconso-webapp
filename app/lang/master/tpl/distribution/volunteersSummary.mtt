@@ -1,0 +1,74 @@
+::use 'design.mtt'::
+<div id="content" class="col-md-12">
+	<div class="article">
+		::set d = multidistrib::
+		<div style="margin-bottom:30px;">
+		<table class="table table-bordered">
+			<tr>
+				<td></td>
+				<!--::set date = getDate(multidistrib.distribStartDate)::
+				::if multidistrib.getVolunteers().length == multidistrib.getVolunteerRoles().length::
+				::set color = "lightgreen"::
+				::else::
+				::set color = "orange"::
+				::end::
+				<th style="font-size:12px;line-height:14px;text-align:center;background-color: ::color::">::date.dow::<br/>
+					::date.d::<br/>
+					::date.m::<br/>
+					::date.h+":"+date.i::</th>
+-->
+
+
+				::set date = getDate(d.getDate())::
+				::if d.hasVacantVolunteerRoles()::
+					::set class = "text-danger danger"::
+					::set icon = "icon icon-alert"::
+				::elseif d.canVolunteersJoin()::
+					::set class = "text-success success"::
+					::set icon = "icon icon-check"::
+				::else::
+					::set color = ""::
+				::end::
+				<td style="width:200px;line-height:16px;text-align:center;" class="::class::">
+					<b>::date.dow:: ::date.d:: ::date.m::</b>
+					<br/>
+					::date.h+":"+date.i::<br/>
+					<br/>
+					<i class="::icon::"></i>
+					
+					<b>::d.getVolunteers().length::</b> inscrit(s) sur <b>::d.getVolunteerRoles().length::</b> requis
+				</td>	
+			</tr>
+			
+			::foreach role roles::
+			<!-- Volunteers for this role -->
+			<tr>
+				<td>
+					<b>::role.name::</b>
+				</td>				
+				
+				<td style="text-align:center;">
+					::set volunteer = multidistrib.getVolunteerForRole(role)::
+					::if volunteer!=null::
+						::volunteer._user.getCoupleName()::
+						::if volunteer._user.id == user.id::
+							<br/>
+							<a href="/distribution/unsubscribeFromRole/::multidistrib.id::/::role.id::?returnUrl=/distribution/volunteersSummary/::multidistrib.id::" class="btn btn-danger">
+								::_("Unsubscribe")::
+							</a>
+						::end::
+					::else::
+						<a href="/distribution/volunteersSummary/::multidistrib.id::?role=::role.id::" class="btn btn-primary">::_("Join")::</a>
+					::end::
+				</td>
+			</tr>		
+			::end::	
+			
+		</table>
+		</div>
+		
+		<a href="/home" class="btn btn-default btn-sm"><i class="icon icon-chevron-left"></i> Retour</a>
+	</div>
+</div>
+
+::end::

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="::LANG::">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" xml:lang="::LANG::" lang="::LANG::" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			::if pageTitle!=null::
+				::pageTitle::
+			::else::
+				::NAME::
+			::end::
+		</title>
+
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+		integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+		crossorigin=""/>
+		
+		<!-- Cagette CSS -->
+		<link rel="stylesheet" type="text/css" href="/css/::getVariable('css')::/style.css"/>
+
+
+		<!-- Cagette very own icon font -->
+		<link rel="stylesheet" href="/font/icons.css" />
+		
+        
+        <!-- JQUERY (needed by bootstrap)
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+		
+		
+		<!-- polyfills : Object assign , Array find : https://polyfill.io/v3/url-builder -->
+		<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.prototype.find%2CObject.assign"></script>
+
+		<!-- Haxe JS + libs bundled with browserify -->
+		::if DEBUG::
+		<script type="text/javascript" src="/js/::getVariable('js')::/libs.dev.js"></script>
+		::else::
+		<script type="text/javascript" src="/js/::getVariable('js')::/libs.prod.js"></script>
+		::end::
+
+		<script type="text/javascript" src="/js/::getVariable('js')::/app.js"></script>
+
+		<!-- Social Meta Tags -->
+		::if socialShareData!=null::
+		<meta property="og:type" content="::socialShareData.facebookType::"/>
+		<meta property="og:url" content="::socialShareData.url::"/>
+		<meta property="og:title" content="::socialShareData.title::"/>
+		<meta property="og:description" content="::socialShareData.description::"/>
+		<meta property="og:image" content="::socialShareData.imageUrl::"/>
+		<meta property="og:image:alt" content="::socialShareData.imageAlt::"/>
+		
+		<meta name="twitter:card" content="::socialShareData.twitterType::"/>
+		<meta name="twitter:site" content="::socialShareData.twitterUsername::"/>
+		<meta name="twitter:title" content="::socialShareData.title::"/>
+		<meta name="twitter:description" content="::socialShareData.description::"/>
+		<meta name="twitter:image" content="::socialShareData.imageUrl::"/>
+		<meta name="twitter:image:alt" content="::socialShareData.imageAlt::"/>
+		::end::
+
+	</head>
+
+	::if container==null:: ::set container="container":: ::end::
+	<body class="::container::" style="background-color: white;">
+		
+		::if DEBUG::
+		<div style="position: absolute;background: #666;padding: 8px;left: 0;bottom:0;color: #FF0;">DEBUG ::session.lang::</div>
+		::end::
+		
+		::if HOST.substr(0,3)=="pp."::
+		<div style="position: absolute;background: #F60;padding: 8px;left:0;bottom:0;color: #FF0;">PREPROD</div>
+		::end::
+		
+		
+		<div id="header"></div>
+		::raw __content__::
+		
+
+		$$ga()
+
+		<script type="text/javascript">
+		
+			
+			document.addEventListener("DOMContentLoaded", function(event) {
+			  
+				//init lang in js App
+				_.LANG = "::session.lang::";
+				
+				//tutorials
+				//::if tuto!=null::				
+				//_.getTuto("::tuto.name::",::tuto.step::);			
+				//::end::
+
+				_.antiDoubleClick();
+			  
+			})
+
+			//tracking 24x7
+			var rumMOKey='1d36c37d438ba069db210c73cb74308d';
+			(function(){
+				if(window.performance && window.performance.timing && window.performance.navigation) {
+					var site24x7_rum_beacon=document.createElement('script');
+					site24x7_rum_beacon.async=true;
+					site24x7_rum_beacon.setAttribute('src','//static.site24x7rum.com/beacon/site24x7rum-min.js?appKey='+rumMOKey);
+					document.getElementsByTagName('head')[0].appendChild(site24x7_rum_beacon);
+				}
+			})(window)
+
+		</script>
+		
+	</body>
+</html>

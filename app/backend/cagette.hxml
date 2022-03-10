@@ -1,0 +1,21 @@
+-lib templo
+-lib hxevents
+-lib datetime
+-lib hscript
+-lib tink_core
+-lib tink_json
+-lib record-macros
+-lib hx3compat
+-lib thx.csv
+-lib thx.semver
+
+-lib sugoi
+-lib jwt
+
+-cp ../common
+-cp ../src
+-cp ../lang/master/tpl
+
+-neko ../www/index.n
+
+-main App

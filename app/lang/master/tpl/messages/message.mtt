@@ -1,0 +1,77 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article">
+	
+
+	<table class="table">
+		<tr>
+			<td>::_("Subject:")::</td>
+			<td>::msg.title::</td>
+		</tr>
+		<tr>
+			<td>::_("Sent on the")::</td>
+			<td>::hDate(msg.date)::</td>
+		</tr>
+		
+		<tr>
+			<td>::_("Sender")::</td>
+			<td>
+				::if msg._sender==null::
+					inconnu
+				::else::
+					::msg._sender.firstName:: ::msg._sender.lastName::
+				::end::
+			</td>
+		</tr>
+		
+		<tr>
+			<td>::_("Receiver(s)")::</td>
+			<td>
+				::if list!=null::
+					::list::
+				::else::
+					::msg._recipients::
+				::end::
+			</td>
+		</tr>
+		
+		<tr>
+			<td>::_("Status")::</td>
+			<td>
+				<div style="max-height:200px;overflow-y:auto;">
+				<table class="table table-condensed" style="width:auto;">
+				::foreach m status::
+				
+				
+					::if m.failure!=null::
+						<tr class="danger">
+							<td>::m.email::</td>
+							<td>::m.failure::</td>
+						</tr>
+						
+					::else::
+						<tr class="success">
+							<td>::m.email::</td>
+							<td>::m.success::</td>
+						</tr>
+					::end::
+					
+				::end::
+				</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>::raw msg.body::</td>
+		</tr>
+	</table>	
+		
+	<a href="/messages" class="btn btn-default">::_("Back")::</a>	
+		
+	</div>
+</div>
+
+
+
+::end::

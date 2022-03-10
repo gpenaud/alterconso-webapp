@@ -1,0 +1,6 @@
+-D thx.csv=0.2.0
+# @install: lix --silent download "haxelib:/thx.csv#0.2.0" into thx.csv/0.2.0/haxelib
+-lib thx.core
+-cp ${HAXE_LIBCACHE}/thx.csv/0.2.0/haxelib/src
+-D thx_csv
+-lib thx.core

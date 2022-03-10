@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>icons</title>
+    <style>
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .preview {
+            width: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .preview .inner {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #f5f5f5;
+            -webkit-border-radius: 3px 3px 0 0;
+            -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .preview .inner i {
+            line-height: 85px;
+            font-size: 40px;
+            color: #333;
+        }
+
+        .label {
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            font-size: 10px;
+            font-family: Monaco, monospace;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: #ddd;
+            -webkit-border-radius: 0 0 3px 3px;
+            -moz-border-radius: 0 0 3px 3px;
+            border-radius: 0 0 3px 3px;
+            color: #666;
+        }
+
+        @font-face {
+    font-family: "icons";
+    src: url("./icons.eot?091c05105371b9203cf18a0d3a6c9075?#iefix") format("embedded-opentype"),
+url("./icons.woff2?091c05105371b9203cf18a0d3a6c9075") format("woff2"),
+url("./icons.woff?091c05105371b9203cf18a0d3a6c9075") format("woff"),
+url("./icons.ttf?091c05105371b9203cf18a0d3a6c9075") format("truetype"),
+url("./icons.svg?091c05105371b9203cf18a0d3a6c9075#icons") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-alert:before {
+    content: "\f101";
+}
+.icon-apple:before {
+    content: "\f102";
+}
+.icon-archive:before {
+    content: "\f103";
+}
+.icon-balance:before {
+    content: "\f104";
+}
+.icon-bank-card:before {
+    content: "\f105";
+}
+.icon-bank-transfer:before {
+    content: "\f106";
+}
+.icon-basket-add:before {
+    content: "\f107";
+}
+.icon-basket:before {
+    content: "\f108";
+}
+.icon-bio:before {
+    content: "\f109";
+}
+.icon-book:before {
+    content: "\f10a";
+}
+.icon-bulk:before {
+    content: "\f10b";
+}
+.icon-calendar-check:before {
+    content: "\f10c";
+}
+.icon-calendar:before {
+    content: "\f10d";
+}
+.icon-card:before {
+    content: "\f10e";
+}
+.icon-chart:before {
+    content: "\f10f";
+}
+.icon-check:before {
+    content: "\f110";
+}
+.icon-cheque:before {
+    content: "\f111";
+}
+.icon-chevron-down:before {
+    content: "\f112";
+}
+.icon-chevron-left:before {
+    content: "\f113";
+}
+.icon-chevron-right:before {
+    content: "\f114";
+}
+.icon-chevron-up:before {
+    content: "\f115";
+}
+.icon-chicken:before {
+    content: "\f116";
+}
+.icon-circle-empty:before {
+    content: "\f117";
+}
+.icon-circle:before {
+    content: "\f118";
+}
+.icon-clock:before {
+    content: "\f119";
+}
+.icon-cog:before {
+    content: "\f11a";
+}
+.icon-delete:before {
+    content: "\f11b";
+}
+.icon-download:before {
+    content: "\f11c";
+}
+.icon-edit:before {
+    content: "\f11d";
+}
+.icon-euro:before {
+    content: "\f11e";
+}
+.icon-eye:before {
+    content: "\f11f";
+}
+.icon-facebook:before {
+    content: "\f120";
+}
+.icon-farmer-pro:before {
+    content: "\f121";
+}
+.icon-farmer:before {
+    content: "\f122";
+}
+.icon-file-image:before {
+    content: "\f123";
+}
+.icon-file-pdf:before {
+    content: "\f124";
+}
+.icon-file:before {
+    content: "\f125";
+}
+.icon-fork:before {
+    content: "\f126";
+}
+.icon-github:before {
+    content: "\f127";
+}
+.icon-home:before {
+    content: "\f128";
+}
+.icon-image:before {
+    content: "\f129";
+}
+.icon-info:before {
+    content: "\f12a";
+}
+.icon-link:before {
+    content: "\f12b";
+}
+.icon-list:before {
+    content: "\f12c";
+}
+.icon-mail:before {
+    content: "\f12d";
+}
+.icon-map-marker:before {
+    content: "\f12e";
+}
+.icon-moneypot:before {
+    content: "\f12f";
+}
+.icon-payment-type:before {
+    content: "\f130";
+}
+.icon-phone:before {
+    content: "\f131";
+}
+.icon-plus:before {
+    content: "\f132";
+}
+.icon-print:before {
+    content: "\f133";
+}
+.icon-products:before {
+    content: "\f134";
+}
+.icon-question:before {
+    content: "\f135";
+}
+.icon-refresh:before {
+    content: "\f136";
+}
+.icon-scale:before {
+    content: "\f137";
+}
+.icon-search:before {
+    content: "\f138";
+}
+.icon-sign-out:before {
+    content: "\f139";
+}
+.icon-square-check:before {
+    content: "\f13a";
+}
+.icon-square:before {
+    content: "\f13b";
+}
+.icon-star:before {
+    content: "\f13c";
+}
+.icon-student:before {
+    content: "\f13d";
+}
+.icon-tag:before {
+    content: "\f13e";
+}
+.icon-tote:before {
+    content: "\f13f";
+}
+.icon-truck-shipping:before {
+    content: "\f140";
+}
+.icon-truck:before {
+    content: "\f141";
+}
+.icon-twitter:before {
+    content: "\f142";
+}
+.icon-upload:before {
+    content: "\f143";
+}
+.icon-user:before {
+    content: "\f144";
+}
+.icon-users:before {
+    content: "\f145";
+}
+.icon-wholesale:before {
+    content: "\f146";
+}
+.icon-world:before {
+    content: "\f147";
+}
+.icon-youtube:before {
+    content: "\f148";
+}
+
+
+    </style>
+</head>
+<body>
+
+    <h1>icons</h1>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-alert"></i>
+            </span>
+            <br>
+            <span class='label'>alert</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-apple"></i>
+            </span>
+            <br>
+            <span class='label'>apple</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-archive"></i>
+            </span>
+            <br>
+            <span class='label'>archive</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-balance"></i>
+            </span>
+            <br>
+            <span class='label'>balance</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-bank-card"></i>
+            </span>
+            <br>
+            <span class='label'>bank-card</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-bank-transfer"></i>
+            </span>
+            <br>
+            <span class='label'>bank-transfer</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-basket-add"></i>
+            </span>
+            <br>
+            <span class='label'>basket-add</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-basket"></i>
+            </span>
+            <br>
+            <span class='label'>basket</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-bio"></i>
+            </span>
+            <br>
+            <span class='label'>bio</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-book"></i>
+            </span>
+            <br>
+            <span class='label'>book</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-bulk"></i>
+            </span>
+            <br>
+            <span class='label'>bulk</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar-check"></i>
+            </span>
+            <br>
+            <span class='label'>calendar-check</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar"></i>
+            </span>
+            <br>
+            <span class='label'>calendar</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-card"></i>
+            </span>
+            <br>
+            <span class='label'>card</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chart"></i>
+            </span>
+            <br>
+            <span class='label'>chart</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-check"></i>
+            </span>
+            <br>
+            <span class='label'>check</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-cheque"></i>
+            </span>
+            <br>
+            <span class='label'>cheque</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chevron-down"></i>
+            </span>
+            <br>
+            <span class='label'>chevron-down</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chevron-left"></i>
+            </span>
+            <br>
+            <span class='label'>chevron-left</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chevron-right"></i>
+            </span>
+            <br>
+            <span class='label'>chevron-right</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chevron-up"></i>
+            </span>
+            <br>
+            <span class='label'>chevron-up</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chicken"></i>
+            </span>
+            <br>
+            <span class='label'>chicken</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-circle-empty"></i>
+            </span>
+            <br>
+            <span class='label'>circle-empty</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-circle"></i>
+            </span>
+            <br>
+            <span class='label'>circle</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-clock"></i>
+            </span>
+            <br>
+            <span class='label'>clock</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-cog"></i>
+            </span>
+            <br>
+            <span class='label'>cog</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-delete"></i>
+            </span>
+            <br>
+            <span class='label'>delete</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-download"></i>
+            </span>
+            <br>
+            <span class='label'>download</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-edit"></i>
+            </span>
+            <br>
+            <span class='label'>edit</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-euro"></i>
+            </span>
+            <br>
+            <span class='label'>euro</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-eye"></i>
+            </span>
+            <br>
+            <span class='label'>eye</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-facebook"></i>
+            </span>
+            <br>
+            <span class='label'>facebook</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-farmer-pro"></i>
+            </span>
+            <br>
+            <span class='label'>farmer-pro</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-farmer"></i>
+            </span>
+            <br>
+            <span class='label'>farmer</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-file-image"></i>
+            </span>
+            <br>
+            <span class='label'>file-image</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-file-pdf"></i>
+            </span>
+            <br>
+            <span class='label'>file-pdf</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-file"></i>
+            </span>
+            <br>
+            <span class='label'>file</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-fork"></i>
+            </span>
+            <br>
+            <span class='label'>fork</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-github"></i>
+            </span>
+            <br>
+            <span class='label'>github</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-home"></i>
+            </span>
+            <br>
+            <span class='label'>home</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-image"></i>
+            </span>
+            <br>
+            <span class='label'>image</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-info"></i>
+            </span>
+            <br>
+            <span class='label'>info</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-link"></i>
+            </span>
+            <br>
+            <span class='label'>link</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-list"></i>
+            </span>
+            <br>
+            <span class='label'>list</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-mail"></i>
+            </span>
+            <br>
+            <span class='label'>mail</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-map-marker"></i>
+            </span>
+            <br>
+            <span class='label'>map-marker</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-moneypot"></i>
+            </span>
+            <br>
+            <span class='label'>moneypot</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-payment-type"></i>
+            </span>
+            <br>
+            <span class='label'>payment-type</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-phone"></i>
+            </span>
+            <br>
+            <span class='label'>phone</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-plus"></i>
+            </span>
+            <br>
+            <span class='label'>plus</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-print"></i>
+            </span>
+            <br>
+            <span class='label'>print</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-products"></i>
+            </span>
+            <br>
+            <span class='label'>products</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-question"></i>
+            </span>
+            <br>
+            <span class='label'>question</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-refresh"></i>
+            </span>
+            <br>
+            <span class='label'>refresh</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-scale"></i>
+            </span>
+            <br>
+            <span class='label'>scale</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-search"></i>
+            </span>
+            <br>
+            <span class='label'>search</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-sign-out"></i>
+            </span>
+            <br>
+            <span class='label'>sign-out</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-square-check"></i>
+            </span>
+            <br>
+            <span class='label'>square-check</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-square"></i>
+            </span>
+            <br>
+            <span class='label'>square</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-star"></i>
+            </span>
+            <br>
+            <span class='label'>star</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-student"></i>
+            </span>
+            <br>
+            <span class='label'>student</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-tag"></i>
+            </span>
+            <br>
+            <span class='label'>tag</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-tote"></i>
+            </span>
+            <br>
+            <span class='label'>tote</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-truck-shipping"></i>
+            </span>
+            <br>
+            <span class='label'>truck-shipping</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-truck"></i>
+            </span>
+            <br>
+            <span class='label'>truck</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-twitter"></i>
+            </span>
+            <br>
+            <span class='label'>twitter</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-upload"></i>
+            </span>
+            <br>
+            <span class='label'>upload</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-user"></i>
+            </span>
+            <br>
+            <span class='label'>user</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-users"></i>
+            </span>
+            <br>
+            <span class='label'>users</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-wholesale"></i>
+            </span>
+            <br>
+            <span class='label'>wholesale</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-world"></i>
+            </span>
+            <br>
+            <span class='label'>world</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-youtube"></i>
+            </span>
+            <br>
+            <span class='label'>youtube</span>
+        </div>
+
+
+</body>
+</html>

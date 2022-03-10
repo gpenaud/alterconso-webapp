@@ -1,0 +1,77 @@
+::use 'design.mtt'::
+
+<div class="col-md-12">
+	<h2>::c.name:: - ::c._vendor.name::</h2>
+</div>
+
+<div class="col-md-3">
+	<div class="article">
+		<ul id="subnav" class="nav nav-pills nav-stacked">
+			<li id="default" ::attr class if(nav[1]=="view") 'active'::>
+				<a href="/contractAdmin/view/::c.id::">
+					<i class="icon icon-home"></i> ::_("Summary")::
+				</a>
+			</li>
+			<li id="edit">
+				<a href="/contract/edit/::c.id::">
+					<i class="icon icon-edit"></i> ::_("Edit catalog")::
+				</a>
+			</li>
+			<li id="products" ::attr class if(nav[1]=="products") 'active'::>
+				<a href="/contractAdmin/products/::c.id::">
+					<i class="icon icon-products"></i> ::_("Products")::
+				</a>
+			</li>			
+			<li id="deliveries" ::attr class if(nav[1]=="distributions") 'active'::>
+				<a href="/contractAdmin/distributions/::c.id::">
+					<i class="icon icon-calendar"></i> ::_("Distributions")::
+				</a>
+			</li>
+
+			<li id="orders" ::attr class if(nav[1]=="orders") 'active'::>
+				<a href="/contractAdmin/selectDistrib/::c.id::">
+					<i class="icon icon-basket"></i> ::_("Orders")::
+				</a>
+			</li>
+			
+			::if !c._group.hasShopMode() && c.type==0::
+				<li id="subscriptions" ::attr class if(nav[1]=="subscriptions") 'active'::>
+					<a href="/contractAdmin/subscriptions/::c.id::">
+						<i class="icon icon-calendar-check"></i> Souscriptions
+					</a>
+				</li>
+			::end::
+			<li id="documents" ::attr class if(nav[1]=="documents") 'active'::>
+				<a href="/contractAdmin/documents/::c.id::">
+					<i class="icon icon-file-pdf"></i> Documents
+				</a>
+			</li>
+			<li id="stats">
+				<a href="/contractAdmin/stats/::c.id::">
+					<i class="icon icon-chart"></i> ::_("Stats")::
+				</a>
+			</li>
+			::if navbar!=null::
+				<hr/>
+				::foreach i navbar::
+				<li ::attr class if(nav[1]==i.id) 'active'::>
+					<a href="::i.link::">
+						<i ::cond i.icon:: class="icon icon-::i.icon::" ></i>
+						 ::i.name::
+					</a>					
+				</li>
+				::end::		
+				
+			::end::
+		</ul>
+	</div>
+</div>
+
+
+<div class="col-md-9">
+	<div class="article">
+		::raw __content__::
+	</div>
+</div>
+
+::end::

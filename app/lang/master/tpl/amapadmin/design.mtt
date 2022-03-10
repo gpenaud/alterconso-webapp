@@ -1,0 +1,55 @@
+::use 'design.mtt'::
+<div class="col-md-3">
+
+	<div class="panel panel-warning">
+		
+		<ul id="subnav" class="nav nav-tabs nav-stacked" >
+			<li id="rights" ::attr class if(nav!=null && nav[1]=="rights") 'active'::>
+				<a href="/amapadmin/rights/">::_("Administration rights")::</a>
+			</li>
+			<li id="rates">
+				<a href="/amapadmin/vatRates/">::_("VAT rates")::</a>
+			</li>			
+			<li id="volunteers" ::attr class if(nav!=null && nav[1]=="volunteers") 'active'::>
+				<a href="/amapadmin/volunteers/">
+					<i class="icon icon-users"></i>  ::_("Duty Periods")::</a>
+			</li>
+			<li id="membership" ::attr class if(nav!=null && nav[1]=="membership") 'active'::>
+				<a href="/amapadmin/membership/">
+					<i class="icon icon-users"></i>  Adhésions</a>
+			</li>
+			<li id="currency">
+				 <a href="/amapadmin/currency/">
+					<i class="icon icon-payment-type"></i> ::_("Currency")::
+				</a>
+			</li>
+			<li id="documents" ::attr class if(nav!=null && nav[1]=="documents") 'active'::>
+				<a href="/amapadmin/documents">
+					<i class="icon icon-file-pdf"></i> Documents
+				</a>
+			</li>
+			::if nav != null::				
+				::foreach i nav::
+					::if i.name != null::
+						<li ::attr class if(nav[1]==i.id) 'active'::>
+							<a href="::i.link::">
+								<i ::cond i.icon:: class="icon icon-::i.icon::" ></i>
+								::i.name::
+							</a>						
+						</li>
+					::end::
+				::end::		
+			::end::
+		</ul>
+		
+	</div>
+</div>
+
+
+<div class="col-md-9">
+	<div class="article">
+	::raw __content__::	
+	</div>
+</div>
+
+::end::
