@@ -1,0 +1,6 @@
+
+- name: install docker on VM
+  import_playbook: install.yml
+
+- name: upload source code on VM
+  import_playbook: upload.yml

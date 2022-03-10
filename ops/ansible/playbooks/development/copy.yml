@@ -1,0 +1,20 @@
+
+- name: install requirements on cagette VM to AWS
+  hosts: all
+  gather_facts: no
+  remote_user: ubuntu
+  vars:
+    path: /home/gpenaud/work/ecolieu/cagette
+  tasks:
+  - name: copy Dockerfile and docker-compose.yml
+    ansible.builtin.copy:
+      src: "{{ path }}/{{ file }}"
+      dest: "/home/ubuntu/{{ file }}"
+    loop:
+    - app/Dockerfile
+    # - docker-compose.yml
+    # - app/backend/haxe_libraries/dbadmin.hxml
+    # - app/backend/cagette.hxml
+    # - app/backend/.haxerc
+    loop_control:
+      loop_var: file
