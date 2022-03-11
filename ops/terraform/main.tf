@@ -53,6 +53,10 @@ resource "aws_instance" "instance" {
     name  = "docker-server-for-cagette"
     owner = "Guillaume Penaud"
   }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i '${self.public_ip},' ../ansible/playbooks/development/install.yml"
+  }
 }
 
 output "instance_ip" {
