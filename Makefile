@@ -32,18 +32,14 @@ init:
 	terraform -chdir=ops/terraform init
 
 ## install AWS infrastructure
-install: apply deploy
+install: apply
 
 ## plan high-level infrastructure
 plan:
 	terraform -chdir=ops/terraform plan
 
-## deploy high-level infrastructure
-apply:
-	terraform -chdir=ops/terraform apply -auto-approve -compact-warnings
-
 ## destroy high-level infrastructure
-destroy:
+uninstall:
 	terraform -chdir=ops/terraform destroy -auto-approve -compact-warnings
 
 ## install docker on existing infrastructure
