@@ -9,6 +9,13 @@
   vars:
     path: /home/gpenaud/work/ecolieu/cagette
   tasks:
+
+  - name: wait for system to become reachable
+    wait_for_connection:
+
+  - name: gather facts for the first time
+    setup:
+
   - name: install docker packages
     remote_user: ubuntu
     become: yes
