@@ -80,6 +80,7 @@ RUN \
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
 ENV NEKOPATH        /usr/lib/x86_64-linux-gnu/neko
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/neko
+ENV PATH            /usr/lib/:$PATH
 
 # install and run templo
 # ------------------------------------------------------------------------------
@@ -121,7 +122,7 @@ RUN \
 # execute apache2
 # ------------------------------------------------------------------------------
 
-USER www-data
+USER root
 WORKDIR /var/www/cagette
 
 EXPOSE 80
