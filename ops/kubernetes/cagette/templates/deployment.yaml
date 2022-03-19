@@ -1,19 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-deployment
+  name: {{ .Chart.Name }}
   labels:
-    app: cagette
-    environment: production
+    app: {{ .Chart.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: cagette
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: cagette
+        app: {{ .Chart.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
@@ -23,12 +22,3 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "root"
-        - name: MYSQL_DATABASE
-          value: "db"
-        - name: MYSQL_USER
-          value: "docker"
-        - name: MYSQL_PASSWORD
-          value: "docker"

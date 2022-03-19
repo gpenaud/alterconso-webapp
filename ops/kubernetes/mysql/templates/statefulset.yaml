@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Chart.Name }}-statefulset
+  name: {{ .Chart.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  serviceName: {{ .Chart.Name }}-service
+  serviceName: {{ .Chart.Name }}
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-statefulset
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-statefulset
+        app: {{ .Chart.Name }}
     spec:
       terminationGracePeriodSeconds: 10
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pvc
+            claimName: {{ .Chart.Name }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -27,11 +27,23 @@ spec:
               protocol: TCP
               containerPort: 3306
           env:
+            - name: MYSQL_ROOT_HOST
+              value: "%"
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: ROOT_PASSWORD
-                  name: {{ .Chart.Name }}-secret
+              value: "root"
+            - name: MYSQL_DATABASE
+              value: "db"
+            - name: MYSQL_USER
+              value: "docker"
+            - name: MYSQL_PASSWORD
+              value: "docker"
+          #   - name: MYSQL_DATABASE
+          #     value: "db"
+          #   - name: MYSQL_USER
+          #     value: "docker"
+          # envFrom:
+          #   - secretRef:
+          #       name: {{ .Chart.Name }}
           volumeMounts:
             - name: {{ .Chart.Name }}-data
               mountPath: "/var/lib/mysql"
@@ -41,10 +53,10 @@ spec:
       volumes:
         - name: {{ .Chart.Name }}-data
           persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pvc
+            claimName: {{ .Chart.Name }}
         - name: {{ .Chart.Name }}-config
           configMap:
-            name: {{ .Chart.Name }}-configmap
+            name: {{ .Chart.Name }}
             items:
             - key: "my.cnf"
               path: "my.cnf"
