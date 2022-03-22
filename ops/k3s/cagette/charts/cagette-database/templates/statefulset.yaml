@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-statefulset
 spec:
   replicas: {{ .Values.replicaCount }}
-  serviceName: {{ .Chart.Name }}
+  serviceName: {{ .Release.Name }}-{{ .Chart.Name }}-statefulset
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ .Release.Name }}-{{ .Chart.Name }}-statefulset
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: {{ .Release.Name }}-{{ .Chart.Name }}-statefulset
     spec:
       terminationGracePeriodSeconds: 10
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}
+            claimName: {{ .Release.Name }}-{{ .Chart.Name }}-pvc
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -37,26 +37,19 @@ spec:
               value: "docker"
             - name: MYSQL_PASSWORD
               value: "docker"
-          #   - name: MYSQL_DATABASE
-          #     value: "db"
-          #   - name: MYSQL_USER
-          #     value: "docker"
-          # envFrom:
-          #   - secretRef:
-          #       name: {{ .Chart.Name }}
           volumeMounts:
-            - name: {{ .Chart.Name }}-data
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: "/var/lib/mysql"
-            - name: {{ .Chart.Name }}-config
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-config
               mountPath: "/etc/mysql/conf.d"
               readOnly: true
       volumes:
-        - name: {{ .Chart.Name }}-data
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
           persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}
-        - name: {{ .Chart.Name }}-config
+            claimName: {{ .Release.Name }}-{{ .Chart.Name }}-pvc
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-config
           configMap:
-            name: {{ .Chart.Name }}
+            name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
             items:
             - key: "my.cnf"
               path: "my.cnf"

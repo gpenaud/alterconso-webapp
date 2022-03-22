@@ -15,7 +15,7 @@ spec:
         app: {{ .Release.Name }}-{{ .Chart.Name }}-deployment
     spec:
       containers:
-      - name: {{ .Values.name }}
+      - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:

@@ -2,8 +2,9 @@ apiVersion: v2
 appVersion: 0.1.0
 
 dependencies:
-  - condition: database.enabled
+  - condition: cagette-database.enabled
     name: cagette-database
+    version: 0.1.0
 
 description: Cagette is a haxe website to order and centralize good, local and healthy food
 engine: gotpl

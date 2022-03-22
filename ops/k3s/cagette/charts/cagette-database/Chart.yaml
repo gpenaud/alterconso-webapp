@@ -1,8 +1,8 @@
 apiVersion: v2
-name: mysql
+name: cagette-database
 description: A Helm chart for mysql used by cagette
 
 type: application
 
 version: 0.1.0
-appVersion: "1.16.0"
+appVersion: 0.1.0
