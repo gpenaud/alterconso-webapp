@@ -1,0 +1,14 @@
+
+name: cagette-application
+replicaCount: 1
+image:
+  repository: cagette
+  pullPolicy: IfNotPresent
+  tag: "1.0.0"
+
+database:
+  service_name: cagette-database-service
+
+cagette-database:
+  enabled: true
+  name: cagette-database

@@ -1,0 +1,10 @@
+---
+replicaCount: 1
+
+image:
+  repository: mysql
+  pullPolicy: IfNotPresent
+  tag: "5.7"
+
+pv:
+  host_path: /mnt/k3s-data
