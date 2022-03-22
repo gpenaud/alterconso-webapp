@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
+data:
+  config.xml: |
+    <config
+    	lang="fr"
+    	langs="fr;de;en"
+    	langnames="Français;Deutsch;English"
+
+    	host="localhost"
+    	name = "Cagette.net"
+    	default_email = "noreply@cagette.net"
+    	webmaster_email = "mon_email@mon_domaine.fr"
+
+    	database="mysql://docker:docker@{{ .Release.Name }}-{{ .Values.database.service_name }}/db"
+    	sqllog="1"
+
+    	debug="1"
+    	cache="0"
+    	maintain="0"
+    	cachetpl="0"
+    	key="localdevkey"
+
+    	smtp_host="smtp.mandrillapp.com"
+    	smtp_port="587"
+    	smtp_user="mon_email@mon_domaine.fr"
+    	smtp_pass="blabla"
+
+    	cagette_api="http://localhost:3010"
+    />
