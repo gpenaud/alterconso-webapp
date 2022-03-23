@@ -1,0 +1,6 @@
+
+namespace: monitoring
+image:
+  repository: prom/node-exporter
+  pullPolicy: IfNotPresent
+  tag: "latest"

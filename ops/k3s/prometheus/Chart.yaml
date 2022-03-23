@@ -6,10 +6,10 @@ dependencies:
     name: kube-state-metrics
     version: "3.0.0"
     repository: "https://prometheus-community.github.io/helm-charts"
-  # - condition: cagette-database.enabled
-  #   name: memcached
-  #   version: "3.2.1"
-  #   repository: "https://another.example.com/charts"
+
+  - condition: node-exporter.enabled
+    name: node-exporter
+    version: 1.0.0
 
 description: Custom and non-operator prometheus for learning purpose and cagette supervision
 home: https://github.com/gpenaud

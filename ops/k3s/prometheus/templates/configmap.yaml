@@ -31,13 +31,15 @@ data:
           - "alertmanager.monitoring.svc:9093"
 
     scrape_configs:
-      - job_name: 'node-exporter'
-        kubernetes_sd_configs:
-          - role: endpoints
-        relabel_configs:
-        - source_labels: [__meta_kubernetes_endpoints_name]
-          regex: 'node-exporter'
-          action: keep
+
+      - job_name: 'kube-state-metrics'
+        static_configs:
+          - targets: ['{{ .Release.Name }}-kube-state-metrics.{{ index .Values "kube-state-metrics" "namespaceOverride" }}.svc.cluster.local:8080']
+
+      - job_name: 'node_exporter'
+        scrape_interval: 5s
+        static_configs:
+          - targets: ['{{ .Release.Name }}-node-exporter-service.{{ index .Values "node-exporter" "namespace" }}.svc.cluster.local:9100']
 
       - job_name: 'kubernetes-apiservers'
         kubernetes_sd_configs:
@@ -99,10 +101,6 @@ data:
         - source_labels: [__meta_kubernetes_pod_name]
           action: replace
           target_label: kubernetes_pod_name
-
-      - job_name: 'kube-state-metrics'
-        static_configs:
-          - targets: ['{{ .Release.Name }}-kube-state-metrics.{{ index .Values "kube-state-metrics" "namespaceOverride" }}.svc.cluster.local:8080']
 
       - job_name: 'kubernetes-cadvisor'
 
