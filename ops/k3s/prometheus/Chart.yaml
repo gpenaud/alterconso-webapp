@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: 0.1.0
+
+dependencies:
+  - condition: kube-state-metrics.enabled
+    name: kube-state-metrics
+    version: "3.0.0"
+    repository: "https://prometheus-community.github.io/helm-charts"
+  # - condition: cagette-database.enabled
+  #   name: memcached
+  #   version: "3.2.1"
+  #   repository: "https://another.example.com/charts"
+
+description: Custom and non-operator prometheus for learning purpose and cagette supervision
+home: https://github.com/gpenaud
+icon: https://github.com/gpenaud/img/prometheus-logo.jpg
+
+keywords:
+  - monitoring
+  - supervision
+
+maintainers:
+  - email: guillaume.penaud@gmail.com
+    name: Guillaume Penaud
+
+name: prometheus
+
+version: 0.1.0

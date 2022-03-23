@@ -1,0 +1,6 @@
+
+name: prometheus
+
+kube-state-metrics:
+  enabled: true
+  namespaceOverride: monitoring
