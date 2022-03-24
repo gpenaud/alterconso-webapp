@@ -1,3 +1,32 @@
 apiVersion: v1
-entries: {}
-generated: "2022-03-24T10:07:16.777434314+01:00"
+entries:
+  cagette-application:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-03-24T10:21:49.390309063+01:00"
+    dependencies:
+    - condition: cagette-database.enabled
+      name: cagette-database
+      repository: ""
+      version: 0.1.0
+    description: Cagette is a haxe website to order and centralize good, local and
+      healthy food
+    digest: 439400ecbc3a867d594b56d5eaabc5a782d2230031c64e29a577153d248579c1
+    home: https://github.com/gpenaud
+    icon: https://github.com/gpenaud/img/cagette-logo.jpg
+    keywords:
+    - application
+    - web
+    - http
+    - amap
+    maintainers:
+    - email: guillaume.penaud@gmail.com
+      name: Guillaume Penaud
+    name: cagette-application
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress
+    - https://wordpress.org/
+    urls:
+    - cagette-application-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-03-24T10:21:49.389444046+01:00"
