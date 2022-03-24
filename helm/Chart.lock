@@ -1,0 +1,6 @@
+dependencies:
+- name: cagette-database
+  repository: ""
+  version: 0.1.0
+digest: sha256:f1dac56579976f64aa5a045df616e61ee69f1fc8c022cf95134bac8d4a2a74c4
+generated: "2022-03-22T23:11:05.854319031+01:00"
