@@ -32,28 +32,29 @@ init:
 	terraform -chdir=ops/terraform init
 
 ## install AWS infrastructure
-install: apply
-
-## plan high-level infrastructure
-plan:
-	terraform -chdir=ops/terraform plan
+install:
+	terraform -chdir=ops/terraform apply -auto-approve -compact-warnings
+	$(MAKE) deploy-docker
+	$(MAKE) deploy-ansible
 
 ## destroy high-level infrastructure
 uninstall:
 	terraform -chdir=ops/terraform destroy -auto-approve -compact-warnings
 
 ## install docker on existing infrastructure
-deploy:
-	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/main.yml
+deploy-docker:
+	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/install-docker.yml
 
-## upload the whole archive to AWS instance
-upload:
-	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/upload.yml
-
-## copy docker-compose.yml and Dockerfile on existing infrastructure
-copy:
-	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/copy.yml
+## install docker on existing infrastructure
+deploy-ansible:
+	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/install-ansible.yml
 
 ## ssh directly in AWS instance
 ssh:
 	ssh ubuntu@$(shell terraform -chdir=ops/terraform output -raw instance_ip)
+
+## package and index helm chart
+helm:
+	cd helm
+	helm package .
+	helm repo index .
