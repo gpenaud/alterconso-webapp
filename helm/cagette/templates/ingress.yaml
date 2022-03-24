@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-    - host: localhost
+    - host: cagette.localhost
       http:
         paths:
         - path: /
