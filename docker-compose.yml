@@ -7,6 +7,19 @@ volumes:
   database:
 
 services:
+  cagette:
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./httpd/certificates:/etc/apache2/certificates
+      - ./httpd/vhost.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - mysql
+    networks:
+      - cagette
+
   mysql:
     image: mysql:5.7
     environment:
@@ -22,12 +35,3 @@ services:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       - cagette
-
-  cagette:
-    build: .
-    ports:
-      - 80:80
-    networks:
-      - cagette
-    depends_on:
-      - mysql
