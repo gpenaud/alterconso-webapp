@@ -104,10 +104,10 @@ RUN \
   a2enmod rewrite && \
   a2enmod neko
 
-# # change some configurations
-# RUN \
-#   sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf && \
-#   sed -i 's!/var/www/html!/var/www/cagette/www!g' /etc/apache2/sites-available/000-default.conf
+# remove default vhosts
+RUN rm -f \
+  /etc/apache2/sites-available/000-default.conf \
+  /etc/apache2/sites-enabled/000-default.conf
 
 # create apache2 certificates directory
 RUN \
