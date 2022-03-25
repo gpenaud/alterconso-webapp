@@ -6,6 +6,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "1.0.0"
 
+vhost:
+  name: cagette.localhost
+
 database:
   service_name: cagette-database-service
 

@@ -3,6 +3,20 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
 data:
+  vhost.conf: |
+    <VirtualHost *:80>
+      ServerName  {{ .Values.vhost.name }}
+      ServerAdmin  guillaume.penaud@gmail.com
+
+      DocumentRoot /var/www/cagette/www
+
+      <Directory /var/www/cagette/www>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+      </Directory>
+    </VirtualHost>
+
   config.xml: |
     <config
     	lang="fr"

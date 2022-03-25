@@ -23,14 +23,23 @@ spec:
           containerPort: 80
           protocol: TCP
         volumeMounts:
-        - name: {{ .Release.Name }}-{{ .Chart.Name }}-config-xml
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-configuration
           mountPath: "/var/www/cagette/config.xml"
           subPath: "config.xml"
           readOnly: true
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-configuration
+          mountPath: "/etc/apache2/sites-available/{{ .Values.vhost.name }}.conf"
+          subPath: "vhost.conf"
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-configuration
+          mountPath: "/etc/apache2/sites-enabled/{{ .Values.vhost.name }}.conf"
+          subPath: "vhost.conf"
+          readOnly: true
       volumes:
-      - name: {{ .Release.Name }}-{{ .Chart.Name }}-config-xml
+      - name: {{ .Release.Name }}-{{ .Chart.Name }}-configuration
         configMap:
           name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
           items:
           - key: "config.xml"
             path: "config.xml"
+          - key: "vhost.conf"
+            path: "vhost.conf"

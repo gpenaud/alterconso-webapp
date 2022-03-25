@@ -3,10 +3,16 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-ingress
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/redirect-permanent: "true"
 spec:
+  tls:
+  - hosts:
+      - {{ .Values.vhost.name }}
+    secretName: {{ .Release.Name }}-{{ .Chart.Name }}-secret-tls
   rules:
-    - host: cagette.localhost
+    - host: {{ .Values.vhost.name }}
       http:
         paths:
         - path: /
