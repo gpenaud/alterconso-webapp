@@ -98,16 +98,34 @@ ENV APACHE_RUN_USER  www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR   /var/log/apache2
 
+# enable modules
 RUN \
+  a2enmod ssl && \
   a2enmod rewrite && \
-  a2enmod neko && \
-  sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf && \
-  sed -i 's!/var/www/html!/var/www/cagette/www!g' /etc/apache2/sites-available/000-default.conf && \
+  a2enmod neko
+
+# # change some configurations
+# RUN \
+#   sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf && \
+#   sed -i 's!/var/www/html!/var/www/cagette/www!g' /etc/apache2/sites-available/000-default.conf
+
+# create apache2 certificates directory
+RUN \
   chmod --recursive o+rwx /var/log/apache2 /var/run/apache2 && \
+  mkdir -p /etc/apache2/certificates
+
+# change setcap
+RUN \
   # allow apache2 to be executed by user www-data
   setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2 && \
-  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2ctl && \
-  service apache2 restart
+  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2ctl
+
+# link logs to stderr and stdout
+RUN \
+  ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
+  ln -sf /proc/self/fd/1 /var/log/apache2/error.log
+
+RUN service apache2 restart
 
 # clean up packages
 # ------------------------------------------------------------------------------
