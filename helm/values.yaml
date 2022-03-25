@@ -1,6 +1,9 @@
 
 name: cagette-application
+
+namespace: default
 replicaCount: 1
+
 image:
   repository: cagette
   pullPolicy: IfNotPresent

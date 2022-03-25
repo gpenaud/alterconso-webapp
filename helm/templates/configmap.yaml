@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-configmap
+  namespace: {{ .Values.namespace }}
 data:
   vhost.conf: |
     <VirtualHost *:80>
