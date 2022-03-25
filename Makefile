@@ -27,34 +27,24 @@ help:
 		{ lastLine = $$0 }' $(MAKEFILE_LIST)
 	@printf "\n"
 
-## init terraform modules
-init:
-	terraform -chdir=ops/terraform init
+## start cagette stack locally
+up:
+	docker-compose up --build --detach
+	docker-compose logs --follow cagette
 
-## install AWS infrastructure
-install:
-	terraform -chdir=ops/terraform apply -auto-approve -compact-warnings
-	$(MAKE) deploy-docker
-	$(MAKE) deploy-ansible
-
-## destroy high-level infrastructure
-uninstall:
-	terraform -chdir=ops/terraform destroy -auto-approve -compact-warnings
-
-## install docker on existing infrastructure
-deploy-docker:
-	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/install-docker.yml
-
-## install docker on existing infrastructure
-deploy-ansible:
-	ansible-playbook -i "$(shell terraform -chdir=ops/terraform output -raw instance_ip)," ops/ansible/playbooks/development/install-ansible.yml
-
-## ssh directly in AWS instance
-ssh:
-	ssh ubuntu@$(shell terraform -chdir=ops/terraform output -raw instance_ip)
+## stop local cagette stack
+down:
+	docker-compose down --volumes
 
 ## package and index helm chart
-helm:
-	cd helm
-	helm package .
-	helm repo index .
+package-helm:
+	helm package --destination helm/ helm/
+	helm repo index helm/
+
+install-mkcert:
+	sudo apt install --yes libnss3-tools
+	sudo wget -O /usr/local/bin/mkcert "https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64" && chmod +x /usr/local/bin/mkcert
+	mkcert -install
+
+generate-certificates:
+	mkcert -cert-file httpd/certificates/cert.pem -key-file httpd/certificates/key.pem cagette.localhost
