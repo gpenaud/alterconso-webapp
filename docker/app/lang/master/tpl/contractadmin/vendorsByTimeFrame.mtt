@@ -1,0 +1,68 @@
+::use 'design.mtt'::
+
+	<div class="col-md-12">
+		<div class="article">
+			
+		<h2>::_("Global view of orders - from"):: ::hDate(from):: ::_("to"):: ::hDate(to)::</h2>
+		
+		<div class="text-center">
+			$$export(/contractAdmin/vendorsByTimeFrame/::from.toString().substr(0,10)::/::to.toString().substr(0,10)::?csv=1)
+		</div>
+			
+		<hr/>
+		::foreach o orders::
+		
+		::set total = 0::
+		<table class="table table-bordered table-hover table-striped"  style="width:100%;">
+			<tr>
+				<th colspan="6">
+					<!--<div class="pull-right">$$export(::"/contractAdmin/ordersByProduct/"+o.contract.id+"?csv=1&d="+o.distrib.id::)</div>-->
+					<h4>::o.contract.name:: - ::o.contract._vendor.name::</h4>
+				</th>
+			</tr>
+			<tr>
+				<th>::_("Quantities")::</th>
+				<th>::_("Product")::</th>
+				<th>::_("Reference")::</th>
+				<th>::_("Unit price incl. VAT")::</th>
+				<th>::_("Total HT")::</th>
+				<th>::_("Total TTC")::</th>
+			</tr>
+
+			::foreach m o.orders::
+			<tr>				
+				<td class="col-md-1">
+					::formatNum(m.quantity)::
+				</td>
+				<td class="col-md-4">
+					::m.pname::
+				</td>
+				<td class="col-md-1 ref">
+					$$nullSafe(::m.ref::)
+				</td>
+				<td class="col-md-2">
+					::formatNum(m.priceTTC)::&nbsp;::currency()::
+				</td>
+				<td class="col-md-2">
+					::formatNum(m.totalHT)::&nbsp;::currency()::
+				</td>
+				<td class="col-md-2">
+					::formatNum(m.totalTTC)::&nbsp;::currency()::					
+				</td>
+				::set total = total + m.totalTTC::
+			</tr>
+			::end::
+				
+			<tr style="background:#DDD;">
+				<th colspan="5">::_("Total")::</th>
+				<th>::formatNum(total)::&nbsp;::currency()::</th>
+			</tr>
+		</table>
+		
+		::end::
+			
+	</div>
+	
+</div>
+
+::end::

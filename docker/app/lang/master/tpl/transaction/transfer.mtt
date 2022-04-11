@@ -1,0 +1,40 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article text-center">
+	
+		<div class="alert alert-success" style="font-size: 1.6em;font-weight: bold;">
+			
+			<i class="icon icon-check" aria-hidden="true"></i> ::_("Your order has been recorded !")::
+			
+		</div>
+		
+		<hr/>
+			
+    <div style="margin:32px;">
+			
+			<p>
+				<b>::_("You chose to pay by transfer"):: :</b>
+			</p>
+			<p>
+				::_("Please make a transfer of")::
+				 <b>::formatNum(amount):: ::currency()::</b>
+				
+				::_("to the following bank account:")::<br/>
+				::_("IBAN:")::  <b>::user.getGroup().IBAN::</b>
+			</p>
+			<p>
+				::_("Mention this reference in the label of the transfer in order to facilitate its process:")::<br/>
+				<span style="font-size:1.3em;margin:12px;">::code::</span> 
+			</p>
+		
+			<p>
+				<a href="/account" class="btn btn-default">
+					<i class="icon icon-chevron-right"></i> ::_("Check my orders")::</a>
+			</p>
+			
+		</div>
+		
+	</div>	
+	
+</div>
+::end::

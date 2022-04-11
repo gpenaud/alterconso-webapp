@@ -1,0 +1,226 @@
+::use 'design.mtt'::
+
+	
+<!--<div class="col-md-8 col-md-offset-2" ::cond isCovid==true::>-->
+	::if(vendors!=null && vendors.length>0)::
+	<div class="col-md-12" >
+		<div class="alert alert-warning">
+			
+			<div style="font-size:1.3em;font-weight:bold;text-align:center;margin:16px;">
+				<i class="icon icon-info"></i> Pour créer ou rejoindre un point de distribution
+			</div>			
+		
+			<div class="row">
+				<div class="col-md-3 text-center">
+					
+					<a href="https://www.cagette.net/guide-express" class="btn btn-danger" target="_blank">
+						<i class="icon icon-youtube"></i> Guide Express
+					</a>
+
+					<p style="font-size: 0.9em;margin-top:12px"><b>Commencez par ici !</b><br/> Des vidéos qui vont guideront pas à pas</p>
+					
+				</div>
+				<div class="col-md-3 text-center">
+					
+					<a href="https://wiki.cagette.net/cpro:index" class="btn btn-warning" target="_blank">
+						<i class="icon icon-book"></i>
+						Documentation
+					</a>
+					<p style="font-size: 0.9em;margin-top:12px">Pour approfondir <br/>certaines fonctions</p>
+				</div>
+				<div class="col-md-3 text-center">
+					
+					<a href="https://www.facebook.com/groups/EntraideCagettePro/" class="btn btn-warning" target="_blank">
+						<i class="icon icon-facebook"></i>
+						Groupe Facebook
+					</a>
+					<p style="font-size: 0.9em;margin-top:12px">Pour échanger avec<br/>d'autres producteurs</p>
+				</div>
+				<div class="col-md-3 text-center">
+					<p>
+						<b>Questions-réponses en visio :</b><br/>
+
+						<a href="https://us02web.zoom.us/webinar/register/WN_mFHUqBQ2S-mww9Ze_D8Zmw" target="_blank" >Mercredi 3 juin à 11h</a>	
+
+					</p>
+				</div>
+			</div>
+				
+			
+		</div>
+	</div>
+	::elseif(isGroupAdmin)::
+	<div class="col-md-12" >
+		<div class="alert alert-warning">
+			
+			<div style="font-size:1.3em;font-weight:bold;text-align:center;margin:16px;">
+				<i class="icon icon-info"></i> Pour administrer votre groupe Cagette
+			</div>			
+		
+			<div class="row">
+				<div class="col-md-3 text-center">
+					
+					<a href="https://www.cagette.net/guide-express-coordinateur/" class="btn btn-danger" target="_blank">
+						<i class="icon icon-youtube"></i> Guide Express
+					</a>
+
+					<p style="font-size: 0.9em;margin-top:12px"><b>Commencez par ici !</b><br/> Des vidéos qui vont guideront pas à pas</p>
+					
+				</div>
+				<div class="col-md-3 text-center">
+					
+					<a href="https://wiki.cagette.net/admin:index" class="btn btn-warning" target="_blank">
+						<i class="icon icon-book"></i>
+						Documentation
+					</a>
+					<p style="font-size: 0.9em;margin-top:12px">Pour approfondir <br/>certaines fonctions</p>
+				</div>
+				<div class="col-md-3 text-center">
+					
+					<a href="https://www.facebook.com/groups/EntraideCagette/" class="btn btn-warning" target="_blank">
+						<i class="icon icon-facebook"></i>
+						Groupe Facebook
+					</a>
+					<p style="font-size: 0.9em;margin-top:12px">Pour échanger avec<br/>d'autres administrateurs de groupe</p>
+				</div>
+				<div class="col-md-3 text-center">
+					<!--<p>
+						<b>Questions-réponses<br/>avec les concepteurs :<br/></b>
+						<a href="https://us02web.zoom.us/webinar/register/WN_NAlqyf7xQq2wTz2VF4sgbQ" target="_blank" >Mardi 5 mai, à 10h30 avec l'InterAMAP 44</a>
+						<a href="https://us02web.zoom.us/webinar/register/WN_NAlqyf7xQq2wTz2VF4sgbQ" target="_blank" class="btn btn-default btn-xs">S'inscrire</a><br/>
+
+						
+						<a href="https://us02web.zoom.us/webinar/register/WN_UyFxzDvpS2ORvlmedBKoWg" target="_blank" >Vendredi 8 mai, 10h30</a>
+						<a href="https://us02web.zoom.us/webinar/register/WN_UyFxzDvpS2ORvlmedBKoWg" target="_blank" class="btn btn-default btn-xs">S'inscrire</a><br/>
+
+					</p>-->					
+				</div>
+			</div>
+				
+			
+		</div>
+	</div>
+	::end::
+
+	<div class="col-md-12">
+		<h2>::_("Hello")::
+		::if whichUser()==0::
+			::user.firstName::
+		::else::
+			::user.firstName2::
+		::end::
+		 !
+		</h2>				
+	</div>
+
+	<div class="col-md-12" ::cond vendors!=null && vendors.length>0::>
+		<p>Connectez-vous à votre <b>compte producteur Cagette Pro</b> :</p>
+	</div>
+
+
+	<!-- cagette pro -->
+	<div class="col-md-12" ::cond vendors!=null::>
+		<div class="row">
+		::foreach v vendors::
+			<div class="col-md-4">
+				<div class="blockIconBadge" data-toggle="tooltip" title="Producteur équipé de Cagette Pro">
+					<i class="icon icon-farmer-pro"></i>
+				</div>
+				<a class="clickable proBlock" href="/p/pro/?vendor=::v.id::">
+					
+					::if v._image!=null::
+					<img src="::file(v._image)::" class="img-responsive" style="width:92px;float:left;margin-right:12px;" />
+					::end::						
+					<h4>::v.name::</h4>
+					
+				</a>
+			</div>
+		::end::
+		</div>
+	</div>
+	
+	<div class="col-md-12" >
+		<p>Vous êtes membre des <b>groupes Cagette</b> suivants :</p>
+	</div>
+
+	<!-- groups -->
+	<div class="col-md-12">
+		<div class="row">
+			::foreach group amaps::				
+				<div class="col-md-4">
+					<div class="blockIconBadge group" >
+						<i class="icon icon-map-marker"></i>
+					</div>
+					<a class="clickable groupBlock"  href="/user/choose?group=::group.id::">					
+						::if group._image!=null::
+						<img src="::file(group._image)::" class="img-responsive" style="width:92px;float:left;margin-right:12px;" />
+						::end::						
+						
+						<h4>::group.name::</h4>
+					</a>
+				</div>
+			::end::
+			
+			::if amaps.length==0::
+			<div class="col-md-12">
+				<div class="article text-center">
+					<p>
+						$$empty(::_("You don't belong to any group yet")::)
+					</p>	
+				</div>
+			</div>
+			::end::
+		</div>
+		
+	</div>
+
+	<!-- actions -->
+	<div class="col-md-12 text-center" style="margin-bottom:12px;" >
+		::if session.lang!="de"::
+			<a class="btn btn-default btn-lg" href="/group/map">
+				<i class="icon icon-search"></i> ::_("Find other groups near me")::
+			</a>	
+		::end::
+		<a class="btn btn-default btn-lg" href="/group/create/">
+			<i class="icon icon-plus"></i> Créer un groupe
+		</a>	
+		
+	</div>
+
+		
+	<!-- waiting list -->
+	<div class="col-md-12" ::cond wl.length>0::>
+		<div class="article">
+			<h4>::_("Subscriptions on waiting list")::</h4>
+			<table class="table">
+			::foreach w wl::
+			<tr>
+				<td>
+					<a href="/group/::w._group.id::">::w._group.name::</a>
+				</td>
+				<td>
+					::__("Request sent on ::date::",{ date:hDate(w.date) })::
+				</td>
+				<td>
+					<a href="/group/listCancel/::w._group.id::" class="btn btn-default btn-xs"><i class="icon icon-delete"></i> ::_("Cancel")::</a>
+				</td>
+			</tr>
+			::end::
+			</table>
+		</div>
+	</div>
+	<script>
+			//<![CDATA[
+			/*document.addEventListener("DOMContentLoaded", function(event) {
+				window.setTimeout(function(){
+					var txt = "Nous avons réorganisé certains menus et certaines pages pour une meilleure compréhension de Cagette.net.<br/>";
+					txt += "La gestion des distributions a aussi été revue.";
+					txt += "<br/><br/><a href='https://wiki.cagette.net/admin:distributions' target='_blank'>Voir la vidéo pour se mettre à la page</a>";
+					_.newFeature(".row h2","Mise à jour de la rentrée",txt,"bottom");
+				},2000);
+			});*/
+			//]]>
+		</script>
+
+
+::end::

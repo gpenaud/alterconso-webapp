@@ -1,0 +1,28 @@
+
+::use 'reactBase.mtt'::
+
+<div id='shop'></div>
+
+  ::set group = getCurrentGroup()::
+  ::if group!=null::
+    <script language="javascript">
+      window.addEventListener("load", function(){
+        ::if(user!=null)::
+          _.pageHeader("::raw urlEncode(group.name)::","::rights::","::user.getName()::",::user.id::);
+        ::else::
+          _.pageHeader("::raw urlEncode(group.name)::",null,null,null);
+        ::end::
+
+        _.shop(::md.id::);
+        
+      });
+    </script>
+
+  ::else::
+    <p>Aucun groupe sélectionné.</p>
+    <p><a href="/">Retour sur la page d'accueil</a></p>
+  ::end::
+
+
+
+::end::

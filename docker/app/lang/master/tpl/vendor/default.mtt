@@ -1,0 +1,54 @@
+::use 'design.mtt'::
+<div class="col-md-9">
+<div class="article">
+	
+	<h2>::_("Suppliers")::</h2>
+	
+	
+
+	<table class="table table-bordered table-hover"  style="width:100%;">
+		
+	::foreach m vendors.current()::	
+	<tr>
+		
+		<td>
+			<a href="/vendor/view/::m.id::">
+			::m.name::
+			</a>		
+		</td>
+		<td>
+			
+		</td>
+	</tr>
+	::end::
+
+	<tr >
+		<th colspan="2">
+			<a href="?page=::vendors.page-1::"> &lt;&lt; </a>
+			&nbsp;
+			page ::vendors.page::/::vendors.pages::
+			&nbsp;
+			<a href="?page=::vendors.page+1::"> &gt;&gt; </a>
+		</th>
+	</tr>
+
+	</table>
+
+	<div>
+		<a href="/vendor/insert" class="btn btn-default">::_("New suppliers")::</a>	
+	</div>
+	
+	<hr/>
+		
+</div>
+</div>
+
+<div class="col-md-3">
+	
+	
+	<div class="block">
+		::_("On this page you can manage the list of suppliers of your group.")::
+	</div>
+</div>
+
+::end::

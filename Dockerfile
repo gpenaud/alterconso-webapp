@@ -14,15 +14,7 @@ ENV NEKOPATH        /root/haxe/neko
 ENV LD_LIBRARY_PATH /root/haxe/neko
 ENV PATH            /root/haxe/neko/:$PATH
 
-RUN \
-  apt-get --yes update && apt-get --yes install \
-    curl \
-    zip
-
-RUN \
-  curl --output /tmp/cagette.zip --show-error --location "https://github.com/CagetteNet/cagette/releases/download/last_full_haxe_cagette/last_full_haxe._cagette.zip" && \
-  unzip /tmp/cagette.zip -d "/tmp" && rm -f /tmp/cagette.zip && \
-  mv "/tmp/last_full_hx _cagette/app" /app
+COPY ./docker/app /app
 
 RUN \
   npm install --global \
@@ -109,6 +101,10 @@ RUN rm -f \
   /etc/apache2/sites-available/000-default.conf \
   /etc/apache2/sites-enabled/000-default.conf
 
+# copy vhost configuration
+COPY ./docker/httpd/vhosts/http.conf /etc/apache2/sites-available/cagette.localhost.conf
+COPY ./docker/httpd/vhosts/http.conf /etc/apache2/sites-enabled/cagette.localhost.conf
+
 # create apache2 certificates directory
 RUN \
   chmod --recursive o+rwx /var/log/apache2 /var/run/apache2 && \
@@ -126,16 +122,6 @@ RUN \
   ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 RUN service apache2 restart
-
-# clean up packages
-# ------------------------------------------------------------------------------
-
-RUN \
-  apt-get --yes --purge remove \
-    haxe \
-    imagemagick \
-    libcap2-bin \
-  && rm -rf /var/lib/apt/lists/*
 
 # execute apache2
 # ------------------------------------------------------------------------------

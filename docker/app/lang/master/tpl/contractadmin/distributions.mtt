@@ -1,0 +1,135 @@
+::use 'contractadmin/design.mtt'::
+
+<h2>Participation aux distributions</h2>
+
+	<p>
+		<a href="/contractAdmin/distributions/::c.id::?participateToAllDistributions=1" class="btn btn-default btn-sm">
+			<i class="icon icon-check"></i> Participer à toutes les distributions
+		</a>
+	
+		<a href="/contractAdmin/distributions/::c.id::?old=1" class="btn btn-default btn-sm">
+			<i class="icon icon-archive"></i> ::_("Old distributions")::
+		</a>
+	</p>
+
+	<table class="table">
+		::set now = now().getTime()::
+
+		::foreach md multidistribs::
+		
+			::if md.getDate().getTime() < now::
+				::set style = "opacity:0.5;"::
+			::else::
+				::set style = ""::
+			::end::
+
+			::set d = md.getDistributionForContract(contract)::
+
+			<tr style="::style::" >
+
+				::if(d==null)::
+					<td colspan="2" class="disabled">
+						Ne participe pas à la distribution
+						<br/>
+						du ::hDate(md.getDate())::
+					</td>
+					<td>
+						<a href="/contractAdmin/participate/::md.id::/::c.id::" class="btn btn-default btn-sm">
+							<i class="icon icon-plus"></i> ::_("Participate")::
+						</a>
+					</td>
+				::else::
+					<span style="display:none;">::d.populate()::</span>
+					<td>
+						::if d.distributionCycleId!=null::
+						<i class="icon icon-refresh"></i>  
+						::end::
+						
+						::dDate(d.date):: 
+						<br/><span class="disabled">de ::hHour(d.date):: à ::hHour(d.end)::</span>
+					</td>
+					<td>
+						::md._place.name::
+					</td>
+					<td>
+						<div class="btn-group">
+
+							<a href="/contractAdmin/orders/::d._catalog.id::?d=::d.id::" class="btn btn-default btn-sm">
+								<i class="icon icon-basket"></i>&nbsp;::_("Orders")::
+							</a>
+
+							<div class="btn-group">
+								<button type="button" class="btn-noAntiDoubleClick btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span> ::_("Dates"):: 
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										::if(d._catalog.type!=0)::
+										<a href="/distribution/edit/::d.id::">
+											<i class="icon icon-calendar"></i> Personnaliser les dates d'ouverture et de fermeture de commande
+										</a>
+										::end::
+									</li>
+									<li>
+										<a href="/distribution/shift/::d.id::">
+											<i class="icon icon-calendar"></i> Reporter la distribution
+										</a>
+									</li>          
+								</ul>
+							</div>						
+							
+							<!--
+							<a href="/distribution/list/::d.id::" class="btn btn-default btn-sm">
+								<i class="icon icon-print"></i>&nbsp;::_("Distribution list")::
+							</a>-->
+
+							<a href="/distribution/delete/::d.id::" class="btn btn-default btn-sm">
+								<i class="icon icon-delete"></i>&nbsp;Ne plus participer
+							</a>
+
+						</div>
+					</td>
+				::end::
+			</tr>
+			
+		::end::
+	</table>	
+
+	<!--<table ::cond cycles.length>0:: class="table">
+		<tr>
+			<th>::_("Distribution cycle")::</th>		
+			<th></th>
+		</tr>
+		::foreach c cycles::
+		<tr>
+			<td><b>
+				::switch c.cycleType:: 						
+				::case::  ::_("Weekly")::
+				::case::  ::_("Monthly")::
+				::case::  ::_("Every 2 weeks")::
+				::case::  ::_("Every 3 weeks")::
+				::end::
+				</b>
+				: Du ::hDate(c.startDate):: au ::hDate(c.endDate)::
+			</td>
+			<td>
+				$$delete(::_("Del.")::,::"/distribution/deleteCycle/"+c.id::)
+			</td>
+		</tr>
+		::end::
+	</table>
+
+	$$insert(::_("One time distribution")::,/distribution/insert/::c.id::)
+	$$insert(::_("Distribution cycle")::,/distribution/insertCycle/::c.id::) 
+
+	-->
+	::if(c._group._contact!=null)::
+	<div class="alert alert-warning">
+		<i class="icon icon-info"></i>
+		Pour créer de nouvelles distributions, il faut aller dans l'onglet <a href='/distribution'>Distributions</a>.<br/>
+		Si vous n'y avez pas acccès, demandez à <a href="mailto:<::c._group._contact.email::>::c._group._contact.getName()::">l'administrateur du groupe</a> de créer la distribution que vous souhaitez.
+	</div>
+	::end::
+		
+	
+::end::

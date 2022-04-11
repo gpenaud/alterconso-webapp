@@ -1,0 +1,65 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article text-center">
+
+		<h2>::_("Select a mean of payment :")::</h2>
+			
+		<div style="font-size:120%;">
+			<p>
+				::_("Amount to pay"):: : <b>::formatNum(amount):: ::currency()::</b>
+			</p>
+			<p>
+				::_("Your basket has been recorded, please select a payment method to confirm it.")::			
+			</p>
+		</div>
+		
+		<div class="row">
+
+			::if(paymentTypes==null || paymentTypes.length==0)::
+			<div class="col-md-12">
+				<div class="alert alert-danger">
+				::_("Currently no payment method has been defined for this group.")::			
+				</div>
+			</div>	
+			::end::
+			
+			::foreach p paymentTypes::
+			<div class="col-md-4 col-sm-8 col-xs-12">
+				::set warning = ""::
+				::if(p.type != "moneypot" || allowMoneyPotWithNegativeBalance || futurebalance >= 0)::
+					::set class = "clickable"::
+					::set href = p.link+"/"+tmpBasket.id::
+					::if(p.type == "onthespot")::
+						::set warning = ""::
+						::foreach allowedType p.allowedPaymentTypes::
+							::set warning = allowedType.name+". " + warning::
+						::end::
+					::end::					
+				::else::
+					::set class = "clickable disabled"::
+					::set href = "#"::
+					::set warning = _("You do not have sufficient funds to pay this order with your money pot.")::
+				::end::
+				<div class="::class:: payment"  style="min-height:220px;vertical-align:middle;" onclick="_.goto('::href::')">
+					<h3>::p.name::</h3>
+					<div style="color:#999;margin:24px;">
+						::raw p.icon::
+						::if( warning )::
+							<br/>::warning::
+						::end::
+					</div>
+					<p>
+						<a href="#" class="btn btn-primary">Sélectionner</a>
+					</p>
+					
+				</div>
+			</div>		
+			::end::
+			
+		</div>
+	</div>
+</div>
+
+
+
+::end::

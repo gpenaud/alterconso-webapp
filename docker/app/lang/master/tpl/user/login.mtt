@@ -1,0 +1,8 @@
+::use 'design.mtt'::
+<div class="col-md-12" style="height:500px;">
+	<script language="javascript">	
+		_.loginBox('::redirect::',null,::loginBoxOptions.phoneRequired::,::loginBoxOptions.addressRequired::);
+	</script>
+</div>
+::end::
+

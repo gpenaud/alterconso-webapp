@@ -1,0 +1,25 @@
+-lib templo
+-lib hxevents
+-lib datetime
+-lib hscript
+-lib tink_core
+-lib tink_json
+-lib record-macros
+-lib hx3compat
+-lib thx.csv
+-lib thx.semver
+-lib utest
+
+-lib sugoi
+-lib cagette-pro
+
+-cp ../common
+-cp ../src
+-cp ../lang/master/tpl
+
+-D no-deprecation-warnings
+-D UTEST_PRINT_TESTS
+
+-neko ../www/tests.n
+-main test.TestSuite
+

@@ -1,0 +1,56 @@
+::use 'contractadmin/design.mtt'::
+
+	<h3>::_("Categories")::</h3>
+	
+	<p>
+		::raw _("You can link your products to categories, in order to better organize them in the \"shop mode\".<br/><b>To add categories: </b>select checkboxes of products and then select a category in the list at the bottom of the page. Click then on \"add\".<br /><b>To remove a category:<b/> click on it.")::
+	</p>
+	
+	<script language="javascript">
+		var tagger;
+		document.addEventListener("DOMContentLoaded", function () {
+			tagger = _.getTagger(::c.id::);
+			tagger.init();
+		});
+
+		var check = function(){
+			var inputs = document.querySelectorAll('#tagger input');
+			var value = inputs[0].checked==true;
+			for ( i of inputs ) {
+				i.checked = !value;
+			}
+		}
+	</script>
+	
+	<div id="tagger">
+		<!-- filled by ajax -->
+	</div>
+	
+	<form class="form-inline">
+		
+		<a onClick="check();" class='btn btn-default btn-noAntiDoubleClick'>::_("Select all")::</a>
+		
+		<select name="tag" id="tag" class="form-control">
+    
+			::foreach cg user.getGroup().getCategoryGroups()::
+			<optgroup label="::cg.name::">
+				::foreach cat cg.categs::
+				<option value="::cat.id::">::cat.name::</option>	
+				::end::
+			</optgroup>
+			::end::	
+			
+		</select>
+		
+		<a onClick="tagger.add()" class='btn btn-default'><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ::_("Add the category")::</a>	
+		<a onClick="tagger.submit()" class='btn btn-success'>::_("Save modifications")::</a>	
+		
+	</form>
+	
+	<div ::cond user.isAmapManager()::>
+		<hr />
+		<a  href="/amapadmin/categories/" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> ::_("Manage categories")::</a>	
+	</div>
+	
+	
+::end::

@@ -1,0 +1,182 @@
+::use 'design.mtt'::
+<div class="col-md-9">
+
+	<div class="shop">
+		<!-- 2018-09-27 -->
+
+		<div style="display:none;">
+		::if(contracts!=null)::
+			::foreach c contracts::
+				::c.name::
+			::end::
+		::end::
+		</div>
+
+		<div class="header">
+			
+			<div style="float:right;text-align:right;">
+				::if place!=null::
+				<span class="info">
+					<i class="icon icon-map-marker"></i> <a href="/place/view/::place.id::">::place::</a>
+				</span>
+				::end::
+
+				::if place!=null::
+					<div class="address">
+					$$nullSafe(::place.address1::)
+					$$nullSafe(::place.address2::)
+					$$nullSafe(::place.zipCode::)
+					$$nullSafe(::place.city::)
+					</div>
+				::end::
+			</div>
+			
+			
+			<div>
+				::set hdate = hDate(date)::
+				<div class="info" style="font-size:1.2em;">::__("Distribution on ::date::",{date:hdate})::</div>
+				
+				
+				<div class="">
+					<span class="info">
+						<i class="icon icon-clock"></i> ::_("Orders will close on")::
+					</span>
+					::raw infos::
+				</div>
+			</div>
+
+			
+			
+		</div>
+		
+		<div class="body">
+				
+			<script language="javascript">
+				var cart;
+				document.addEventListener("DOMContentLoaded", function() {
+					cart = _.getCart();
+					cart.init(::multiDistrib.id::);
+				});
+			</script>
+			
+			<div class="row">
+				::foreach p products::
+				<div class="col-xs-12 col-sm-6 col-lg-4 product product::p.id::" style="display:none;">
+
+					::set popup = "_.overlay('/shop/productInfo/" + p.id + "?distribution=" + p.distributionId + "','" + urlEncode(p.name) +"')"::
+
+					<table class="product">
+						<tr>
+							<td>
+								<a onclick="::popup::" data-toggle="tooltip" data-placement="top" title="::_('Read more')::">
+									<div style="background-image:url('::p.image::')" class="productImg" style="width:64px;height:64px;"/>
+								</a>
+								
+								<div>
+									::if p.organic:: <img src="/img/AB.png"/> ::end::
+									::if p.variablePrice:: <img src="/img/weight.png"/> ::end::
+								</div> 
+							</td>
+							<td>
+								<a onclick="::popup::" class="productName">
+									::p.name::
+									::if p.qt!=null && p.unitType!=null && p.qt>0::
+										::p.qt:: ::unit(p.unitType,p.qt>1)::
+									::end::
+								</a>
+								
+								<div class="price">::formatNum(p.price):: ::currency()::</div>
+								
+								::if p.variablePrice::
+								<div style="font-size:0.8em;font-weight:bold;">
+									<div class="vat">::raw pricePerUnit(p.price,p.qt,p.unitType)::</div>
+								</div>
+								::end::
+								
+								<div>
+									<form class="form-inline">
+									::if p.stock!=null && p.stock==0::
+										<span style="color:#AAA;">::_("Out of stock")::</span>
+									::elseif !p.orderable::
+										<span style="color:#AAA;">::_("Order closed")::</span>
+									::else::
+										::if p.stock!=null && p.stock>0 && p.stock<=10::
+										<div class="warning" >::__("Only ::pstock:: items in stock",{pstock:p.stock})::</div>
+										::end::
+										
+										<div class="input-group">
+											<input id="productQt::p.id::" type="text" value="1" style="height: 25px;width:35px;" class="form-control input-sm" maxlength="4"  data-toggle="tooltip" data-placement="top" title="::_('Quantity')::"/>
+											<span class="input-group-btn">
+												<a class="btn btn-default btn-xs" onclick="cart.add(::p.id::)">::_("Order||Order button")::</a>
+											</span>
+										</div>
+
+									::end::
+									</form>
+								</div>
+							</td>
+						</tr>
+					</table>
+					
+				</div>
+				::end::	
+			</div>
+			
+		</div>
+	</div>
+			
+</div>
+	
+
+<div class="col-md-3" id="cartContainer">
+
+
+	<div class="cartDiv">
+		
+		<h3>
+			<i class="icon icon-basket"></i>
+			::_("My order")::
+			<img id="loader" src="/img/loader.gif"/>
+		</h3>
+		<div id="cart"></div>
+		
+		<a onClick="cart.submit();" class="btn btn-default">
+			::if(user==null)::
+				::_("Sign up and validate the order")::
+			::else::
+				::_("Validate")::
+			::end::
+		</a>
+		
+		<a class="infos" href='/contract'>::_("You can check your previous orders in 'my account' section")::</a>
+		
+	</div>
+	
+	<div class="article">
+		<span class="tag active" id="tag0" onclick="cart.filter(0);" style="cursor:pointer;">
+			<i class="icon icon-check"></i> ::_("All products")::
+		</span>
+		<br/>
+		
+		::foreach g group.getCategoryGroups()::
+			<div>
+				<h4>::g.name::</h4>				
+				::foreach c g.categs::
+					<span class="tag" id="tag::c.id::" onclick="cart.filter(::c.id::);" style="background-color: ::g.color::;cursor:pointer;">::c.name::</span><br/>
+				::end::
+			</div>
+		::end::
+	</div>
+
+	<!-- additionnal blocks from plugins -->
+	::if blocks!=null::
+		::foreach b blocks::
+		<div class="block">
+			<h3>::b.title::</h3>
+			<p>::raw b.html::</p>
+		</div>
+		::end::
+	::end::
+
+</div>
+::end::

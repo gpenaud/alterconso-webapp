@@ -1,0 +1,46 @@
+﻿<style>
+table.table{
+    border-collapse: collapse;
+}
+
+table.table td{
+	border: 1px solid #ddd;
+	padding: 6px;
+}    
+</style>
+
+	
+<div>
+	::raw __content__::
+</div>
+
+<hr/>
+
+<div style="color:#666;font-size:12px;">
+
+	<!-- btn -->
+	::if group!=null::
+	<div style="width:50%;max-width:300px;margin: 12px auto;padding: 8px;text-decoration: none;background: #070;border-radius: 3px;text-align: center;">
+		<a href="http://::HOST::/group/::group.id::" style="color: white;font-weight: bold;text-decoration: none;font-size:1.2em;">
+			&rarr; ::group.name::
+		</a>
+	</div>
+	::end::
+
+	::_("This e-mail was sent from"):: <a href="http://::HOST::">::_("Cagette.net")::</a>.
+
+	::if group!=null::
+		<br/>
+		::_("You receive this message because you are part of"):: <b>::group.name::</b>
+		::if list!=null:: ( ::list:: ) ::end::
+		<br/>
+		::if (user!=null)::
+		<a href="::user.getQuitGroupLink(group)::">Cliquez ici si vous souhaitez quitter ce groupe.</a>
+		::end::
+	::end::
+
+	
+
+	
+
+</div>

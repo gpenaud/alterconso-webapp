@@ -1,0 +1,10 @@
+::use 'base.mtt'::
+	<div  id="map"></div>
+	
+	<script>
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var map = _.groupMap(::lat::,::lng::,"::escapeJS(address)::");
+	});
+	</script>
+	
+::end::

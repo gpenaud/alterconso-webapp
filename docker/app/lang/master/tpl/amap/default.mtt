@@ -1,0 +1,78 @@
+::use 'design.mtt'::
+
+	
+	<div class="col-md-3">
+		
+		<div class="block">
+			
+			<h4>
+				::user.getGroup().name::
+			</h4>
+
+			::if user.getGroup()._image!=null::
+			::if user.getGroup().extUrl!=null && user.getGroup().extUrl!=""::
+			<a href="::user.getGroup().extUrl::"><img src="::file(user.getGroup()._image)::" style="margin:auto;display: block;width: 100%;" class="thumbnail" /><br/></a>
+			::else::
+			<img src="::file(user.getGroup()._image)::" style="margin:auto;display: block;width: 100%;" class="thumbnail" /><br/>
+			::end::
+			::end::
+			
+			::raw nl2br(user.getGroup().txtIntro)::
+			<br/>
+			::if user.isAmapManager()::
+			$$edit(::_("Edit")::,amap/edit)
+			::end::
+		
+		</div>
+		
+		<div class="block">
+			<b>::_("Main contact"):: :</b><br/>
+			$$contact(::user.getGroup()._contact::)	
+		</div>
+
+	</div>
+	
+	<div class="col-md-9">
+		<div class="row">
+		
+			::foreach c contracts::
+				<div class="col-md-12">
+					<div class="article">
+						<div class="row">
+							<div class="col-md-3 text-center">
+								<div style="background-image:url('::c._vendor.getImage()::');" class="productImg xl"/> 									
+								<p>
+									<b>::c._vendor.name::</b><br/>
+									::c._vendor.city:: (::c._vendor.zipCode::)
+								</p>
+							</div>
+
+							<div class="col-md-6">
+								<h4><a href="/contract/view/::c.id::">::c.name::</a></h4>
+																
+								<div style="font-size:0;">
+								::foreach p c.getProductsPreview(5)::
+									<div data-toggle="tooltip" data-placement="top" title="::p.name::"  style="background-image:url('::p.getImage()::')" class="productImg medium"/> 
+								::end::
+								</div>
+
+							</div>
+							
+							<div class="col-md-3">
+								::if c._contact!=null::
+									<b>::_("Coordinator"):: :</b>
+									<br/>
+									$$contact(::c._contact::)
+								::end::								
+							</div>
+							
+						</div>						
+					</div>				
+				</div>
+			::end::
+			
+			
+		</div>
+	</div>
+
+::end::

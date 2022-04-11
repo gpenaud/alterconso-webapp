@@ -1,0 +1,482 @@
+::use 'design.mtt'::
+
+
+<div style="margin-top:12px;"></div>
+
+::set hasShopMode = amap.hasShopMode()::
+<div id="content" class="col-md-8">
+	
+		<!-- Welcoming message + access to tutos-->
+		::if newGroup::
+		<div class="alert alert-success">
+			<h3>::_("Welcome to Cagette.net !")::</h3>
+			<p>
+				::raw _("Congratulations, you just created a new group !<br/>As an example, we created a fake farmer and fake products.<br/>It will show you how things work together in Cagette.net.<br/>Of course, you'll be able to delete them.")::
+			</p>
+			<hr/>
+			<p>
+				::raw _("As a starter, we recommand you to follow the <b>guided tour</b> to discover step by step the main sections of the software.")::
+			</p>
+			<p>
+				<a href="/account/?startTuto=intro" class="btn btn-primary">
+					<i class="icon icon-chevron-right"></i> ::_("Start the guided tour")::
+				</a>
+
+				<a href="/home?action=deleteDemoContracts&token=::token::" class="btn btn-default">
+					::_("Delete example orders and catalogs")::
+				</a>
+			</p>
+		</div>
+		::end::
+	
+		<!-- AMAP style order forms -->
+		::if !hasShopMode::
+		<div class="row" ::cond ( openContracts!=null && openContracts.length>0 ):: style="margin-bottom: 24px;">
+			
+			<div class="col-md-12">
+				<h2>::_("Open orders")::</h2>
+			</div>	
+				
+			::foreach c openContracts::
+			<div class="col-md-4 col-sm-6">
+				<a href="/contract/view/::c.id::" class="clickable groupBlock">					
+					::set v = c._vendor::
+					::if v._image!=null::
+					<div style="background-image:url('::file(v._image)::');float:left;margin-right:12px;" class="productImg"/> 
+					::end::
+
+					<b>::c.name::</b>
+					<br/>
+					<div class="disabled">::v.name::</div>
+				</a>
+			</div>
+			::end::
+
+		</div>
+		::end::
+
+		<!-- Empty planning -->
+		::if distribs==null || count(distribs)==0::
+			<div class="homeBlock">				
+				$$empty(::_("There is no planned order currently.")::)
+			</div>			
+		::else::
+			
+			
+		::foreach d distribs::
+			::d.useCache=true::
+			<div class="distrib">
+				::set place = d.getPlace():: 
+				::set active = d.isActive()::
+				::set start = d.getDate()::
+				::set end = d.getEndDate()::
+				::set ordersStartDate = d.getOrdersStartDate(true)::
+				::set ordersEndDate = d.getOrdersEndDate(true)::
+
+				<!-- header -->
+				<div class="header ::if (active && hasShopMode):: active ::end::">
+
+					<!-- date box -->						
+					<div class="dateBoxOffset">
+					::set s = getDate(start)::
+					::if isToday(start)::
+						$$today(::s.dow::,::s.d::,::s.m::,::s.y::,::s.h::,null)
+					::else::
+						$$date(::s.dow::,::s.d::,::s.m::,::s.y::,null)
+					::end::
+					</div>
+
+					<!-- distribution date -->						
+					<div class="info">						
+						::set e = getDate(end)::
+						<i class="icon icon-clock"></i>
+						::set startHour = s.h+":"+s.i::
+						::set endHour = e.h+":"+e.i::							
+						::__("Delivery from ::start:: to ::end::||Delivery from 18:00 to 19:30",{start:startHour,end:endHour})::
+					</div>
+
+					<!-- distribution place -->	
+					<div class="info">$$placeOsm(::place::, ::d.id::)</div>
+
+                </div>
+				<!--==== Variable order block ===-->
+				::if d.getDistributions(1).length>0::
+
+					::if d.userHasOrders(user,1)::
+					
+						<!-- Variable order block with orders -->
+						<div class="content myorder" ::cond !hasShopMode::>Mes commandes variables :</div>
+
+						<div class="content orders text-center">
+							::set basket = d.getUserBasket(user)::
+							::set title = "Commande du "+hDate(d.getDate())::
+								<a onclick="_.overlay('/account/basket/::basket.id::/1','::title::')" class="btn btn-default btn-sm">
+									
+									<i class="icon icon-basket"></i> ::_("My order"):: : ::formatNum(basket.getOrdersTotal(1)):: ::currency()::
+								</a>
+							<!---::set orders = prepare(d.getUserOrders(user))::
+							
+								<div class="row">
+									::foreach c orders::									
+										<div class="col-xs-12 col-sm-6 col-lg-4" ::cond orders.length>0:: >
+											<table>
+												<tr>
+													<td>
+														<div style="background-image:url('::c.productImage::')" class="productImg" /> 
+													</td>
+													<td class="name">
+														<span ::cond c.quantity >1:: ><b>::raw c.smartQt::</b></span>
+														<span style="background-color: #B00;color:white;padding: 2px;border-radius: 3px;margin-right:3px;" ::cond c.quantity ==0:: >
+															::_("Canceled")::
+														</span>
+														::c.productName::
+													</td>
+												</tr>
+											</table>
+										</div>									
+									::end::
+								</div>-->
+								
+								::if hasShopMode && active && !amap.hasPayments():: 							
+									
+									$$edit(Modifier cette commande,/contract/editVarOrders/::d.id::)
+
+								::end::
+
+							
+						</div>
+
+					::elseif(hasShopMode)::
+						<div class="content orders">
+							<!-- products previews-->
+							::foreach p d.getProductsExcerpt(8)::
+							<div data-toggle="tooltip" data-placement="top" title="::p.name::"  style="background-image:url('::p.image::')" class="productImg medium"/> 
+							::end::
+						</div>
+					::end::
+					
+					::if(hasShopMode)::
+						
+						<!-- no var order : if shopmode, display order btn -->
+						<div class="content orders">
+							::set status = d.getState()::
+							<div class="text-center">
+								::if(status=="notYetOpen")::
+
+								<span class="disabled" style="font-size: 1.2em;">
+									<i class="icon icon-clock"></i>
+									La commande ouvrira ::hDate(ordersStartDate)::
+								</span>
+
+								::elseif(status=="open")::
+								
+								<a href="/shop/::d.id::" class="btn btn-lg btn-primary">
+									<i class="icon icon-chevron-right"></i>
+									Commander
+								</a>
+								<div class="disabled" style="font-size: 1.2em;margin-top:18px;">
+									<i class="icon icon-clock"></i>
+									La commande fermera ::hDate(ordersEndDate)::
+								</div>
+
+								::elseif(status=="closed")::
+								
+								<span class="disabled" style="font-size: 1.2em;">
+									<i class="icon icon-clock"></i>
+									::_("Orders closed")::
+								</span>
+								
+								::end::
+							</div>
+						</div>
+						
+					::end::	
+				<!--=== end VAR order block ===-->
+				::end::
+			
+				<!-- === AMAP order block === -->
+				::if d.userHasOrders(user,0)::
+					
+					<div class="content myorder" style="border-top:2px solid #EEE;">
+						::_("My CSA contracts"):: :
+					</div>
+					<div class="content orders">
+						::foreach dist d.getDistributions(0)::
+							::set orders = prepare(dist.getUserOrders(user))::
+							::if orders.length>0::
+								<h4>
+								<!--::set s = getDate(dist.date) ::
+									::set e = getDate(dist.end)::
+									<span style="color:#999;"><i class="icon icon-clock"></i> ::s.h+":"+s.i:: - ::e.h+":"+e.i::</span>
+								-->
+									&nbsp;::_("Distribution"):: <a href="/contract/view/::dist._catalog.id::">::dist._catalog.name::</a>
+								</h4>
+								
+								<div class="row">
+									::foreach c orders::										
+										<div class="col-xs-12 col-sm-6 col-lg-4" ::cond orders.length>0:: >
+											<table>
+												<tr>
+													<td>
+														<div style="background-image:url('::c.productImage::')" class="productImg" /> 
+													</td>
+													<td class="name">
+														<span ::cond c.quantity >1:: ><b>::raw c.smartQt::</b></span>
+														<span style="background-color: #B00;color:white;padding: 2px;border-radius: 3px;margin-right:3px;" ::cond c.quantity ==0:: >
+															::_("Canceled")::
+														</span>
+														::c.productName::
+														
+														::if c.userId2!=null::
+															::if user.id==c.userId::
+																::set you = c.userName::
+																::set mate = c.userName2::
+															::else::
+																::set mate = c.userName::
+																::set you = c.userName2::
+															::end::
+													
+															<br/>( 
+															
+															::raw __("alternated with ::mate::",{mate:mate})::, 
+															
+															::if getWhosTurn(c.id,dist)==false::
+													
+																::if c.userName == you::
+																	<span style="color:#080">::_("It's your turn")::</span>
+																::else::
+																	::_("It's his/her turn")::
+																::end::
+															::else::
+																::if c.userName2 == you::
+																	<span style="color:#080">::_("It's your turn")::</span>
+																::else::
+																	::_("It's his/her turn")::
+																::end::
+															::end::
+															)
+														::end::
+													</td>
+												</tr>
+											</table>
+										</div>
+										
+									::end::
+								</div>
+						
+								<div class="footer">
+									::if user.isContractManager(dist._catalog) || d.getVolunteerForUser(user).length>0:: 
+										<a href="/distribution/list/::dist.id::"><i class="icon icon-print"></i>  ::_("Distribution list")::</a>
+									::end::
+								</div>
+
+							::end::
+						
+						::end::
+					</div>
+				::elseif(!hasShopMode)::
+					<div class="content">
+						<span class="disabled">Vous n'avez rien à récupérer ce jour là.</span>
+					</div>
+					
+				::end::
+				<!-- === END AMAP BLOCK === -->	
+				
+                <!-- TIME SLOTS -->
+                
+				::if(d._slots!=null && d.userHasOrders(user,null))::
+
+				::set status = timeSlotService(d).userStatus(user.id)::
+				::set slots = d._slots::
+				
+				<div id="distrib-time-slot::d.id::"></div>
+				<!-- not registred -->
+				<div class="content">
+					<div class="alert alert-danger text-center">
+						<img height="36" src="/img/virus.svg" style="width:22px;" alt="" />
+						&nbsp;&nbsp;<b>Précautions et entraide pendant la crise sanitaire :</b><br/>
+						$$timeSlotUserMessage(::slots::,::status::,::d::)
+
+						::if(!status.isResolved && status.registered && status.has!="inNeed")::
+						<!-- edit timeslot button-->
+						<script>
+							var registerToTimeSlot = function(){
+								var elementId = 'distrib-time-slot::d.id::';
+								_NeolithicViewsGenerator.userDistribSlotsSelector(elementId,{
+									distribId: ::d.id::,
+									onCancel: function() {
+										document.getElementById(elementId).innerHTML=""
+									},
+									onRegister: function() {
+										document.location.reload(true);
+									}
+								});
+							};			
+						</script>		
+						<p>
+							<a onclick="registerToTimeSlot()" class="btn btn-default btn-xs">Modifier mon choix</a>
+						</p>			
+						
+						::end::
+						</div>
+					</div>	
+				::end::
+
+
+				<!--duty period-->
+					<div class="content">
+						
+						::set roles = d.getVolunteerForUser(user)::
+						<div class="alert alert-warning" ::cond roles.length>0::>										
+							<i class="icon icon-alert"></i>
+							::_("Please be aware that you or your spouse is a volunteer for the role:"):: 
+							::foreach r roles::
+							<b>::r._volunteerRole.name::</b>, 
+							::end::							
+							<p style="margin-top:12px;">
+								<a href="/distribution/volunteersSummary/::d.id::" class="btn btn-default btn-sm"><i class="icon icon-user"></i> ::_("Duty period details")::</a>
+							</p>
+							
+						</div>
+	
+						::set vacantVolunteerRoles = d.getVacantVolunteerRoles()::
+						<div class="alert alert-danger text-center" ::cond roles.length==0 && vacantVolunteerRoles != null  && vacantVolunteerRoles.length != 0::>										
+							<i class="icon icon-alert"></i>
+							::raw __("We need <b>::rolesNum::</b> volunteer(s) for the following roles:",{rolesNum:vacantVolunteerRoles.length})::<br/>							
+							<div>
+								::foreach role vacantVolunteerRoles::
+								<b>::role.name::</b>, 
+								::end::
+							</div>
+							<p style="margin-top:12px;">
+								<a href="/distribution/volunteersSummary/::d.id::" class="btn btn-danger btn-sm"><i class="icon icon-chevron-right"></i> Inscription</a>
+							</p>
+						</div>
+					</div>
+
+					<!-- extra html -->
+					::if(d.extraHtml!=null)::
+					<div class="content" style="font-weight:normal;">
+						<div class="text-center">
+							::raw d.extraHtml::
+						</div>
+					</div>
+					::end::
+
+					<div class="footer"></div>
+
+
+				</div>
+		<!-- end distrib-->
+		::end::
+	::end::
+
+
+	<div class="text-center" style="margin-bottom:24px;">
+		$$timeframe(::timeframe::)
+	</div>
+
+
+
+	<!-- join group -->
+	<div class="homeBlock text-center" ::cond(registerWithoutOrdering==true)::>
+		<p>
+			<img src="/img/join-a-group.png"/>
+		</p>
+		<p>
+			Inscrivez-vous à ce groupe, <br/>
+			vous recevrez un email pour l'ouverture des prochaines commandes <br/>
+			ainsi que des nouvelles des producteurs !
+		</p>
+
+		::if (user==null)::		
+		<a href="#" class="btn btn-primary" onclick="_.registerBox('/user/joingroup',null,::loginBoxOptions.phoneRequired::,::loginBoxOptions.addressRequired::)">
+			<span class="glyphicon glyphicon-plus"></span>
+			M'inscrire à ce groupe
+		</a>
+		::else::
+		<a href="/user/joingroup" class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus"></span>
+			M'inscrire à ce groupe
+		</a>
+		::end::
+	</div>
+
+	
+</div>
+	
+
+<!-- RIGHT COLUMN -->
+<div class="col-md-4">
+	
+	<div class="block" >
+		
+		::if amap._image!=null::
+		   ::if amap.extUrl!=null && amap.extUrl!=""::
+		   <a href="::amap.extUrl::"><img src="::file(amap._image)::" style="margin:auto;display: block;width: 100%;" class="thumbnail" /><br/></a>
+		   ::else::
+		   <img src="::file(amap._image)::" style="margin:auto;display: block;width: 100%;" class="thumbnail" /><br/>
+		   ::end::
+		::end::
+		
+		::if amap.txtHome!=null && amap.txtHome!=""::
+			::raw nl2br(amap.txtHome)::
+		::end::
+		
+	</div>
+	
+	<div class="block">
+		<a href="/distribution/volunteersCalendar" class="btn btn-default btn-sm">
+			<i class="icon icon-calendar"></i> ::_("Duty periods calendar")::
+		</a>
+	</div>
+
+	<div class="block" ::cond visibleDocuments.length != 0::>
+		<h4>Documents</h4>
+		<div>
+			::foreach doc visibleDocuments::
+				<i class="icon icon-file-pdf"></i><a href="::file(doc._file)::" target="_blank">  ::doc._file.name::</a><br/>					
+			::end::
+		</div>		
+	</div>
+	
+	<div class="alert alert-danger" ::cond user!=null && !user.isFullyRegistred()::>
+		<p>
+			::_("Warning, you don't have defined a password yet !")::
+		</p>
+		<a href="/user/definePassword" class="btn btn-default btn-sm"><i class="icon icon-chevron-right"></i> ::_("Set my password")::</a>
+		
+	</div>
+
+	<!-- additionnal blocks from plugins -->
+	::if blocks!=null::
+		::foreach b blocks::
+		<div class="block">
+			<h3>::b.title::</h3>
+			<p>::raw b.html::</p>
+		</div>
+		::end::
+	::end::
+</div>
+
+
+<script>
+	//<![CDATA[
+	document.addEventListener("DOMContentLoaded", function(event) {
+		/*window.setTimeout(function(){
+			var txt = "Cet onglet vous permet d'avoir une vue d'ensemble sur toutes vos distributions, leurs commandes et les producteurs qui y participent.";
+			txt += "<br/><br/><a href='https://wiki.cagette.net/admin:distributions' target='_blank'>En savoir plus</a>";
+			_.newFeature("#cagette-navbar #distributions","Nouvel onglet \"Distributions\"",txt,"bottom");
+		},2000);
+		
+		window.setTimeout(function(){
+			var txt = "Il est maintenant possible de créer des rôles afin d'avoir une gestion plus souple des permanences.";
+			txt += "<br/><br/><a href='https://wiki.cagette.net/admin:permanences' target='_blank'>En savoir plus</a>";
+			_.newFeature("#dutyPeriodsCalendarButton","Nouveau système de gestion des permanences",txt,"bottom");
+		},3000);
+		*/
+	});
+	//]]>
+</script>
+
+::end::

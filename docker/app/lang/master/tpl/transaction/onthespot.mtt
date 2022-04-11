@@ -1,0 +1,35 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article text-center">
+	
+
+		<div class="alert alert-success" style="font-size: 1.6em;font-weight: bold;">
+			
+			<i class="icon icon-check" aria-hidden="true"></i> ::_("Your order has been recorded !")::
+			
+		</div>
+		
+		<hr/>
+			
+
+		<div style="margin:32px;">
+			
+			<p>
+        <b>::_("You chose to pay on the spot at the product distribution"):: :</b>
+			</p>
+			
+			<p>
+				::_("Please prepare the following amount for the distribution"):: : <b>::formatNum(amount):: ::currency()::</b>				
+			</p>	
+		
+			<p>
+				<a href="/account" class="btn btn-default">
+					<i class="icon icon-chevron-right"></i> ::_("Check my orders")::</a>
+			</p>
+			
+		</div>
+		
+	</div>	
+	
+</div>
+::end::

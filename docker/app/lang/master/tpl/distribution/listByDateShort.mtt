@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>::_("Attendance sheet")::</title>
+	<link href="/css/print.css" rel="stylesheet"/>
+</head>
+<body>
+	
+	<h1>::user.getGroup().name::</h1>
+	<h2>Livraison du ::hDate(date)::</h2>
+	
+	
+	
+		<table style="width:100%;">
+				::set name = ""::
+				::set name2 = ""::
+				::set total = 0::
+				::set productNum = 0::
+				<tr style="font-size:120%">
+					<th>::_("Name")::</th>
+					<th>::_("Contact details")::</th>
+					<th>::_("Qty")::</th>
+					<th>::_("Product")::</th>
+					<th>::_("Signature")::</th>
+					
+				</tr>
+		
+				::foreach m orders::				
+				
+				
+				::if m.userName != name || m.userName2 != name2::
+					::set class="name"::
+				::else::
+					::set class=""::
+				::end::
+				<tr class="::class::">
+				
+					<td style="font-size:120%">
+						::if m.userName != name || m.userName2 != name2::
+								<b>
+									::set basket = getBasket(m.basketId)::							
+									<span ::cond basket!=null::>N°::basket.num:: - </span>
+									
+									::m.userName::
+								</b>
+								::if m.userName2 != null::
+									<br />::_("alternately with"):: <b>::m.userName2::</b>
+								::end::
+								::set total = 0::
+								::set productNum = 0::
+						::end::
+						
+					</td>
+					<td>
+						::if m.userName != name || m.userName2 != name2::
+							::set u = getUser(m.userId):
+							::if u !=null::
+							$$nullSafe(::u.phone::)
+							::end::
+
+							::if m.userName2 != null::
+								::set u = getUser(m.userId2):
+								::if u !=null::
+								<br />$$nullSafe(::u.phone::)
+								::end::
+							::end::
+						::end::
+						
+					</td>
+					::set name =  m.userName ::
+					::set name2 =  m.userName2 ::
+					<td>
+						::if(m.quantity==0 && m.canceled)::
+							::_("Canceled")::
+						::else::
+							::raw m.smartQt::
+						::end::
+						::set productNum = productNum+m.quantity::
+					</td>
+					<td>
+						::m.productName::
+					</td>
+					
+					<td style="width:20%;"></td>
+				</tr>
+			
+				::set next = orders[repeat.m.index+1]::
+				::end::
+
+				</table>
+				
+				<p>::raw nl2br(user.getGroup().txtDistrib)::</p>
+		
+				<p class="hidden">
+					<i>::_("Push on \"Control + P\" to print this page.")::</i>					
+				</p>
+	
+	
+	
+	<table class="" ::cond sqlLog::>
+	::foreach r sqlLog::
+	<tr ::attr class if(r.bad) 'badSql'::>
+		<td>::r.t::ms</td>
+		<td>::r.length::</td>
+		<td><a href="#" onclick="javascript:alert('::r.explain::');return false;">Exp</a></td>
+		<td><a href="#" onclick="javascript:alert('::r.stack::');return false;">Stack</a></td>
+		<td>::r.sql::</td>
+	</tr>
+	::end::
+	</table>
+	
+	
+</body>
+</html>

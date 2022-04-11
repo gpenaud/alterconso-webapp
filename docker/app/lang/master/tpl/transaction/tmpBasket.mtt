@@ -1,0 +1,75 @@
+::use 'design.mtt'::
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <div class="article">
+        
+        <div class="alert alert-warning text-center">
+            <span style="font-size: 1.2em;">
+                <i class="icon icon-alert"></i>
+                Vous avez un panier en attente pour la distribution du ::hDate(tmpBasket._multiDistrib.distribStartDate)::
+            </span>
+            <p>
+                Que voulez-vous faire ?
+            </p>        
+            
+            
+        </div>
+
+        <p class="text-center" style="margin-bottom:32px;">
+            ::if(user.getGroup().hasPayments())::
+            <a href="?confirm=1" class="btn btn-primary btn-lg"><i class="icon icon-check"></i> Confirmer et payer</a>
+            ::else::
+            <a href="?confirm=1" class="btn btn-primary btn-lg"><i class="icon icon-check"></i> Confirmer</a>
+            ::end::
+            &nbsp;&nbsp;
+            <a href="?cancel=1" class="btn btn-danger btn-lg"><i class="icon icon-delete"></i> Abandonner</a>
+            
+        </p>
+        
+        <table class="table table-striped" >
+            <tr>
+                <th>::_("Qty||short version for quantity")::</th>
+                <th>::_("Product")::</th>
+                <th>::_("Price")::</th>
+                       
+            </tr>
+            ::set total = 0::
+            ::foreach o tmpBasket.getOrders()::
+                <tr>
+                    <td>							
+                        ::raw o.quantity::
+                    </td>
+                    <td>
+                        ::if(o.product!=null)::  
+                            ::if(o.product._image!=null)::                      
+                            <img src="::file(o.product._image)::" style="width:32px;height:32px;" />
+                            ::end::
+                            
+                            ::o.product.name::                        
+                        ::else::
+                            null product
+                        ::end::
+                    </td>      
+                    <td>
+                        ::if(o.product!=null)::
+                            ::formatNum(o.product.price*o.quantity)::&nbsp;::currency()::
+                        ::end::
+                    </td>
+                </tr>
+            ::end::	
+                    
+               
+            <tr>
+                <td></td>
+                <th class="text-right">TOTAL : </th>
+                <th>::formatNum(tmpBasket.getTotal())::&nbsp;::currency()::</th>
+            </tr>
+        </table>
+        
+    </div>
+
+</div>
+<div class="col-md-2"></div>
+    
+
+::end::

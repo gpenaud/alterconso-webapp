@@ -1,0 +1,4 @@
+-D cagette-pro=1.0.0
+# @install: lix --silent download "git:git@bitbucket.org:bubar/cagette-pro.git#cec1017208bff017a299a1d0c26e419134c95cad" into cagette-pro/1.0.0/git/cec1017208bff017a299a1d0c26e419134c95cad
+#-cp ${HAXE_LIBCACHE}/cagette-pro/1.0.0/git/cec1017208bff017a299a1d0c26e419134c95cad/src
+-cp ../devLibs/cagette-pro/src

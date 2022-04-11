@@ -1,0 +1,11 @@
+::use 'design.mtt'::
+
+<div id="content" class="col-md-12">
+
+	<h1>::_("Sign up!")::</h1>
+
+	::raw form::
+
+</div>
+
+::end::

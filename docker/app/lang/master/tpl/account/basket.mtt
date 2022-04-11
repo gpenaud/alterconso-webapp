@@ -1,0 +1,72 @@
+::use 'base.mtt'::
+    ::if(print)::
+    <h3>
+        Commande de ::basket.getUser().getName()::<br/>
+        
+    </h3>
+    <h4>
+        ::set d = basket.getDistribution()::
+        Distribution du ::hDate(d.getDate()):: à ::d.getPlace().name::
+    </h4>
+    ::end::
+
+    <table class="table table-striped" >
+    <tr>
+        <th>::_("Qty||short version for quantity")::</th>
+        <th>::_("Product")::</th>
+        <th><a href="#" data-toggle="tooltip" data-placement="top" title="::_('Unit price including taxes')::">::_("U.P||short version of price per unit")::</a></th>
+        <th>::_("Sub-total")::</th>
+        <th>::_("Fees")::</th>
+        <th>::_("Total")::</th>
+   			
+    </tr>
+    ::set total = 0::
+    ::foreach o orders::
+        <tr>
+            <td>							
+                ::raw o.smartQt::
+            </td>
+            <td>
+                <a href="#" onclick="_.overlay('/shop/productInfo/::o.productId::','::o.productName::')">
+                    <img src="::o.productImage::" style="width:32px;height:32px;" />
+                        ::o.productName::
+                </a>
+            </td>
+            <td>
+                ::formatNum(o.productPrice)::&nbsp;::currency()::
+            </td>
+            <td>
+                ::formatNum(o.subTotal)::&nbsp;::currency()::
+            </td>
+            <td>							
+                $$nullSafe(::formatNum(o.fees)::)
+            </td>
+            <td>
+                ::formatNum(o.total)::&nbsp;::currency()::
+                ::set total = total + o.total::
+            </td>
+          
+        </tr>
+    ::end::	
+            
+       
+    <tr>
+        <td colspan="4">
+            ::if(print)::
+            <script>
+                window.addEventListener("load", function(){
+                    window.print();
+                });
+            </script>
+            ::else::
+            <a class="btn btn-default" href="/account/basket/::basket.id::?print=1" target="_blank"><i class="icon icon-print"></i> Imprimer ma commande</a>
+            ::end::
+            
+        </td>
+        <td>TOTAL</td>
+        <td><b>::formatNum(total)::&nbsp;::currency()::</b></td>
+    </tr>
+    </table>
+
+
+::end::

@@ -1,0 +1,50 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../www"
+		},
+		{
+			"path": "../common"
+		},
+		{
+			"path": "../data"
+		},
+		{
+			"path": "../lang/master/tpl"
+		},
+		{
+			"path": "../src"
+		},
+		{
+			"path": "../devLibs/cagette-pro"
+		},
+		{
+			"path": "../devLibs/sugoi"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#79771a",
+			"activityBar.activeBorder": "#2dd2ce",
+			"activityBar.background": "#79771a",
+			"activityBar.foreground": "#e7e7e7",
+			"activityBar.inactiveForeground": "#e7e7e799",
+			"activityBarBadge.background": "#2dd2ce",
+			"activityBarBadge.foreground": "#15202b",
+			"statusBar.background": "#4f4e11",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#79771a",
+			"titleBar.activeBackground": "#4f4e11",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#4f4e1199",
+			"titleBar.inactiveForeground": "#e7e7e799",
+			"sash.hoverBorder": "#79771a",
+			"statusBarItem.remoteBackground": "#4f4e11",
+			"statusBarItem.remoteForeground": "#e7e7e7"
+		},
+		"peacock.color": "#4f4e11"
+	}
+}

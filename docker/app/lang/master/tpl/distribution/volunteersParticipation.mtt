@@ -1,0 +1,134 @@
+::use 'design.mtt'::
+<div id="content" class="col-md-8">
+	<div class="article">
+
+		<h3>::_("Duty periods participation")::</h3>
+
+		<div>
+			<div style="float:left;width:50px;">Du</div>
+			<div style="width:210px;float:left;margin-right: 20px;" class="input-group date" id="datetimepicker-from">       
+				<span class="input-group-addon">					
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text" class="form-control"/>
+			</div>
+			<div style="float:left;width:50px;">au</div>
+			<div style="width:210px;float:left;margin-right:20px;" class="input-group date" id="datetimepicker-to">       
+				<span class="input-group-addon">					
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+				<input type="text" class="form-control"/>
+			</div>
+
+			<a id ="okdatepicker" href="::initialUrl::" class="btn btn-primary">OK</a>			
+			
+			<script type="text/javascript">
+				document.addEventListener("DOMContentLoaded", function(event) {
+					$('#datetimepicker-from').datetimepicker(
+						{
+							locale:'fr',
+							format:'LL',
+							defaultDate:moment("::from::", "YYYY-MM-DD")
+						}
+					);
+					$('#datetimepicker-to').datetimepicker(
+						{
+							locale:'fr',
+							format:'LL',
+							defaultDate:moment("::to::", "YYYY-MM-DD")
+						}
+					);
+					
+					$('#datetimepicker-from').on('dp.change',function(e){
+						setDatesUrl();
+					});
+					$('#datetimepicker-to').on('dp.change',function(e){
+						setDatesUrl();					
+					});
+
+
+				});
+
+				function setDatesUrl() {
+					var fromDate = $('#datetimepicker-from').data('DateTimePicker').date().format('YYYY-MM-DD');
+					var toDate = $('#datetimepicker-to').data('DateTimePicker').date().format('YYYY-MM-DD');
+					$('#okdatepicker').attr("href", "?from=" + fromDate + "&to=" + toDate);     				
+				}
+			</script>
+
+        </div>
+
+     
+        <hr/>
+        
+        <table class="table table-bordered">
+            <tr>
+                <th class="col-md-6">::_("Member")::</th>
+                <td></td>
+                <th class="col-md-6 text-center">::_("Duty periods done / to do")::</th>
+                
+            </tr>
+
+            ::foreach u members::
+            ::set toBeDone = genericRolesToBeDone + contractRolesToBeDoneByMemberId.get(u.id)::
+            ::set done = genericRolesDoneByMemberId.get(u.id) + contractRolesDoneByMemberId.get(u.id)::  
+            ::if(done >= toBeDone)::
+                ::set class="success text-success"::
+            ::else::
+                ::set class="danger text-danger"::
+            ::end::
+            <tr class="::class::">
+                <td>
+                    ::u.getCoupleName()::
+                </td>
+                <td>
+                    ::if(done >= toBeDone)::
+                        <i class="icon icon-check"></i>
+                    ::else::
+                        <i class="icon icon-alert"></i>
+                    ::end::
+                </td>
+                <td class="text-center">
+                    
+                    ::done:: / ::toBeDone::
+                </td>
+            </tr>
+            
+            ::end::
+        </table>
+		
+		
+			
+		<a href="/" class="btn btn-default btn-sm">
+			<i class="icon icon-chevron-left"></i> ::_("Back")::
+		</a>
+	</div>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div class="col-md-4">
+	<div class="block" >
+           
+        <ul>
+            <li>
+                <b>::multiDistribs.length::</b> distributions
+            </li>
+            <li>
+                <b>::members.length::</b> adhérents
+            </li>
+            <li>
+                <b>::totalRolesToBeDone::</b> permanences à faire
+            </li>
+            <li>
+                <b>::totalRolesDone::</b> inscriptions à une permanence
+            </li>
+        </ul>
+        
+        <p>
+            Par défaut, la fenêtre de temps sélectionnée correspond à une année à partir de votre date de renouvellement d'adhésion.
+        </p>
+      
+    </div>
+</div>
+
+::end::

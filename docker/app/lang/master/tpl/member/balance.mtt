@@ -1,0 +1,63 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<h2>::_("Balance of members")::</h2>	
+</div>
+
+<div class="col-md-4">	
+	<div class="article">
+		<h3>::_("Balanced")::</h3>
+		<table class="table">
+			::foreach ua balanced::
+			<tr>
+				<td>
+					<a href="/member/payments/::ua._user.id::">::ua._user.getName()::</a>
+				</td>
+				<td class="info">
+					::ua.balance::&nbsp;::currency()::
+				</td>
+			</tr>
+			::end::
+		</table>
+		
+	</div>
+</div>
+<div class="col-md-4">	
+	<div class="article">
+		<h3>::_("In debt")::</h3>
+		<table class="table">
+			::foreach ua debt::
+			<tr>
+				<td>
+					<a href="/member/payments/::ua._user.id::">::ua._user.getName()::</a>
+				</td>
+				<td class="danger">
+					::ua.balance::&nbsp;::currency()::
+				</td>
+			</tr>
+			::end::
+		</table>
+		
+	</div>
+</div>
+<div class="col-md-4">	
+	<div class="article">
+		<h3>::_("In credit")::</h3>
+		<table class="table">
+			::foreach ua credit::
+			<tr>
+				<td>
+					<a href="/member/payments/::ua._user.id::">::ua._user.getName()::</a>
+				</td>
+				<td class="success">
+					::ua.balance::&nbsp;::currency()::
+				</td>
+			</tr>
+			::end::
+		</table>
+		
+	</div>
+</div>
+
+
+
+::end::

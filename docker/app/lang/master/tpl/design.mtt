@@ -1,0 +1,168 @@
+﻿::use 'base.mtt'::
+		
+		::if getParam('__redirect')!=null::
+		<!-- need to login to go to this page-->
+		<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+		_.loginBox('::raw getParam("__redirect")::');
+		});</script>
+		::end::
+
+		<div class="row header" style="margin-top:10px;">
+			<div class="col-md-8">
+
+				::set groupName = getCurrentGroup()::
+				::if groupName!=null && noGroup!=true::
+					<h1>::groupName::</h1>
+				::else::
+					<div style="margin-bottom:22px;" >
+							<a href="http://www.cagette.net" target="_blank">
+								<img src="/img/logo3.png" alt="::NAME::" />
+							</a>
+					</div>		
+				::end::
+				
+				
+			</div>
+			
+			<div class="col-md-4 accountBlock">					
+				$$userMenu(::user::)
+			</div>				
+		</div>
+		
+		
+			::if user != null && noGroup!=true::
+
+			<nav class="navbar navbar-default" ::cond user.getGroup()!=null::>
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cagette-navbar">
+						<span class="sr-only">Toggle navigation</span>						
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>				  
+					</div>	
+				
+					<div class="collapse navbar-collapse" id="cagette-navbar">
+						::set category = breadcrumb()[1]::
+						::if(category!=null):: ::set category=category.id:: ::end::
+						<ul class="nav navbar-nav navbar-left">
+							<li ::attr class if(category=="home") 		'active' ::>
+								<a href="/">
+									<i class="icon icon-basket"></i>  Commandes
+								</a>
+							</li>
+							<li ::attr class if(category=="account" ) 	'active' ::>
+								<a href="/account">
+									<i class="icon icon-user"></i> ::_("My account")::
+								</a>
+							</li>
+							<li ::attr class if(category=="amap") 		'active' ::>
+								<a href="/amap">
+									<i class="icon icon-farmer"></i> ::_("Farmers")::
+								</a>
+							</li>
+							
+						</ul>
+						
+						<ul class="nav navbar-nav navbar-right admin" >
+							<li id="member" ::attr class if(category=="member") 	'active' ::>								
+								<a href="/member" ::cond user.canAccessMembership()::>
+									<i class="icon icon-users"></i> ::_("Members")::
+								</a>
+							</li>
+							<li id="distributions" ::attr class if(category=="distribution") 	'active' ::>
+								<a href="/distribution" ::cond user.canManageAllContracts()::>
+									<i class="icon icon-calendar"></i>  ::_("Distributions")::
+								</a>
+							</li>
+							<li id="contractadmin" ::attr class if(category=="contract") 'active' ::>
+								<a href="/contractAdmin" ::cond user.isContractManager(null)::>
+									<i class="icon icon-book"></i> ::_("Catalogs")::
+								</a>
+							</li>
+							<li id="messages" ::attr class if(category=="messages") 	'active' ::>
+								<a href="/messages" ::cond user.canAccessMessages()::>
+									<i class="icon icon-mail"></i>  ::_("Messaging")::
+								</a>
+							</li>
+							<li id="amapadmin" ::attr class if(category=="amapadmin") 	'active' ::>
+								<a href="/amapadmin" ::cond user.isAmapManager()::>
+									<i class="icon icon-cog"></i>  Paramètres
+								</a>
+							</li>							
+						</ul>
+						
+					</div>
+				
+			</nav>
+			
+		::end::
+		
+		<!-- Breadcrumb -->
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+					<li><a href="/user/choose">Accueil</a></li>
+					::foreach section breadcrumb()::
+						<li id="::section.id::"><a href="::section.link::">::section.name::</a></li>
+					::end::
+				</ol>
+			</div>
+		</div>
+		
+		<!-- Notifications -->
+		<div class="row">
+			<div id="content" class="col-md-12">
+				::foreach notification getMessages()::
+				<div class="alert ::if notification.error:: alert-danger ::else:: alert-success ::end::" ::cond notification::>
+					::if notification.error::
+					<i class="icon icon-alert"></i>
+					::else::
+					<i class="icon icon-check"></i>
+					::end::
+					
+					::raw notification.text::					
+				</div>
+				::end::
+			</div>	
+		</div>
+		
+		<!-- extra notification block for plugins -->
+		::if extraNotifBlock!=null::
+			::raw extraNotifBlock::
+		::end::
+		
+		<div class="row">
+			::raw __content__::
+		</div>	
+		
+		<!--<div class="row footer-info">
+			<div class="col-md-12 alert-danger text-center" style="border-radius: 8px;margin:8px 0;padding:8px 0;">
+				<span class="glyphicon glyphicon-cog"></span>
+				<b>Attention</b> : Cagette.net sera en maintenance le <b>mercredi 6 Février de 23h à 2h</b>.				
+				
+			</div>
+		</div>-->
+	
+		$$footer()
+		
+		<div class="row">
+			<div class="col-md-12">			
+				<!--  SQL LOG -->
+				<table class="sqlLog table table-bordered" ::cond sqlLog::>
+				<tr><th colspan="5">::sqlLog.length:: queries</th></tr>
+				::foreach r sqlLog::
+				<tr ::attr class if(r.bad) 'badSql'::>
+					<td>::r.t::ms</td>
+					<td>::r.length::</td>
+					<td><a href="#" onclick="javascript:alert('::r.explain::');return false;">Exp</a></td>
+					<td><a href="#" onclick="javascript:alert('::r.stack::');return false;">Stack</a></td>
+					<td>::r.sql::</td>
+				</tr>
+				::end::
+				</table>
+			</div>
+		</div>
+			
+::end::

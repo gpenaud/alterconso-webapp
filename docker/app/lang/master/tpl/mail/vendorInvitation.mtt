@@ -1,0 +1,57 @@
+:: use 'mail/design.mtt'::
+
+<div style="max-width:400px;margin:auto;border:solid 1px #AAA;border-radius:8px;padding:12px;text-align:center;font-family:Arial;">
+	
+	<img src="http://::HOST::/img/logo2.png" title="Cagette.net" />
+	
+
+
+	<p>
+		::_("Hello"):: ::vendor.name:: !,
+	</p>
+
+	<p>
+		<b>::source.getName()::</b> du groupe <b>::sourceGroup.name::</b> souhaite organiser des commandes de vos produits sur Cagette.net.
+	</p>
+
+	<p>
+		<a href="https://www.cagette.net">Cagette.net</a> est un site web gratuit qui permet aux groupes de consommateurs 
+		de commander des produits locaux, bio et/ou en direct de la ferme.
+	</p>
+
+	<p>
+		Vous avez maintenant un compte qui vous permettra de mettre à jour votre <b>fiche producteur</b>, 
+		et également de faire des commandes sur Cagette.net si vous le souhaitez. <br/>
+		Cliquez sur le lien ci-dessous pour définir un mot de passe et finaliser votre inscription. <br/>
+		Vous pourrez ensuite vous connecter sur <a href="https://www.cagette.net">Cagette.net</a> 
+		quand vous le souhaitez en utilisant votre email (::vendor.email::) et votre mot de passe.
+	</p>
+
+	<a href="http://::HOST::/user/validate/::k::" class="btn" style="display:block;padding:8px;background:#227700;border-radius:8px;width:auto;color: white;margin: 12px; text-decoration: none;margin-top:16px;font-size:120%;">
+		&raquo; ::_("Finalize your subscription")::
+	</a>
+
+	::set link = 'https://www.cagette.net/producteurs?utm_source=freevendorMail'::
+	<p>
+		<img src="https://www.cagette.net/wp-content/uploads/2017/12/photo3.jpg" style="width:380px;margin:auto;margin-bottom:12px;"/>
+		<br/>
+
+		Si vous souhaitez devenir autonome dans la gestion de votre vente directe sur Internet, nous vous invitons 
+		à découvrir <a href="::link::" target="_blank">Cagette Pro</a> et notre formation <b>"Développer sa vente directe grâce à Internet"</b>
+	</p>
+
+	<p>
+		A l'issu de cette formation, vous saurez comment gérer votre catalogue de produits et vos ventes sur Internet en toute autonomie.<br/>
+		Depuis un seul tableau de bord, vous pourrez organiser vos commandes sur l'ensemble de vos points de livraisons : 
+		AMAPs, groupements d'achats, vente à la ferme, Drives de producteurs...			
+	</p>
+
+	<a href="::link::" class="btn" style="display:block;padding:8px;background:#227700;border-radius:8px;width:auto;color: white;margin: 12px; text-decoration: none;margin-top:16px;font-size:120%;">
+		&raquo; En savoir plus sur Cagette Pro
+	</a>
+
+	
+</div>
+
+
+::end::

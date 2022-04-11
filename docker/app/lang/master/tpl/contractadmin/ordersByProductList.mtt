@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Bon de commande</title>
+	<link href="/css/print.css" rel="stylesheet"/>
+</head>
+<body>
+	<table class="table table-bordered table-hover"  style="width:100%;">
+		<tr>
+			<td>
+				::if group._image!=null::
+					<img src="::file(group._image)::" style="margin:auto;height:150px;" class="thumbnail" />
+				::end::
+			</td>
+			<td>
+				<h1>::group.name::</h1>
+				::if distribution!=null::
+					<h2>Livraison du <b>::hDate(distribution.date)::</b></h2>
+				::end::
+				<h2>::c.name:: - ::c._vendor.name::</h2>		
+			</td>
+			<td>
+				::set cv = c._vendor::
+				::if cv._image!=null::
+					<img src="::file(cv._image)::" class="thumbnail" style="margin:auto;height:150px;" />
+				::end::
+			</td>
+		</tr>
+	</table>
+	
+	<p>
+		::set cc = c._contact::
+		::set cv = c._vendor::
+		<b>Responsable contrat : </b>  ::cc.firstName:: ::cc.lastName::, ::cc.email::, 
+		::if cc.phone!=null :: ::cc.phone:: ::end::
+	</p>
+	<p>
+		<b>Producteur : </b>::cv.name:: , 
+		::if cv.email!=null :: ::cv.email:: ::end::, 
+		::if cv.phone!=null :: ::cv.phone:: ::end::
+	</p>
+		
+	<p>
+	<h3>::_("Summary table per product")::</h3>
+		::_("Be careful, if the price of the product was modified during the sale, every order of a member is taken into account with the price as it was at the time of the creation of the order")::
+	</p>
+	::set total = 0::
+	<table class="table table-bordered table-hover"  style="width:100%;">
+		<tr style="border-top: 2px solid #AAA;">
+			<th>::_("Weight/Vol.")::</th>
+			<th>::_("Quantities")::</th>
+			<th>::_("Product")::</th>
+			<th>::_("Reference")::</th>
+			<th>::_("Unit price incl. VAT")::</th>
+			<th>::_("Total")::</th>
+		</tr>
+		::foreach m orders::			
+		<tr style="border-top: 2px solid #AAA;">		
+			<td>
+				::raw m.weightOrVolume::
+			</td>
+			<td>
+				::formatNum(m.quantity)::
+			</td>
+			<td>
+				::m.pname::
+			</td>
+			<td>
+				$$nullSafe(::m.ref::)
+			</td>
+			<td>
+				::formatNum(m.priceTTC)::&nbsp;::currency()::
+			</td>
+			<td>
+				::formatNum(m.totalTTC)::&nbsp;::currency()::
+				::set total = total + m.totalTTC::
+			</td>
+		</tr>
+		::end::
+			
+		<tr style="background:#DDD;">	
+			<th colspan="5">::_("Total")::</th>
+			<th>::formatNum(total)::&nbsp;::currency()::</th>
+		</tr>
+	</table>
+	<p class="hidden"><i>::_("Push \"Control + P\" to print this page.")::</i></p>	
+</body>
+</html>

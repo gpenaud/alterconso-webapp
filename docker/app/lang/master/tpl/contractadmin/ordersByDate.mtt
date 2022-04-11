@@ -1,0 +1,176 @@
+::use 'design.mtt'::
+
+
+
+
+	<div class="col-md-12">
+		<div class="article">
+			
+			<div class="text-center">
+				<h3>
+				Distribution du ::hDate(date)::
+				</h3>	
+				<h4><i class="icon icon-map-marker"></i>::place::</h4>
+				<br/>
+				<!--::if(confirmed)::
+				::_("Validated")::
+				::else::
+				::_("Not validated")::
+				::end::-->
+			</div>	
+		
+		<div class="text-center">
+
+			<a class="btn btn-default btn-sm"
+				onclick="_.initOrderBox(null, ::distrib.id::, null, 1,'::escapeJS(hDate(date))::','::escapeJS(place.toString())::', null, '::currency()::', ::user.getGroup().hasPayments()::, '/contractAdmin/ordersByDate/::date::/::place.id::')">
+				<i class="icon icon-plus"></i>
+				::_("New order")::
+			</a>
+			<a href="/distribution/listByDate/::date.toString().substr(0,10)::/::place.id::/csv" class="btn btn-default btn-sm"> <i class="icon icon-list"></i> ::_("CSV Export"):: </a>
+			<a href="/distribution/listByDate/::date.toString().substr(0,10)::/::place.id::" class="btn btn-default btn-sm"> <i class="icon icon-print"></i> ::_("Attendance sheet"):: </a>
+			
+			::if ctotal::
+			<a href="/contractAdmin/ordersByDate/::date.toString().substr(0,10)::/::place.id::" class="btn btn-default btn-sm">::_("Totals per member")::</a>
+			::else::
+			<a href="/contractAdmin/ordersByDate/::date.toString().substr(0,10)::/::place.id::?ctotal=1" class="btn btn-default btn-sm">::_("Sub-totals per catalog")::</a>
+			::end::
+			
+			<a href="/contractAdmin/vendorsByDate/::date.toString().substr(0,10)::/::place.id::" class="btn btn-default btn-sm">::_("Totals per supplier")::</a>
+		</div>
+
+		
+		<hr/>
+		
+		<table class="table table-bordered table-hover table-condensed"  style="width:100%;">
+			
+			::set total = 0:: <!-- big total -->
+			::set subtotal = 0:: <!-- total per user -->
+			::set contractTotal = 0:: <!-- total per contract -->
+			
+			::foreach m orders::
+				
+				::set i = repeat.m.index::
+				
+				<!-- name change -->
+				::if orders[i-1]==null || m.userName != orders[i-1].userName || m.userName2 != orders[i-1].userName2::
+				
+					<tr class="darkhead">
+						<td colspan="9">
+							
+							::set basket = getBasket(m.basketId)::
+							
+							<div class="basketNumber" ::cond basket!=null:: >
+								<i class="fa fa-shopping-basket" aria-hidden="true"></i> ::_("Num"):: ::basket.num::
+							</div>
+							
+							<a href="/member/view/::m.userId::" target="_blank">::m.userName::</a> 
+							::if m.userName2!=null::
+								<span class="glyphicon glyphicon-refresh"></span> ::_("alternately with"):: ::m.userName2::
+							::end::
+							::set contractTotal = 0::
+
+							<a class="btn btn-default btn-xs pull-right"
+						onclick="_.initOrderBox( ::m.userId::, ::distrib.id::, null, 1, '::escapeJS(hDate(date))::', '::escapeJS(place.toString())::', '::escapeJS(m.userName)::','::currency()::', ::user.getGroup().hasPayments()::,'/contractAdmin/ordersByDate/::date::/::place.id::')">
+							<i class="icon icon-edit"></i>
+								::_("Edit")::
+						</a>	
+						</td>
+					</tr>
+					<tr>
+						<th>::_("Catalog")::</th>
+						<th>::_("Qty")::</th>
+						<th>::_("Ref")::</th>
+						<th>::_("Product")::</th>
+						<th><a href="#" data-toggle="tooltip" data-placement="top" title="::_("Unit price incl. VAT")::">::_("U.P.")::</a></th>
+						<th>::_("Sub-total")::</th>
+						<th>::_("Fees")::</th>
+						<th>::_("Total")::</th>
+						
+					</tr>
+			
+				::end::
+				
+				<!-- 1 order line -->
+				<tr>
+					<td>
+						<a href="/contractAdmin/view/::m.catalogId::">
+							::short(m.catalogName,40)::
+						</a>
+					</td>
+					<td>
+						::if(m.quantity==0 && m.canceled)::
+							<span style="color:#AAA">::_("Canceled")::</span>
+						::else::
+							::raw m.smartQt::
+						::end::
+					</td>
+					<td class="ref">
+						$$nullSafe(::m.productRef::)
+					</td>
+					<td>
+						::short(m.productName,40)::
+					</td>
+					<td>
+						::formatNum(m.productPrice)::&nbsp;::currency()::
+					</td>
+					<td>
+						::formatNum(m.subTotal)::&nbsp;::currency()::
+					</td>
+					<td>
+						<!-- fees -->
+						::if m.percentageValue!=null::
+						<a href="#" data-toggle="tooltip" data-placement="top" title="::m.percentageName:: : ::m.percentageValue:: %">
+							::formatNum(m.fees)::&nbsp;::currency()::
+						</a>
+						::end::
+					</td>
+					<td>
+						<!-- total -->
+						::formatNum(m.total)::&nbsp;::currency()::
+						::set total = total + m.total::
+						::set subtotal = subtotal + m.total::
+						::set contractTotal = contractTotal + m.total::
+					</td>
+					
+					
+				</tr>
+			
+				<!-- contract total -->
+				::if  ctotal && (orders[i+1]==null || m.catalogName != orders[i+1].catalogName || m.userName != orders[i+1].userName )::
+					
+					<tr style="background:#DDD;">					
+						<th colspan="7" class="text-right">Total ::m.catalogName::</th>
+						<th>::formatNum(contractTotal)::&nbsp;::currency()::</th>					
+						
+						::set contractTotal = 0::
+					</tr>
+				::end::
+			
+				<!-- member total -->
+				::if (orders[i+1]==null || m.userName != orders[i+1].userName) ::
+				
+					::if subtotal!=0:: 
+					<tr style="border-top:2px solid #AAA;">					
+						<th colspan="7" class="text-right">::_("Total member")::</th>
+						<th>::formatNum(subtotal)::&nbsp;::currency()::</th>					
+						::set subtotal = 0::
+					</tr>
+					::end::
+				::end::
+			
+			<!-- end orders loop -->	
+			::end::
+				
+			<!-- big total -->
+			<tr style="background:#CCC;font-size:1.3em;">					
+				<th colspan="7" class="text-right">::_("Total of all orders:"):: </th>
+				<th>::formatNum(total)::&nbsp;::currency()::</th>					
+			</tr>
+				
+
+		</table>
+	</div>
+	
+</div>
+
+::end::

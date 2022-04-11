@@ -1,0 +1,78 @@
+::use 'contractadmin/design.mtt'::
+
+		<h3>::_("Summary")::</h3>
+		
+		<table class="table table-bordered" style="width:500px;">
+			<tr>
+				<td>
+					::_("Contract type")::
+				</td>
+				<td>
+					::if contract.type==0::
+					<div class="tag big" style="background-color:#e5d3bf;width:48px;display:inline-block;" >
+						<i class="icon icon-refresh"></i>
+					</div>
+					::else::
+					<div class="tag big" style="background-color:#e5d3bf;width:48px;display:inline-block;" >
+						<i class="icon icon-basket"></i>
+					</div>
+					::end::
+
+
+					::if contract.type==0::
+					::_("CSA Contract")::
+					::else::
+					Catalogue standard (commande variable)
+					::end::
+				</td>
+			</tr>
+			<tr>
+				<td>::_("Start date")::</td>
+				<td>::dDate(contract.startDate)::</td>
+			</tr>
+			<tr>
+				<td>::_("End date")::</td>
+				<td>::dDate(contract.endDate)::</td>
+			</tr>
+		</table>
+
+		<div>
+			$$edit(::_("Edit")::,/contract/edit/::c.id::)			
+			$$edit(::_("Duplicate")::,/contractAdmin/duplicate/::c.id::)
+		</div>
+
+		<hr/>
+		
+		<h4>::_("Farmer")::</h4>
+		<table class="table table-bordered" style="width:500px;">
+			<tr>
+				<td>::_("Name")::</td>
+				<td><b>::contract._vendor.name::</b></td>
+			</tr>
+			<tr>
+				<td>::_("Email")::</td>
+				<td>$$nullSafe(::contract._vendor.email::)</td>
+			</tr>
+			<tr>
+				<td>::_("Phone")::</td>
+				<td>$$nullSafe(::contract._vendor.phone::)</td>
+			</tr>
+		</table>
+		
+		
+		<h4><a href="/contractAdmin/products/::c.id::">::_("Products")::</a></h4>
+		<div style="max-height:400px;overflow:auto;">
+			<table class="table table-bordered" style="width:500px;">
+				::foreach p contract.getProducts(true)::
+				<tr>
+					<td><img src="::p.getImage()::" style="width:32px;height:32px;" />	</td>
+					<td>::p.getName()::</td>
+					<td>::formatNum(p.price)::&nbsp;::currency()::</td>					
+				</tr>
+				::end::
+			</table>
+		</div>
+		
+		
+
+::end::

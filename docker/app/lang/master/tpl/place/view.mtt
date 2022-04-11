@@ -1,0 +1,30 @@
+::use "design.mtt"::
+
+<div class="col-md-9">
+	<div class="article" style="height:500px;">
+		<div id="place-wrapper" style="height:480px"></div>
+		
+        <script>
+            _NeolithicViewsGenerator.place("place-wrapper", {
+                placeId: ::place.id::
+            });
+        </script>
+    </div>
+</div>
+<div class="col-md-3">
+	<div class="article" style="height:500px;font-size:1.2em;">
+		
+		<strong>::place.name::</strong><br/>
+		$$nullSafe(::place.address1::)<br/>
+		$$nullSafe(::place.address2::)<br/>
+		$$nullSafe(::place.zipCode::) $$nullSafe(::place.city::)
+		<div>
+			<a href="/" class="btn btn-default btn-sm">::_("Back")::</a>
+		</div>
+	</div>
+	
+</div>
+
+
+::end::
+

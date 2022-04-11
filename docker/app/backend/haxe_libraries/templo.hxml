@@ -1,0 +1,4 @@
+-D templo=3.0.0
+# @install: lix --silent download "haxelib:/templo#3.0.0" into templo/3.0.0/haxelib
+# @run: haxelib run-dir templo ${HAXE_LIBCACHE}/templo/3.0.0/haxelib
+-cp ${HAXE_LIBCACHE}/templo/3.0.0/haxelib/

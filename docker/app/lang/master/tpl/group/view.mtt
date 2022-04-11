@@ -1,0 +1,213 @@
+::use 'base.mtt'::
+
+	
+	<div class="col-md-8 col-md-offset-2" style="margin-top:12px;">
+
+		<!-- Notifications -->
+		<div class="row">
+			<div id="content" class="col-md-12">
+				::foreach notification getMessages()::
+				<div class="alert ::if notification.error:: alert-danger ::else:: alert-success ::end::" ::cond notification::>
+					::if notification.error::
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					::else::
+					<i class="icon icon-check"></i>
+					::end::
+					
+					::raw notification.text::					
+				</div>
+				::end::
+			</div>	
+		</div>
+		
+		<div class="article">
+			
+			<div class="row">
+				<div class="col-md-4">
+					<p>
+						
+					::if group._image!=null::
+
+					   ::if group.extUrl!=null && group.extUrl!=""::
+					   <a href="::group.extUrl::"><img src="::file(group._image)::" class="img-responsive img-thumbnail" /></a><br/>
+					   ::else::
+					   <img src="::file(group._image)::" class="img-responsive img-thumbnail" /><br/>
+					   ::end::
+
+					::end::
+					</p>
+					
+					<p>
+						
+					::if isMember::
+						<!-- connected and member of the group-->
+						<a href="/user/choose?group=::group.id::" class="btn btn-primary">
+							<i class="icon icon-chevron-right"></i>
+							 ::_("Go to my account")::
+						</a>
+					
+					::else::
+					
+						<h4>Inscriptions :</h4>
+						::switch group._regOption::
+						
+						::case::
+							<p>
+								::_("Contact the person in charge in order to subscribe to this group and get to know membership conditions.")::
+							</p>
+							<p ::cond group._contact!=null::>
+								<a href="::"mailto:"+group._contact.email+"?subject=Adhésion"::"  class="btn btn-primary">
+									<span class="glyphicon glyphicon-envelope"></span>
+									::_("Membership request")::
+								</a>
+							</p>
+						::case::
+							<p>
+								::_("This group accepts subscriptions on waiting list. A coordinator will contact you.")::
+							</p>
+							<p>
+							<a href="/group/list/::group.id::"  class="btn btn-primary">
+								<i class="icon icon-chevron-right"></i>
+								::_("Subscription on waiting list")::
+							</a>
+							</p>
+							
+						::case::
+							<p>
+								<a href="/group/register/::group.id::"  class="btn btn-primary">
+									<i class="icon icon-chevron-right"></i>
+									::_("Free subscription")::
+								</a>
+							</p>
+						::case::
+							<p>
+								::_("This group is full and do not accept any more subscription.")::
+							</p>
+						::end::
+					
+					::end::
+						
+					
+					</p>
+					
+					::if user==null::
+						<hr />
+						<h4>::_("Already member? Log in:")::</h4>
+						<div class="text-center">
+							<a href="#" onclick="_.loginBox('/group/::group.id::',null,::loginBoxOptions.phoneRequired::,::loginBoxOptions.addressRequired::)" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-user"></span> ::_("Log in")::</a>
+						</div>
+					::end::
+					
+				</div>
+				<div class="col-md-8">
+					
+					<h2>
+						::group.name::
+					</h2>
+					
+					<p>
+						::if group.txtIntro!=null && group.txtIntro!=""::
+							::raw nl2br(group.txtIntro)::
+						::end::
+					</p>
+					
+					
+					<p>
+						<h3> ::_("Next deliveries")::</h3>
+						
+						::foreach d group.getDeliveries(4)::
+						
+							<div style="display:inline-block;margin-right:8px;vertical-align:top;">
+							::set s = getDate( d.date )::
+							::if isToday(d.date)::
+								$$today(::s.dow::,::s.d::,::s.m::,::s.y::,::s.h::,::d._place::)
+							::else::
+								$$date(::s.dow::,::s.d::,::s.m::,::s.y::,::d._place::)
+							::end::
+							</div>
+					
+						::end::
+					</p>
+					
+					<hr/>
+					
+					<p ::cond group._contact!=null::>
+						<h3>::_("Contact")::</h3>
+						
+						<i class="icon-user"></i>
+ 						<b>::group._contact.firstName:: ::group._contact.lastName::</b><br/>
+ 						<span ::cond group._contact.email!=null::>
+ 							<span class="glyphicon glyphicon-envelope"></span>
+							<a href="::"mailto:"+group._contact.email::">::group._contact.email::</a><br/>
+ 						</span>
+ 						<span ::cond group._contact.phone!=null && (isMember || group.canExposePhone())::>
+ 							<span class="glyphicon glyphicon-phone-alt"></span>  ::group._contact.phone::<br/>
+ 						</span>
+					</p>
+
+					<hr/>
+					
+					<p ::cond visibleGroupDocuments.length != 0::>
+						<h3>Documents</h3>
+						<div>
+							::foreach doc visibleGroupDocuments::
+								<i class="icon icon-file-pdf"></i><a href="::file(doc._file)::" target="_blank">  ::doc._file.name::</a><br/>					
+							::end::
+						</div>
+						<hr/>													
+					</p>
+					
+					<p>
+						<h3>::_("Suppliers and products")::</h3>
+						<p>
+							::_("Non-complete extract of available products:")::
+						</p>
+				
+						::foreach catalog contracts::
+						<p>
+							<b>::catalog.name::</b><br/>
+							::catalog._vendor.name::, $$nullSafe(::catalog._vendor.zipCode::) $$nullSafe(::catalog._vendor.city::)
+							<div class="row">
+								::foreach p catalog.getProductsPreview(6)::
+								<div class="col-md-2" data-toggle="tooltip" data-placement="top" title="::p.name::" >									
+									<div style="background-image:url('::p.getImage()::')" class="productImg"/> 
+								</div>
+								::end::
+							</div>
+							<div class="row">
+								<div style="padding-left:15px;">									
+									::foreach doc visibleCatalogsDocuments.get( catalog.id )::
+										<i class="icon icon-file-pdf"></i><a href="::file(doc._file)::" target="_blank">  ::doc._file.name::</a><br/>					
+									::end::
+								</div>
+							</div>	
+						</p>
+						<br/>
+						::end::
+				
+					</p>
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			<div class="col-md-4">
+				
+			</div>
+			
+			
+		</div>
+
+	</div>
+	
+	<div class="col-md-12">
+		<div id="footer">
+			<a href="::_("http://www.cagette.net")::">::_("Cagette.net, the free software of food direct-selling")::</a>.	
+		</div>
+		
+	</div>
+
+::end::

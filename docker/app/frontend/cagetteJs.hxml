@@ -1,0 +1,33 @@
+-cp ../common
+-cp ../js
+
+
+-lib sugoi
+-lib react-next
+-lib classnames
+-lib react-types
+-lib react-router-4
+-lib redux
+-lib redux-connect
+-lib redux-thunk
+-lib material-ui
+-lib hxleaflet
+-lib modular
+-lib tink_json
+-lib haxe-lodash
+-lib jQueryExtern
+-lib thx.semver
+
+
+-main App
+-debug
+-dce no
+-D debug
+-D no-deprecation-warnings
+-D react-auto-jsx
+-js ../www/js/app.js
+
+
+
+#-lib js-object
+#-D object-as-dynamic

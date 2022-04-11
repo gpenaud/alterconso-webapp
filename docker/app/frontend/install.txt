@@ -1,0 +1,44 @@
+
+
+#ATTENTION NE PAS UTILISER react-redux V6 !!!!
+
+ haxelib newrepo
+ haxelib git sugoi https://github.com/bablukid/sugoi
+ haxelib git hxleaflet https://github.com/bablukid/hxleaflet
+ haxelib install react-next
+ haxelib install material-ui 0.8.1
+ haxelib install modular
+ haxelib install react-router-4
+ haxelib install classnames
+ haxelib install react-types
+ haxelib git react-types https://gitlab.com/k-labz/haxe-oss/haxe-react-types.git
+ haxelib install tink_json
+ haxelib install css-types
+ haxelib install redux 0.5.1 
+ haxelib install redux-connect 0.1.1
+ haxelib install redux-thunk 0.0.2
+ haxelib git haxe-lodash https://github.com/kiroukou/haxe-lodash-externs.git
+
+OUTPUT EXPECTED 
+classnames: [0.1.5]
+history: [0.0.1]
+hxleaflet: [git]
+js-object: [0.0.5]
+material-ui: [0.8.1]
+modular: [0.10.15]
+react-next: [1.103.1]
+react-router-4: [0.2.3]
+react-types: [git]
+redux: [0.5.1]
+redux-connect: [0.1.1]
+redux-thunk: [0.0.2]
+sugoi: [git]
+tink_anon: [0.3.2]
+tink_core: [1.18.0]
+tink_hxx: [0.18.0]
+tink_macro: [0.17.2]
+tink_parse: [0.2.0]
+tink_json: [0.9.0]
+css-types: [0.1.0]
+haxe-loadash: [git]
+

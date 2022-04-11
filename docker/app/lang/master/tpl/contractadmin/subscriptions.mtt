@@ -1,0 +1,117 @@
+::use 'contractadmin/design.mtt'::
+
+	<div class="article">
+
+        <h3>Souscriptions</h3>
+        
+        <div class="row" ::cond validationsCount != 0:: >
+
+			<div id="content" class="col-md-12">
+				<div class="alert  alert-danger ">
+					<i class="icon icon-alert"></i> Vous avez ::validationsCount:: souscription(s) à valider.
+				</div>
+			</div>
+
+		</div>
+	
+        <br/>
+        $$insert( Nouvelle souscription, /contractAdmin/subscriptions/insert/::catalog.id:: )
+        
+        <div class="row" style="margin-top: 10px; margin-bottom: 24px;">
+            <div class="col-md-12">
+                ::if subscriptions != null && subscriptions.length != 0::
+                    <table class="table table-striped table-bordered">
+                        <tr class="greyhead">
+                            <th>Membre</th>
+                            <th>Engagement</th>
+                            <th>Période d'engagement</th>
+                            <th>Nombre de distributions</th>
+                            <th>Total</th>
+                            <th>Payé</th>
+                        </tr>
+                        ::foreach subscription subscriptions::
+                            ::set orderName = subscriptionService.getDescription(subscription)::
+                            ::if orderName == null::
+                                ::set class="danger text-danger"::
+                            ::else::
+                                ::set class=""::
+                            ::end::
+                            <tr style="text-align: center;">
+                                <td style="vertical-align: middle;">
+                                    <div style="overflow-wrap: break-word;">
+                                        <i ::cond !subscription.isValidated:: class="icon icon-alert" style="color: #a94442;"></i>  <a href="/member/view/::subscription._user.id::" target="_blank">::subscription._user.getName()::</a>
+                                    </div>
+                                    <div ::cond !subscription.isValidated:: >
+                                        <br/>
+                                        <a href="/contractAdmin/subscriptions/validate/::subscription.id::" class="btn btn-md btn-primary" $$confirm(Vous confirmez avoir reçu le contrat signé de cet adhérent avec le paiement. La commande saisie dans Cagette correspond bien à ce qui est inscrit sur le contrat.) >
+                                            <i class="icon icon-check"></i> Valider
+                                        </a>          
+                                    </div>               
+                                </td>
+                                <td class="::class::" style="vertical-align: middle;">
+                                    ::if orderName == null::
+                                        AUCUNE COMMANDE
+                                    ::else::
+                                        ::raw(orderName)::
+                                    ::end::
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    Du ::dateToString(subscription.startDate)::
+                                    au ::dateToString(subscription.endDate)::
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    ::subscriptionService.getSubscriptionNbDistributions(subscription)::
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    ::subscriptionService.getSubscriptionTotalPrice(subscription)::&nbsp;::currency()::
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    $$check(::subscriptionService.isSubscriptionPaid(subscription)::)
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <div class="dropdown" style="display:inline-block;">
+                                        <button class="btn btn-default btn-sm dropdown-toggle btn-noAntiDoubleClick" type="button" id="dropdownMenu::subscription._user.id::" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="icon icon-cog"></i> Gérer
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu::subscription._user.id::">
+                                            <li>
+                                                <a href="/contractAdmin/subscriptions/edit/::subscription.id::">
+                                                    <i class="icon icon-edit"></i> ::_("Edit")::
+                                                </a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="/distribution/list">
+                                                    <i class="icon icon-card"></i> ::_("Payment")::
+                                                </a>
+                                            </li> -->
+                                            <li>
+                                                <a href="/contractAdmin/subscriptions/delete/::subscription.id::?token=::token::">
+                                                    <i class="icon icon-delete"></i> ::_("Delete")::
+                                                </a>
+                                            </li>	
+
+                                            ::if(user.isAdmin())::
+                                            <li>
+                                                <a href="/contractAdmin/subscriptions/unvalidate/::subscription.id::?token=::token::">
+                                                    <i class="icon icon-square"></i> Dévalider (Admin)
+                                                </a>
+                                            </li>	
+                                            ::end::
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        ::end::
+                    </table>
+                ::else::
+                    Il n'y a pas de souscription pour ce catalogue.
+                ::end::
+                
+            </div>
+            
+        </div>
+
+        <div id="ordersdialog-container"></div>
+
+    </div>
+::end::

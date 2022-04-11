@@ -1,0 +1,42 @@
+::use 'design.mtt'::
+<div class="col-md-12">
+	<div class="article text-center">
+	
+
+		<div class="alert alert-success" style="font-size: 1.6em;font-weight: bold;">
+			
+			<i class="icon icon-check" aria-hidden="true"></i> ::_("Your order has been recorded !")::
+			
+		</div>
+		
+		<hr/>
+			
+
+		<div style="margin:32px;">
+			
+			<p>
+        <b>::_("You chose to pay with your money pot."):: :</b>
+			</p>
+			
+			<p>
+				::_("Please remember to clear your balance at the time agreed with the coordinator of your group.")::				
+			</p>
+			
+			<p>
+				::__("Your current balance is : ::balance:: ::currency::",{balance: balance,currency: currency() })::				
+			</p>
+		
+			<p>
+				<a href="/account" class="btn btn-default">
+				<i class="icon icon-chevron-right"></i> ::_("Check my orders")::</a>
+
+				<a href="/account/payments" class="btn btn-default">
+				<i class="icon icon-chevron-right"></i> ::_("Check my payments history")::</a>	
+			</p>
+			
+		</div>
+		
+	</div>	
+	
+</div>
+::end::

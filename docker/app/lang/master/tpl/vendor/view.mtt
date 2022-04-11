@@ -1,0 +1,22 @@
+::use 'design.mtt'::
+<div class="col-md-9">
+	<div class="article">
+	
+	<h2>::vendor.name::</h2>
+	::_("Supplier")::<br/>
+	
+	
+	$$edit(Modifier,/vendor/edit/::vendor.id::)
+	
+	
+	</div>
+</div>
+
+<div class="col-md-3">
+	
+	
+	<div class="block">
+	</div>
+</div>
+
+::end::

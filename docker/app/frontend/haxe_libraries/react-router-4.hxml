@@ -1,0 +1,6 @@
+-D react-router-4=0.2.8
+# @install: lix --silent download "haxelib:/react-router-4#0.2.8" into react-router-4/0.2.8/haxelib
+-lib history
+-cp ${HAXE_LIBCACHE}/react-router-4/0.2.8/haxelib/src
+--macro react.router.bundle.Bundle.addHook()
+

@@ -1,0 +1,35 @@
+::use 'design.mtt'::
+<div class="col-md-9">
+	<div class="article">
+		
+		<h2>::_("Update")::</h2>
+		
+		<table class="table table-bordered">
+			
+			::foreach s status::
+			<tr>
+				<th>
+					::s.parameter::
+				</th>
+				<td>
+					$$bool(::s.valid::)
+				</td>
+				<td>
+					::s.message::
+				</td>
+				<td>
+					::if !s.valid::
+						<a href="/install/update::s.parameter::" class="btn btn-primary">::_("Update")::</a>
+					::end::
+				</td>
+				
+			</tr>
+			::end::
+			
+			
+		</table>
+		
+		
+	</div>
+</div>
+::end::

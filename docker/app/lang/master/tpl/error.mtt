@@ -1,0 +1,48 @@
+﻿<html lang="::LANG::">
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/0/style.css"/>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	</head>
+	<body class="container">
+		<div class="row" style="margin-top:40px;">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 article">
+				<h1>::_("Ouch !")::</h1>
+				<p>
+					::_("An error occurred.")::
+				</p>					
+				
+				<p>
+					::_("If the website is unavailable, please try again in few minutes.")::
+					<br/>
+					::_("If this happen repeatedly, please let us know so we can solve the issue.")::
+				</p>
+				
+				<h4>::_("Technical description of the error")::</h4>
+
+				::if exception!=null && exception.isTinkError:: 
+					<div style="color:white;font-family: monospace;background:#BBB;font-size: 0.8em;padding: 3px 8px;border-radius: 3px;display: inline-block;">
+						Code ::exception.code::
+					</div>					
+					<code id="error_msg">
+						::exception.message::
+					</code>
+					
+					::if exception.data!=null::
+					<h4>Exception Data</h4>
+						<code>::exception.data::</code>
+					::end::
+
+				::else::				
+					<pre id="error_msg">::message::</pre>
+				::end::
+
+
+				::if stack::
+				<h4>Stack</h4>
+					<pre>::stack::</pre>
+				::end::
+			</div>
+		</div>
+	</body>
+</html>

@@ -13,8 +13,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./httpd/certificates:/etc/apache2/certificates
-      - ./httpd/vhost.conf:/etc/apache2/sites-available/cagette.localhost.conf
+      - ./docker/httpd/vhosts/https.conf:/etc/apache2/sites-available/cagette.localhost.conf
+      - ./docker/httpd/certificates:/etc/apache2/certificates
     depends_on:
       - mysql
     networks:

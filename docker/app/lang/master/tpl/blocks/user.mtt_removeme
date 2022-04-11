@@ -1,0 +1,12 @@
+<div class="block">
+	::if user!=null::
+		::_("Hello"):: ::user.getName()::<br/> 
+			
+		<a href="/user/logout" class="btn btn-default btn-sm">::_("Log out")::</a>
+	::else::
+		
+		::raw _("You already have an account?<br/>
+		Click here to log in")::<br/>
+		<a href="/user/login" class="btn btn-default btn-sm btn-primary">::_("Log in")::</a>
+	::end::
+</div>
