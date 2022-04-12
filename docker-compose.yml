@@ -12,9 +12,6 @@ services:
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./docker/httpd/vhosts/https.conf:/etc/apache2/sites-available/cagette.localhost.conf
-      - ./docker/httpd/certificates:/etc/apache2/certificates
     depends_on:
       - mysql
     networks:
@@ -31,7 +28,7 @@ services:
       - 3306
     volumes:
       - database:/var/lib/mysql
-      - ./mysql/dumps/:/root/dumps
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/dumps/:/root/dumps
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       - cagette
