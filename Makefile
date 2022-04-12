@@ -1,5 +1,5 @@
 ## permanent variables
-PROJECT			?= github.com/gpenaud/poc-lxc-terraform
+PROJECT			?= github.com/gpenaud/cagette
 RELEASE			?= $(shell git describe --tags --abbrev=0)
 COMMIT			?= $(shell git rev-parse --short HEAD)
 BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
@@ -47,4 +47,5 @@ install-mkcert:
 	mkcert -install
 
 generate-certificates:
-	mkcert -cert-file httpd/certificates/cert.pem -key-file httpd/certificates/key.pem cagette.localhost
+	mkcert -cert-file docker/httpd/certificates/cert.pem -key-file docker/httpd/certificates/key.pem cagette.localhost
+	chmod 0644 docker/httpd/certificates/key.pem
