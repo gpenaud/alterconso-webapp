@@ -101,9 +101,12 @@ RUN rm -f \
   /etc/apache2/sites-available/000-default.conf \
   /etc/apache2/sites-enabled/000-default.conf
 
+# copy certificates
+COPY ./docker/httpd/certificates /etc/apache2/certificates
+
 # copy vhost configuration
-COPY ./docker/httpd/vhosts/http.conf /etc/apache2/sites-available/cagette.localhost.conf
-COPY ./docker/httpd/vhosts/http.conf /etc/apache2/sites-enabled/cagette.localhost.conf
+COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
+COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
 
 # create apache2 certificates directory
 RUN \
