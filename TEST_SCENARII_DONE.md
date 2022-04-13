@@ -1,9 +1,15 @@
 
 # NOTES
 
+## accès admin
+admin@cagette.net
+admin
+
+## divers
+
 Modification config.xml.dist - modifier config.xml dans dockerfile
 chown www-data dans dockerfile lors du copy du conteneur intermédiaire pour fixer erreur std@sys_create_dir
-copier le fichier config.xml après installation des packages apache2 
+copier le fichier config.xml après installation des packages apache2
 
 # TESTS
 
