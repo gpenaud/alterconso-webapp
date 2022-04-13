@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 
 networks:
   cagette:
@@ -8,7 +8,18 @@ volumes:
 
 services:
   cagette:
-    build: .
+    build:
+      context: .
+      args:
+        CAGETTE_SMTP_USER: "${CAGETTE_SMTP_USER:-}"
+        CAGETTE_SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
+        CAGETTE_SQL_LOG: "${CAGETTE_SQL_LOG:-}"
+        CAGETTE_DEBUG: "${CAGETTE_DEBUG:-}"
+    # for debugging purposes
+    volumes:
+      - type: bind
+        source: ./docker/app/js/react/store/CagetteStore.hx
+        target: /var/www/cagette/js/react/store/CagetteStore.hx
     ports:
       - 80:80
       - 443:443
