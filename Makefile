@@ -1,3 +1,6 @@
+SHELL := /bin/bash
+ONESHELL:
+
 ## permanent variables
 PROJECT			?= github.com/gpenaud/cagette
 RELEASE			?= $(shell git describe --tags --abbrev=0)
@@ -29,12 +32,23 @@ help:
 
 ## start cagette stack locally
 up:
-	docker-compose up --build --detach
+	source environment.txt && docker-compose up --build --detach
 	docker-compose logs --follow cagette
 
 ## stop local cagette stack
 down:
 	docker-compose down --volumes
+
+enter:
+	docker-compose exec cagette bash
+
+database-backup:
+	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > database-dump.sql"
+	docker cp $(shell docker-compose ps -q mysql):/database-dump.sql docker/mysql/dumps/$(shell date '+%d-%m-%Y').sql
+
+database-restore:
+	docker cp docker/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
+	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
 ## package and index helm chart
 package-helm:
