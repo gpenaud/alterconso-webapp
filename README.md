@@ -13,14 +13,22 @@ Vous aurez besoin des packages suivants:
 - docker >= 20.10.7
 - docker-compose >= 1.25.1-rc1
 
-Les quelques commandes à connaître sont très simples:
+1° Setup l'environnement
 
-Pour monter l'environnement (le site est joignable sur http://localhost:80)
+Dans un fichier environment.txt:
+```
+export CAGETTE_SMTP_USER="Ecolieu Le Portail"
+export CAGETTE_SMTP_PASSWORD=""
+export CAGETTE_SQL_LOG=0
+export CAGETTE_DEBUG=1
+```
+
+2° Monter l'environnement (le site est joignable sur http://localhost:80)
 ```
 make up
 ```
 
-Pour stopper l'environnement
+3° Stopper l'environnement
 ```
 make down
 ```
