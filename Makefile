@@ -50,6 +50,12 @@ database-restore:
 	docker cp docker/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
+frontend-prepare:
+	docker-compose exec cagette sh -c "npm install --global lix haxe-modular; cd frontend && lix download"
+
+frontend-refresh:
+	docker-compose exec cagette sh -c "cd frontend && haxe cagetteJs.hxml"
+
 ## package and index helm chart
 package-helm:
 	helm package --destination helm/ helm/
