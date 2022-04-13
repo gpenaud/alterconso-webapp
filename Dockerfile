@@ -51,7 +51,8 @@ RUN haxe cagetteJs.hxml
 #                   APPLICATION CONFIGURATION AND EXECUTION                    #
 # ============================================================================ #
 
-FROM debian:bullseye-slim
+# FROM debian:bullseye-slim
+FROM node:17-bullseye-slim
 
 RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
@@ -92,7 +93,7 @@ ENV APACHE_LOG_DIR   /var/log/apache2
 ARG CAGETTE_SMTP_USER
 ARG CAGETTE_SMTP_PASSWORD
 ARG CAGETTE_SQL_LOG
-ARG CAGETTE_SQL_DEBUG
+ARG CAGETTE_DEBUG
 
 # enable modules
 RUN \
@@ -127,7 +128,7 @@ RUN \
   sed -i 's/.*smtp_user.*/        smtp_user="'"${CAGETTE_SMTP_USER}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*smtp_pass.*/        smtp_pass="'"${CAGETTE_SMTP_PASSWORD}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*sqllog.*/        sqllog="'"${CAGETTE_SQL_LOG}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*debug.*/        debug="'"${CAGETTE_SQL_DEBUG}"'"/' /var/www/cagette/config.xml
+  sed -i 's/.*debug.*/        debug="'"${CAGETTE_DEBUG}"'"/' /var/www/cagette/config.xml
 
 RUN service apache2 restart
 
