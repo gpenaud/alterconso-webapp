@@ -4,7 +4,6 @@
 # ------------------------------------------------------------------------------
 
 environment.txt
-docker/app/*
 
 # app ignores
 # ------------------------------------------------------------------------------
@@ -47,6 +46,5 @@ docker/app/www/*.xlsx
 docker/app/!www/js/libs.dev.js
 docker/app/!www/js/libs.prod.js
 docker/app/!www/js/fetch.umd.js
-docker/app/devLibs/
 docker/app/backend/lang
 docker/app/codes.sh

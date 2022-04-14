@@ -14,38 +14,42 @@ ENV NEKOPATH        /root/haxe/neko
 ENV LD_LIBRARY_PATH /root/haxe/neko
 ENV PATH            /root/haxe/neko/:$PATH
 
-COPY ./docker/app /app
+RUN npm install --global \
+  lix \
+  haxe-modular
 
-RUN \
-  npm install --global \
-    lix \
-    haxe-modular
+# backend dependencies compilation
+COPY ./docker/app/backend /app/backend
+COPY ./docker/app/devLibs /app/devLibs
+# download lix dependencies for backend
+# NOTE: cagette-pro is a private repository and requires authentication, so we remove it
+RUN cd /app/backend && rm haxe_libraries/cagette-pro.hxml && lix download
 
-# Backend part
-# ------------------------------------------------------------------------------
+# frontend dependencies compilation
+COPY ./docker/app/frontend /app/frontend
+# download lix dependencies for frontend
+RUN cd /app/frontend && lix download
 
-WORKDIR /app/backend
+# copy sources
+COPY ./docker/app/build /app/build
+COPY ./docker/app/common /app/common
+COPY ./docker/app/data /app/data
+COPY ./docker/app/js /app/js
+COPY ./docker/app/lang /app/lang
+COPY ./docker/app/src /app/src
+COPY ./docker/app/www /app/www
+COPY ./docker/app/config.xml.dist /app/config.xml
 
-RUN \
-  # cagette-pro is a private repository and requires authentication
-  rm haxe_libraries/cagette-pro.hxml && \
-  lix download && \
-  chmod 777 /app/lang/master/tmp
+RUN chmod 777 /app/lang/master/tmp
 
 # Fix git version problem - we use a ziped package there, not a git repository
 RUN sed -i 's/.*public static var VERSION.*/        public static var VERSION = "1.0.0";/' /app/src/App.hx
-RUN haxe cagette.hxml
-
-# Frontend part
-# ------------------------------------------------------------------------------
-
-WORKDIR /app/frontend
-
-RUN lix download
+RUN cd /app/backend && haxe cagette.hxml
 
 # Fix git version problem - we use a ziped package there, not a git repository
 RUN sed -i 's/.*public static var VERSION.*/        public static var VERSION = "1.0.0";/' /app/js/App.hx
-RUN haxe cagetteJs.hxml
+RUN cd /app/frontend && haxe cagetteJs.hxml
+
 
 # ============================================================================ #
 #                   APPLICATION CONFIGURATION AND EXECUTION                    #
@@ -124,7 +128,6 @@ RUN \
   ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 RUN \
-  cp /var/www/cagette/config.xml.dist /var/www/cagette/config.xml && \
   sed -i 's/.*smtp_user.*/        smtp_user="'"${CAGETTE_SMTP_USER}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*smtp_pass.*/        smtp_pass="'"${CAGETTE_SMTP_PASSWORD}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*sqllog.*/        sqllog="'"${CAGETTE_SQL_LOG}"'"/' /var/www/cagette/config.xml && \
