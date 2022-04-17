@@ -62,6 +62,7 @@ RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
     apache2 \
     ca-certificates \
+    cron \
     haxe \
     imagemagick \
     libapache2-mod-neko \
@@ -74,7 +75,7 @@ COPY --chown=www-data:www-data --from=cagette-sourcecode /app  /var/www/cagette
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
 ENV NEKOPATH        /usr/lib/x86_64-linux-gnu/neko
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/neko
-ENV PATH            /usr/lib/:$PATH
+ENV PATH            /usr/lib/x86_64-linux-gnu/neko:$PATH
 
 # install and run templo
 # ------------------------------------------------------------------------------
@@ -82,7 +83,7 @@ ENV PATH            /usr/lib/:$PATH
 RUN \
   haxelib setup /usr/share/haxelib && \
   haxelib install templo && \
-  cd /usr/lib && \
+  cd /usr/lib/x86_64-linux-gnu/neko && \
   haxelib run templo
 
 # configure apache2
@@ -116,6 +117,9 @@ COPY ./docker/httpd/certificates /etc/apache2/certificates
 # copy vhost configuration
 COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
 COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
+
+# copy cron file
+COPY --chown=www-data:www-data ./crontab.sh /var/www/cagette/crontab.sh
 
 # create apache2 certificates directory
 RUN \

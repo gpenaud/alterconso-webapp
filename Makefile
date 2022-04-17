@@ -33,7 +33,7 @@ help:
 ## start cagette stack locally
 up:
 	source environment.txt && docker-compose up --build --detach
-	docker-compose logs --follow cagette
+	docker-compose logs --follow cagette crons
 
 ## stop local cagette stack
 down:
@@ -41,6 +41,9 @@ down:
 
 enter:
 	docker-compose exec cagette bash
+
+enter-crons:
+	docker-compose exec crons bash
 
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > database-dump.sql"
@@ -50,10 +53,16 @@ database-restore:
 	docker cp docker/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
-frontend-prepare:
+debug-backend-prepare:
+	docker-compose exec cagette sh -c "npm install --global lix haxe-modular; cd backend && lix download"
+
+debug-backend-refresh:
+	docker-compose exec cagette sh -c "cd backend && haxe cagette.hxml"
+
+debug-frontend-prepare:
 	docker-compose exec cagette sh -c "npm install --global lix haxe-modular; cd frontend && lix download"
 
-frontend-refresh:
+debug-frontend-refresh:
 	docker-compose exec cagette sh -c "cd frontend && haxe cagetteJs.hxml"
 
 ## package and index helm chart

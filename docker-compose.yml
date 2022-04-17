@@ -8,6 +8,7 @@ volumes:
 
 services:
   cagette:
+    image: gpenaud/cagette
     build:
       context: .
       args:
@@ -18,14 +19,20 @@ services:
     # for debugging purposes
     volumes:
       - type: bind
-        source: ./docker/app/js/react/store/CagetteStore.hx
-        target: /var/www/cagette/js/react/store/CagetteStore.hx
+        source: ./docker/app/src/controller/Install.hx
+        target: /var/www/cagette/src/controller/Install.hx
     ports:
       - 80:80
       - 443:443
     depends_on:
       - mysql
     networks:
+      - cagette
+
+  crons:
+    image: gpenaud/cagette
+    entrypoint: sh /var/www/cagette/crontab.sh
+    depends_on:
       - cagette
 
   mysql:
