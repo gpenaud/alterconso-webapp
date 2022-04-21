@@ -12,6 +12,8 @@ services:
     build:
       context: .
       args:
+        CAGETTE_SMTP_HOST: "${CAGETTE_SMTP_HOST:-}"
+        CAGETTE_SMTP_PORT: "${CAGETTE_SMTP_PORT:-}"
         CAGETTE_SMTP_USER: "${CAGETTE_SMTP_USER:-}"
         CAGETTE_SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
         CAGETTE_SQL_LOG: "${CAGETTE_SQL_LOG:-}"
@@ -19,20 +21,20 @@ services:
     # for debugging purposes
     volumes:
       - type: bind
-        source: ./docker/app/src/controller/Install.hx
-        target: /var/www/cagette/src/controller/Install.hx
+        source: ./docker/app/js
+        target: /var/www/cagette/js
+      - type: bind
+        source: ./docker/app/src
+        target: /var/www/cagette/src
+      - type: bind
+        source: ./docker/app/devLibs/sugoi
+        target: /var/www/cagette/devLibs/sugoi
     ports:
       - 80:80
       - 443:443
     depends_on:
       - mysql
     networks:
-      - cagette
-
-  crons:
-    image: gpenaud/cagette
-    entrypoint: sh /var/www/cagette/crontab.sh
-    depends_on:
       - cagette
 
   mysql:
