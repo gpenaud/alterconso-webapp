@@ -1,0 +1,5 @@
+/test.n
+/test.sqlite
+/.vscode
+lib/*
+/index.php
