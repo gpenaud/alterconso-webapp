@@ -33,7 +33,7 @@ help:
 ## start cagette stack locally
 up:
 	source environment.txt && docker-compose up --build --detach
-	docker-compose logs --follow cagette crons
+	docker-compose logs --follow cagette
 
 ## stop local cagette stack
 down:
@@ -41,9 +41,6 @@ down:
 
 enter:
 	docker-compose exec cagette bash
-
-enter-crons:
-	docker-compose exec crons bash
 
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > database-dump.sql"
