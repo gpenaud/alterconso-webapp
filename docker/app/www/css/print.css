@@ -1,0 +1,33 @@
+body {
+  font-family: 'Arial';
+  font-size: 12px; }
+  body table {
+    border-collapse: collapse; }
+    body table.table td {
+      border: solid 1px #CCC; }
+    body table tr td, body table th {
+      margin: 1px;
+      padding: 4px;
+      vertical-align: top;
+      text-align: left; }
+    body table td.total {
+      font-weight: bold;
+      border-top: 2px solid #CCC;
+      padding-bottom: 12px; }
+    body table tr.name td {
+      border-top: 1px solid #000; }
+  body h1, body h2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    text-align: center; }
+  @media print {
+    body hr {
+      page-break-after: always;
+      border: 0px #FFF; }
+    body .hidden {
+      display: none; } }
+  @media screen {
+    body hr {
+      border: 4px #DDD;
+      border-style: dashed; } }
