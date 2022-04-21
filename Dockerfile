@@ -42,12 +42,7 @@ COPY ./docker/app/config.xml.dist /app/config.xml
 
 RUN chmod 777 /app/lang/master/tmp
 
-# Fix git version problem - we use a ziped package there, not a git repository
-RUN sed -i 's/.*public static var VERSION.*/        public static var VERSION = "1.0.0";/' /app/src/App.hx
 RUN cd /app/backend && haxe cagette.hxml
-
-# Fix git version problem - we use a ziped package there, not a git repository
-RUN sed -i 's/.*public static var VERSION.*/        public static var VERSION = "1.0.0";/' /app/js/App.hx
 RUN cd /app/frontend && haxe cagetteJs.hxml
 
 
@@ -76,6 +71,7 @@ ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
 ENV NEKOPATH        /usr/lib/x86_64-linux-gnu/neko
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu/neko
 ENV PATH            /usr/lib/x86_64-linux-gnu/neko:$PATH
+ENV HAXE_LIBCACHE   /root/haxe/haxe_libraries
 
 # install and run templo
 # ------------------------------------------------------------------------------
@@ -95,6 +91,8 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR   /var/log/apache2
 
 # cagette environmant variables
+ARG CAGETTE_SMTP_HOST
+ARG CAGETTE_SMTP_PORT
 ARG CAGETTE_SMTP_USER
 ARG CAGETTE_SMTP_PASSWORD
 ARG CAGETTE_SQL_LOG
@@ -120,6 +118,7 @@ COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localho
 
 # copy cron file
 COPY --chown=www-data:www-data ./crontab.sh /var/www/cagette/crontab.sh
+RUN sh /var/www/cagette/crontab.sh
 
 # create apache2 certificates directory
 RUN \
@@ -132,6 +131,8 @@ RUN \
   ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 RUN \
+  sed -i 's/.*smtp_host.*/        smtp_host="'"${CAGETTE_SMTP_HOST}"'"/' /var/www/cagette/config.xml && \
+  sed -i 's/.*smtp_port.*/        smtp_port="'"${CAGETTE_SMTP_PORT}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*smtp_user.*/        smtp_user="'"${CAGETTE_SMTP_USER}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*smtp_pass.*/        smtp_pass="'"${CAGETTE_SMTP_PASSWORD}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*sqllog.*/        sqllog="'"${CAGETTE_SQL_LOG}"'"/' /var/www/cagette/config.xml && \
@@ -144,7 +145,6 @@ RUN service apache2 restart
 
 USER root
 WORKDIR /var/www/cagette
-
 EXPOSE 80
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["sh", "-c", "/usr/sbin/service cron start && /usr/sbin/apache2ctl -D FOREGROUND"]
