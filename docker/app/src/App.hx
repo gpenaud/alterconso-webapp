@@ -2,23 +2,23 @@ import db.User;
 import thx.semver.Version;
 import Common;
 import GitMacros;
- 
+
 class App extends sugoi.BaseApp {
 
 	public static var current : App = null;
 	public static var t : sugoi.i18n.translator.ITranslator;
 	public static var config = sugoi.BaseApp.config;
 
-	
-	public var eventDispatcher :hxevents.Dispatcher<Event>;	
+
+	public var eventDispatcher :hxevents.Dispatcher<Event>;
 	public var plugins : Array<sugoi.plugin.IPlugIn>;
 	public var breadcrumb : Array<Link>;
 	/**
 	 * Version management
 	 * @doc https://github.com/fponticelli/thx.semver
-	 */ 
-	public static var VERSION = ([0,14]  : Version).withPre(GitMacros.getGitShortSHA(), GitMacros.getGitCommitDate());
-	
+	 */
+	public static var VERSION = "1.0.0";
+
 	public function new(){
 		super();
 
@@ -29,13 +29,13 @@ class App extends sugoi.BaseApp {
 			this.headers.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 		}
 	}
-	
+
 	public static function main() {
-		
+
 		App.t = sugoi.form.Form.translator = new sugoi.i18n.translator.TMap(getTranslationArray(), "fr");
 		sugoi.BaseApp.main();
 	}
-	
+
 	/**
 	 * Init plugins and event dispatcher just before launching the app
 	 */
@@ -44,47 +44,47 @@ class App extends sugoi.BaseApp {
 		plugins = [];
 		//internal plugins
 		plugins.push(new plugin.Tutorial());
-		
+
 		//optionnal plugins
 		#if plugins
-		plugins.push( new hosted.HostedPlugIn() );				
-		plugins.push( new pro.ProPlugIn() );		
-		plugins.push( new connector.ConnectorPlugIn() );				
+		plugins.push( new hosted.HostedPlugIn() );
+		plugins.push( new pro.ProPlugIn() );
+		plugins.push( new connector.ConnectorPlugIn() );
 		//plugins.push( new lemonway.LemonwayEC() );
 		//plugins.push( new pro.LemonwayEC() );
 		plugins.push( new mangopay.MangopayPlugin() );
 		plugins.push( new who.WhoPlugIn() );
 		#end
-	
+
 		super.mainLoop();
 	}
-	
-	public function getCurrentGroup(){		
+
+	public function getCurrentGroup(){
 		if (session == null) return null;
 		if (session.data == null ) return null;
 		var a = session.data.amapId;
 		if (a == null) {
 			return null;
-		}else {			
+		}else {
 			return db.Group.manager.get(a,false);
 		}
 	}
-	
+
 	override function beforeDispatch() {
-		
+
 		//send "current page" event
 		event( Page(this.uri) );
-		
+
 		super.beforeDispatch();
 	}
-	
+
 	public function getPlugin(name:String):sugoi.plugin.IPlugIn {
 		for (p in plugins) {
 			if (p.getName() == name) return p;
 		}
 		return null;
 	}
-	
+
 	public static function log(t:Dynamic) {
 		if(App.config.DEBUG) {
 			neko.Web.logMessage(Std.string(t)); //write in Apache error log
@@ -93,13 +93,13 @@ class App extends sugoi.BaseApp {
 			#end
 		}
 	}
-	
+
 	public function event(e:Event) {
 		if(e==null) return null;
 		this.eventDispatcher.dispatch(e);
 		return e;
 	}
-	
+
 	/**
 	 * Translate DB objects fields in forms
 	 */
@@ -130,18 +130,18 @@ class App extends sugoi.BaseApp {
 		out.set("txtHome", "Texte en page d'accueil pour les adhérents connectés");
 		out.set("txtDistrib", "Texte à faire figurer sur les listes d'émargement lors des distributions");
 		out.set("extUrl", "URL du site du groupe.");
-		
+
 		out.set("startDate", "Date de début");
 		out.set("endDate", "Date de fin");
-		
+
 		out.set("orderStartDate", "Date ouverture des commandes");
-		out.set("orderEndDate", "Date fermeture des commandes");	
-		out.set("openingHour", "Heure d'ouverture");	
-		out.set("closingHour", "Heure de fermeture");	
-		
-		out.set("date", "Date de distribution");	
-		out.set("active", "actif");	
-		
+		out.set("orderEndDate", "Date fermeture des commandes");
+		out.set("openingHour", "Heure d'ouverture");
+		out.set("closingHour", "Heure de fermeture");
+
+		out.set("date", "Date de distribution");
+		out.set("active", "actif");
+
 		out.set("contact", "Reponsable");
 		out.set("vendor", "Producteur");
 		out.set("text", "Texte");
@@ -171,7 +171,7 @@ class App extends sugoi.BaseApp {
 		out.set("pname", "Produit");
 		out.set("organic", "Agriculture biologique");
 		out.set("hasFloatQt", "Autoriser quantités \"à virgule\"");
-		
+
 		out.set("membershipRenewalDate", "Adhésions : Date de renouvellement");
 		out.set("membershipPrice", "Adhésions : Coût de l'adhésion");
 		out.set("UsersCanOrder", "Les membres peuvent saisir leur commande en ligne");
@@ -186,7 +186,7 @@ class App extends sugoi.BaseApp {
 		out.set("Messages", "Accès à la messagerie");
 		out.set("vat", "TVA");
 		out.set("desc", "Description");
-		
+
 		//group options
 		out.set("ShopMode", "Mode boutique");
 		out.set("ComputeMargin", "Appliquer une marge à la place des pourcentages");
@@ -194,20 +194,20 @@ class App extends sugoi.BaseApp {
 		out.set("HidePhone", "Masquer le téléphone du responsable sur la page publique");
 		out.set("PhoneRequired", "Saisie du numéro de téléphone obligatoire");
 		out.set("AddressRequired", "Saisie de l'adresse obligatoire");
-		
+
 
 		out.set("ShopV2", "Nouvelle boutique");
 
 		out.set("ref", "Référence");
 		out.set("linkText", "Intitulé du lien");
 		out.set("linkUrl", "URL du lien");
-		
+
 		//group type
 		out.set("Amap", "AMAP");
 		out.set("GroupedOrders", 	"Groupement d'achat");
 		out.set("ProducerDrive", 	"En direct d'un collectif de producteurs");
 		out.set("FarmShop", 		"En direct d'un producteur");
-		
+
 		out.set("regOption", 	"Inscription de nouveaux membres");
 		out.set("Closed", 		"Fermé : L'administrateur ajoute les nouveaux membres");
 		out.set("WaitingList", 	"Liste d'attente");
@@ -219,57 +219,57 @@ class App extends sugoi.BaseApp {
 
 		out.set("Soletrader"	, "Micro-entreprise");
 		out.set("Organization"	, "Association");
-		out.set("Business"		, "Société");		
-		
+		out.set("Business"		, "Société");
+
 		out.set("unitType", "Unité");
 		out.set("qt", "Quantité");
 		out.set("Unit", "Pièce");
 		out.set("Kilogram", "Kilogrammes");
 		out.set("Gram", "Grammes");
-		out.set("Litre", "Litres");		
-		out.set("Centilitre", "Centilitres");		
-		out.set("Millilitre", "Millilitres");		
+		out.set("Litre", "Litres");
+		out.set("Centilitre", "Centilitres");
+		out.set("Millilitre", "Millilitres");
 		out.set("htPrice", "Prix H.T");
 		out.set("amount", "Montant");
 		out.set("percent", "Pourcentage");
 		out.set("pinned", "Mets en avant les produits");
-		
-		
-		
+
+
+
 		out.set("byMember", "Par adhérent");
 		out.set("byProduct", "Par produit");
 
 		//stock strategy
 		out.set("ByProduct"	, "Par produit (produits vrac, stockés sans conditionnement)");
 		out.set("ByOffer"	, "Par offre (produits stockés déja conditionnés)");
-				
+
 		out.set("variablePrice", "Prix variable selon pesée");
 		return out;
 	}
-	
-	public function populateAmapMembers() {		
+
+	public function populateAmapMembers() {
 		return user.getGroup().getMembersFormElementData();
 	}
-	
-	public static function getMailer():sugoi.mail.IMailer {
-		
-		var mailer : sugoi.mail.IMailer = new sugoi.mail.BufferedMailer();
-		
 
-		if(App.config.DEBUG || App.config.HOST=="pp.cagette.net" || App.config.HOST=="localhost"){ 
+	public static function getMailer():sugoi.mail.IMailer {
+
+		var mailer : sugoi.mail.IMailer = new sugoi.mail.BufferedMailer();
+
+
+		if(App.config.DEBUG || App.config.HOST=="pp.cagette.net" || App.config.HOST=="localhost"){
 
 			//Dev env : emails are written to tmp folder
 			mailer = new sugoi.mail.DebugMailer();
 		}else{
-			
+
 			if (sugoi.db.Variable.get("mailer") == null){
 				var msg = sugoi.i18n.Locale.texts._("Please configure the email settings in a <href='/admin/emails'>this section</a>");
 				throw sugoi.ControllerAction.ErrorAction("/",msg);
 			}
 
-			if (sugoi.db.Variable.get("mailer") == "mandrill"){		
+			if (sugoi.db.Variable.get("mailer") == "mandrill"){
 				//Buffered emails with Mandrill
-				untyped mailer.defineFinalMailer("mandrill");		
+				untyped mailer.defineFinalMailer("mandrill");
 			}else{
 				//Buffered emails with SMTP
 				untyped mailer.defineFinalMailer("smtp");
@@ -277,50 +277,50 @@ class App extends sugoi.BaseApp {
 		}
 		return mailer;
 	}
-	
+
 	/**
 	 * Send an email
 	 */
 	public static function sendMail(m:sugoi.mail.Mail, ?group:db.Group, ?listId:String, ?sender:db.User){
-		
+
 		if (group == null) group = App.current.user == null ? null:App.current.user.getGroup();
 		current.event(SendEmail(m));
 		var params = group==null ? null : {remoteId:group.id};
 		getMailer().send(m,params,function(o){});
-		
+
 	}
-	
+
 	public static function quickMail(to:String, subject:String, html:String,?group:db.Group){
-		var e = new sugoi.mail.Mail();		
+		var e = new sugoi.mail.Mail();
 		e.setSubject(subject);
-		e.setRecipient(to);			
-		e.setSender(App.config.get("default_email"),"Cagette.net");				
-		var html = App.current.processTemplate("mail/message.mtt", {text:html,group:group});		
+		e.setRecipient(to);
+		e.setSender(App.config.get("default_email"),"Cagette.net");
+		var html = App.current.processTemplate("mail/message.mtt", {text:html,group:group});
 		e.setHtmlBody(html);
 		App.sendMail(e);
 	}
-	
+
 	/**
 		process a template and returns the generated string
 		(used for emails)
 	**/
 	public function processTemplate(tpl:String, ctx:Dynamic):String {
-		
+
 		//inject usefull vars in view
 		Reflect.setField(ctx, 'HOST', App.config.HOST);
-		Reflect.setField(ctx, 'hDate', date -> return Formatting.hDate(date) );		
+		Reflect.setField(ctx, 'hDate', date -> return Formatting.hDate(date) );
 
 		ctx._ = App.current.view._;
 		ctx.__ = App.current.view.__;
-		
+
 		var tpl = loadTemplate(tpl);
-		var html = tpl.execute(ctx);	
+		var html = tpl.execute(ctx);
 		#if php
 		if ( html.substr(0, 4) == "null") html = html.substr(4);
 		#end
 		return html;
 	}
-	
-	
-	
+
+
+
 }

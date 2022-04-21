@@ -45,9 +45,9 @@ extern class NeolithicViewsGenerator {
 
 class App {
 
-    public static var instance : App;    
-    public static var VERSION = ([0,14]  : Version).withPre(GitMacros.getGitShortSHA(), GitMacros.getGitCommitDate());
-    	
+    public static var instance : App;
+    public static var VERSION = "1.0.0";
+
 	public var currency : String; //currency symbol like &euro; or $
 	public var t : sugoi.i18n.GetText;//gettext translator
 	public var Modal = bootstrap.Modal;
@@ -56,7 +56,7 @@ class App {
     public var userId : Int;
     public var userName : String;
     public var userEmail : String;
-    
+
 
 
 	function new(?lang="fr",?currency="&euro;") {
@@ -77,15 +77,15 @@ class App {
 	 * The JS App will be available as "_" in the document.
 	 */
 	public static function main() {
-        
+
         untyped js.Browser.window._ = new App();
-        
+
         NeolithicViewsGenerator.setApiUrl("/api");
         // NeolithicViewsGenerator.setGraphUrl(sugoi.db.Variable.get("cagette_api") + "/graphql");
         // NeolithicViewsGenerator.setGraphUrl(App.config.get("cagette_api") + "/graphql");
 		untyped js.Browser.window._NeolithicViewsGenerator = NeolithicViewsGenerator;
     }
-    
+
 
     var sentryInited:Bool;
 
@@ -128,7 +128,7 @@ class App {
         initSentry();
 		new Tuto(name,step);
 	}
-	
+
 	/**
 	 * remove method for IE compat
 	 */
@@ -136,13 +136,13 @@ class App {
 		if (el == null) return;
 		el.parentElement.removeChild(el);
 	}
-	
+
 	public function getVATBox(ttcprice:Float,currency:String,rates:String,vat:Float,formName:String){
 		initSentry();
 		var input = js.Browser.document.querySelector('form input[name="${formName}_price"]');
-		
+
 		remove( js.Browser.document.querySelector('form input[name="${formName}_vat"]').parentElement.parentElement );
-		
+
 		ReactDOM.render(jsx('<$VATBox ttc=${ttcprice} currency=${currency} vatRates=${rates} vat=${vat} formName=${formName} />'),  input.parentElement);
 	}
 
@@ -171,7 +171,7 @@ class App {
 	 * @param	vendorId
 	 */
 	public function getVendorPage(divId:String, vendorId:Int, catalogId:Int ) {
-        
+
 		js.Browser.document.addEventListener("DOMContentLoaded", function(event) {
 
             initSentry();
@@ -184,14 +184,14 @@ class App {
 			var promises = [];
 			promises.push( utils.HttpUtil.fetch("/api/pro/vendor/"+vendorId, GET, null, JSON) );
 			promises.push(  utils.HttpUtil.fetch("/api/pro/vendor/nextDistributions/"+vendorId, GET, null, JSON) );
-			if(catalogId!=null) promises.push( utils.HttpUtil.fetch("/api/pro/catalog/"+catalogId, GET, null, JSON) );			
-			
+			if(catalogId!=null) promises.push( utils.HttpUtil.fetch("/api/pro/catalog/"+catalogId, GET, null, JSON) );
+
 			var initRequest = js.Promise.all(promises).then(
 				function(data:Dynamic) {
 					vendorInfo = data[0];
 					nextDistributions = data[1];
 					catalogProducts = data[2]==null ? [] : data[2].products;
-					
+
 					ReactDOM.render(jsx('
 						<MuiThemeProvider theme=${CagetteTheme.get()}>
 							<>
@@ -213,18 +213,18 @@ class App {
         initSentry();
 		var node = js.Browser.document.createDivElement();
 		js.Browser.document.body.appendChild(node);
-		ReactDOM.unmountComponentAtNode(node); 
+		ReactDOM.unmountComponentAtNode(node);
 		ReactDOM.render(jsx('
 			<div>
 				<ImageUploaderDialog uploadURL=$uploadURL uploadedImageURL=$uploadedImageURL width=$width height=$height formFieldName=$formFieldName />
 			</div>'), node);
 	}
-	
+
 	public function initReportHeader(){
         initSentry();
 		ReactDOM.render(jsx('<$ReportHeader />'),  js.Browser.document.querySelector('div.reportHeaderContainer'));
 	}
-	
+
 	public function initOrderBox(userId : Int, multiDistribId : Int, catalogId : Int, catalogType : Int, date : String, place : String, userName : String, currency : String, hasPayments : Bool, callbackUrl : String) {
         initSentry();
 
@@ -232,7 +232,7 @@ class App {
 		node.id = "ordersdialog-container";
 		js.Browser.document.body.appendChild(node);
 		ReactDOM.unmountComponentAtNode(node); //the previous modal DOM element is still there, so we need to destroy it
-	
+
 		var store = createOrderBoxReduxStore();
 		ReactDOM.render(jsx('
 			<ReduxProvider store=${store}>
@@ -240,7 +240,7 @@ class App {
 					<>
 						<CssBaseline />
 						<OrdersDialog userId=$userId multiDistribId=$multiDistribId catalogId=$catalogId catalogType=$catalogType
-						date=$date place=$place userName=$userName callbackUrl=$callbackUrl currency=$currency hasPayments=$hasPayments />							
+						date=$date place=$place userName=$userName callbackUrl=$callbackUrl currency=$currency hasPayments=$hasPayments />
 					</>
 				</MuiThemeProvider>
 			</ReduxProvider>
@@ -249,7 +249,7 @@ class App {
 	}
 
 	private function createOrderBoxReduxStore() {
-        
+
 		// Store creation
 		var rootReducer = Redux.combineReducers({ reduxApp : mapReducer(react.order.redux.actions.OrderBoxAction, new react.order.redux.reducers.OrderBoxReducer()) });
 		// create middleware normally, excepted you must use
@@ -258,7 +258,7 @@ class App {
 		return createStore( rootReducer, null, middleWare );
 	}
 
-	
+
 
 	public static function roundTo(n:Float, r:Int):Float {
 		return Math.round(n * Math.pow(10,r)) / Math.pow(10,r) ;
@@ -289,7 +289,7 @@ class App {
 	/**
 	 * Displays a login box
 	 */
-	public function loginBox(redirectUrl:String,?message:String,?phoneRequired=false,?addressRequired=false) {	
+	public function loginBox(redirectUrl:String,?message:String,?phoneRequired=false,?addressRequired=false) {
         initSentry();
 
 		var modalElement = Browser.document.getElementById("myModal");
@@ -330,12 +330,12 @@ class App {
 		node.id = "membershipBox-container";
 		js.Browser.document.body.appendChild(node);
 		ReactDOM.unmountComponentAtNode(node); //the previous modal DOM element is still there, so we need to destroy it
-	
+
 		ReactDOM.render(jsx('
 			<MuiThemeProvider theme=${CagetteTheme.get()}>
 				<>
 					<CssBaseline />
-					<MembershipDialog userId=$userId groupId=$groupId callbackUrl=$callbackUrl distributionId=$distributionId />							
+					<MembershipDialog userId=$userId groupId=$groupId callbackUrl=$callbackUrl distributionId=$distributionId />
 				</>
 			</MuiThemeProvider>
 		'), node );
@@ -367,7 +367,7 @@ class App {
 		sticky.Stickyfill.add(elements);
 
 		// Will be merged with default values from mui
-		
+
 
 		var store = createReactStore();
 		ReactDOM.render(jsx('
@@ -394,7 +394,7 @@ class App {
 		ReactDOM.render(jsx('<$PageHeader groupName=$groupName userName=$userName userId=$userId />'), js.Browser.document.querySelector('#header'));
 	}
 
-	
+
 	public function groupMap(lat:Float,lng:Float,address:String) {
         initSentry();
 
@@ -457,7 +457,7 @@ class App {
 				},3000);
 			});
 		}
-		
+
 	}
 
 	/**
@@ -465,7 +465,7 @@ class App {
 	**/
 	public static var linkClicked = false;
 	public function goto(url:String){
-		
+
 		if(!linkClicked) {
 			js.Browser.document.location.href=url;
 			linkClicked = true;
@@ -488,22 +488,22 @@ class App {
 	// 	//prepare Bootstrap "popover"
 	// 	var x = jq(element).first().attr("title",title);
 	// 	var text = "<p>" + message + "</p>";
-		
+
 	// 	var options = { container:"body", content:text, html:true , placement:placement};
 	// 	untyped  x.popover(options).popover('show');
 	// 	//click anywhere to hide
 	// 	App.jq("html").click(function(_) {
-	// 		untyped x.popover('hide');				
+	// 		untyped x.popover('hide');
 	// 	});
-		
+
 
 	// 	var storage = js.Browser.getLocalStorage();
 	// 	var i = storage.getItem("newFeature."+selector);
 	// 	if(i==null) i = "0";
 	// 	storage.setItem("newFeature."+selector, Std.string( Std.parseInt(i)+1 ) );
-		
+
 	// 	//highlight
-	// 	App.jq(element).first().addClass("highlight");	
+	// 	App.jq(element).first().addClass("highlight");
 	// }
 
 	public function toggle(selector:String){
@@ -554,5 +554,3 @@ class App {
         });
     }
 }
-
-
