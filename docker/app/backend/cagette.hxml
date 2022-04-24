@@ -8,6 +8,7 @@
 -lib hx3compat
 -lib thx.csv
 -lib thx.semver
+-lib smtpmailer
 
 -lib sugoi
 -lib jwt
