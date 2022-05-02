@@ -255,8 +255,9 @@ class App extends sugoi.BaseApp {
 
 		var mailer : sugoi.mail.IMailer = new sugoi.mail.BufferedMailer();
 
-
-		if(App.config.DEBUG || App.config.HOST=="pp.cagette.net" || App.config.HOST=="localhost"){
+		// CHANGE TO REMOVE: @gpenaud
+		if(App.config.HOST=="pp.cagette.net"){
+		//if(App.config.DEBUG || App.config.HOST=="pp.cagette.net" || App.config.HOST=="localhost"){
 
 			//Dev env : emails are written to tmp folder
 			mailer = new sugoi.mail.DebugMailer();

@@ -18,20 +18,20 @@ class BufferedMail extends sys.db.Object
 	public var headers : SData<Map<String,String>>;
 	public var sender : SData<{name:String,email:String,?userId:Int}>;
 	public var recipients : SData<Array<{name:String,email:String,?userId:Int}>>;
-	
+
 	//utility fields
 	public var mailerType : SString<32>;	//mailer used when sending for real
-	public var tries : SInt;				//number of times we tried to send the mail	
+	public var tries : SInt;				//number of times we tried to send the mail
 	public var cdate : SDateTime;		 	//creation date
 	public var sdate : SNull<SDateTime>; 	//sent date
 	public var rawStatus : SNull<SText>;			//raw return from the smtp server or mandrill API
-	public var status : SNull<SData<MailerResult>>; //map of emails with api/smtp results	
+	public var status : SNull<SData<MailerResult>>; //map of emails with api/smtp results
 
 	//custom datas
 	public var data : SNull<SData<Dynamic>>;//custom datas
-	public var remoteId : SNull<Int>;		//custom remote Id (userId, groupId ...) 	
+	public var remoteId : SNull<Int>;		//custom remote Id (userId, groupId ...)
 
-	
+
 	public function getMailerResultMessage(k:String):{failure:String, success:String}{
 		var t = sugoi.i18n.Locale.texts;
 		var out = {failure:null, success:null};
@@ -44,7 +44,7 @@ class BufferedMail extends sys.db.Object
 					case Spam:				t._("Message considered as spam");
 					case Unsub:				t._("This user unsubscribed");
 					case Unsigned:			t._("Sender incorrect (Unsigned)");
-					
+
 				};
 			case tink.core.Outcome.Success(s):
 				out.success = switch(s){
@@ -53,10 +53,10 @@ class BufferedMail extends sys.db.Object
 				};
 		}
 		return out;
-		
-	}	
 
-	
+	}
+
+
 	public function new(){
 		super();
 		cdate = Date.now();
@@ -64,7 +64,9 @@ class BufferedMail extends sys.db.Object
 	}
 
 	public function isSent(){
-		return sdate!=null;
+    // CHANGE TO REMOVE @gpenaud
+		// return sdate!=null;
+    return mailerType!="smtp";
 	}
 
 	/**
@@ -73,12 +75,12 @@ class BufferedMail extends sys.db.Object
 	public function finallySend():Void{
 
 		if(isSent()) throw "already sent";
-		
+
 		var conf = {
 			smtp_host:sugoi.db.Variable.get("smtp_host"),
 			smtp_port:sugoi.db.Variable.getInt("smtp_port"),
 			smtp_user:sugoi.db.Variable.get("smtp_user"),
-			smtp_pass:sugoi.db.Variable.get("smtp_pass")			
+			smtp_pass:sugoi.db.Variable.get("smtp_pass")
 		};
 
 		var mailer : sugoi.mail.IMailer = switch(this.mailerType){
@@ -88,10 +90,10 @@ class BufferedMail extends sys.db.Object
 				new sugoi.mail.SmtpMailer().init(conf);
 			case "debug":
 				new sugoi.mail.DebugMailer();
-			default : 
+			default :
 				throw "Unknown mailer type : "+this.mailerType;
 		};
-		
+
 
 		var m = new sugoi.mail.Mail();
 		for( k in this.headers.keys() ) m.setHeader( k,headers[k] );
@@ -101,6 +103,7 @@ class BufferedMail extends sys.db.Object
 		m.setHtmlBody(this.htmlBody);
 		m.setTextBody(this.textBody);
 
+    trace("BufferedMail::finallySend(): " + this.mailerType);
 
 		this.lock();
 		this.tries++;
@@ -109,11 +112,15 @@ class BufferedMail extends sys.db.Object
 			mailer.send(m,null,afterSendCb);
 			this.sdate = Date.now();
 			this.rawStatus = null;
+
+      trace("BufferedMail::finallySend(): we enter in the try");
 		}catch(e:Dynamic){
 			this.sdate = null;
 			this.rawStatus = Std.string(e);
+
+      trace("BufferedMail::finallySend(): we enter in the catch");
 		}
-		
+
 		this.update();
 
 	}
@@ -123,8 +130,8 @@ class BufferedMail extends sys.db.Object
 		this.status = status;
 		this.update();
 	}
-	
-	
-	
-	
+
+
+
+
 }
