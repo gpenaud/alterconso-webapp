@@ -75,8 +75,6 @@ class BufferedMail extends sys.db.Object
 		if(isSent()) throw "already sent";
 
 		var conf = {
-      mailer_host:sugoi.db.Variable.get("mailer_host"),
-      mailer_port:sugoi.db.Variable.get("mailer_port"),
 			smtp_host:sugoi.db.Variable.get("smtp_host"),
 			smtp_port:sugoi.db.Variable.getInt("smtp_port"),
 			smtp_user:sugoi.db.Variable.get("smtp_user"),
