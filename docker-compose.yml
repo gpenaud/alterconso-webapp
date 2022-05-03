@@ -12,10 +12,6 @@ services:
     build:
       context: .
       args:
-        CAGETTE_SMTP_HOST: "${CAGETTE_SMTP_HOST:-}"
-        CAGETTE_SMTP_PORT: "${CAGETTE_SMTP_PORT:-}"
-        CAGETTE_SMTP_USER: "${CAGETTE_SMTP_USER:-}"
-        CAGETTE_SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
         CAGETTE_SQL_LOG: "${CAGETTE_SQL_LOG:-}"
         CAGETTE_DEBUG: "${CAGETTE_DEBUG:-}"
     # for debugging purposes
@@ -27,6 +23,9 @@ services:
         source: ./docker/app/src
         target: /var/www/cagette/src
       - type: bind
+        source: ./docker/app/backend
+        target: /var/www/cagette/backend
+      - type: bind
         source: ./docker/app/devLibs/sugoi
         target: /var/www/cagette/devLibs/sugoi
     ports:
@@ -34,6 +33,23 @@ services:
       - 443:443
     depends_on:
       - mysql
+    networks:
+      - cagette
+
+  mailer:
+    hostname: mailer
+    image: gpenaud/cagette-mailer
+    build:
+      context: ./../mailer
+    ports:
+      - 5000:5000
+    environment:
+      SMTP_HOST: "${CAGETTE_SMTP_HOST:-}"
+      SMTP_PORT: "${CAGETTE_SMTP_PORT:-}"
+      SMTP_USER: "${CAGETTE_SMTP_USER:-}"
+      SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
+    depends_on:
+      - cagette
     networks:
       - cagette
 
