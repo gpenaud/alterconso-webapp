@@ -15,6 +15,7 @@ ENV LD_LIBRARY_PATH /root/haxe/neko
 ENV PATH            /root/haxe/neko/:$PATH
 
 RUN npm install --global \
+  git \
   lix \
   haxe-modular
 
@@ -58,6 +59,7 @@ RUN \
     apache2 \
     ca-certificates \
     cron \
+    curl \
     haxe \
     imagemagick \
     libapache2-mod-neko \
