@@ -13,6 +13,8 @@ COLOR_ERROR       = $(shell tput setaf 1)
 COLOR_COMMENT     = $(shell tput setaf 3)
 COLOR_TITLE_BLOCK = $(shell tput setab 4)
 
+DUMP ?= development.sql
+
 ## display this help text
 help:
 	@printf "\n"
@@ -33,7 +35,7 @@ help:
 ## start cagette stack locally
 up:
 	source environment.txt && docker-compose up --build --detach
-	docker-compose logs --follow cagette
+	docker-compose logs --follow cagette mailer
 
 ## stop local cagette stack
 down:
@@ -46,7 +48,7 @@ send-mail:
 	docker-compose exec cagette sh -c "cd /var/www/cagette/www; neko index.n cron/testmail"
 
 database-backup:
-	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > database-dump.sql"
+	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > development.sql"
 	docker cp $(shell docker-compose ps -q mysql):/database-dump.sql docker/mysql/dumps/$(shell date '+%d-%m-%Y').sql
 
 database-restore:
