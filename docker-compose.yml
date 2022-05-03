@@ -44,6 +44,9 @@ services:
     ports:
       - 5000:5000
     environment:
+      # mailer configuration
+      MAILER_HOST: "0.0.0.0"
+      # smtp relay configuration
       SMTP_HOST: "${CAGETTE_SMTP_HOST:-}"
       SMTP_PORT: "${CAGETTE_SMTP_PORT:-}"
       SMTP_USER: "${CAGETTE_SMTP_USER:-}"
