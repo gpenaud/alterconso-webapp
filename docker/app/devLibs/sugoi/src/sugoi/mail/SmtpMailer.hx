@@ -42,11 +42,17 @@ class SmtpMailer implements IMailer
 			data.to.push( { email:r.email, name:r.name, type:"to" } );
 		}
 
-		var raw = curlRequest("POST", "http://127.0.0.1:5000/send", {}, haxe.Json.stringify(data));
+    // var mailer_host = App.config.get("mailer_host");
+    var mailer_host = "192.168.1.251";
+    var mailer_port = App.config.get("mailer_port");
+
+    trace("SmtpMailer::send(): " + haxe.Json.stringify(data));
+		var raw = curlRequest("POST", "http://" + mailer_host + ":" + mailer_port + "/send", {}, haxe.Json.stringify(data));
 
     trace("SmtpMailer::send(): " + raw);
 
 		if (callback != null){
+      trace("SmtpMailer::send(): " + callback);
 
 			if (raw == null) throw "CURL response is null";
 			if (raw == "") throw "CURL response is empty";
@@ -90,7 +96,7 @@ class SmtpMailer implements IMailer
 
 
 	public function curlRequest( method: String, url : String, ?headers : Dynamic, postData : String ) : Dynamic {
-		var cParams = ["-X"+method,"--max-time","15"];
+		var cParams = ["-X"+method,"--max-time","60"];
 		for( k in Reflect.fields(headers) ){
 			cParams.push("-H");
 			cParams.push(k+": "+Reflect.field(headers,k));
@@ -102,6 +108,8 @@ class SmtpMailer implements IMailer
 			cParams.push("-d");
 			cParams.push(postData);
 		}
+
+    trace(postData);
 
 		var p = new sys.io.Process("curl", cParams);
 

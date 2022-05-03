@@ -7,16 +7,18 @@
 	name = "Cagette.net"
 	default_email = "noreply@cagette.net"
 	webmaster_email = "mon_email@mon_domaine.fr"
-	
+
 	database="mysql://docker:docker@mysql/db"
 	sqllog="1"
-	
+
 	debug="1"
 	cache="0"
 	maintain="0"
 	cachetpl="0"
 	key="localdevkey"
-	
+
+	mailer_host="mailer"
+	mailer_port="5000"
 	smtp_host="smtp.mandrillapp.com"
 	smtp_port="587"
 	smtp_user="mon_email@mon_domaine.fr"

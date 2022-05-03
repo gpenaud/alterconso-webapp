@@ -52,7 +52,7 @@ class Cron extends Controller
 	public function doTestmail() {
 		Sys.println("execution of doTestmail()");
 
-		for( e in sugoi.db.BufferedMail.manager.search($mailerType=="smtp",{limit:[0,1],orderBy:-cdate},true) ){
+		for( e in sugoi.db.BufferedMail.manager.search($mailerType=="smtp",{limit:[0,10],orderBy:-cdate},true) ){
 			Sys.println("execution of e.finallySend()");
 			e.finallySend();
 		}
