@@ -37,15 +37,15 @@ docker/app/lang/en/tmp/*.n
 docker/app/lang/de/tmp/*.n
 docker/app/lang/es/tmp/*.n
 
-docker/app/www/lang/*.mo
-docker/app/www/file/*
-docker/app/www/js/*
-docker/app/www/css/.sass-cache
-docker/app/www/css/*.css
-docker/app/www/*.xls
-docker/app/www/*.xlsx
-docker/app/!www/js/libs.dev.js
-docker/app/!www/js/libs.prod.js
-docker/app/!www/js/fetch.umd.js
+# docker/app/www/lang/*.mo
+# docker/app/www/file/*
+# docker/app/www/js/*
+# docker/app/www/css/.sass-cache
+# docker/app/www/css/*.css
+# docker/app/www/*.xls
+# docker/app/www/*.xlsx
+# docker/app/!www/js/libs.dev.js
+# docker/app/!www/js/libs.prod.js
+# docker/app/!www/js/fetch.umd.js
 docker/app/backend/lang
 docker/app/codes.sh
