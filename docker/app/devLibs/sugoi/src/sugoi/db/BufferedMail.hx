@@ -64,9 +64,7 @@ class BufferedMail extends sys.db.Object
 	}
 
 	public function isSent(){
-    // CHANGE TO REMOVE @gpenaud
-		// return sdate!=null;
-    return mailerType!="smtp";
+		return sdate!=null;
 	}
 
 	/**

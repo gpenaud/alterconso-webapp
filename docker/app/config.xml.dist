@@ -19,6 +19,7 @@
 
 	mailer_host="mailer"
 	mailer_port="5000"
+
 	smtp_host="smtp.mandrillapp.com"
 	smtp_port="587"
 	smtp_user="mon_email@mon_domaine.fr"

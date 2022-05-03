@@ -42,8 +42,7 @@ class SmtpMailer implements IMailer
 			data.to.push( { email:r.email, name:r.name, type:"to" } );
 		}
 
-    // var mailer_host = App.config.get("mailer_host");
-    var mailer_host = "192.168.1.251";
+    var mailer_host = App.config.get("mailer_host");
     var mailer_port = App.config.get("mailer_port");
 
     trace("SmtpMailer::send(): " + haxe.Json.stringify(data));
