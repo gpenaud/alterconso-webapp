@@ -13,6 +13,8 @@ COLOR_ERROR       = $(shell tput setaf 1)
 COLOR_COMMENT     = $(shell tput setaf 3)
 COLOR_TITLE_BLOCK = $(shell tput setab 4)
 
+DUMP ?= development.sql
+
 ## display this help text
 help:
 	@printf "\n"
@@ -61,6 +63,9 @@ debug-frontend-prepare:
 
 debug-frontend-refresh:
 	docker-compose exec cagette sh -c "cd frontend && haxe cagetteJs.hxml"
+
+send-mail:
+	docker-compose exec cagette sh -c "cd /var/www/cagette/www; neko index.n cron/testmail"
 
 ## package and index helm chart
 package-helm:
