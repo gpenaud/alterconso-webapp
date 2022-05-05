@@ -6,6 +6,21 @@
 #   include: prepare.yml
 #   tags: prepare
 
-- name: install cagette
-  include: install.yml
-  tags: install
+# - name: install cagette
+#   include: install.yml
+#   tags: install
+#
+# - name: install backend dependencies
+#   include: install/dependencies/backend.yml
+#
+# - name: install frontend dependencies
+#   include: install/dependencies/frontend.yml
+#
+# - name: compile backend
+#   include: install/compile/backend.yml
+#
+# - name: compile frontend
+#   include: install/compile/frontend.yml
+
+- name: install templo
+  include: install/templo.yml

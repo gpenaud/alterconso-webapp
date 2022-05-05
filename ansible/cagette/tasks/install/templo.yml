@@ -1,0 +1,31 @@
+# ------------------------------------------------------------------------------
+# cagette installation - install templo
+
+- name: "[install] - check if templo is installed and available"
+  become: yes
+  stat:
+    path: /usr/lib/x86_64-linux-gnu/neko/temploc2
+  register: has_been_installed
+  failed_when: no
+  changed_when: no
+
+- block:
+  - name: "[install] - setup haxelib"
+    become: yes
+    shell: haxelib setup /usr/share/haxelib
+    args:
+      executable: /bin/bash
+
+  - name: "[install] - install templo"
+    become: yes
+    shell: haxelib install templo
+    args:
+      executable: /bin/bash
+
+  - name: "[install] - run templo"
+    become: yes
+    shell: haxelib run templo
+    args:
+      chdir: /usr/lib/x86_64-linux-gnu/neko
+      executable: /bin/bash
+  when: not has_been_installed.stat.exists or (force_templo_installation is defined and force_templo_installation == "yes")

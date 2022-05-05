@@ -1,0 +1,22 @@
+
+- name: "[install] - remove cagette-pro plugin"
+  become: yes
+  file:
+    path: /var/www/cagette/backend/haxe_libraries/cagette-pro.hxml
+    state: absent
+
+- name: "[install] - check for backend libraries presence"
+  become: yes
+  stat:
+    path: /root/haxe/haxe_libraries/asys
+  register: haxe_backend_libraries
+  failed_when: no
+  changed_when: no
+
+- name: "[install] - download required haxe librairies for backend"
+  become: yes
+  shell: lix download
+  args:
+    chdir: /var/www/cagette/backend
+    executable: /bin/bash
+  when: not haxe_backend_libraries.stat.exists or (force_haxe_backend_libraries is defined and force_haxe_backend_libraries == "yes")

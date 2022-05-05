@@ -1,0 +1,23 @@
+
+- name: "[install] - check for frontend libraries presence"
+  become: yes
+  stat:
+    path: /root/haxe/haxe_libraries/react-next
+  register: haxe_frontend_libraries
+  failed_when: no
+  changed_when: no
+
+- name: "[install] - download required haxe librairies for frontend"
+  become: yes
+  shell: lix download
+  args:
+    chdir: /var/www/cagette/frontend
+    executable: /bin/bash
+  when: not haxe_frontend_libraries.stat.exists or (force_haxe_frontend_libraries is defined and force_haxe_frontend_libraries == "yes")
+
+- name: "[install] - ensure lang tmp has 0777 mode"
+  become: yes
+  file:
+    state: directory
+    path: /var/www/cagette/lang/master/tmp
+    mode: 0777
