@@ -2,16 +2,16 @@
 # ------------------------------------------------------------------------------
 # apache installation
 
-- name: "[install] - add apache2 packages"
-  become: yes
-  apt:
-    name: "{{ package }}"
-    update_cache: yes
-  loop:
-    - apache2
-    - libapache2-mod-neko
-  loop_control:
-    loop_var: package
+# - name: "[install] - add apache2 packages"
+#   become: yes
+#   apt:
+#     name: "{{ package }}"
+#     update_cache: yes
+#   loop:
+#     - apache2
+#     - libapache2-mod-neko
+#   loop_control:
+#     loop_var: package
 
 # ------------------------------------------------------------------------------
 # cagette installation
@@ -27,27 +27,153 @@
 #   loop_control:
 #     loop_var: package
 
-- name: "[install] - create cagette group"
-  become: yes
-  group:
-    name: cagette
+# - name: "[install] - create cagette group"
+#   become: yes
+#   group:
+#     name: cagette
+#
+# - name: "[install] - create cagette user"
+#   become: yes
+#   user:
+#     name: cagette
+#     comment: system account for cagette webapp
+#     group: cagette
+#
+# - name: "[install] - create cagette webapp directory"
+#   file:
+#     path: /var/www
+#     state: directory
+#     mode: 0755
+#
+# - name: "[install] - check for cagette source code presence"
+#   stat:
+#     path: /var/www/cagette
+#   register: cagette_source
+#   failed_when: no
+#   changed_when: no
+#
+# - block:
+#   - name: "[install] - download git source code"
+#     become: yes
+#     git:
+#       repo: "https://github.com/gpenaud/cagette.git"
+#       dest: /tmp/cagette
+# #
+#   - name: "[install] - copy source code to apache directory"
+#     become: yes
+#     copy:
+#       src: /tmp/cagette/docker/app/
+#       dest: /var/www/cagette
+#       owner: cagette
+#       group: cagette
+#       remote_src: yes
+#
+#   - name: "[install] - remote git repository from /tmp"
+#     become: yes
+#     file:
+#       path: /tmp/cagette
+#       state: absent
+#   when: not cagette_source.stat.exists or (force_source is defined and force_source == "yes")
 
-- name: "[install] - create cagette user"
-  become: yes
-  user:
-    name: cagette
-    comment: system account for cagette webapp
-    group: cagette
+# ------------------------------------------------------------------------------
+# cagette installation - backend dependencies
 
-- name: "[install] - create cagette webapp directory"
+# - name: "[install] - remove cagette-pro plugin"
+#   become: yes
+#   file:
+#     path: /var/www/cagette/backend/haxe_libraries/cagette-pro.hxml
+#     state: absent
+#
+# - name: "[install] - check for backend libraries presence"
+#   become: yes
+#   stat:
+#     path: /root/haxe/haxe_libraries/asys
+#   register: haxe_backend_libraries
+#   failed_when: no
+#   changed_when: no
+#
+# - name: "[install] - download required haxe librairies for backend"
+#   become: yes
+#   shell: lix download
+#   args:
+#     chdir: /var/www/cagette/backend
+#     executable: /bin/bash
+#   when: not haxe_backend_libraries.stat.exists or (force_haxe_backend_libraries is defined and force_haxe_backend_libraries == "yes")
+
+# ------------------------------------------------------------------------------
+# cagette installation - frontend dependencies
+
+# - name: "[install] - check for frontend libraries presence"
+#   become: yes
+#   stat:
+#     path: /root/haxe/haxe_libraries/react-next
+#   register: haxe_frontend_libraries
+#   failed_when: no
+#   changed_when: no
+#
+# - name: "[install] - download required haxe librairies for frontend"
+#   become: yes
+#   shell: lix download
+#   args:
+#     chdir: /var/www/cagette/frontend
+#     executable: /bin/bash
+#   when: not haxe_frontend_libraries.stat.exists or (force_haxe_frontend_libraries is defined and force_haxe_frontend_libraries == "yes")
+
+- name: "[install] - ensure lang tmp has 0777 mode"
+  become: yes
   file:
-    path: /var/www
     state: directory
-    mode: 0755
+    path: /var/www/cagette/lang/master/tmp
+    mode: 0777
 
-- name: "[install] - download git source code as master version"
+# ------------------------------------------------------------------------------
+# cagette installation - backend compilation
+
+- name: "[install] - check if backend code compilation has already been made once"
   become: yes
-  git:
-    repo: "https://github.com/gpenaud/cagette.git"
-    dest: /var/www/cagette
-    version: master
+  stat:
+    path: /var/www/cagette/backend/has_been_compiled.ansible
+  register: has_been_compiled
+  failed_when: no
+  changed_when: no
+
+- block:
+  - name: "[install] - compile backend source code"
+    become: yes
+    shell: haxe cagette.hxml
+    args:
+      chdir: /var/www/cagette/backend
+      executable: /bin/bash
+
+  - name: "[install] - register file to tell that backend has been compiled"
+    become: yes
+    file:
+      state: touch
+      path: /var/www/cagette/backend/has_been_compiled.ansible
+  when: not has_been_compiled.stat.exists or (force_cagette_backend_compilation is defined and force_cagette_backend_compilation == "yes")
+
+# ------------------------------------------------------------------------------
+# cagette installation - frontend compilation
+
+- name: "[install] - check if frontend code compilation has already been made once"
+  become: yes
+  stat:
+    path: /var/www/cagette/frontend/has_been_compiled.ansible
+  register: has_been_compiled
+  failed_when: no
+  changed_when: no
+
+- block:
+  - name: "[install] - compile frontend source code"
+    become: yes
+    shell: haxe cagetteJs.hxml
+    args:
+      chdir: /var/www/cagette/frontend
+      executable: /bin/bash
+
+  - name: "[install] - register file to tell that frontend has been compiled"
+    become: yes
+    file:
+      state: touch
+      path: /var/www/cagette/frontend/has_been_compiled.ansible
+  when: not has_been_compiled.stat.exists or (force_cagette_frontend_compilation is defined and force_cagette_frontend_compilation == "yes")
