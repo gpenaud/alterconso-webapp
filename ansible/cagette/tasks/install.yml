@@ -1,0 +1,53 @@
+
+# ------------------------------------------------------------------------------
+# apache installation
+
+- name: "[install] - add apache2 packages"
+  become: yes
+  apt:
+    name: "{{ package }}"
+    update_cache: yes
+  loop:
+    - apache2
+    - libapache2-mod-neko
+  loop_control:
+    loop_var: package
+
+# ------------------------------------------------------------------------------
+# cagette installation
+
+# - name: "[install] - add haxe packages required"
+#   become: yes
+#   npm:
+#     name: "{{ package }}"
+#     global: yes
+#   loop:
+#     - lix
+#     - haxe-modular
+#   loop_control:
+#     loop_var: package
+
+- name: "[install] - create cagette group"
+  become: yes
+  group:
+    name: cagette
+
+- name: "[install] - create cagette user"
+  become: yes
+  user:
+    name: cagette
+    comment: system account for cagette webapp
+    group: cagette
+
+- name: "[install] - create cagette webapp directory"
+  file:
+    path: /var/www
+    state: directory
+    mode: 0755
+
+- name: "[install] - download git source code as master version"
+  become: yes
+  git:
+    repo: "https://github.com/gpenaud/cagette.git"
+    dest: /var/www/cagette
+    version: master

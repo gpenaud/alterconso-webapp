@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+- name: ubuntu-20
+  hostname: ubuntu
+  image: mpaivabarbosa/molecule-systemd-ubuntu:20.04
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  privileged: true
+  pre_build_image: true
+  override_command: false
+
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      remote_user: ansible
+verifier:
+  name: ansible

@@ -1,0 +1,11 @@
+
+# - name: preflight checks
+#   include: preflight.yml
+
+# - name: prepare host (install required tools)
+#   include: prepare.yml
+#   tags: prepare
+
+- name: install cagette
+  include: install.yml
+  tags: install

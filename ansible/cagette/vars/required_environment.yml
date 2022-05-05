@@ -1,0 +1,7 @@
+
+required_environment_vars:
+  - "HAXE_STD_PATH"
+  - "HAXE_LIBCACHE"
+  - "LD_LIBRARY_PATH"
+  - "NEKOPATH"
+  - "PATH"
