@@ -36,3 +36,20 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+
+
+
+
+
+# backend libraries
+asys	  hscript      hxevents  smtpmailer  thx.csv	 tink_await  tink_http	tink_macro	tink_state     tink_syntaxhub	 utest
+datetime  http-status  jwt	 templo      thx.semver  tink_chunk  tink_io	tink_multipart	tink_streams   tink_typecrawler
+dbadmin   hx3compat    mime	 thx.core    tink_anon	 tink_core   tink_json	tink_priority	tink_stringly  tink_url
+
+# backend + frontend libraries
+asys	    haxe-lodash    hx3compat	 jwt		       react-next	       redux-connect  thx.core	  tink_chunk  tink_json       tink_state	tink_url
+classnames  history	   hxevents	 material-ui	       react-router-4	       redux-thunk    thx.csv	  tink_core   tink_macro      tink_streams	utest
+css-types   hscript	   hxleaflet	 mime		       react-transition-group  smtpmailer     thx.semver  tink_http   tink_multipart  tink_stringly
+datetime    html-entities  jQueryExtern  modular	       react-types	       sugoi	      tink_anon   tink_hxx    tink_parse      tink_syntaxhub
+dbadmin     http-status    js-object	 react-event-listener  redux		       templo	      tink_await  tink_io     tink_priority   tink_typecrawler
