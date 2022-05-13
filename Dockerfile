@@ -47,7 +47,6 @@ RUN chmod 777 /app/lang/master/tmp
 RUN cd /app/backend && haxe cagette.hxml
 RUN cd /app/frontend && haxe cagetteJs.hxml
 
-
 # ============================================================================ #
 #                   APPLICATION CONFIGURATION AND EXECUTION                    #
 # ============================================================================ #
