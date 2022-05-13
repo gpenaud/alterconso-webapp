@@ -2,7 +2,8 @@
 #                           SOURCE CODE COMPILATION                            #
 # ============================================================================ #
 
-FROM node:17-bullseye-slim AS cagette-sourcecode
+# image: node:17-bullseye-slim
+FROM node@sha256:47704b6439c27955da5fd53b94d40157171203a6e7e7b1422ca404dab05fed00 AS cagette-sourcecode
 
 # Haxe environment variables
 ENV HAXE_STD_PATH /root/haxe/neko
@@ -51,8 +52,8 @@ RUN cd /app/frontend && haxe cagetteJs.hxml
 #                   APPLICATION CONFIGURATION AND EXECUTION                    #
 # ============================================================================ #
 
-# FROM debian:bullseye-slim
-FROM node:17-bullseye-slim
+# image: debian:bullseye-slim
+FROM debian@sha256:fbaacd55d14bd0ae0c0441c2347217da77ad83c517054623357d1f9d07f79f5e
 
 RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
