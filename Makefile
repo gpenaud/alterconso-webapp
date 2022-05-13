@@ -44,12 +44,12 @@ down:
 enter:
 	docker-compose exec cagette bash
 
-send-mail:
-	docker-compose exec cagette sh -c "cd /var/www/cagette/www; neko index.n cron/testmail"
+cagette-debug:
+	docker-compose exec cagette sh -c "cd /var/www/cagette/www; neko index.n cron/debug"
 
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > development.sql"
-	docker cp $(shell docker-compose ps -q mysql):/database-dump.sql docker/mysql/dumps/$(shell date '+%d-%m-%Y').sql
+	docker cp $(shell docker-compose ps -q mysql):/development.sql docker/mysql/dumps/development.sql
 
 database-restore:
 	docker cp docker/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}

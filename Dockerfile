@@ -64,7 +64,8 @@ RUN \
     imagemagick \
     libapache2-mod-neko \
     # allow setcap command to be used
-    libcap2-bin
+    libcap2-bin \
+    procps
 
 COPY --chown=www-data:www-data --from=cagette-sourcecode /app  /var/www/cagette
 
@@ -100,21 +101,14 @@ ARG CAGETTE_SMTP_PASSWORD
 ARG CAGETTE_SQL_LOG
 ARG CAGETTE_DEBUG
 
-# enable modules
-RUN \
-  a2enmod ssl && \
-  a2enmod rewrite && \
-  a2enmod neko
-
 # remove default vhosts
 RUN rm -f \
   /etc/apache2/sites-available/000-default.conf \
   /etc/apache2/sites-enabled/000-default.conf
 
-# copy certificates
+# copy apache2 related files
+COPY ./docker/httpd/apache2.conf /etc/apache2/apache2.conf
 COPY ./docker/httpd/certificates /etc/apache2/certificates
-
-# copy vhost configuration
 COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
 COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
 
@@ -122,15 +116,18 @@ COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localho
 COPY --chown=www-data:www-data ./crontab.sh /var/www/cagette/crontab.sh
 RUN sh /var/www/cagette/crontab.sh
 
-# create apache2 certificates directory
+# run multiples apache2-related operations
 RUN \
   chmod --recursive o+rwx /var/log/apache2 /var/run/apache2 && \
-  mkdir -p /etc/apache2/certificates
-
-# link logs to stderr and stdout
-RUN \
+  mkdir -p /etc/apache2/certificates && \
+  # prepare apache2 logs
   ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
   ln -sf /proc/self/fd/1 /var/log/apache2/error.log
+
+RUN \
+  # prepare apache2 to be executed as www-data user
+  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2ctl && \
+  setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
 
 RUN \
   sed -i 's/.*smtp_host.*/        smtp_host="'"${CAGETTE_SMTP_HOST}"'"/' /var/www/cagette/config.xml && \
@@ -140,12 +137,30 @@ RUN \
   sed -i 's/.*sqllog.*/        sqllog="'"${CAGETTE_SQL_LOG}"'"/' /var/www/cagette/config.xml && \
   sed -i 's/.*debug.*/        debug="'"${CAGETTE_DEBUG}"'"/' /var/www/cagette/config.xml
 
-RUN service apache2 restart
+# configure modules
+RUN \
+  a2dismod -f auth_basic && \
+  a2dismod -f authn_core && \
+  a2dismod -f authn_file && \
+  a2dismod -f authz_host && \
+  a2dismod -f authz_user && \
+  a2dismod -f autoindex && \
+  a2dismod -f deflate && \
+  a2dismod -f status
+
+RUN \
+  a2enmod ssl && \
+  a2enmod rewrite && \
+  a2enmod neko
+
+RUN \
+  service apache2 restart && \
+  rm /var/run/apache2/apache2.pid
 
 # execute apache2
 # ------------------------------------------------------------------------------
 
-USER root
+USER www-data
 WORKDIR /var/www/cagette
 EXPOSE 80
 
