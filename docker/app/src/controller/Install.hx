@@ -18,6 +18,8 @@ class Install extends controller.Controller
 	 */
 	@tpl("install/default.mtt")
 	public function doDefault() {
+    _0_9_2_installTaxonomy();
+
 		if (db.User.manager.get(1) == null) {
 
 			throw Redirect("/install/firstInstall");
@@ -202,6 +204,9 @@ class Install extends controller.Controller
 		var log = [];
 		/*var currentVersion = thx.semver.Version.stringToVersion(Variable.get("version"));
 
+    # whatever context, install taxonomy
+    _0_9_2_installTaxonomy();
+
 		//Migrations to 0.9.2
 		if (currentVersion.lessThan( thx.semver.Version.arrayToVersion([0,9,2]) )){
 
@@ -239,6 +244,7 @@ class Install extends controller.Controller
 			var cat = new db.TxpCategory();
 			cat.id = c.id;
 			cat.name = c.name;
+      cat.image = c.image;
 			cat.insert();
 		}
 
