@@ -3952,59 +3952,73 @@
  "categories": [
   {
    "name": "Traiteur",
-   "id": 4
+   "id": 4,
+   "image": "desserts-plats-prepares"
   },
   {
    "name": "Maison & Jardin",
-   "id": 5
+   "id": 5,
+   "image": "autres"
   },
   {
    "name": "Boulangerie & Pâtisserie",
-   "id": 7
+   "id": 7,
+   "image": "boulangerie-patisserie"
   },
   {
    "name": "Viandes",
-   "id": 10
+   "id": 10,
+   "image": "viande-charcuterie"
   },
   {
    "name": "Artisanat & Loisirs",
-   "id": 12
+   "id": 12,
+   "image": "autres"
   },
   {
    "name": "Produits de la mer",
-   "id": 1
+   "id": 1,
+   "image": "produits-mer"
   },
   {
    "name": "Beauté & soins",
-   "id": 3
+   "id": 3,
+   "image": "hygiene"
   },
   {
    "name": "Animaux",
-   "id": 11
+   "id": 11,
+   "image": "autres"
   },
   {
    "name": "Épicerie",
-   "id": 14
+   "id": 14,
+   "image": "epicerie"
   },
   {
    "name": "Fruits & Légumes",
-   "id": 6
+   "id": 6,
+   "image": "fruits-legumes"
   },
   {
    "name": "Crèmerie",
-   "id": 8
+   "id": 8,
+   "image": "cremerie"
   },
   {
    "name": "Paniers et Coffrets",
-   "id": 13
+   "id": 13,
+   "image": "autres"
   },
   {
    "name": "Livraison à domicile",
-   "id": 2
+   "id": 2,
+   "image": "autres"
   },
   {
    "name": "Boissons",
-   "id": 9
+   "id": 9,
+   "image": "boissons"
   }
  ],
  "subCategories": [
