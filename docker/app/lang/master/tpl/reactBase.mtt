@@ -15,25 +15,26 @@
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
 		integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
 		crossorigin=""/>
-		
+
 		<!-- Cagette CSS -->
 		<link rel="stylesheet" type="text/css" href="/css/::getVariable('css')::/style.css"/>
 
 
 		<!-- Cagette very own icon font -->
 		<link rel="stylesheet" href="/font/icons.css" />
-		
-        
+
+
         <!-- JQUERY (needed by bootstrap)
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
-		
-		
+
+
 		<!-- polyfills : Object assign , Array find : https://polyfill.io/v3/url-builder -->
 		<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.prototype.find%2CObject.assign"></script>
 
 		<!-- Haxe JS + libs bundled with browserify -->
 		::if DEBUG::
-		<script type="text/javascript" src="/js/::getVariable('js')::/libs.dev.js"></script>
+		<!-- <script type="text/javascript" src="/js/::getVariable('js')::/libs.dev.js"></script> -->
+		<script type="text/javascript" src="/js/::getVariable('js')::/libs.prod.js"></script>
 		::else::
 		<script type="text/javascript" src="/js/::getVariable('js')::/libs.prod.js"></script>
 		::end::
@@ -48,7 +49,7 @@
 		<meta property="og:description" content="::socialShareData.description::"/>
 		<meta property="og:image" content="::socialShareData.imageUrl::"/>
 		<meta property="og:image:alt" content="::socialShareData.imageAlt::"/>
-		
+
 		<meta name="twitter:card" content="::socialShareData.twitterType::"/>
 		<meta name="twitter:site" content="::socialShareData.twitterUsername::"/>
 		<meta name="twitter:title" content="::socialShareData.title::"/>
@@ -61,37 +62,37 @@
 
 	::if container==null:: ::set container="container":: ::end::
 	<body class="::container::" style="background-color: white;">
-		
+
 		::if DEBUG::
 		<div style="position: absolute;background: #666;padding: 8px;left: 0;bottom:0;color: #FF0;">DEBUG ::session.lang::</div>
 		::end::
-		
+
 		::if HOST.substr(0,3)=="pp."::
 		<div style="position: absolute;background: #F60;padding: 8px;left:0;bottom:0;color: #FF0;">PREPROD</div>
 		::end::
-		
-		
+
+
 		<div id="header"></div>
 		::raw __content__::
-		
+
 
 		$$ga()
 
 		<script type="text/javascript">
-		
-			
+
+
 			document.addEventListener("DOMContentLoaded", function(event) {
-			  
+
 				//init lang in js App
 				_.LANG = "::session.lang::";
-				
+
 				//tutorials
-				//::if tuto!=null::				
-				//_.getTuto("::tuto.name::",::tuto.step::);			
+				//::if tuto!=null::
+				//_.getTuto("::tuto.name::",::tuto.step::);
 				//::end::
 
 				_.antiDoubleClick();
-			  
+
 			})
 
 			//tracking 24x7
@@ -106,6 +107,6 @@
 			})(window)
 
 		</script>
-		
+
 	</body>
 </html>
