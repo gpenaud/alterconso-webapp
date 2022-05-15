@@ -16,20 +16,6 @@ services:
         CAGETTE_DEBUG: "${CAGETTE_DEBUG:-}"
         CAGETTE_CACHETPL: "${CAGETTE_CACHETPL:-}"
     restart: always
-    # for debugging purposes
-    volumes:
-      - type: bind
-        source: ./docker/app/js
-        target: /var/www/cagette/js
-      - type: bind
-        source: ./docker/app/src
-        target: /var/www/cagette/src
-      - type: bind
-        source: ./docker/app/backend
-        target: /var/www/cagette/backend
-      - type: bind
-        source: ./docker/app/devLibs/sugoi
-        target: /var/www/cagette/devLibs/sugoi
     ports:
       - 80:80
       - 443:443
@@ -44,7 +30,7 @@ services:
     build:
       context: ./../mailer
     ports:
-      - 5000:5000
+      - 5000
     environment:
       # mailer configuration
       MAILER_HOST: "0.0.0.0"
