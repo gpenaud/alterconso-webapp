@@ -21,26 +21,26 @@ RUN npm install --global \
   haxe-modular
 
 # backend dependencies compilation
-COPY ./docker/app/backend /app/backend
-COPY ./docker/app/devLibs /app/devLibs
+COPY ./src/backend /app/backend
+COPY ./src/devLibs /app/devLibs
 # download lix dependencies for backend
 # NOTE: cagette-pro is a private repository and requires authentication, so we remove it
 RUN cd /app/backend && rm haxe_libraries/cagette-pro.hxml && lix download
 
 # frontend dependencies compilation
-COPY ./docker/app/frontend /app/frontend
+COPY ./src/frontend /app/frontend
 # download lix dependencies for frontend
 RUN cd /app/frontend && lix download
 
 # copy sources
-COPY ./docker/app/build /app/build
-COPY ./docker/app/common /app/common
-COPY ./docker/app/data /app/data
-COPY ./docker/app/js /app/js
-COPY ./docker/app/lang /app/lang
-COPY ./docker/app/src /app/src
-COPY ./docker/app/www /app/www
-COPY ./docker/app/config.xml.dist /app/config.xml
+COPY ./src/build /app/build
+COPY ./src/common /app/common
+COPY ./src/data /app/data
+COPY ./src/js /app/js
+COPY ./src/lang /app/lang
+COPY ./src/src /app/src
+COPY ./src/www /app/www
+COPY ./src/config.xml.dist /app/config.xml
 
 RUN chmod 777 /app/lang/master/tmp
 
@@ -63,7 +63,7 @@ RUN \
     haxe \
     imagemagick \
     libapache2-mod-neko \
-    # allow setcap command to be used
+    # allow setcap command to be used for apache2 command execution as non-root users
     libcap2-bin \
     procps
 
@@ -102,18 +102,18 @@ ARG CAGETTE_SQL_LOG
 ARG CAGETTE_DEBUG
 
 # remove default vhosts
-RUN rm -f \
+RUN rm --force \
   /etc/apache2/sites-available/000-default.conf \
   /etc/apache2/sites-enabled/000-default.conf
 
 # copy apache2 related files
-COPY ./docker/httpd/apache2.conf /etc/apache2/apache2.conf
-COPY ./docker/httpd/certificates /etc/apache2/certificates
-COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
-COPY ./docker/httpd/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
+COPY ./services/apache2/apache2.conf /etc/apache2/apache2.conf
+COPY ./services/apache2/certificates /etc/apache2/certificates
+COPY ./services/apache2/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
+COPY ./services/apache2/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
 
 # copy cron file
-COPY --chown=www-data:www-data ./crontab.sh /var/www/cagette/crontab.sh
+COPY --chown=www-data:www-data ./scripts/crontab.sh /var/www/cagette/crontab.sh
 RUN sh /var/www/cagette/crontab.sh
 
 # run multiples apache2-related operations
@@ -140,14 +140,13 @@ RUN \
 
 # configure modules
 RUN \
-  a2dismod -f auth_basic && \
-  a2dismod -f authn_core && \
-  a2dismod -f authn_file && \
-  a2dismod -f authz_host && \
-  a2dismod -f authz_user && \
-  a2dismod -f autoindex && \
-  # a2dismod -f deflate && \
-  a2dismod -f status
+  a2dismod --quiet --force auth_basic && \
+  a2dismod --quiet --force authn_core && \
+  a2dismod --quiet --force authn_file && \
+  a2dismod --quiet --force authz_host && \
+  a2dismod --quiet --force authz_user && \
+  a2dismod --quiet --force autoindex && \
+  a2dismod --quiet --force status
 
 RUN \
   a2enmod ssl && \

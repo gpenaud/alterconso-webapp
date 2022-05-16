@@ -1,7 +1,7 @@
 ## permanent variables
 .ONESHELL:
 SHELL 			:= /bin/bash
-PROJECT			?= github.com/gpenaud/mailer
+PROJECT			?= github.com/gpenaud/cagette-webapp
 RELEASE			?= $(shell git describe --tags --abbrev=0)
 CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
 COMMIT			?= $(shell git rev-parse --short HEAD)
@@ -27,6 +27,11 @@ publish: build tag push
 
 ## Start, then log cagette stack locally
 up:
+	source environment.txt && docker-compose up --detach
+	docker-compose logs --follow cagette mailer
+
+## Start, then log cagette stack locally, but force build first (without --no-cache option)
+up-with-build:
 	source environment.txt && docker-compose up --build --detach
 	docker-compose logs --follow cagette mailer
 

@@ -9,43 +9,43 @@ environment.txt
 # app ignores
 # ------------------------------------------------------------------------------
 
-docker/app/www/*.n
-docker/app/*.php
-docker/app/config.xml
-docker/app/www/plugin/*
-docker/app/Makefile*
-docker/app/lang/master/tmp/*
-docker/app/frontend/node_modules*
-docker/app/*.map
-docker/app/*.haxelib*
-docker/app/html
-docker/app/frontend/.temp
-docker/app/*.tar
+src/www/*.n
+src/*.php
+src/config.xml
+src/www/plugin/*
+src/Makefile*
+src/lang/master/tmp/*
+src/frontend/node_modules*
+src/*.map
+src/*.haxelib*
+src/html
+src/frontend/.temp
+src/*.tar
 
-docker/app/*.DS_Store*
+src/*.DS_Store*
 
-docker/app/lang/master/tpl/plugin/*
-docker/app/backend/lang/*
-docker/app/backend/temploc2.n
+src/lang/master/tpl/plugin/*
+src/backend/lang/*
+src/backend/temploc2.n
 
-docker/app/lang/fr/tpl/*
-docker/app/lang/en/tpl/*
-docker/app/lang/de/tpl/*
-docker/app/lang/es/tpl/*
-docker/app/lang/fr/tmp/*.n
-docker/app/lang/en/tmp/*.n
-docker/app/lang/de/tmp/*.n
-docker/app/lang/es/tmp/*.n
+src/lang/fr/tpl/*
+src/lang/en/tpl/*
+src/lang/de/tpl/*
+src/lang/es/tpl/*
+src/lang/fr/tmp/*.n
+src/lang/en/tmp/*.n
+src/lang/de/tmp/*.n
+src/lang/es/tmp/*.n
 
-# docker/app/www/lang/*.mo
-# docker/app/www/file/*
-# docker/app/www/js/*
-# docker/app/www/css/.sass-cache
-# docker/app/www/css/*.css
-# docker/app/www/*.xls
-# docker/app/www/*.xlsx
-# docker/app/!www/js/libs.dev.js
-# docker/app/!www/js/libs.prod.js
-# docker/app/!www/js/fetch.umd.js
-docker/app/backend/lang
-docker/app/codes.sh
+# src/www/lang/*.mo
+# src/www/file/*
+# src/www/js/*
+# src/www/css/.sass-cache
+# src/www/css/*.css
+# src/www/*.xls
+# src/www/*.xlsx
+# src/!www/js/libs.dev.js
+# src/!www/js/libs.prod.js
+# src/!www/js/fetch.umd.js
+src/backend/lang
+src/codes.sh

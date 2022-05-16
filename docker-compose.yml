@@ -55,7 +55,7 @@ services:
       - 3306
     volumes:
       - database:/var/lib/mysql
-      - ./docker/mysql/dumps/:/root/dumps
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./services/mysql/dumps/:/root/dumps
+      - ./services/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       - cagette
