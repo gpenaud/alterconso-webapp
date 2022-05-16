@@ -1,17 +1,26 @@
-## Build mailer image
+## permanent variables
+.ONESHELL:
+SHELL 			:= /bin/bash
+PROJECT			?= github.com/gpenaud/mailer
+RELEASE			?= $(shell git describe --tags --abbrev=0)
+CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
+COMMIT			?= $(shell git rev-parse --short HEAD)
+BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
+
+## Build webapp image
 build:
-	@[ "${tag}" ] || ( echo "tag variable must be set"; exit 1 )
-	docker build --tag cagette/webapp:${tag} .
+	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
+	@[ "${CURRENT_TAG}" ] && docker build --tag cagette/webapp:${CURRENT_TAG} .
 
-## Tag mailer image
+## Tag webapp image
 tag:
-	@[ "${tag}" ] || ( echo "tag variable must be set"; exit 1 )
-	docker tag cagette/webapp:${tag} rg.fr-par.scw.cloud/le-portail/cagette/webapp:${tag}
+	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
+	@[ "${CURRENT_TAG}" ] && docker tag cagette/webapp:${CURRENT_TAG} rg.fr-par.scw.cloud/le-portail/cagette/webapp:${CURRENT_TAG}
 
-## Push mailer image to scaleway repository
+## Push webapp image to scaleway repository
 push:
-	@[ "${tag}" ] || ( echo "tag variable must be set"; exit 1 )
-	docker push rg.fr-par.scw.cloud/le-portail/cagette/webapp:${tag}
+	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
+	@[ "${CURRENT_TAG}" ] && docker push rg.fr-par.scw.cloud/le-portail/cagette/webapp:${CURRENT_TAG}
 
 ## Build, Tag, then Push image at ${tag} version
 publish: build tag push
@@ -49,16 +58,6 @@ certificates-install-mkcert:
 certificates-generate:
 	mkcert -cert-file docker/httpd/certificates/cert.pem -key-file docker/httpd/certificates/key.pem cagette.localhost
 	chmod 0644 docker/httpd/certificates/key.pem
-
-## special variables
-SHELL := /bin/bash
-.ONESHELL:
-
-## Permanent variables
-PROJECT			?= github.com/gpenaud/cagette
-RELEASE			?= $(shell git describe --tags --abbrev=0)
-COMMIT			?= $(shell git rev-parse --short HEAD)
-BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 
 ## Colors
 COLOR_RESET       = $(shell tput sgr0)
