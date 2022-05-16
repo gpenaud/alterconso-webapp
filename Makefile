@@ -46,11 +46,11 @@ enter:
 ## Backups database in its development version
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > development.sql"
-	docker cp $(shell docker-compose ps -q mysql):/development.sql docker/mysql/dumps/development.sql
+	docker cp $(shell docker-compose ps -q mysql):/development.sql services/mysql/dumps/development.sql
 
 ## Backups database from its development version
 database-restore:
-	docker cp docker/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
+	docker cp services/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
 ## Install mkcert for self-signed certificates generation
@@ -61,8 +61,8 @@ certificates-install-mkcert:
 
 ## Generate self-signed certificates
 certificates-generate:
-	mkcert -cert-file docker/httpd/certificates/cert.pem -key-file docker/httpd/certificates/key.pem cagette.localhost
-	chmod 0644 docker/httpd/certificates/key.pem
+	mkcert -cert-file services/apache2/certificates/cert.pem -key-file services/apache2/certificates/key.pem cagette.localhost
+	chmod 0644 services/apache2/certificates/key.pem
 
 ## Colors
 COLOR_RESET       = $(shell tput sgr0)
