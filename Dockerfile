@@ -146,7 +146,7 @@ RUN \
   a2dismod -f authz_host && \
   a2dismod -f authz_user && \
   a2dismod -f autoindex && \
-  a2dismod -f deflate && \
+  # a2dismod -f deflate && \
   a2dismod -f status
 
 RUN \
