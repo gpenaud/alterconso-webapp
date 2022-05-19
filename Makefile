@@ -53,6 +53,15 @@ database-restore:
 	docker cp services/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
+recompile-backend:
+	docker-compose exec --user root --workdir /var/www/cagette/backend cagette sh -c "haxe cagette.hxml"
+
+recompile-frontend:
+	docker-compose exec --user root --workdir /var/www/cagette/frontend cagette sh -c "haxe cagetteJs.hxml"
+
+test-code:
+	docker-compose exec --user root --workdir /var/www/cagette/www cagette sh -c "neko index.n cron/test"
+
 ## Install mkcert for self-signed certificates generation
 certificates-install-mkcert:
 	sudo apt install --yes libnss3-tools

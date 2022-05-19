@@ -23,6 +23,14 @@ class Cron extends Controller
 		Sys.println("now is "+this.now.toString());
 	}
 
+	// ------------------------------------------------------------------------ //
+
+	public function doTest() {
+		Sys.println("test");
+	}
+
+	// ------------------------------------------------------------------------ //
+
 	public function doDefault(){}
 
 	/**
