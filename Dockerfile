@@ -54,6 +54,11 @@ RUN cd /app/frontend && haxe cagetteJs.hxml
 # image: debian:bullseye-slim
 FROM debian@sha256:fbaacd55d14bd0ae0c0441c2347217da77ad83c517054623357d1f9d07f79f5e
 
+# ensure to be able to recompile haxe code for debugging purpose
+COPY --from=cagette-sourcecode /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=cagette-sourcecode /usr/local/bin /usr/local/bin
+COPY --from=cagette-sourcecode /root/haxe /root/haxe
+
 RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
     apache2 \
@@ -61,13 +66,11 @@ RUN \
     cron \
     curl \
     haxe \
-    imagemagick \
     libapache2-mod-neko \
     # allow setcap command to be used for apache2 command execution as non-root users
-    libcap2-bin \
-    procps
+    libcap2-bin
 
-COPY --chown=www-data:www-data --from=cagette-sourcecode /app  /var/www/cagette
+COPY --chown=www-data:www-data --from=cagette-sourcecode /app /var/www/cagette
 
 # Haxe environment variables
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
@@ -100,6 +103,7 @@ ARG CAGETTE_SMTP_USER
 ARG CAGETTE_SMTP_PASSWORD
 ARG CAGETTE_SQL_LOG
 ARG CAGETTE_DEBUG
+ARG CAGETTE_CACHETPL
 
 # remove default vhosts
 RUN rm --force \
