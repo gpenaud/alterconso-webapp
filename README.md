@@ -90,6 +90,17 @@ Et enfin, cagette est prêt à être utilisé
 http://IP_DU_SERVEUR:80
 ```
 
+
+## NOTES
+To work with a specific controller, we should comment this part in src/devLibs/sugoi/src/sugoi/BaseApp.hx129-134:
+
+/** case "logged":
+  if ( user == null )
+    throw sugoi.ControllerAction.RedirectAction("/?__redirect="+Web.getURI());
+case "admin":
+  if( user == null || !user.isAdmin() )
+    throw sugoi.ControllerAction.RedirectAction("/"); **/
+
 # modules
 
 5612701 4.0K drwxr-xr-x 1 root root 4.0K May 13 05:36 .
