@@ -7,6 +7,8 @@ CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
 COMMIT			?= $(shell git rev-parse --short HEAD)
 BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 
+DUMP ?= import.sql
+
 ## Build webapp image
 build:
 	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
@@ -41,15 +43,16 @@ down:
 
 ## Connect within webapp container with /bin/bash
 enter:
-	docker-compose exec cagette bash
+	docker-compose exec --user root cagette bash
 
 ## Backups database in its development version
 database-backup:
-	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > development.sql"
-	docker cp $(shell docker-compose ps -q mysql):/development.sql services/mysql/dumps/development.sql
+	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > ${DUMP}.sql"
+	docker cp $(shell docker-compose ps -q mysql):/import.sql services/mysql/dumps/${DUMP}.sql
 
 ## Backups database from its development version
 database-restore:
+	docker-compose exec cagette sh -c "rm -f www/file/*"
 	docker cp services/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
 
@@ -59,8 +62,11 @@ recompile-backend:
 recompile-frontend:
 	docker-compose exec --user root --workdir /var/www/cagette/frontend cagette sh -c "haxe cagetteJs.hxml"
 
-test-code:
+test-generic:
 	docker-compose exec --user root --workdir /var/www/cagette/www cagette sh -c "neko index.n cron/test"
+
+test-product-import:
+	docker-compose exec --user root --workdir /var/www/cagette/www cagette sh -c "neko index.n product/debugimport"
 
 ## Install mkcert for self-signed certificates generation
 certificates-install-mkcert:
@@ -78,8 +84,6 @@ COLOR_RESET       = $(shell tput sgr0)
 COLOR_ERROR       = $(shell tput setaf 1)
 COLOR_COMMENT     = $(shell tput setaf 3)
 COLOR_TITLE_BLOCK = $(shell tput setab 4)
-
-DUMP ?= development.sql
 
 ## Display this help text
 help:
