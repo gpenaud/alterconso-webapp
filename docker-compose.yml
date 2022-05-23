@@ -15,10 +15,6 @@ services:
         CAGETTE_SQL_LOG: "${CAGETTE_SQL_LOG:-}"
         CAGETTE_DEBUG: "${CAGETTE_DEBUG:-}"
         CAGETTE_CACHETPL: "${CAGETTE_CACHETPL:-}"
-    volumes:
-      - type: bind
-        source: ./src/src
-        target: /var/www/cagette/src
     restart: always
     ports:
       - 80:80
