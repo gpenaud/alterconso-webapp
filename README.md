@@ -10,164 +10,81 @@
 ```
 
 <p align="center">
-  <i>Cagette</i> provides an easy-to-use way for local organic food producers to sell their products to local consumers .
+  <i>Cagette</i> propose une façon simple pour des producteurs en agriculture biologique de mettre à disposition leurs produits à des consomnateurs locaux. .
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#installing">Install</a> •
-  <a href="#example">Example</a> •
-  <a href="#running">Run</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#change-log">Changelog</a> •
-  <a href="#contributing">Contributing</a>
+  <a href="#sommaire">Sommaire</a> •
+  <a href="#installation">Déploiement</a> •
+  <a href="#exemple">Exemple</a> •
+  <a href="#demarrer">Démarrer</a> •
+  <a href="#utilisation">Utilisation</a> •
+  <a href="#contribuer">Contribuer</a>
 </p>
 
 ---
 
-# Overview
+[Cagette 💻](https://github/gpenaud/cagette-webapp) Cagette est une web application, développée en reactJs (frontend) et en haxe (backend), permettant à des groupements d'achats de se constituer. Les producteurs peuvent proposer leurs produits à la vente, et les consomnateurs peuvent auto-organiser des temps de rencontres afin de récupérer leurs commandes.
 
-[LocalStack 💻](https://localstack.cloud) is a cloud service emulator that runs in a single container on your laptop or in your CI environment. With LocalStack, you can run your AWS applications or Lambdas entirely on your local machine without connecting to a remote cloud provider! Whether you are testing complex CDK applications or Terraform configurations, or just beginning to learn about AWS services, LocalStack helps speed up and simplify your testing and development workflow.
+Cette version de l'application est et restera toujours gratuite et open-source, en accord avec l'entreprise l'ayant conçu. L'objectif de ce repository est de rendre fonctionnelle [la dernière version libre de cagette](https://github.com/CagetteNet/cagette/releases/tag/last_full_haxe_cagette). en effet, il manquait beaucoup de fonctionnalité à cette version, et était inexpoitable telle quelle. De plus, l'installation était difficile et complexe ; grâce à docker, à la réalisation d'une recette ansible, et même d'un packge helm, vous avez désormais de multiples façon de déployer cagette sur vos instances ou vos clusters kubernetes.    
 
-LocalStack supports a growing number of AWS services, like AWS Lambda, S3, Dynamodb, Kinesis, SQS, SNS, and **many** more! The [**Pro version** of LocalStack](https://localstack.cloud/pricing) supports additional APIs and advanced features. You can find a comprehensive list of supported APIs on our [☑️ Feature Coverage](https://docs.localstack.cloud/aws/feature-coverage/) page.
+Faire tout cela fut un travail long et éprouvant, que j'ai choisi de faire bénévolement. Néanmoins, étant actuellement sans emploi, vous pouvez me soutenir en opérant un don, ou en m'embauchant. Ayez en conscience que le travail effectué vaut environ 15 000€, en me situant dans la fourchette basse du prix en freelance de quelqu'un disposant de mes compétences.
 
-LocalStack also provides additional features to make your life as a cloud developer easier! Check out LocalStack's [Cloud Developer Tools](https://docs.localstack.cloud/tools/) for more information.
+## Déploiement:
 
-## Requirements
+### 1° par conteneur avec docker et docker-compose
 
-* `python` (Python 3.6 up to 3.10 supported)
-* `pip` (Python package manager)
-* `Docker`
+#### Pré-requis
+* `docker`
+* `docker-compose`
 
-## Installing
+#### Installation en local
 
-The easiest way to install LocalStack is via `pip`:
-
+Téléchargez le repository depuis github:
 ```
-pip install localstack
-```
-
-**Note**: Please do **not** use `sudo` or the `root` user - LocalStack should be installed and started entirely under a local non-root user. If you have problems with permissions in macOS High Sierra, install with `pip install --user localstack`
-
-It installs the `localstack-cli` which is used to run the Docker image that hosts the LocalStack runtime.
-
-## Example
-
-Start LocalStack inside a Docker container by running:
-
-```
- % localstack start -d
-
-     __                     _______ __             __
-    / /   ____  _________ _/ / ___// /_____ ______/ /__
-   / /   / __ \/ ___/ __ `/ /\__ \/ __/ __ `/ ___/ //_/
-  / /___/ /_/ / /__/ /_/ / /___/ / /_/ /_/ / /__/ ,<
- /_____/\____/\___/\__,_/_//____/\__/\__,_/\___/_/|_|
-
- 💻 LocalStack CLI 0.14.3
-
-[20:22:20] starting LocalStack in Docker mode 🐳
-[20:22:21] detaching
+git clone https://github.com/gpenaud/cagette-webapp.git
 ```
 
-You can query the status of respective services on LocalStack by running:
-
+Configurez l'application en copiant config.env.sample, puis en remplissant les champs manquants:
 ```
-% localstack status services
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
-┃ Service                  ┃ Status      ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
-│ acm                      │ ✔ available │
-│ apigateway               │ ✔ available │
-│ cloudformation           │ ✔ available │
-│ cloudwatch               │ ✔ available │
-│ config                   │ ✔ available │
-│ dynamodb                 │ ✔ available │
-...
+cp config.env.sample config.env
 ```
 
-To use SQS, a fully managed distributed message queuing service, on LocalStack run:
+#### Utilisation de cagette-webapp
 
-```shell
-% awslocal sqs create-queue --queue-name sample-queue
-{
-    "QueueUrl": "http://localhost:4566/000000000000/sample-queue"
-}
+Allez dans le répertoire du repository:
+```
+make up
 ```
 
-Learn more about [LocalStack AWS services](https://docs.localstack.cloud/aws/) and using them with LocalStack's `awslocal` CLI.
+Cette action va déployer 3 conteneurs sur votre poste:
+* `cagette-webapp`: l'application cagette
+* `cagette-mailer`: le micro-service gérant l'envoi de mails
+* `mysql`: la base de données utilisée par cagette-webapp
 
-## Running
+**Ca y est !** Votre instance locale de cagette est déployée par défaut sur https://cagette.localhost
 
-You can run LocalStack through the following options:
+Pour arrêter cagette-webapp:
+```
+make down
+```
 
-- [LocalStack CLI](https://docs.localstack.cloud/get-started/#localstack-cli)
-- [Docker](https://docs.localstack.cloud/get-started/#docker)
-- [Docker Compose](https://docs.localstack.cloud/get-started/#docker-compose)
-- [Helm](https://docs.localstack.cloud/get-started/#helm)
+**Note**: Pour déployer cagette avec cette méthode sur un environnement de production, sachez tout d'abord que ça n'est pas secure ; ensuite, l(objectif de ce repository n'est pas de permettre une installation en deux clics pour néophyte, mais de permettre à quelqu'un de technique, ou de non-technique mais très curieux, de déployer facilement son propre cagette. voici les étapes à suivre pour un déploiement sur un serveur avec docker-compose:
+* `modification du FQDN dans le vhost`: remplacez toutes les valeurs "cagette.localhost" par votre propre nom de domaine dans services/apache2/vhosts/https.conf. Votre nom de domaine doit être enregitsré sur un registrar DNS et correspondre à une adresse IP. Exemple: cagette.votreassociation.org
+* `Mettre votre propre certificat, et sa clef`: vous devez générer votre propre certificat TLS (avec Let's encrypt, par exemple), et les insérer dans services/apache2/certificates/cert.pem et services/apache2/certificates/key.pem.
 
-## Usage
+Grâce à ces deux opérations, en lançant `make up`, docker-compose devrait exposer les ports 80 et 443, et votre serveur devrait répondre à l'adresse https://cagette.votreorganisation.org (l'adresse dépend évidemment du nom de domaine que vous aurez configuré ^^)
 
-To start using LocalStack, check out our documentation on [docs.localstack.cloud](https://docs.localstack.cloud).
+En acs de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous. je ne peux plus me permettre un bénévolat total. Veuillez me contacter pour les tarifs: guillaume.penaud@gmail.com
 
-- [LocalStack Configuration](https://docs.localstack.cloud/localstack/configuration/)
-- [LocalStack in CI](https://docs.localstack.cloud/ci/)
-- [LocalStack Integrations](https://docs.localstack.cloud/integrations/)
-- [LocalStack Tools](https://docs.localstack.cloud/tools/)
-- [Understanding LocalStack](https://docs.localstack.cloud/localstack/)
-- [Troubleshoot](doc/troubleshoot/README.md)
+### 2° sur un serveur avec Ansible
 
-To use LocalStack with a graphical user interface, you can use the following UI clients:
+## NOTES
+To work with a specific controller, we should comment this part in src/devLibs/sugoi/src/sugoi/BaseApp.hx129-134:
 
-* [Commandeer desktop app](https://getcommandeer.com)
-* [DynamoDB Admin Web UI](https://www.npmjs.com/package/dynamodb-admin)
-
-## Change Log
-
-Please refer to [`CHANGELOG.md`](CHANGELOG.md) to see the complete list of changes for each release.
-
-## Contributing
-
-If you are interested in contributing to LocalStack:
-
-- Start by reading our [contributing guide](CONTRIBUTING.md).
-- Check out our [developer guide](https://docs.localstack.cloud/developer-guide/).
-- Look through our [roadmap](https://roadmap.localstack.cloud/).
-- Navigate our codebase and [open issues](https://github.com/localstack/localstack/issues).
-
-We are thankful for all the contributions and feedback we receive.
-
-### Contributors
-
-We are thankful to all the people who have contributed to this project.
-
-<a href="https://github.com/localstack/localstack/graphs/contributors"><img src="https://opencollective.com/localstack/contributors.svg?width=890" /></a>
-
-### Backers
-
-We are also grateful to all our backers who have donated to the project. You can become a backer on [Open Collective](https://opencollective.com/localstack#backer).
-
-<a href="https://opencollective.com/localstack#backers" target="_blank"><img src="https://opencollective.com/localstack/backers.svg?width=890"></a>
-
-### Sponsors
-
-You can also support this project by becoming a sponsor on [Open Collective](https://opencollective.com/localstack#sponsor). Your logo will show up here along with a link to your website.
-
-<a href="https://opencollective.com/localstack/sponsor/0/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/1/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/2/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/3/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/4/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/5/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/6/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/7/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/8/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/localstack/sponsor/9/website" target="_blank"><img src="https://opencollective.com/localstack/sponsor/9/avatar.svg"></a>
-
-## License
-
-Copyright (c) 2017-2021 LocalStack maintainers and contributors.
-
-Copyright (c) 2016 Atlassian and others.
-
-This version of LocalStack is released under the Apache License, Version 2.0 (see LICENSE.txt). By downloading and using this software you agree to the [End-User License Agreement (EULA)](doc/end_user_license_agreement). To know about the external software we use, look at our [third party software tools](doc/third-party-software-tools/README.md) page.
+/** case "logged":
+  if ( user == null )
+    throw sugoi.ControllerAction.RedirectAction("/?__redirect="+Web.getURI());
+case "admin":
+  if( user == null || !user.isAdmin() )
+    throw sugoi.ControllerAction.RedirectAction("/"); **/
