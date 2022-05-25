@@ -29,12 +29,12 @@ publish: build tag push
 
 ## Start, then log cagette stack locally
 up:
-	source environment.txt && docker-compose up --detach
+	source config.env && docker-compose up --detach
 	docker-compose logs --follow cagette mailer
 
 ## Start, then log cagette stack locally, but force build first (without --no-cache option)
 up-with-build:
-	source environment.txt && docker-compose up --build --detach
+	source config.env && docker-compose up --build --detach
 	docker-compose logs --follow cagette mailer
 
 ## Stop local cagette stack
@@ -53,8 +53,8 @@ database-backup:
 ## Backups database from its development version
 database-restore:
 	docker-compose exec cagette sh -c "rm -f www/file/*"
-	docker cp services/mysql/dumps/${DUMP} $(shell docker-compose ps -q mysql):/${DUMP}
-	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}"
+	docker cp services/mysql/dumps/${DUMP}.sql $(shell docker-compose ps -q mysql):/${DUMP}.sql
+	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}.sql"
 
 recompile-backend:
 	docker-compose exec --user root --workdir /var/www/cagette/backend cagette sh -c "haxe cagette.hxml"
