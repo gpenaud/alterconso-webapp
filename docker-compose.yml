@@ -28,7 +28,7 @@ services:
     hostname: mailer
     image: gpenaud/cagette-mailer
     build:
-      context: ./../mailer
+      context: ./../cagette-mailer
     ports:
       - 5000
     environment:
@@ -52,7 +52,7 @@ services:
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
     ports:
-      - 3306
+      - 3306:3306
     volumes:
       - database:/var/lib/mysql
       - ./services/mysql/dumps/:/root/dumps

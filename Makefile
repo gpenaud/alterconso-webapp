@@ -7,7 +7,7 @@ CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
 COMMIT			?= $(shell git rev-parse --short HEAD)
 BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 
-DUMP ?= import.sql
+SQL_FILE := development-$(shell date '+%d-%m-%Y-%H-%M-%S').sql
 
 ## Build webapp image
 build:
@@ -47,14 +47,13 @@ enter:
 
 ## Backups database in its development version
 database-backup:
-	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > ${DUMP}.sql"
-	docker cp $(shell docker-compose ps -q mysql):/import.sql services/mysql/dumps/${DUMP}.sql
+	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > ${SQL_FILE}"
+	docker cp $(shell docker-compose ps -q mysql):/${SQL_FILE} services/mysql/dumps/${SQL_FILE}
 
 ## Backups database from its development version
 database-restore:
-	docker-compose exec cagette sh -c "rm -f www/file/*"
-	docker cp services/mysql/dumps/${DUMP}.sql $(shell docker-compose ps -q mysql):/${DUMP}.sql
-	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${DUMP}.sql"
+	docker cp services/mysql/dumps/${SQL_FILE} $(shell docker-compose ps -q mysql):/${SQL_FILE}
+	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${SQL_FILE}"
 
 recompile-backend:
 	docker-compose exec --user root --workdir /var/www/cagette/backend cagette sh -c "haxe cagette.hxml"
