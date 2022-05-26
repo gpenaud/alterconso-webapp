@@ -1,0 +1,3 @@
+id,Nom,Référence,prix TTC,TVA,catalogId,vendorId,unit,Quantité,actif,image
+537062,Bûche cendrée de chèvre,BUC-1,4.7,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95202_c7b22105c5bbdf6b40f364489172ff48
+537064,Crottin de chèvre demi-sec,CROD-1,2.4,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95217_4973e34dacc5a3218710ea92ee6a9701

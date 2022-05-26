@@ -1,0 +1,10 @@
+id;Nom;Référence;prix TTC;TVA;catalogId;vendorId;unit;Quantité;actif;image
+"1010136";"lessive nature";"";"4.5";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/img/taxo/grey/legumes.png"
+"1010135";"lessive teetree";"";"4.5";"0";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/img/taxo/grey/legumes.png"
+"640805";"savon au lait de brebis calendula";"JNK-1";"6";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142870_cdc26eb4c9d9118371f412f47e7e6389"
+"640806";"savon au lait de chèvre";"HPS-1";"5.5";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142871_88ade093587f0caeb602ddcfe2acf1b7"
+"640807";"savon au lait de chevre argan";"LPM-1";"6";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142872_3e8e79dc39d9638dd8fc68b8fd8245b3"
+"640808";"savon au lait de chevre calendula";"RNA-1";"6";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142874_1479c5b7f23245bd930d5b9d8b319401"
+"640809";"savon de brebis";"CMH-1";"5.5";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142875_557dd6dc6409e9edc0a479f088581e51"
+"640810";"savon de brebis argan";"IKZ-1";"6";"20";"38132";"18544";"Gram";"100";"true";"https://app.cagette.net/file/142876_52ca56fdd62bc7c6fc2bba5b622bc29e"
+"640811";"sirop de perle à pin'pin'";"SOX-1";"4.5";"0";"38132";"18544";"Centilitre";"25";"true";"https://app.cagette.net/file/142877_94df469a40ee8258a37c62523adcf75b"

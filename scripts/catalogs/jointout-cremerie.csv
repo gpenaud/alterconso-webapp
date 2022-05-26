@@ -1,0 +1,24 @@
+id,Nom,Référence,prix TTC,TVA,catalogId,vendorId,unit,Quantité,actif,image
+965491,agneau de lait,OOF-1,60,5.5,32263,15238,Kilogram,4,false,https://app.cagette.net/file/225853_d455fd0fb6d1dbd850bb15c611d01c16
+537062,Bûche cendrée de chèvre,BUC-1,4.7,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95202_c7b22105c5bbdf6b40f364489172ff48
+537063,Consigne Pot Yaourt,HHK-1,-0.5,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95255_82a0b3e5acca553b526fa0d7cc3112da
+537064,Crottin de chèvre demi-sec,CROD-1,2.4,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95217_4973e34dacc5a3218710ea92ee6a9701
+537065,Crottin de chèvre demi-sec,CROD-2,6.9,5.5,32263,15238,Piece,3,true,https://app.cagette.net/file/95217_4973e34dacc5a3218710ea92ee6a9701
+537066,Crottin de chèvre frais,CROF-1,2.4,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95206_886b98ab89a68b98ff11fb20081d2f4b
+537067,Crottin de chèvre frais,CROF-2,6.9,5.5,32263,15238,Piece,3,true,https://app.cagette.net/file/95206_886b98ab89a68b98ff11fb20081d2f4b
+537068,Crottin de chèvre sec,RBO-2,6.9,5.5,32263,15238,Piece,3,true,https://app.cagette.net/file/95216_5fcb1595dd41dfbcbd5faeaf1c82c3bc
+537069,Crottin de chèvre sec,RBO-1,2.4,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95216_5fcb1595dd41dfbcbd5faeaf1c82c3bc
+1443220,frais de chèvre à la ciboulette,FCIB-2,2.6,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95224_a1713a6a2c793bdf906ff3823da6fac0
+537070,frais de chèvre à la ciboulette,FCIB-1,2.58,5.5,32263,15238,Piece,1,false,https://app.cagette.net/file/95224_a1713a6a2c793bdf906ff3823da6fac0
+537071,oeufs - par boite de 6,LNC-1,2.6,5.5,32263,15238,Piece,6,false,https://app.cagette.net/file/95170_53f3fb9a21d744e6588380eeb49bbb9e
+752901,Pâté de chevreaux,Patc-1,6.8,5.5,32263,15238,Gram,400,false,https://app.cagette.net/file/174721_5790c43a11b3835907e613997b0c3a99
+537072,pyramide cendrée - 125g,PPY-1,2.7,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/108754_1896ccaf5d0b3577eb310735c1067f36
+537073,pyramide cendrée - 250g,PPY-2,4.8,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/108754_1896ccaf5d0b3577eb310735c1067f36
+752902,Saucisse fumée de porc fermier,Saucf-1,10,5.5,32263,15238,Gram,600,false,https://app.cagette.net/file/174699_8539a7cf4c419acec6b14e0b2cab54e6
+537074,Tomme de Brebis,TOMB-2,12,5.5,32263,15238,Gram,500,false,https://app.cagette.net/file/95250_33efd2187d4226584466872104a38907
+537075,Tomme de Brebis,TOMB-1,6,5.5,32263,15238,Gram,250,false,https://app.cagette.net/file/95250_33efd2187d4226584466872104a38907
+537076,Tomme de Brebis,TOMB-3,24,5.5,32263,15238,Gram,1000,false,https://app.cagette.net/file/95250_33efd2187d4226584466872104a38907
+537077,Yaourt de Brebis,YAO-1,6.5,5.5,32263,15238,Piece,1,true,https://app.cagette.net/file/95230_78d6f775dd9ba8b9f8131eb53c89e31b
+537078,YATA - fromage de brebis style grec,YAT-2,11.5,5.5,32263,15238,Gram,500,true,https://app.cagette.net/file/95240_4c60cba9959bccc438c778869b817bd6
+537079,YATA - fromage de brebis style grec,YAT-1,5.75,5.5,32263,15238,Gram,250,true,https://app.cagette.net/file/95240_4c60cba9959bccc438c778869b817bd6
+537080,YATA - fromage de brebis style grec,YAT-3,23,5.5,32263,15238,Gram,1000,true,https://app.cagette.net/file/95240_4c60cba9959bccc438c778869b817bd6
