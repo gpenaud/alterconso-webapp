@@ -25,7 +25,7 @@
 
 [Cagette 💻](https://github/gpenaud/cagette-webapp) Cagette est une web application, développée en reactJs (frontend) et en haxe (backend), permettant à des groupements d'achats de se constituer. Les producteurs peuvent proposer leurs produits à la vente, et les consomnateurs peuvent auto-organiser des temps de rencontres afin de récupérer leurs commandes.
 
-Cette version de l'application est et restera toujours gratuite et open-source, en accord avec l'entreprise l'ayant conçu. L'objectif de ce repository est de rendre fonctionnelle [la dernière version libre de cagette](https://github.com/CagetteNet/cagette/releases/tag/last_full_haxe_cagette). en effet, il manquait beaucoup de fonctionnalité à cette version, et était inexpoitable telle quelle. De plus, l'installation était difficile et complexe ; grâce à docker, à la réalisation d'une recette ansible, et même d'un packge helm, vous avez désormais de multiples façon de déployer cagette sur vos instances ou vos clusters kubernetes.    
+Cette version de l'application est et restera toujours gratuite et open-source, en accord avec l'entreprise l'ayant conçu. L'objectif de ce repository est de rendre fonctionnelle [la dernière version libre de cagette](https://github.com/CagetteNet/cagette/releases/tag/last_full_haxe_cagette). en effet, il manquait beaucoup de fonctionnalité à cette version, et était inexpoitable telle quelle. De plus, l'installation était difficile et complexe ; grâce à docker, à la réalisation d'une recette ansible, et même d'un package helm, vous avez désormais de multiples façon de déployer cagette sur vos instances ou vos clusters kubernetes.    
 
 Faire tout cela fut un travail long et éprouvant, que j'ai choisi de faire bénévolement. Néanmoins, étant actuellement sans emploi, vous pouvez me soutenir en opérant un don, ou en m'embauchant. Ayez en conscience que le travail effectué vaut environ 15 000€, en me situant dans la fourchette basse du prix en freelance de quelqu'un disposant de mes compétences.
 
@@ -48,6 +48,26 @@ Configurez l'application en copiant config.env.sample, puis en remplissant les c
 ```
 cp config.env.sample config.env
 ```
+
+N'oubliez pas, enfin de créer les certificats nécessaires afin de pouvoir activer avec TLS en local.
+La target **certificates-install-mkcert** installera l'outil vous permettant de créer ces certificats
+ainsi que l'autorité de certification, et surtout de configurer chromium, firefox et tous les autres
+navigateurs installés sur votre PC pour qu'ils reconnaissent le-dit certificat.
+```
+make certificates-install-mkcert
+```
+
+La target **certificates-generate**, elle, vous permettra de générer le certificat et sa clef
+```
+make certificates-generate
+```
+
+**NOTE**: Ceci générera le certificat et sa clef dans les dossiers suivants:
+* `certificat`: services/apache2/certificates/cert.pem
+* `clef`: services/apache2/certificates/key.pem
+
+
+
 
 #### Utilisation de cagette-webapp
 
@@ -74,7 +94,7 @@ make down
 
 Grâce à ces deux opérations, en lançant `make up`, docker-compose devrait exposer les ports 80 et 443, et votre serveur devrait répondre à l'adresse https://cagette.votreorganisation.org (l'adresse dépend évidemment du nom de domaine que vous aurez configuré ^^)
 
-En acs de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous. je ne peux plus me permettre un bénévolat total. Veuillez me contacter pour les tarifs: guillaume.penaud@gmail.com
+En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Veuillez me contacter pour les tarifs ou les échanges envisageables: guillaume.penaud@gmail.com
 
 ### 2° Sur un serveur avec Ansible
 
@@ -86,20 +106,12 @@ Vous pouvez également déployer cagette sur Kubernetes (k8s ou k3s), grâce à 
 
 ## Utilisation
 
-
+A venir
 
 ## Bonus
 
+A venir
+
 ## Contribuer
 
-
-
-## NOTES
-To work with a specific controller, we should comment this part in src/devLibs/sugoi/src/sugoi/BaseApp.hx129-134:
-
-/** case "logged":
-  if ( user == null )
-    throw sugoi.ControllerAction.RedirectAction("/?__redirect="+Web.getURI());
-case "admin":
-  if( user == null || !user.isAdmin() )
-    throw sugoi.ControllerAction.RedirectAction("/"); **/
+A venir
