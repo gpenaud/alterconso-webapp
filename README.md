@@ -88,7 +88,7 @@ Pour arrêter cagette-webapp:
 make down
 ```
 
-**Note**: Pour déployer cagette avec cette méthode sur un environnement de production, sachez tout d'abord que ça n'est pas secure ; ensuite, l(objectif de ce repository n'est pas de permettre une installation en deux clics pour néophyte, mais de permettre à quelqu'un de technique, ou de non-technique mais très curieux, de déployer facilement son propre cagette. voici les étapes à suivre pour un déploiement sur un serveur avec docker-compose:
+**Note**: Pour déployer cagette avec cette méthode sur un environnement de production, sachez tout d'abord que ça n'est pas secure ; ensuite, l'objectif de ce repository n'est pas de permettre une installation en deux clics pour néophyte, mais de permettre à quelqu'un de technique, ou de non-technique mais très curieux, de déployer facilement son propre cagette. voici les étapes à suivre pour un déploiement sur un serveur avec docker-compose:
 * `modification du FQDN dans le vhost`: remplacez toutes les valeurs "cagette.localhost" par votre propre nom de domaine dans services/apache2/vhosts/https.conf. Votre nom de domaine doit être enregitsré sur un registrar DNS et correspondre à une adresse IP. Exemple: cagette.votreassociation.org
 * `Mettre votre propre certificat, et sa clef`: vous devez générer votre propre certificat TLS (avec Let's encrypt, par exemple), et les insérer dans services/apache2/certificates/cert.pem et services/apache2/certificates/key.pem.
 
