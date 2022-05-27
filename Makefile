@@ -45,6 +45,10 @@ down:
 enter:
 	docker-compose exec --user root cagette bash
 
+## clear images cached
+cache-clear:
+	docker-compose exec cagette --user root --workdir /var/www/cagette/www sh -c "rm -rf file/"
+
 ## Backups database in its development version
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > ${SQL_FILE}"
