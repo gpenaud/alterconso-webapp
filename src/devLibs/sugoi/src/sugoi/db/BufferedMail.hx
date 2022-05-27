@@ -81,6 +81,8 @@ class BufferedMail extends sys.db.Object
 			smtp_pass:sugoi.db.Variable.get("smtp_pass")
 		};
 
+    // CHANGE by @gpenaud - Force mailer to SMTP
+    /* -----------------------------------------
 		var mailer : sugoi.mail.IMailer = switch(this.mailerType){
 			case "mandrill":
 				new sugoi.mail.MandrillMailer().init(conf);
@@ -90,8 +92,9 @@ class BufferedMail extends sys.db.Object
 				new sugoi.mail.DebugMailer();
 			default :
 				throw "Unknown mailer type : "+this.mailerType;
-		};
+		}; --------------------------------------- */
 
+    var mailer = new sugoi.mail.SmtpMailer().init(conf);
 
 		var m = new sugoi.mail.Mail();
 		for( k in this.headers.keys() ) m.setHeader( k,headers[k] );
@@ -100,8 +103,6 @@ class BufferedMail extends sys.db.Object
 		m.setSender(sender.email,sender.name,sender.userId);
 		m.setHtmlBody(this.htmlBody);
 		m.setTextBody(this.textBody);
-
-    trace("BufferedMail::finallySend(): " + this.mailerType);
 
 		this.lock();
 		this.tries++;
@@ -120,16 +121,10 @@ class BufferedMail extends sys.db.Object
 		}
 
 		this.update();
-
 	}
-
 
 	function afterSendCb(status:MailerResult){
 		this.status = status;
 		this.update();
 	}
-
-
-
-
 }

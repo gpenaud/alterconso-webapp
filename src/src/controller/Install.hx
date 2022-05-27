@@ -18,10 +18,8 @@ class Install extends controller.Controller
 	 */
 	@tpl("install/default.mtt")
 	public function doDefault() {
-    _0_9_2_installTaxonomy();
-
 		if (db.User.manager.get(1) == null) {
-
+      _0_9_2_installTaxonomy();
 			throw Redirect("/install/firstInstall");
 
 		}else {

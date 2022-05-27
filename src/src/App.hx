@@ -263,6 +263,10 @@ class App extends sugoi.BaseApp {
 			mailer = new sugoi.mail.DebugMailer();
 		}else{
 
+			untyped mailer.defineFinalMailer("smtp");
+
+			// CHANGE by @gpenaud - Force mailer to SMTP
+			/* -----------------------------------------
 			if (sugoi.db.Variable.get("mailer") == null){
 				var msg = sugoi.i18n.Locale.texts._("Please configure the email settings in a <href='/admin/emails'>this section</a>");
 				throw sugoi.ControllerAction.ErrorAction("/",msg);
@@ -274,7 +278,7 @@ class App extends sugoi.BaseApp {
 			}else{
 				//Buffered emails with SMTP
 				untyped mailer.defineFinalMailer("smtp");
-			}
+			} ----------------------------------------- */
 		}
 		return mailer;
 	}
