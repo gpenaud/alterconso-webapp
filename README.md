@@ -25,7 +25,7 @@
 
 ---
 
-[Cagette 💻](https://github/gpenaud/cagette-webapp) Cagette est une web application, développée en reactJs (frontend) et en haxe (backend), permettant à des groupements d'achats de se constituer. Les producteurs peuvent proposer leurs produits à la vente, et les consomnateurs peuvent auto-organiser des temps de rencontres afin de récupérer leurs commandes.
+[Cagette 💻](https://github/gpenaud/cagette-webapp) est une web application, développée en reactJs (frontend) et en haxe (backend), permettant à des groupements d'achats de se constituer. Les producteurs peuvent proposer leurs produits à la vente, et les consomnateurs peuvent auto-organiser des temps de rencontres afin de récupérer leurs commandes.
 
 Cette version de l'application est et restera toujours gratuite et open-source, en accord avec l'entreprise l'ayant conçu. L'objectif de ce repository est de rendre fonctionnelle [la dernière version libre de cagette](https://github.com/CagetteNet/cagette/releases/tag/last_full_haxe_cagette). en effet, il manquait beaucoup de fonctionnalité à cette version, et était inexpoitable telle quelle. De plus, l'installation était difficile et complexe ; grâce à docker, à la réalisation d'une recette ansible, et même d'un package helm, vous avez désormais de multiples façon de déployer cagette sur vos instances ou vos clusters kubernetes.    
 
