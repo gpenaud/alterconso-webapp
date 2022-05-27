@@ -4,6 +4,8 @@
 # repository ignores
 # ------------------------------------------------------------------------------
 
+scripts/catalogs
+services/mysql/dumps
 config.env
 
 # app ignores
