@@ -17,8 +17,10 @@
   <a href="#sommaire">Sommaire</a> •
   <a href="#installation">Installation</a> •
   <a href="#utilisation">Utilisation</a> •
-  <a href="#bonus">Bonus</a> •
+  <a href="#import">Import</a> •
+  <a href="#facturation">Facturation</a> •
   <a href="#contribuer">Contribuer</a>
+
 </p>
 
 ---
@@ -94,8 +96,6 @@ make down
 
 Grâce à ces deux opérations, en lançant `make up`, docker-compose devrait exposer les ports 80 et 443, et votre serveur devrait répondre à l'adresse https://cagette.votreorganisation.org (l'adresse dépend évidemment du nom de domaine que vous aurez configuré ^^)
 
-En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Veuillez me contacter pour les tarifs ou les échanges envisageables: guillaume.penaud@gmail.com
-
 ### 2° Sur un serveur avec Ansible
 
 Il existe désormais un role ansible pour déployer cagette sur un serveur bare-metal (type ovh dedibox). Vous pouvez trouver la documentation de ce role [sur ce repository github](https://github.com/gpenaud/ansible-role-cagette).
@@ -104,14 +104,41 @@ Il existe désormais un role ansible pour déployer cagette sur un serveur bare-
 
 Vous pouvez également déployer cagette sur Kubernetes (k8s ou k3s), grâce à un rôle helm spécialement développé pour ça. La documentation relative au déploiement via helm se trouve sur [le repository consacré à la question](https://github.com/gpenaud/helm-cagette)
 
+### Aide à la mise en place
+
+En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Veuillez me contacter pour les tarifs ou les échanges envisageables: guillaume.penaud@gmail.com
+
 ## Utilisation
 
-A venir
+Cagette s'utilise comme n'importe quelle application web ; à votre première utilisation, vous devrez entrer le nom de votre groupe, ainsi que le nom & prénom du référent. Ensuite, vous devrez:
 
-## Bonus
+* `créer les catalogues produits`: Ajouter un producteur et définir l'ensemble des produits de son / ses catalogue(s).  
+* `créer une distribution, ou un cycle de distributions`: définir quand et ou la distribution des produits s'opérera.  
+* `configurer les producteurs de façon à ce qu'ils participent aux distributions`: vous pouvez configurer ça dans l'onglet **catalogues** du site.
 
-A venir
+Pour toute question relative à l'utilisation et à l'administration du site, je peux également vous accompagner et vous former ; mais comme pour les autres services que je propose, je demanderai une compensation financière pour le temps et l'énergie passée. Contactez moi à l'adresse suivante pour que nous en discutions: **guillaume.penaud@gmail.com**
+
+## Import
+
+La fonctionnalité d'import des produits depuis l'actuel cagette (app.cagette.net) vers votre propre cagette ne fonctionne **pas** depuis l'interface d'administration du site. Les bases de données n'étant pas structurées de la même façon, je n'ai pas pu rendre cette fonctionnalité disponible.
+
+Néanmoins, si vous êtes producteur et que ne souhaitez pas recréer à la main l'ensemble de vos catalogues produits, je peux utiliser une petit programme que j'ai conçu, qui demande un peu de travail de mon côté ; mais qui automatise néanmoins certaines étapes.
+
+## Facturation
+
+### Mise en place d'un serveur cagette
+* sur un serveur dédié: **300€**
+* sur le cluster kubernetes de l'écolieu du Portail: **250€** (+ frais d'hébergement d'environ **10€** par mois)
+
+### Import des catalogues
+
+* de 1 à 50 produits: **30€**
+* à partir de 50 produits: **50€**
 
 ## Contribuer
 
-A venir
+Ce projet a pour objectif de rendre disponible cagette de façon totalement transparente, libre et gratuite, à quiconque dispose des compétences techniques standard de déploiement d'une application web. J'eus aimé avoir les moyens financiers d'aider tout le mondre totalement gratuitement, mais ne touchant ni retraite, ni rente, ni revenu spontanné, je suis forcé de demander une compensation pour les services non-essentiels liés à cette version gratuite de cagette.
+
+Sachez également que si vous souhaitez honorer l'énergie que j'ai mis dans ce projet, vous pouvez procéder à un don, cela m'encouragera à mener d'autres projets bénévoles, et m'aidera à concacrer mon énergie à de l'informatique pour le bien commun.
+
+Mais si les moyens vous manquent, vous pouvez également, à travers un petit mot d'encouragement, contribuer à nourrir mon envie de contribuer au monde à travers des projets éthiques et joyeux.
