@@ -18,7 +18,7 @@
   <a href="#installation">Installation</a> •
   <a href="#utilisation">Utilisation</a> •
   <a href="#import">Import</a> •
-  <a href="#facturation">Facturation</a> •
+  <a href="#aide&support">Aide & Support</a> •
   <a href="#contribuer">Contribuer</a>
 
 </p>
@@ -104,10 +104,6 @@ Il existe désormais un role ansible pour déployer cagette sur un serveur bare-
 
 Vous pouvez également déployer cagette sur Kubernetes (k8s ou k3s), grâce à un rôle helm spécialement développé pour ça. La documentation relative au déploiement via helm se trouve sur [le repository consacré à la question](https://github.com/gpenaud/helm-cagette)
 
-### Aide à la mise en place
-
-En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Veuillez me contacter pour les tarifs ou les échanges envisageables: guillaume.penaud@gmail.com
-
 ## Utilisation
 
 Cagette s'utilise comme n'importe quelle application web ; à votre première utilisation, vous devrez entrer le nom de votre groupe, ainsi que le nom & prénom du référent. Ensuite, vous devrez:
@@ -124,14 +120,16 @@ La fonctionnalité d'import des produits depuis l'actuel cagette (app.cagette.ne
 
 Néanmoins, si vous êtes producteur et que ne souhaitez pas recréer à la main l'ensemble de vos catalogues produits, je peux utiliser une petit programme que j'ai conçu, qui demande un peu de travail de mon côté ; mais qui automatise néanmoins certaines étapes.
 
-## Facturation
+## Aide & Support
 
-### Mise en place d'un serveur cagette
+En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Voici les tarifs qui me paraissent ajustés en fonction du temps nécessaire à chaque opération:
+
+#### Mise en place d'un serveur cagette
 * sur un serveur dédié: **300€**
 * sur le cluster kubernetes de l'écolieu du Portail: **250€** (+ frais d'hébergement d'environ **10€** par mois)
 
-### Import des catalogues
-
+#### Import des catalogues
+Par catalogue:
 * de 1 à 50 produits: **30€**
 * à partir de 50 produits: **50€**
 
