@@ -7,8 +7,8 @@ volumes:
   database:
 
 services:
-  cagette:
-    image: gpenaud/cagette
+  webapp:
+    image: gpenaud/cagette-webapp
     build:
       context: .
       args:
@@ -40,7 +40,7 @@ services:
       SMTP_USER: "${CAGETTE_SMTP_USER:-}"
       SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
     depends_on:
-      - cagette
+      - webapp
     networks:
       - cagette
 

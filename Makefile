@@ -7,8 +7,6 @@ CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
 COMMIT			?= $(shell git rev-parse --short HEAD)
 BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 
-SQL_FILE := development-$(shell date '+%d-%m-%Y-%H-%M-%S').sql
-
 ## Build webapp image
 build:
 	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
@@ -30,12 +28,12 @@ publish: build tag push
 ## Start, then log cagette stack locally
 up:
 	source config.env && docker-compose up --detach
-	docker-compose logs --follow cagette mailer
+	docker-compose logs --follow webapp mailer
 
 ## Start, then log cagette stack locally, but force build first (without --no-cache option)
 up-with-build:
 	source config.env && docker-compose up --build --detach
-	docker-compose logs --follow cagette mailer
+	docker-compose logs --follow webapp mailer
 
 ## Stop local cagette stack
 down:
@@ -43,11 +41,15 @@ down:
 
 ## Connect within webapp container with /bin/bash
 enter:
-	docker-compose exec --user root cagette bash
+	docker-compose exec --user root webapp bash
 
 ## clear images cached
 cache-clear:
-	docker-compose exec cagette --user root --workdir /var/www/cagette/www sh -c "rm -rf file/"
+	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "rm -rf file/"
+
+# ---------------------------------------------------------------------------- #
+
+SQL_FILE := development-$(shell date '+%d-%m-%Y-%H-%M-%S').sql
 
 ## Backups database in its development version
 database-backup:
@@ -59,17 +61,19 @@ database-restore:
 	docker cp services/mysql/dumps/${SQL_FILE} $(shell docker-compose ps -q mysql):/${SQL_FILE}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${SQL_FILE}"
 
+# ---------------------------------------------------------------------------- #
+
 recompile-backend:
-	docker-compose exec --user root --workdir /var/www/cagette/backend cagette sh -c "haxe cagette.hxml"
+	docker-compose exec --user root --workdir /var/www/cagette/backend webapp  sh -c "haxe cagette.hxml"
 
 recompile-frontend:
-	docker-compose exec --user root --workdir /var/www/cagette/frontend cagette sh -c "haxe cagetteJs.hxml"
+	docker-compose exec --user root --workdir /var/www/cagette/frontend webapp sh -c "haxe cagetteJs.hxml"
 
 test-generic:
-	docker-compose exec --user root --workdir /var/www/cagette/www cagette sh -c "neko index.n cron/test"
+	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "neko index.n cron/test"
 
 test-product-import:
-	docker-compose exec --user root --workdir /var/www/cagette/www cagette sh -c "neko index.n product/debugimport"
+	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "neko index.n product/debugimport"
 
 ## Install mkcert for self-signed certificates generation
 certificates-install-mkcert:
