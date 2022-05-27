@@ -15,10 +15,9 @@
 
 <p align="center">
   <a href="#sommaire">Sommaire</a> •
-  <a href="#installation">Déploiement</a> •
-  <a href="#exemple">Exemple</a> •
-  <a href="#demarrer">Démarrer</a> •
+  <a href="#installation">Installation</a> •
   <a href="#utilisation">Utilisation</a> •
+  <a href="#bonus">Bonus</a> •
   <a href="#contribuer">Contribuer</a>
 </p>
 
@@ -30,7 +29,7 @@ Cette version de l'application est et restera toujours gratuite et open-source, 
 
 Faire tout cela fut un travail long et éprouvant, que j'ai choisi de faire bénévolement. Néanmoins, étant actuellement sans emploi, vous pouvez me soutenir en opérant un don, ou en m'embauchant. Ayez en conscience que le travail effectué vaut environ 15 000€, en me situant dans la fourchette basse du prix en freelance de quelqu'un disposant de mes compétences.
 
-## Déploiement:
+## Installation:
 
 ### 1° par conteneur avec docker et docker-compose
 
@@ -38,7 +37,7 @@ Faire tout cela fut un travail long et éprouvant, que j'ai choisi de faire bén
 * `docker`
 * `docker-compose`
 
-#### Installation en local
+#### Déploiement en local
 
 Téléchargez le repository depuis github:
 ```
@@ -77,7 +76,23 @@ Grâce à ces deux opérations, en lançant `make up`, docker-compose devrait ex
 
 En acs de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous. je ne peux plus me permettre un bénévolat total. Veuillez me contacter pour les tarifs: guillaume.penaud@gmail.com
 
-### 2° sur un serveur avec Ansible
+### 2° Sur un serveur avec Ansible
+
+Il existe désormais un role ansible pour déployer cagette sur un serveur bare-metal (type ovh dedibox). Vous pouvez trouver la documentation de ce role [sur ce repository github](https://github.com/gpenaud/ansible-role-cagette).
+
+### 3° Sur un cluster Kubernetes
+
+Vous pouvez également déployer cagette sur Kubernetes (k8s ou k3s), grâce à un rôle helm spécialement développé pour ça. La documentation relative au déploiement via helm se trouve sur [le repository consacré à la question](https://github.com/gpenaud/helm-cagette)
+
+## Utilisation
+
+
+
+## Bonus
+
+## Contribuer
+
+
 
 ## NOTES
 To work with a specific controller, we should comment this part in src/devLibs/sugoi/src/sugoi/BaseApp.hx129-134:
