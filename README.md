@@ -18,7 +18,7 @@
   <a href="#installation">Installation</a> •
   <a href="#utilisation">Utilisation</a> •
   <a href="#import">Import</a> •
-  <a href="#aide & support">Aide & Support</a> •
+  <a href="#aide">Aide</a> •
   <a href="#contribuer">Contribuer</a>
 
 </p>
@@ -118,7 +118,7 @@ La fonctionnalité d'import des produits depuis l'actuel cagette (app.cagette.ne
 
 Néanmoins, si vous êtes producteur et que ne souhaitez pas recréer à la main l'ensemble de vos catalogues produits, je peux utiliser une petit programme que j'ai conçu, qui demande un peu de travail de mon côté ; mais qui automatise néanmoins certaines étapes.
 
-## Aide & Support
+## Aide
 
 En cas de difficultés, sachez que je peux tout à fait m'occuper de mettre en ligne votre instance de cagette, mais cela vous coûtera un peu de sous (ou du troc). je ne peux pas me permettre un bénévolat total. Voici les tarifs qui me paraissent ajustés en fonction du temps nécessaire à chaque opération:
 
