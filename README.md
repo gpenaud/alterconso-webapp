@@ -18,7 +18,7 @@
   <a href="#installation">Installation</a> •
   <a href="#utilisation">Utilisation</a> •
   <a href="#import">Import</a> •
-  <a href="#aide&support">Aide & Support</a> •
+  <a href="#aide & support">Aide & Support</a> •
   <a href="#contribuer">Contribuer</a>
 
 </p>
