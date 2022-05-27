@@ -19,7 +19,8 @@
   <a href="#utilisation">Utilisation</a> •
   <a href="#import">Import</a> •
   <a href="#aide">Aide</a> •
-  <a href="#contribuer">Contribuer</a>
+  <a href="#contribuer">Contribuer</a> •
+  <a href="#contact">Contact</a>
 
 </p>
 
@@ -66,9 +67,6 @@ make certificates-generate
 * `certificat`: services/apache2/certificates/cert.pem
 * `clef`: services/apache2/certificates/key.pem
 
-
-
-
 #### Utilisation de cagette-webapp
 
 Allez dans le répertoire du repository:
@@ -110,7 +108,7 @@ Cagette s'utilise comme n'importe quelle application web ; à votre première ut
 * `créer une distribution, ou un cycle de distributions`: définir quand et ou la distribution des produits s'opérera.  
 * `configurer les producteurs de façon à ce qu'ils participent aux distributions`: vous pouvez configurer ça dans l'onglet **catalogues** du site.
 
-Pour toute question relative à l'utilisation et à l'administration du site, je peux également vous accompagner et vous former ; mais comme pour les autres services que je propose, je demanderai une compensation financière pour le temps et l'énergie passée. Contactez moi à l'adresse suivante pour que nous en discutions: **guillaume.penaud@gmail.com**
+Pour toute question relative à l'utilisation et à l'administration du site, je peux également vous accompagner et vous former ; mais comme pour les autres services que je propose, je demanderai une compensation financière pour le temps et l'énergie passée. Contactez moi pour que nous en discutions.
 
 ## Import
 
@@ -138,3 +136,10 @@ Ce projet a pour objectif de rendre disponible cagette de façon totalement tran
 Sachez également que si vous souhaitez honorer l'énergie que j'ai mis dans ce projet, vous pouvez procéder à un don, cela m'encouragera à mener d'autres projets bénévoles, et m'aidera à concacrer mon énergie à de l'informatique pour le bien commun.
 
 Mais si les moyens vous manquent, vous pouvez également, à travers un petit mot d'encouragement, contribuer à nourrir mon envie de contribuer au monde à travers des projets éthiques et joyeux.
+
+## Contact
+
+Guillaume Penaud <br>
+Développeur & Devops
+* Adresse: 9 Rue de Cretey 71270 Torpes
+* Email: guillaume.penaud@gmail.com
