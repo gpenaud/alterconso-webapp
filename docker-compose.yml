@@ -11,14 +11,16 @@ services:
     image: gpenaud/cagette-webapp
     build:
       context: .
-      args:
-        CAGETTE_SQL_LOG: "${CAGETTE_SQL_LOG:-}"
-        CAGETTE_DEBUG: "${CAGETTE_DEBUG:-}"
-        CAGETTE_CACHETPL: "${CAGETTE_CACHETPL:-}"
     restart: always
     ports:
       - 80:80
       - 443:443
+    volumes:
+      - ./configuration/apache2/apache2.conf:/etc/apache2/apache2.conf
+      - ./configuration/apache2/certificates:/etc/apache2/certificates
+      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-available/cagette.localhost.conf
+      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-enabled/cagette.localhost.conf
+      - ./configuration/app/config.xml:/var/www/cagette/config.xml
     depends_on:
       - mysql
     networks:
@@ -55,7 +57,7 @@ services:
       - 3306:3306
     volumes:
       - database:/var/lib/mysql
-      - ./services/mysql/dumps/:/root/dumps
-      - ./services/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./configuration/mysql/dumps/:/root/dumps
+      - ./configuration/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       - cagette
