@@ -27,12 +27,12 @@ publish: build tag push
 
 ## Start, then log cagette stack locally
 up:
-	source config.env && docker-compose up --detach
+	docker-compose up --detach
 	docker-compose logs --follow webapp mailer
 
 ## Start, then log cagette stack locally, but force build first (without --no-cache option)
 up-with-build:
-	source config.env && docker-compose up --build --detach
+	docker-compose up --build --detach
 	docker-compose logs --follow webapp mailer
 
 ## Stop local cagette stack
@@ -49,16 +49,16 @@ cache-clear:
 
 # ---------------------------------------------------------------------------- #
 
-SQL_FILE := development-$(shell date '+%d-%m-%Y-%H-%M-%S').sql
+SQL_FILE := inject.sql
 
 ## Backups database in its development version
 database-backup:
 	docker-compose exec mysql sh -c "mysqldump --no-tablespaces -u docker -pdocker db > ${SQL_FILE}"
-	docker cp $(shell docker-compose ps -q mysql):/${SQL_FILE} services/mysql/dumps/${SQL_FILE}
+	docker cp $(shell docker-compose ps -q mysql):/${SQL_FILE} configuration/mysql/dumps/${SQL_FILE}
 
 ## Backups database from its development version
 database-restore:
-	docker cp services/mysql/dumps/${SQL_FILE} $(shell docker-compose ps -q mysql):/${SQL_FILE}
+	docker cp configuration/mysql/scripts/${SQL_FILE} $(shell docker-compose ps -q mysql):/${SQL_FILE}
 	docker-compose exec mysql sh -c "mysql -u docker -pdocker db < ${SQL_FILE}"
 
 # ---------------------------------------------------------------------------- #
@@ -83,8 +83,8 @@ certificates-install-mkcert:
 
 ## Generate self-signed certificates
 certificates-generate:
-	mkcert -cert-file services/apache2/certificates/cert.pem -key-file services/apache2/certificates/key.pem cagette.localhost
-	chmod 0644 services/apache2/certificates/key.pem
+	mkcert -cert-file configuration/apache2/certificates/cert.pem -key-file configuration/apache2/certificates/key.pem alterconso.localhost
+	chmod 0644 configuration/apache2/certificates/key.pem
 
 ## Colors
 COLOR_RESET       = $(shell tput sgr0)
