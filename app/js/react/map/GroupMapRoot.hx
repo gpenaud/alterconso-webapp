@@ -203,7 +203,7 @@ class GroupMapRoot extends ReactComponentOf<GroupMapRootProps, GroupMapRootState
                         <Box width="50%" bgcolor="#fff" boxShadow={1}>
                             <GeoAutocomplete
                                 initialValue={props.address}
-                                label="Trouvez un groupe Cagette près de chez vous"
+                                label="Trouvez un groupe près de chez vous"
                                 noOptionsText="Saisissez votre adresse"
                                 mapboxToken="pk.eyJ1IjoiYnViYXIiLCJhIjoiY2loM2lubmZpMDBwcGtxbHlwdmw0bXRkbCJ9.rfgXPakoGnXZ3wIGA3-1kQ"
                                 onChange=$onAutocompleteChange />

@@ -1237,7 +1237,7 @@ msgstr "Inscription à \"::groupName::\""
 
 #: ../src/controller/Group.hx:5565
 msgid "Create a new Cagette Group"
-msgstr "Créer un nouveau groupe Cagette"
+msgstr "Créer un nouveau groupe"
 
 #: ../src/controller/Group.hx:5676 ../src/controller/Install.hx:1493
 msgid "Name of your group"
@@ -1552,7 +1552,7 @@ msgid ""
 "must be connected to your group Cagette)"
 msgstr ""
 "<p><a href='::distriburl::'>Cliquez ici pour valider la distribution</a> "
-"(vous devez être connecté(e) à votre groupe Cagette.net)</p>"
+"(vous devez être connecté(e) à votre groupe.net)</p>"
 
 #: ../src/controller/Cron.hx:19165
 msgid "<p>Reminder: you have a delivery to validate.</p>"
@@ -1564,7 +1564,7 @@ msgid ""
 "must be connected to your Cagette group)"
 msgstr ""
 "<p><a href='::distriburl::'>Cliquez ici pour valider la distribution</a> "
-"(vous devez être connecté(e) à votre groupe Cagette.net )</p>"
+"(vous devez être connecté(e) à votre groupe.net )</p>"
 
 #: ../src/controller/Cron.hx:20539
 msgid ""
@@ -5063,8 +5063,8 @@ msgid "Non-complete extract of available products:"
 msgstr "Extrait non exhaustif des produits proposés :"
 
 #: ../lang/master/tpl/group/view.mtt:5753
-msgid "http://www.cagette.net"
-msgstr "http://www.cagette.net"
+msgid "https://cagette.leportail.org"
+msgstr "https://cagette.leportail.org"
 
 #: ../lang/master/tpl/group/view.mtt:5786
 msgid "Cagette.net, the free software of food direct-selling"
@@ -6722,7 +6722,7 @@ msgstr ""
 #~ msgstr "Ce groupe accepte les inscriptions sur liste d'attente."
 
 #~ msgid "http://www.lemilo.de"
-#~ msgstr "http://www.cagette.net"
+#~ msgstr "https://cagette.leportail.org"
 
 #~ msgid ""
 #~ "You can link your products to categories, in order to better organize "

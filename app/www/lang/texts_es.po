@@ -4288,7 +4288,7 @@ msgid "Non-complete extract of available products:"
 msgstr ""
 
 #: lang/master/tpl/group/view.mtt:5027
-msgid "http://www.cagette.net"
+msgid "https://cagette.leportail.org"
 msgstr ""
 
 #: lang/master/tpl/group/view.mtt:5060

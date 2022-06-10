@@ -1,10 +1,10 @@
 <img src="https://app.cagette.net/img/logo2.png" alt="Cagette.net"/>
 
-http://www.cagette.net
+https://cagette.leportail.org
 
 [![Build Status](https://travis-ci.org/bablukid/cagette.svg?branch=master)](https://travis-ci.org/bablukid/cagette)
 
-Documentation : http://www.cagette.net/wiki
+Documentation : https://github.com/gpenaud/cagette-webapp
 
 FAQ for developers : https://wiki.cagette.net/devfaq
 

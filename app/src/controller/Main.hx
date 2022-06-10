@@ -17,7 +17,7 @@ class Main extends Controller {
 		//init group breadcrumb
 		var group = App.current.getCurrentGroup();
 		if(group!=null)
-			addBc("g"+group.id, "Groupe Cagette : "+group.name, "/home");
+			addBc("g"+group.id, "Groupe : "+group.name, "/home");
 
 	}
 

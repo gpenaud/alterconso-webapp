@@ -4343,7 +4343,7 @@ msgid "Non-complete extract of available products:"
 msgstr "Unvollständiger Auszug ihrer verfügbaren Produkte:"
 
 #: lang/master/tpl/group/view.mtt:4525
-msgid "http://www.cagette.net"
+msgid "https://cagette.leportail.org"
 msgstr "http://www.lemilo.de"
 
 #: lang/master/tpl/group/view.mtt:4558
@@ -5317,7 +5317,7 @@ msgstr ""
 #~ msgid "Default categories has been created"
 #~ msgstr "Die Kategorien wurden automatisch hinzugefügt"
 
-#~ msgid "Type de groupe Cagette"
+#~ msgid "Type de groupe"
 #~ msgstr "Type der Lemilo-Gruppe"
 
 #~ msgid "Display the interface in another langugage"
