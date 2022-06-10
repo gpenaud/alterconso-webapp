@@ -1,0 +1,29 @@
+<config
+	lang="fr"
+	langs="fr;de;en"
+	langnames="Français;Deutsch;English"
+
+	host="alterconso.localhost"
+	name = "Alterconso - Le Portail"
+	default_email = "alterconso@leportail.org"
+	webmaster_email = "guillaume.penaud@gmail.com"
+
+	database="mysql://docker:docker@mysql/db"
+	sqllog="0"
+
+	debug="1"
+	cache="0"
+	maintain="0"
+	cachetpl="0"
+	key="localdevkey"
+
+	mailer_host="mailer"
+	mailer_port="5000"
+
+	smtp_host="mail.leportail.org"
+	smtp_port="587"
+	smtp_user="cagette@leportail.org"
+	smtp_pass="frayanadele71!"
+
+	cagette_api="http://alterconso.localhost:3010"
+/>
