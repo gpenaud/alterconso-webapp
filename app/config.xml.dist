@@ -5,10 +5,10 @@
 
 	host="localhost"
 	name = "Cagette.net"
-	default_email = "cagette@leportail.org"
-	webmaster_email = "guillaume.penaud@gmail.com"
+	default_email = "contact@cagette.net"
+	webmaster_email = "admin@cagette.net"
 
-	database="mysql://docker:docker@mysql/db"
+	database="mysql://user:password@host/db"
 	sqllog="1"
 
 	debug="1"
