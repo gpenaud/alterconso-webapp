@@ -9,8 +9,8 @@
 	webmaster_email = "guillaume.penaud@gmail.com"
 
 	database="mysql://docker:docker@mysql/db"
-	sqllog="0"
 
+	sqllog="0"
 	debug="1"
 	cache="0"
 	maintain="0"
@@ -19,11 +19,6 @@
 
 	mailer_host="mailer"
 	mailer_port="5000"
-
-	smtp_host="mail.leportail.org"
-	smtp_port="587"
-	smtp_user="cagette@leportail.org"
-	smtp_pass="frayanadele71!"
 
 	cagette_api="http://alterconso.localhost:3010"
 />
