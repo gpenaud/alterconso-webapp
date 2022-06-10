@@ -21,26 +21,26 @@ RUN npm install --global \
   haxe-modular
 
 # backend dependencies compilation
-COPY ./src/backend /app/backend
-COPY ./src/devLibs /app/devLibs
+COPY ./app/backend /app/backend
+COPY ./app/devLibs /app/devLibs
 # download lix dependencies for backend
 # NOTE: cagette-pro is a private repository and requires authentication, so we remove it
 RUN cd /app/backend && rm haxe_libraries/cagette-pro.hxml && lix download
 
 # frontend dependencies compilation
-COPY ./src/frontend /app/frontend
+COPY ./app/frontend /app/frontend
 # download lix dependencies for frontend
 RUN cd /app/frontend && lix download
 
 # copy sources
-COPY ./src/build /app/build
-COPY ./src/common /app/common
-COPY ./src/data /app/data
-COPY ./src/js /app/js
-COPY ./src/lang /app/lang
-COPY ./src/src /app/src
-COPY ./src/www /app/www
-COPY ./src/config.xml.dist /app/config.xml
+COPY ./app/build /app/build
+COPY ./app/common /app/common
+COPY ./app/data /app/data
+COPY ./app/js /app/js
+COPY ./app/lang /app/lang
+COPY ./app/src /app/src
+COPY ./app/www /app/www
+COPY ./app/config.xml.dist /app/config.xml
 
 RUN chmod 777 /app/lang/master/tmp
 
@@ -110,12 +110,6 @@ RUN rm --force \
   /etc/apache2/sites-available/000-default.conf \
   /etc/apache2/sites-enabled/000-default.conf
 
-# copy apache2 related files
-COPY ./services/apache2/apache2.conf /etc/apache2/apache2.conf
-COPY ./services/apache2/certificates /etc/apache2/certificates
-COPY ./services/apache2/vhosts/https.conf /etc/apache2/sites-available/cagette.localhost.conf
-COPY ./services/apache2/vhosts/https.conf /etc/apache2/sites-enabled/cagette.localhost.conf
-
 # copy cron file
 COPY --chown=www-data:www-data ./scripts/crontab.sh /var/www/cagette/crontab.sh
 RUN sh /var/www/cagette/crontab.sh
@@ -132,15 +126,6 @@ RUN \
   # prepare apache2 to be executed as www-data user
   setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2ctl && \
   setcap 'cap_net_bind_service=+ep' /usr/sbin/apache2
-
-RUN \
-  sed -i 's/.*smtp_host.*/        smtp_host="'"${CAGETTE_SMTP_HOST}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*smtp_port.*/        smtp_port="'"${CAGETTE_SMTP_PORT}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*smtp_user.*/        smtp_user="'"${CAGETTE_SMTP_USER}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*smtp_pass.*/        smtp_pass="'"${CAGETTE_SMTP_PASSWORD}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*sqllog.*/        sqllog="'"${CAGETTE_SQL_LOG}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*debug.*/        debug="'"${CAGETTE_DEBUG}"'"/' /var/www/cagette/config.xml && \
-  sed -i 's/.*cachetpl.*/        cachetpl="'"${CAGETTE_CACHETPL}"'"/' /var/www/cagette/config.xml
 
 # configure modules
 RUN \
