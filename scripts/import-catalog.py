@@ -33,6 +33,12 @@ parser.add_argument(
   help="determine the producer"
 )
 parser.add_argument(
+  "--catalog",
+  "-c",
+  type=str,
+  help="determine the catalog"
+)
+parser.add_argument(
   "--delimiter",
   type=str,
   default=",",
