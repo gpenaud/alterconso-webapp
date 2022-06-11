@@ -1,14 +1,14 @@
 version: "3.6"
 
 networks:
-  cagette:
+  alterconso:
 
 volumes:
   database:
 
 services:
   webapp:
-    image: gpenaud/cagette-webapp
+    image: gpenaud/alterconso-webapp
     build:
       context: .
     restart: always
@@ -18,33 +18,33 @@ services:
     volumes:
       - ./configuration/apache2/apache2.conf:/etc/apache2/apache2.conf
       - ./configuration/apache2/certificates:/etc/apache2/certificates
-      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-available/cagette.localhost.conf
-      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-enabled/cagette.localhost.conf
-      - ./configuration/app/config.xml:/var/www/cagette/config.xml
+      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-available/alterconso.localhost.conf
+      - ./configuration/apache2/vhosts/https.conf:/etc/apache2/sites-enabled/alterconso.localhost.conf
+      - ./configuration/app/config.xml:/var/www/alterconso/config.xml
     depends_on:
       - mysql
     networks:
-      - cagette
+      - alterconso
 
   mailer:
     hostname: mailer
-    image: gpenaud/cagette-mailer
+    image: gpenaud/alterconso-mailer
     build:
-      context: ./../cagette-mailer
+      context: ./../alterconso-mailer
     ports:
       - 5000
     environment:
       # mailer configuration
       MAILER_HOST: "0.0.0.0"
       # smtp relay configuration
-      SMTP_HOST: "${CAGETTE_SMTP_HOST:-}"
-      SMTP_PORT: "${CAGETTE_SMTP_PORT:-}"
-      SMTP_USER: "${CAGETTE_SMTP_USER:-}"
-      SMTP_PASSWORD: "${CAGETTE_SMTP_PASSWORD:-}"
+      SMTP_HOST: "${ALTERCONSO_SMTP_HOST:-}"
+      SMTP_PORT: "${ALTERCONSO_SMTP_PORT:-}"
+      SMTP_USER: "${ALTERCONSO_SMTP_USER:-}"
+      SMTP_PASSWORD: "${ALTERCONSO_SMTP_PASSWORD:-}"
     depends_on:
       - webapp
     networks:
-      - cagette
+      - alterconso
 
   mysql:
     image: mysql:5.7
@@ -60,4 +60,4 @@ services:
       - ./configuration/mysql/dumps/:/root/dumps
       - ./configuration/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
-      - cagette
+      - alterconso

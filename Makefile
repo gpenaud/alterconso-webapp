@@ -1,7 +1,7 @@
 ## permanent variables
 .ONESHELL:
 SHELL 			:= /bin/bash
-PROJECT			?= github.com/gpenaud/cagette-webapp
+PROJECT			?= github.com/gpenaud/alterconso-webapp
 RELEASE			?= $(shell git describe --tags --abbrev=0)
 CURRENT_TAG ?= $(shell git describe --exact-match --tags 2> /dev/null)
 COMMIT			?= $(shell git rev-parse --short HEAD)
@@ -10,32 +10,32 @@ BUILD_TIME  ?= $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 ## Build webapp image
 build:
 	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
-	@[ "${CURRENT_TAG}" ] && docker build --tag cagette/webapp:${CURRENT_TAG} .
+	@[ "${CURRENT_TAG}" ] && docker build --tag alterconso/webapp:${CURRENT_TAG} .
 
 ## Tag webapp image
 tag:
 	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
-	@[ "${CURRENT_TAG}" ] && docker tag cagette/webapp:${CURRENT_TAG} rg.fr-par.scw.cloud/le-portail/cagette/webapp:${CURRENT_TAG}
+	@[ "${CURRENT_TAG}" ] && docker tag alterconso/webapp:${CURRENT_TAG} rg.fr-par.scw.cloud/le-portail/alterconso/webapp:${CURRENT_TAG}
 
 ## Push webapp image to scaleway repository
 push:
 	@[ "${CURRENT_TAG}" ] || echo "no tag found at commit ${COMMIT}"
-	@[ "${CURRENT_TAG}" ] && docker push rg.fr-par.scw.cloud/le-portail/cagette/webapp:${CURRENT_TAG}
+	@[ "${CURRENT_TAG}" ] && docker push rg.fr-par.scw.cloud/le-portail/alterconso/webapp:${CURRENT_TAG}
 
 ## Build, Tag, then Push image at ${tag} version
 publish: build tag push
 
-## Start, then log cagette stack locally
+## Start, then log alterconso stack locally
 up:
 	docker-compose up --detach
 	docker-compose logs --follow webapp mailer
 
-## Start, then log cagette stack locally, but force build first (without --no-cache option)
+## Start, then log alterconso stack locally, but force build first (without --no-cache option)
 up-with-build:
 	docker-compose up --build --detach
 	docker-compose logs --follow webapp mailer
 
-## Stop local cagette stack
+## Stop local alterconso stack
 down:
 	docker-compose down --volumes
 
@@ -45,7 +45,7 @@ enter:
 
 ## clear images cached
 cache-clear:
-	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "rm -rf file/"
+	docker-compose exec --user root --workdir /var/www/alterconso/www webapp sh -c "rm -rf file/"
 
 # ---------------------------------------------------------------------------- #
 
@@ -64,16 +64,16 @@ database-restore:
 # ---------------------------------------------------------------------------- #
 
 recompile-backend:
-	docker-compose exec --user root --workdir /var/www/cagette/backend webapp  sh -c "haxe cagette.hxml"
+	docker-compose exec --user root --workdir /var/www/alterconso/backend webapp  sh -c "haxe alterconso.hxml"
 
 recompile-frontend:
-	docker-compose exec --user root --workdir /var/www/cagette/frontend webapp sh -c "haxe cagetteJs.hxml"
+	docker-compose exec --user root --workdir /var/www/alterconso/frontend webapp sh -c "haxe alterconsoJs.hxml"
 
 test-generic:
-	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "neko index.n cron/test"
+	docker-compose exec --user root --workdir /var/www/alterconso/www webapp sh -c "neko index.n cron/test"
 
 test-product-import:
-	docker-compose exec --user root --workdir /var/www/cagette/www webapp sh -c "neko index.n product/debugimport"
+	docker-compose exec --user root --workdir /var/www/alterconso/www webapp sh -c "neko index.n product/debugimport"
 
 ## Install mkcert for self-signed certificates generation
 certificates-install-mkcert:

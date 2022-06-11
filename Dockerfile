@@ -3,7 +3,7 @@
 # ============================================================================ #
 
 # image: node:17-bullseye-slim
-FROM node@sha256:47704b6439c27955da5fd53b94d40157171203a6e7e7b1422ca404dab05fed00 AS cagette-sourcecode
+FROM node@sha256:47704b6439c27955da5fd53b94d40157171203a6e7e7b1422ca404dab05fed00 AS alterconso-sourcecode
 
 # Haxe environment variables
 ENV HAXE_STD_PATH /root/haxe/neko
@@ -58,9 +58,9 @@ FROM debian@sha256:fbaacd55d14bd0ae0c0441c2347217da77ad83c517054623357d1f9d07f79
 ENV TZ="Europe/Paris"
 
 # ensure to be able to recompile haxe code for debugging purpose
-COPY --from=cagette-sourcecode /usr/local/lib/node_modules /usr/local/lib/node_modules
-COPY --from=cagette-sourcecode /usr/local/bin /usr/local/bin
-COPY --from=cagette-sourcecode /root/haxe /root/haxe
+COPY --from=alterconso-sourcecode /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=alterconso-sourcecode /usr/local/bin /usr/local/bin
+COPY --from=alterconso-sourcecode /root/haxe /root/haxe
 
 RUN \
   apt-get --yes update && apt-get --no-install-recommends --yes install \
@@ -73,7 +73,7 @@ RUN \
     # allow setcap command to be used for apache2 command execution as non-root users
     libcap2-bin
 
-COPY --chown=www-data:www-data --from=cagette-sourcecode /app /var/www/cagette
+COPY --chown=www-data:www-data --from=alterconso-sourcecode /app /var/www/alterconso
 
 # Haxe environment variables
 ENV HAXE_STD_PATH   /usr/lib/x86_64-linux-gnu/neko
@@ -105,8 +105,8 @@ RUN rm --force \
   /etc/apache2/sites-enabled/000-default.conf
 
 # copy cron file
-COPY --chown=www-data:www-data ./scripts/crontab.sh /var/www/cagette/crontab.sh
-RUN sh /var/www/cagette/crontab.sh
+COPY --chown=www-data:www-data ./scripts/crontab.sh /var/www/alterconso/crontab.sh
+RUN sh /var/www/alterconso/crontab.sh
 
 # run multiples apache2-related operations
 RUN \
@@ -144,7 +144,7 @@ RUN \
 # ------------------------------------------------------------------------------
 
 USER www-data
-WORKDIR /var/www/cagette
+WORKDIR /var/www/alterconso
 EXPOSE 80
 
 CMD ["sh", "-c", "/usr/sbin/service cron start && /usr/sbin/apache2ctl -D FOREGROUND"]
