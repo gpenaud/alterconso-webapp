@@ -27,15 +27,24 @@ parser.add_argument(
   help="extract name from csv file"
 )
 parser.add_argument(
+  "--group",
+  "-g",
+  type=str,
+  required=True,
+  help="determine the group"
+)
+parser.add_argument(
   "--producer",
   "-p",
   type=str,
+  required=True,
   help="determine the producer"
 )
 parser.add_argument(
   "--catalog",
   "-c",
   type=str,
+  default="all",
   help="determine the catalog"
 )
 parser.add_argument(
@@ -50,7 +59,7 @@ debug = args.debug
 logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)s | %(message)s')
 
 directory_path = os.path.dirname(os.path.abspath(__file__))
-csv_file       = "%s/catalogs/%s.csv" % (directory_path, args.producer)
+csv_file       = "%s/data/%s/catalogs/%s/%s.csv" % (directory_path, args.group, args.producer, args.catalog)
 
 try:
   with open(csv_file, newline='') as f:
