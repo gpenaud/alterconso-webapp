@@ -16,7 +16,7 @@
 					<h1>::groupName::</h1>
 				::else::
 					<div style="margin-bottom:22px;" >
-							<a href="https://cagette.leportail.org" target="_blank">
+							<a href="https://alterconso.leportail.org" target="_blank">
 								<img src="/img/logo3.png" alt="::NAME::" />
 							</a>
 					</div>		

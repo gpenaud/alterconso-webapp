@@ -5063,8 +5063,8 @@ msgid "Non-complete extract of available products:"
 msgstr "Extrait non exhaustif des produits proposés :"
 
 #: ../lang/master/tpl/group/view.mtt:5753
-msgid "https://cagette.leportail.org"
-msgstr "https://cagette.leportail.org"
+msgid "https://alterconso.leportail.org"
+msgstr "https://alterconso.leportail.org"
 
 #: ../lang/master/tpl/group/view.mtt:5786
 msgid "Cagette.net, the free software of food direct-selling"
@@ -6722,7 +6722,7 @@ msgstr ""
 #~ msgstr "Ce groupe accepte les inscriptions sur liste d'attente."
 
 #~ msgid "http://www.lemilo.de"
-#~ msgstr "https://cagette.leportail.org"
+#~ msgstr "https://alterconso.leportail.org"
 
 #~ msgid ""
 #~ "You can link your products to categories, in order to better organize "

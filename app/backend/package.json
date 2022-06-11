@@ -3,7 +3,7 @@
   "description": "le logiciel libre du circuit court",
   "author": "François Barbut <francois@alilo.fr>",
   "license": "GPL-2.0",
-  "homepage": "https://cagette.leportail.org",
+  "homepage": "https://alterconso.leportail.org",
   "dependencies": {},
   "devDependencies": {
     "npm-run-all": "^4.1.2"

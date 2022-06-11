@@ -4381,7 +4381,7 @@ msgid "Non-complete extract of available products:"
 msgstr ""
 
 #: ../lang/master/tpl/group/view.mtt:5071
-msgid "https://cagette.leportail.org"
+msgid "https://alterconso.leportail.org"
 msgstr ""
 
 #: ../lang/master/tpl/group/view.mtt:5104

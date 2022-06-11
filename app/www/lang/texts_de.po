@@ -4343,7 +4343,7 @@ msgid "Non-complete extract of available products:"
 msgstr "Unvollständiger Auszug ihrer verfügbaren Produkte:"
 
 #: lang/master/tpl/group/view.mtt:4525
-msgid "https://cagette.leportail.org"
+msgid "https://alterconso.leportail.org"
 msgstr "http://www.lemilo.de"
 
 #: lang/master/tpl/group/view.mtt:4558

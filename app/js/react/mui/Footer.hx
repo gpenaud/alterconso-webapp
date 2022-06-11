@@ -13,7 +13,7 @@ class Footer extends react.ReactComponent
 		return jsx('<div id="footer" style=${{width:"100%",backgroundColor:CGColors.Secondary,marginTop:32,paddingTop:24,paddingBottom:24,color:CGColors.White}}>
 			<Grid container spacing=${GridSpacing.Spacing_0} direction=${Row} justify=${Center} style=${{maxWidth:"1240px",marginLeft:"auto",marginRight:"auto"}}>
         <Grid item md={3} xs={12} style=${{textAlign:"left"}}>
-					<a href="https://cagette.leportail.org" target="_blank">
+					<a href="https://alterconso.leportail.org" target="_blank">
 						<img src="/img/logo.png" alt="Cagette.net"/>
 					</a>
 				</Grid>
