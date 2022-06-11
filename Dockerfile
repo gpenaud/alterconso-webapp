@@ -54,6 +54,9 @@ RUN cd /app/frontend && haxe cagetteJs.hxml
 # image: debian:bullseye-slim
 FROM debian@sha256:fbaacd55d14bd0ae0c0441c2347217da77ad83c517054623357d1f9d07f79f5e
 
+# Configure timezone
+ENV TZ="Europe/Paris"
+
 # ensure to be able to recompile haxe code for debugging purpose
 COPY --from=cagette-sourcecode /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=cagette-sourcecode /usr/local/bin /usr/local/bin
@@ -95,15 +98,6 @@ RUN \
 ENV APACHE_RUN_USER  www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR   /var/log/apache2
-
-# cagette environmant variables
-ARG CAGETTE_SMTP_HOST
-ARG CAGETTE_SMTP_PORT
-ARG CAGETTE_SMTP_USER
-ARG CAGETTE_SMTP_PASSWORD
-ARG CAGETTE_SQL_LOG
-ARG CAGETTE_DEBUG
-ARG CAGETTE_CACHETPL
 
 # remove default vhosts
 RUN rm --force \
