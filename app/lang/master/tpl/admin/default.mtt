@@ -1,7 +1,7 @@
 ::use 'admin/design.mtt'::
 
 
-<h3>Console d'administration de Cagette.net</h3>
+<h3>Console d'administration d'Alterconso</h3>
 <p>
 	::hDate(now)::
 </p>

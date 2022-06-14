@@ -136,7 +136,7 @@ class User extends Controller
 			sugoi.db.Cache.set(token, user.id, 60 * 60 * 24 * 30);
 			
 			var m = new sugoi.mail.Mail();
-			m.setSender(App.config.get("default_email"), t._("Cagette.net"));					
+			m.setSender(App.config.get("default_email"), t._("Alterconso"));					
 			m.setRecipient(email, user.getName());					
 			m.setSubject( "["+App.config.NAME+"] : "+t._("Password change"));
 			m.setHtmlBody( app.processTemplate('mail/forgottenPassword.mtt', { user:user, link:'http://' + App.config.HOST + '/user/forgottenPassword/'+token+"/"+user.id }) );
@@ -167,7 +167,7 @@ class User extends Controller
 				user.update();
 
 				var m = new sugoi.mail.Mail();
-				m.setSender(App.config.get("default_email"), t._("Cagette.net"));					
+				m.setSender(App.config.get("default_email"), t._("Alterconso"));					
 				m.setRecipient(user.email, user.getName());					
 				if(user.email2!=null) m.setRecipient(user.email2, user.getName());					
 				m.setSubject( "["+App.config.NAME+"] : "+t._("New password confirmed"));

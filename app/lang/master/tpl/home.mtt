@@ -9,9 +9,9 @@
 		<!-- Welcoming message + access to tutos-->
 		::if newGroup::
 		<div class="alert alert-success">
-			<h3>::_("Welcome to Cagette.net !")::</h3>
+			<h3>::_("Welcome to Alterconso !")::</h3>
 			<p>
-				::raw _("Congratulations, you just created a new group !<br/>As an example, we created a fake farmer and fake products.<br/>It will show you how things work together in Cagette.net.<br/>Of course, you'll be able to delete them.")::
+				::raw _("Congratulations, you just created a new group !<br/>As an example, we created a fake farmer and fake products.<br/>It will show you how things work together in Alterconso.<br/>Of course, you'll be able to delete them.")::
 			</p>
 			<hr/>
 			<p>

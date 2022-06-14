@@ -455,7 +455,7 @@ msgid "This E-mail is not linked to a known account"
 msgstr ""
 
 #: ../src/controller/User.hx:3497 ../src/controller/User.hx:4481 ../src/controller/Member.hx:11082 ../src/db/User.hx:16172 ../lang/master/tpl/design.mtt:5480 ../lang/master/tpl/mail/design.mtt:279
-msgid "Cagette.net"
+msgid "Alterconso"
 msgstr ""
 
 #: ../src/controller/User.hx:3609
@@ -626,17 +626,17 @@ msgid "These accounts can't be merged because the second account has orders"
 msgstr ""
 
 #: ../src/controller/Member.hx:11156
-msgid "Change your e-mail in your account Cagette.net"
+msgid "Change your e-mail in your account Alterconso"
 msgstr ""
 
 #: ../src/controller/Member.hx:11300 ../src/controller/Member.hx:11828
 msgid ""
-" just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+" just modified your e-mail in your account Alterconso.<br/>Your e-mail is "
 "now:"
 msgstr ""
 
 #: ../src/controller/Member.hx:11686
-msgid "Change the e-mail of your account Cagette.net"
+msgid "Change the e-mail of your account Alterconso"
 msgstr ""
 
 #: ../src/controller/Member.hx:12026
@@ -773,7 +773,7 @@ msgstr ""
 
 #: ../src/controller/Member.hx:21461
 msgid ""
-"This person already had an account on Cagette.net, and is now member of your "
+"This person already had an account on Alterconso, and is now member of your "
 "group."
 msgstr ""
 
@@ -1084,7 +1084,7 @@ msgid "Phone"
 msgstr ""
 
 #: ../src/controller/Group.hx:4496
-msgid "You already subscribed to Cagette.net, please log in on this page"
+msgid "You already subscribed to Alterconso, please log in on this page"
 msgstr ""
 
 #: ../src/controller/Group.hx:4771
@@ -1394,7 +1394,7 @@ msgid ""
 "must be connected to your group Cagette)"
 msgstr ""
 "<p><a href='::distriburl::'>Clicka aquí per validar la distribució</a> (Has "
-"d'estar connecta't al teu grup Cagette.net)</p>"
+"d'estar connecta't al teu grup Alterconso)</p>"
 
 #: ../src/controller/Cron.hx:18414
 msgid ": Validation of the delivery of the "
@@ -1410,7 +1410,7 @@ msgid ""
 "must be connected to your Cagette group)"
 msgstr ""
 "<p><a href='::distriburl::'>Clica aquí per validar la distribució</a> (heu "
-"d'estar connectats/des al vostre grup Cagette.net )</p>"
+"d'estar connectats/des al vostre grup Alterconso )</p>"
 
 #: ../src/controller/Cron.hx:20108
 msgid ": Validation of the distribution of the "
@@ -2395,7 +2395,7 @@ msgid "Invitation"
 msgstr ""
 
 #: ../src/db/User.hx:16042
-msgid "Invitation Cagette.net"
+msgid "Invitation Alterconso"
 msgstr ""
 
 #: ../src/db/User.hx:17213 ../lang/master/tpl/member/import.mtt:592 ../lang/master/tpl/member/import.mtt:1308
@@ -2745,14 +2745,14 @@ msgid "Balance"
 msgstr ""
 
 #: ../lang/master/tpl/home.mtt:274 ../lang/master/tpl/home_old.mtt:233
-msgid "Welcome to Cagette.net !"
+msgid "Welcome to Alterconso !"
 msgstr ""
 
 #: ../lang/master/tpl/home.mtt:328 ../lang/master/tpl/home_old.mtt:287
 msgid ""
 "Congratulations, you just created a new group !<br/>As an example, we created "
 "a fake farmer and fake products.<br/>It will show you how things work together "
-"in Cagette.net.<br/>Of course, you'll be able to delete them."
+"in Alterconso.<br/>Of course, you'll be able to delete them."
 msgstr ""
 
 #: ../lang/master/tpl/home.mtt:588 ../lang/master/tpl/home_old.mtt:547
@@ -3430,7 +3430,7 @@ msgstr ""
 #: ../lang/master/tpl/member/import.mtt:2851
 msgid ""
 "You may now consider <a href='/member/?select=newusers'>inviting them</a> "
-"to log into Cagette.net"
+"to log into Alterconso"
 msgstr ""
 
 #: ../lang/master/tpl/member/import.mtt:2981
@@ -4483,7 +4483,7 @@ msgid "https://alterconso.leportail.org"
 msgstr ""
 
 #: ../lang/master/tpl/group/view.mtt:5104
-msgid "Cagette.net, the free software of food direct-selling"
+msgid "Alterconso, the free software of food direct-selling"
 msgstr ""
 
 #: ../lang/master/tpl/design.mtt:930
@@ -4540,7 +4540,7 @@ msgstr ""
 
 #: ../lang/master/tpl/design.mtt:7676
 msgid ""
-"Cagette.net is made by <a href='https://www.alilo.fr' target='_blank'><img "
+"Alterconso is made by <a href='https://www.alilo.fr' target='_blank'><img "
 "src='/img/alilo-trans-black.png' /></a>"
 msgstr ""
 
@@ -4746,7 +4746,7 @@ msgid "As a member of <b>::groupName::</b>"
 msgstr ""
 
 #: ../lang/master/tpl/mail/invitation.mtt:405 ../lang/master/tpl/mail/invitation.mtt:481
-msgid "you have been pre-registered on Cagette.net"
+msgid "you have been pre-registered on Alterconso"
 msgstr ""
 
 #: ../lang/master/tpl/mail/invitation.mtt:566
@@ -4803,7 +4803,7 @@ msgstr ""
 
 #: ../common/Common.hx:8340
 msgid ""
-"<p>In order to better discover Cagette.net, we propose to do a guided tour "
+"<p>In order to better discover Alterconso, we propose to do a guided tour "
 "of the user interface of the software. <br/> You will then have a global "
 "overview on the different tools that are available to you.</p><p>You will "
 "be able to stop and start again this tutorial whenever you want.</p>"
@@ -4830,7 +4830,7 @@ msgstr ""
 msgid ""
 "The purpose of this section is to administrate the list of your members.<br/>Every "
 "time that you register a new membrer, an account will be created for him/her. "
-"Now the member can join you at Cagette.net and order or consult the planning "
+"Now the member can join you at Alterconso and order or consult the planning "
 "of the deliveries.<p>Now click on a <b>member</b> in the list</p>"
 msgstr ""
 

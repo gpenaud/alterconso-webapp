@@ -506,11 +506,11 @@ class User extends Object {
 		if (group != null){
 			e.setSubject(t._("Invitation")+" "+group.name);	
 		}else{
-			e.setSubject(t._("Invitation Cagette.net"));
+			e.setSubject(t._("Invitation Alterconso"));
 		}
 		
 		e.addRecipient(this.email,this.getName());
-		e.setSender(App.config.get("default_email"),t._("Cagette.net"));			
+		e.setSender(App.config.get("default_email"),t._("Alterconso"));			
 		
 		var html = App.current.processTemplate("mail/invitation.mtt", { 
 			email:email,

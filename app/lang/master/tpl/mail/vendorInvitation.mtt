@@ -2,7 +2,7 @@
 
 <div style="max-width:400px;margin:auto;border:solid 1px #AAA;border-radius:8px;padding:12px;text-align:center;font-family:Arial;">
 	
-	<img src="http://::HOST::/img/logo2.png" title="Cagette.net" />
+	<img src="http://::HOST::/img/logo2.png" title="Alterconso" />
 	
 
 
@@ -11,19 +11,19 @@
 	</p>
 
 	<p>
-		<b>::source.getName()::</b> du groupe <b>::sourceGroup.name::</b> souhaite organiser des commandes de vos produits sur Cagette.net.
+		<b>::source.getName()::</b> du groupe <b>::sourceGroup.name::</b> souhaite organiser des commandes de vos produits sur Alterconso.
 	</p>
 
 	<p>
-		<a href="https://www.cagette.net">Cagette.net</a> est un site web gratuit qui permet aux groupes de consommateurs 
+		<a href="https://www.cagette.net">Alterconso</a> est un site web gratuit qui permet aux groupes de consommateurs 
 		de commander des produits locaux, bio et/ou en direct de la ferme.
 	</p>
 
 	<p>
 		Vous avez maintenant un compte qui vous permettra de mettre à jour votre <b>fiche producteur</b>, 
-		et également de faire des commandes sur Cagette.net si vous le souhaitez. <br/>
+		et également de faire des commandes sur Alterconso si vous le souhaitez. <br/>
 		Cliquez sur le lien ci-dessous pour définir un mot de passe et finaliser votre inscription. <br/>
-		Vous pourrez ensuite vous connecter sur <a href="https://www.cagette.net">Cagette.net</a> 
+		Vous pourrez ensuite vous connecter sur <a href="https://www.cagette.net">Alterconso</a> 
 		quand vous le souhaitez en utilisant votre email (::vendor.email::) et votre mot de passe.
 	</p>
 

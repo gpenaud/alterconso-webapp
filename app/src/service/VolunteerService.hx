@@ -191,7 +191,7 @@ class VolunteerService
 
 				//Send notification email to either the coordinators or all the members depending on the current date
 				var mail = new Mail();
-				mail.setSender(App.config.get("default_email"),"Cagette.net");
+				mail.setSender(App.config.get("default_email"),"Alterconso");
 				var now = Date.now();
 				var alertDate = DateTools.delta( multidistrib.distribStartDate, - 1000.0 * 60 * 60 * 24 * multidistrib.group.vacantVolunteerRolesMailDaysBeforeDutyPeriod );
 

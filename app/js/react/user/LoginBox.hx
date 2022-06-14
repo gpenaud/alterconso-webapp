@@ -58,7 +58,7 @@ class LoginBox extends react.ReactComponentOfPropsAndState<LoginBoxProps,LoginBo
 				</form>
 				<hr/>
 				<p className="text-center">
-					<b>C\'est votre première visite sur Cagette.net ?</b>{"\u00A0"}{"\u00A0"}
+					<b>C\'est votre première visite sur Alterconso ?</b>{"\u00A0"}{"\u00A0"}
 					<a onClick={registerBox} className="btn btn-default">
 						<i className="icon icon-chevron-right"></i> S\'inscrire
 					</a>

@@ -56,7 +56,7 @@ class Install extends controller.Controller
 	 */
 	@tpl("form.mtt")
 	public function doFirstInstall(){
-		view.title = "Installation de Cagette.net";
+		view.title = "Installation d'Alterconso";
 
 			var f = new sugoi.form.Form("c");
 			f.addElement(new StringInput("amapName", t._("Name of your group"),"",true));

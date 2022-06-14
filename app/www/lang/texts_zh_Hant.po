@@ -531,7 +531,7 @@ msgid "This E-mail is not linked to a known account"
 msgstr ""
 
 #: src/controller/User.hx:3307 src/controller/User.hx:4291 src/controller/Member.hx:11229 src/db/User.hx:14677 lang/master/tpl/design.mtt:4888 lang/master/tpl/mail/design.mtt:279
-msgid "Cagette.net"
+msgid "Alterconso"
 msgstr ""
 
 #: src/controller/User.hx:3419
@@ -677,17 +677,17 @@ msgid "These accounts can't be merged because the second account has orders"
 msgstr ""
 
 #: src/controller/Member.hx:11303
-msgid "Change your e-mail in your account Cagette.net"
+msgid "Change your e-mail in your account Alterconso"
 msgstr ""
 
 #: src/controller/Member.hx:11447 src/controller/Member.hx:11975
 msgid ""
-" just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+" just modified your e-mail in your account Alterconso.<br/>Your e-mail is "
 "now:"
 msgstr ""
 
 #: src/controller/Member.hx:11833
-msgid "Change the e-mail of your account Cagette.net"
+msgid "Change the e-mail of your account Alterconso"
 msgstr ""
 
 #: src/controller/Member.hx:12173
@@ -822,7 +822,7 @@ msgstr ""
 
 #: src/controller/Member.hx:21861
 msgid ""
-"This person already had an account on Cagette.net, and is now member of your "
+"This person already had an account on Alterconso, and is now member of your "
 "group."
 msgstr ""
 
@@ -985,7 +985,7 @@ msgid "Phone"
 msgstr ""
 
 #: src/controller/Group.hx:4361
-msgid "You already subscribed to Cagette.net, please log in on this page"
+msgid "You already subscribed to Alterconso, please log in on this page"
 msgstr ""
 
 #: src/controller/Group.hx:4636
@@ -1969,7 +1969,7 @@ msgid "Invitation"
 msgstr ""
 
 #: src/db/User.hx:14547
-msgid "Invitation Cagette.net"
+msgid "Invitation Alterconso"
 msgstr ""
 
 #: src/db/User.hx:15848 lang/master/tpl/member/import.mtt:717 lang/master/tpl/member/import.mtt:1429
@@ -2319,14 +2319,14 @@ msgid "Balance"
 msgstr ""
 
 #: lang/master/tpl/home.mtt:233
-msgid "Welcome to Cagette.net !"
+msgid "Welcome to Alterconso !"
 msgstr ""
 
 #: lang/master/tpl/home.mtt:287
 msgid ""
 "Congratulations, you just created a new group !<br/>As an example, we created "
 "a fake farmer and fake products.<br/>It will show you how things work together "
-"in Cagette.net.<br/>Of course, you'll be able to delete them."
+"in Alterconso.<br/>Of course, you'll be able to delete them."
 msgstr ""
 
 #: lang/master/tpl/home.mtt:547
@@ -2882,7 +2882,7 @@ msgstr ""
 #: lang/master/tpl/member/import.mtt:2851
 msgid ""
 "You may now consider <a href='/member/?select=newusers'>inviting them</a> "
-"to log into Cagette.net"
+"to log into Alterconso"
 msgstr ""
 
 #: lang/master/tpl/member/import.mtt:2981
@@ -3902,7 +3902,7 @@ msgid "https://alterconso.leportail.org"
 msgstr ""
 
 #: lang/master/tpl/group/view.mtt:5060
-msgid "Cagette.net, the free software of food direct-selling"
+msgid "Alterconso, the free software of food direct-selling"
 msgstr ""
 
 #: lang/master/tpl/design.mtt:903
@@ -3963,7 +3963,7 @@ msgstr ""
 
 #: lang/master/tpl/design.mtt:7435
 msgid ""
-"Cagette.net is made by <a href='https://www.alilo.fr' target='_blank'><img "
+"Alterconso is made by <a href='https://www.alilo.fr' target='_blank'><img "
 "src='/img/alilo-trans-black.png' /></a>"
 msgstr ""
 
@@ -4135,7 +4135,7 @@ msgid "As a member of <b>::groupName::</b>"
 msgstr ""
 
 #: lang/master/tpl/mail/invitation.mtt:405 lang/master/tpl/mail/invitation.mtt:481
-msgid "you have been pre-registered on Cagette.net"
+msgid "you have been pre-registered on Alterconso"
 msgstr ""
 
 #: lang/master/tpl/mail/invitation.mtt:566
@@ -4186,7 +4186,7 @@ msgstr ""
 
 #: common/Common.hx:6554
 msgid ""
-"<p>In order to better discover Cagette.net, we propose to do a guided tour "
+"<p>In order to better discover Alterconso, we propose to do a guided tour "
 "of the user interface of the software. <br/> You will then have a global "
 "overview on the different tools that are available to you.</p><p>You will "
 "be able to stop and start again this tutorial whenever you want.</p>"
@@ -4213,7 +4213,7 @@ msgstr ""
 msgid ""
 "The purpose of this section is to administrate the list of your members.<br/>Every "
 "time that you register a new membrer, an account will be created for him/her. "
-"Now the member can join you at Cagette.net and order or consult the planning "
+"Now the member can join you at Alterconso and order or consult the planning "
 "of the deliveries.<p>Now click on a <b>member</b> in the list</p>"
 msgstr ""
 

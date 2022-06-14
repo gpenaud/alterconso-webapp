@@ -51,9 +51,9 @@ class VendorService{
 		sugoi.db.Cache.set("validation" + k, vendor.user.id, 60 * 60 * 24 * 30); //expire in 1 month
 		
 		var e = new sugoi.mail.Mail();
-		e.setSubject("Vous êtes référencé sur Cagette.net !");
+		e.setSubject("Vous êtes référencé sur Alterconso !");
 		e.addRecipient(vendor.email,vendor.name);
-		e.setSender(App.config.get("default_email"),"Cagette.net");			
+		e.setSender(App.config.get("default_email"),"Alterconso");			
 		
 		var html = App.current.processTemplate("mail/vendorInvitation.mtt", { 
 			source:source,

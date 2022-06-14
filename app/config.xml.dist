@@ -4,7 +4,7 @@
 	langnames="Français;Deutsch;English"
 
 	host="localhost"
-	name = "Cagette.net"
+	name = "Alterconso"
 	default_email = "contact@cagette.net"
 	webmaster_email = "admin@cagette.net"
 

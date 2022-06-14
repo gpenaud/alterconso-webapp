@@ -151,7 +151,7 @@ class Group extends controller.Controller
 				user.phone = f.getValueOf("phone");
 				
 				if ( db.User.getSameEmail(user.email).length > 0 ) {
-					throw Ok("/user/login",t._("You already subscribed to Cagette.net, please log in on this page"));
+					throw Ok("/user/login",t._("You already subscribed to Alterconso, please log in on this page"));
 				}
 				
 				user.insert();				

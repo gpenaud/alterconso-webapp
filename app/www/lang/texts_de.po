@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Cagette.net\n"
+"Project-Id-Version: Alterconso\n"
 "Report-Msgid-Bugs-To: francois@alilo.fr\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2020-05-22 13:41+0000\n"
@@ -576,7 +576,7 @@ msgstr "Diese E-Mail-Adresse kann zu keinem Konto zugeordnet werden"
 #: src/controller/User.hx:3067 src/controller/Member.hx:11952
 #: src/db/User.hx:14600 lang/master/tpl/design.mtt:4337
 #: lang/master/tpl/mail/design.mtt:279
-msgid "Cagette.net"
+msgid "Alterconso"
 msgstr "Lemilo.de"
 
 #: src/controller/User.hx:3174
@@ -722,19 +722,19 @@ msgstr ""
 "Aufträge hat"
 
 #: src/controller/Member.hx:12026
-msgid "Change your e-mail in your account Cagette.net"
+msgid "Change your e-mail in your account Alterconso"
 msgstr "Ändern Sie ihre E-Mail in ihrem Konto Lemilo.de"
 
 #: src/controller/Member.hx:12170 src/controller/Member.hx:12698
 msgid ""
-" just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+" just modified your e-mail in your account Alterconso.<br/>Your e-mail is "
 "now:"
 msgstr ""
 " wurde ihre E-Mail von ihrem Konto Lemilo.de geändert<br/>Ihre E-Mail ist "
 "jetzt:"
 
 #: src/controller/Member.hx:12556
-msgid "Change the e-mail of your account Cagette.net"
+msgid "Change the e-mail of your account Alterconso"
 msgstr "Die E-Mail in ihrem Konto Lemilo.de ändern"
 
 #: src/controller/Member.hx:12896
@@ -891,7 +891,7 @@ msgstr "Diese Person ist schon ein Mitglied dieser Gruppe"
 
 #: src/controller/Member.hx:22584
 msgid ""
-"This person already had an account on Cagette.net, and is now member of your "
+"This person already had an account on Alterconso, and is now member of your "
 "group."
 msgstr ""
 "Diese Person hat schon ein Konto auf Lemilo.de und ist jetzt ein Mitglied "
@@ -1093,7 +1093,7 @@ msgid "Phone"
 msgstr "Telefonnummer"
 
 #: src/controller/Group.hx:4384
-msgid "You already subscribed to Cagette.net, please log in on this page"
+msgid "You already subscribed to Alterconso, please log in on this page"
 msgstr ""
 "Sie sind schon bei Lemilo angemeldet. Bitten loggen Sie sich auf dieser "
 "Seite ein"
@@ -2017,7 +2017,7 @@ msgid "Invitation"
 msgstr "Einladung"
 
 #: src/db/User.hx:14470
-msgid "Invitation Cagette.net"
+msgid "Invitation Alterconso"
 msgstr "Einladung Lemilo.de"
 
 #: src/db/User.hx:15744 lang/master/tpl/member/import.mtt:717
@@ -2414,14 +2414,14 @@ msgid "Balance"
 msgstr "Gesamtsumme"
 
 #: lang/master/tpl/home.mtt:233
-msgid "Welcome to Cagette.net !"
+msgid "Welcome to Alterconso !"
 msgstr "Willkommen auf Lemilo.de !"
 
 #: lang/master/tpl/home.mtt:287
 msgid ""
 "Congratulations, you just created a new group !<br/>As an example, we "
 "created a fake farmer and fake products.<br/>It will show you how things "
-"work together in Cagette.net.<br/>Of course, you'll be able to delete them."
+"work together in Alterconso.<br/>Of course, you'll be able to delete them."
 msgstr ""
 "Herzlichen Glückwunsch, Sie haben soeben eine neue Gruppe erstellt!<br/>Als "
 "Beispiel haben wir uns einen erfunden Landwirt mit fiktive Produkte "
@@ -3191,10 +3191,10 @@ msgstr ""
 #: lang/master/tpl/member/import.mtt:2847
 msgid ""
 "You may now consider <a href='/member/?select=newusers'>inviting them</a> to "
-"log into Cagette.net"
+"log into Alterconso"
 msgstr ""
 "Sie können jetzt <a href='/member/?select=newusers'>einladen,</a>, sich bei "
-"Cagette.net anzumelden"
+"Alterconso anzumelden"
 
 #: lang/master/tpl/member/import.mtt:2977
 msgid ""
@@ -4347,9 +4347,9 @@ msgid "https://alterconso.leportail.org"
 msgstr "http://www.lemilo.de"
 
 #: lang/master/tpl/group/view.mtt:4558
-msgid "Cagette.net, the free software of food direct-selling"
+msgid "Alterconso, the free software of food direct-selling"
 msgstr ""
-"Cagette.net, die kostenlose Software für den Direktverkauf von Lebensmitteln"
+"Alterconso, die kostenlose Software für den Direktverkauf von Lebensmitteln"
 
 #: lang/master/tpl/design.mtt:783
 msgid "Change group"
@@ -4411,10 +4411,10 @@ msgstr "FOLGEN SIE UNS"
 
 #: lang/master/tpl/design.mtt:6894
 msgid ""
-"Cagette.net is made by <a href='https://www.alilo.fr' target='_blank'><img "
+"Alterconso is made by <a href='https://www.alilo.fr' target='_blank'><img "
 "src='/img/alilo-trans-black.png' /></a>"
 msgstr ""
-"Cagette.net wird hergestellt von <a href='https://www.alilo.fr' "
+"Alterconso wird hergestellt von <a href='https://www.alilo.fr' "
 "target='_blank'><img src='/img/alilo-trans-black.png' /></a>>"
 
 #: lang/master/tpl/validate/user.mtt:2124
@@ -4584,8 +4584,8 @@ msgstr "Als Mitglied von <b>::groupName::</b>"
 
 #: lang/master/tpl/mail/invitation.mtt:405
 #: lang/master/tpl/mail/invitation.mtt:481
-msgid "you have been pre-registered on Cagette.net"
-msgstr "Sie wurden auf Cagette.net vorregistriert"
+msgid "you have been pre-registered on Alterconso"
+msgstr "Sie wurden auf Alterconso vorregistriert"
 
 #: lang/master/tpl/mail/invitation.mtt:566
 msgid ""
@@ -4639,7 +4639,7 @@ msgstr "Führung für Koordinatoren"
 
 #: common/Common.hx:6270
 msgid ""
-"<p>In order to better discover Cagette.net, we propose to do a guided tour "
+"<p>In order to better discover Alterconso, we propose to do a guided tour "
 "of the user interface of the software. <br/> You will then have a global "
 "overview on the different tools that are available to you.</p><p>You will be "
 "able to stop and start again this tutorial whenever you want.</p>"
@@ -4680,7 +4680,7 @@ msgstr ""
 msgid ""
 "The purpose of this section is to administrate the list of your members.<br/"
 ">Every time that you register a new membrer, an account will be created for "
-"him/her. Now the member can join you at Cagette.net and order or consult the "
+"him/her. Now the member can join you at Alterconso and order or consult the "
 "planning of the deliveries.<p>Now click on a <b>member</b> in the list</p>"
 msgstr ""
 "Hier wird die Liste der Mitglieder einer Gruppe <br/>verwaltet. Für jedes "
@@ -5079,7 +5079,7 @@ msgstr ""
 #~ msgid "As member of group"
 #~ msgstr "Als Gruppenmitglied"
 
-#~ msgid "you have been pre-registered on the software Cagette.net"
+#~ msgid "you have been pre-registered on the software Alterconso"
 #~ msgstr "Sie wurden mit der Software Lemilo.de erfolgreich vor-angemeldet"
 
 #~ msgid "www.cagette.net"
@@ -5087,7 +5087,7 @@ msgstr ""
 
 #~ msgid ""
 #~ "You may now consider <a href='/member/?select=newusersinviting'>inviting "
-#~ "them</a> to log into Cagette.net"
+#~ "them</a> to log into Alterconso"
 #~ msgstr ""
 #~ "Sie können nun davon ausgehen, dass <a href='/member/?"
 #~ "select=newusersinviting'>inviting them</a> in Lemilo.de einloggen werden"

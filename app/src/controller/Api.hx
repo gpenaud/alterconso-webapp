@@ -12,7 +12,7 @@ class Api extends Controller
 {
 
 	/**
-	 * Public infos about this Cagette.net installation
+	 * Public infos about this Alterconso installation
 	 */
 	public function doDefault(){
 		

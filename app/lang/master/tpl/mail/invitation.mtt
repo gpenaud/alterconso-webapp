@@ -2,7 +2,7 @@
 
 <div style="max-width:400px;margin:auto;border:solid 1px #AAA;border-radius:8px;padding:12px;text-align:center;font-family:Arial;">
 	
-	<img src="http://::HOST::/img/logo2.png" title="Cagette.net" />
+	<img src="http://::HOST::/img/logo2.png" title="Alterconso" />
 	
 	<p>
 		::_("Hello"):: $$nullSafe(::name::),
@@ -13,11 +13,11 @@
 		
 			::raw __("As a member of <b>::groupName::</b>",{groupName:groupName})::
 			<br/>		
-			::_("you have been pre-registered on Cagette.net")::
+			::_("you have been pre-registered on Alterconso")::
 		
 		::else::
 		
-			<b>::_("you have been pre-registered on Cagette.net")::</b>
+			<b>::_("you have been pre-registered on Alterconso")::</b>
 		
 		::end::
 	</p>

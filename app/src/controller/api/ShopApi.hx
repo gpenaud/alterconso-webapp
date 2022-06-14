@@ -11,7 +11,7 @@ class ShopApi extends Controller
 {
 	/**
 		List available categories
-		@doc https://app.swaggerhub.com/apis/Cagette.net/Cagette.net/0.9.2#/shop/get_shop_categories
+		@doc https://app.swaggerhub.com/apis/Alterconso/Alterconso/0.9.2#/shop/get_shop_categories
 	 */
 	public function doCategories(args:{multiDistrib:db.MultiDistrib}){
 		
@@ -65,7 +65,7 @@ class ShopApi extends Controller
 	}
 	
 	/**
-	 * @doc https://app.swaggerhub.com/apis/Cagette.net/Cagette.net/0.9.2#/shop/get_shop_products
+	 * @doc https://app.swaggerhub.com/apis/Alterconso/Alterconso/0.9.2#/shop/get_shop_products
 	 */
 	/*public function doProducts(args:{date:String, place:db.Place, ?category:Int, ?subcategory:Int}){
 		

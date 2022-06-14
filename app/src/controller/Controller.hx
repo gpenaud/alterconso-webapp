@@ -1,7 +1,7 @@
 package controller;
 import Common;
 /**
- * Base Cagette.net Controller
+ * Base Alterconso Controller
  * @author fbarbut
  */
 class Controller extends sugoi.BaseController

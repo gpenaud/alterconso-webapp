@@ -214,7 +214,7 @@ class App extends sugoi.BaseApp {
 		out.set("Open", 		"Ouvert : tout le monde peut s'inscrire");
 		out.set("Full", 		"Complet : Le groupe n'accepte plus de nouveaux membres");
 
-		out.set("CagetteNetwork", "Me lister dans l'annuaire des groupes Cagette.net");
+		out.set("CagetteNetwork", "Me lister dans l'annuaire des groupes Alterconso");
 		out.set("HasPayments", "Gestion des paiements");
 
 		out.set("Soletrader"	, "Micro-entreprise");
@@ -299,7 +299,7 @@ class App extends sugoi.BaseApp {
 		var e = new sugoi.mail.Mail();
 		e.setSubject(subject);
 		e.setRecipient(to);
-		e.setSender(App.config.get("default_email"),"Cagette.net");
+		e.setSender(App.config.get("default_email"),"Alterconso");
 		var html = App.current.processTemplate("mail/message.mtt", {text:html,group:group});
 		e.setHtmlBody(html);
 		App.sendMail(e);

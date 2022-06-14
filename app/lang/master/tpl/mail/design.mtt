@@ -27,7 +27,7 @@ table.table td{
 	</div>
 	::end::
 
-	::_("This e-mail was sent from"):: <a href="http://::HOST::">::_("Cagette.net")::</a>.
+	::_("This e-mail was sent from"):: <a href="http://::HOST::">::_("Alterconso")::</a>.
 
 	::if group!=null::
 		<br/>

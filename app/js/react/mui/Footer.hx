@@ -14,7 +14,7 @@ class Footer extends react.ReactComponent
 			<Grid container spacing=${GridSpacing.Spacing_0} direction=${Row} justify=${Center} style=${{maxWidth:"1240px",marginLeft:"auto",marginRight:"auto"}}>
         <Grid item md={3} xs={12} style=${{textAlign:"left"}}>
 					<a href="https://alterconso.leportail.org" target="_blank">
-						<img src="/img/logo.png" alt="Cagette.net"/>
+						<img src="/img/logo.png" alt="Alterconso"/>
 					</a>
 				</Grid>
 

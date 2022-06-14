@@ -517,8 +517,8 @@ msgstr "Ce courriel n'est lié à aucun compte connu"
 #: ../src/controller/User.hx:3408 ../src/controller/User.hx:4397
 #: ../src/controller/Member.hx:12079 ../src/db/User.hx:17210
 #: ../lang/master/tpl/macros.mtt:13311 ../lang/master/tpl/mail/design.mtt:638
-msgid "Cagette.net"
-msgstr "Cagette.net"
+msgid "Alterconso"
+msgstr "Alterconso"
 
 #: ../src/controller/User.hx:3525
 msgid "Password change"
@@ -704,20 +704,20 @@ msgstr ""
 "commandes"
 
 #: ../src/controller/Member.hx:12153
-msgid "Change your e-mail in your account Cagette.net"
-msgstr "Changement de courriel sur votre compte Cagette.net"
+msgid "Change your e-mail in your account Alterconso"
+msgstr "Changement de courriel sur votre compte Alterconso"
 
 #: ../src/controller/Member.hx:12297 ../src/controller/Member.hx:12825
 msgid ""
-" just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+" just modified your e-mail in your account Alterconso.<br/>Your e-mail is "
 "now:"
 msgstr ""
-" vient de modifier votre courriel dans votre compte Cagette.net.<br/>Votre "
+" vient de modifier votre courriel dans votre compte Alterconso.<br/>Votre "
 "courriel est maintenant :"
 
 #: ../src/controller/Member.hx:12683
-msgid "Change the e-mail of your account Cagette.net"
-msgstr "Changement de courriel sur votre compte Cagette.net"
+msgid "Change the e-mail of your account Alterconso"
+msgstr "Changement de courriel sur votre compte Alterconso"
 
 #: ../src/controller/Member.hx:13023
 msgid "This member has beed updated"
@@ -877,10 +877,10 @@ msgstr "Cette personne est déjà inscrite dans cette AMAP"
 
 #: ../src/controller/Member.hx:22326
 msgid ""
-"This person already had an account on Cagette.net, and is now member of your "
+"This person already had an account on Alterconso, and is now member of your "
 "group."
 msgstr ""
-"Cette personne était déjà inscrite sur Cagette.net, nous l'avons inscrite à "
+"Cette personne était déjà inscrite sur Alterconso, nous l'avons inscrite à "
 "votre groupe."
 
 #: ../src/controller/Member.hx:22528
@@ -1224,8 +1224,8 @@ msgid "Phone"
 msgstr "Téléphone"
 
 #: ../src/controller/Group.hx:5024
-msgid "You already subscribed to Cagette.net, please log in on this page"
-msgstr "Vous êtes déjà inscrit à Cagette.net, connectez-vous sur cette page"
+msgid "You already subscribed to Alterconso, please log in on this page"
+msgstr "Vous êtes déjà inscrit à Alterconso, connectez-vous sur cette page"
 
 #: ../src/controller/Group.hx:5300
 msgid "Your subscription has been taken into account"
@@ -2627,8 +2627,8 @@ msgid "Invitation"
 msgstr "Invitation"
 
 #: ../src/db/User.hx:17080
-msgid "Invitation Cagette.net"
-msgstr "Invitation Cagette.net"
+msgid "Invitation Alterconso"
+msgstr "Invitation Alterconso"
 
 #: ../src/db/User.hx:18553 ../lang/master/tpl/member/import.mtt:592
 #: ../lang/master/tpl/member/import.mtt:1308
@@ -3269,14 +3269,14 @@ msgid "Current language is"
 msgstr "La langue actuelle est"
 
 #: ../lang/master/tpl/home.mtt:249
-msgid "Welcome to Cagette.net !"
-msgstr "Bienvenue sur Cagette.net !"
+msgid "Welcome to Alterconso !"
+msgstr "Bienvenue sur Alterconso !"
 
 #: ../lang/master/tpl/home.mtt:303
 msgid ""
 "Congratulations, you just created a new group !<br/>As an example, we "
 "created a fake farmer and fake products.<br/>It will show you how things "
-"work together in Cagette.net.<br/>Of course, you'll be able to delete them."
+"work together in Alterconso.<br/>Of course, you'll be able to delete them."
 msgstr ""
 "Félicitations, vous venez de créer un compte pour votre groupe.<br/>\n"
 "A titre d'exemple, nous avons ajouté un producteur et quelques produits à "
@@ -4081,7 +4081,7 @@ msgid ""
 msgstr ""
 "On dirait qu'il n'y a aucune donnée à importer. Vérifiez que les données de "
 "votre fichier sont valides ou que les personnes ne sont pas déjà "
-"enregistrées dans la base de données de Cagette.net."
+"enregistrées dans la base de données d'Alterconso."
 
 #: ../lang/master/tpl/member/import.mtt:2705
 msgid ""
@@ -4094,10 +4094,10 @@ msgstr ""
 #: ../lang/master/tpl/member/import.mtt:2851
 msgid ""
 "You may now consider <a href='/member/?select=newusers'>inviting them</a> to "
-"log into Cagette.net"
+"log into Alterconso"
 msgstr ""
 "Maintenant, pourquoi ne pas <a href='/member/?select=newusers'>les inviter</"
-"a> à se connecter à Cagette.net ?"
+"a> à se connecter à Alterconso ?"
 
 #: ../lang/master/tpl/member/import.mtt:2981
 msgid ""
@@ -4106,7 +4106,7 @@ msgid ""
 msgstr ""
 "On dirait qu'il n'y a aucune donnée à importer. Vérifiez que les données de "
 "votre fichier sont valides ou que les personnes ne sont pas déjà "
-"enregistrées dans la base de données de Cagette.net"
+"enregistrées dans la base de données d'Alterconso"
 
 #: ../lang/master/tpl/member/import.mtt:3138
 msgid "Go back to the main page"
@@ -5067,8 +5067,8 @@ msgid "https://alterconso.leportail.org"
 msgstr "https://alterconso.leportail.org"
 
 #: ../lang/master/tpl/group/view.mtt:5786
-msgid "Cagette.net, the free software of food direct-selling"
-msgstr "Cagette.net, le logiciel libre du circuit court"
+msgid "Alterconso, the free software of food direct-selling"
+msgstr "Alterconso, le logiciel libre du circuit court"
 
 #: ../lang/master/tpl/design.mtt:1697
 msgid "My account"
@@ -5252,8 +5252,8 @@ msgstr "En tant que membre de <b>::groupName::</b>"
 
 #: ../lang/master/tpl/mail/invitation.mtt:405
 #: ../lang/master/tpl/mail/invitation.mtt:481
-msgid "you have been pre-registered on Cagette.net"
-msgstr "vous avez été pré-inscrit(e) sur Cagette.net"
+msgid "you have been pre-registered on Alterconso"
+msgstr "vous avez été pré-inscrit(e) sur Alterconso"
 
 #: ../lang/master/tpl/mail/invitation.mtt:566
 msgid ""
@@ -5317,12 +5317,12 @@ msgstr "Visite guidée de l'administrateur de groupe"
 
 #: ../common/Common.hx:8565
 msgid ""
-"<p>In order to better discover Cagette.net, we propose to do a guided tour "
+"<p>In order to better discover Alterconso, we propose to do a guided tour "
 "of the user interface of the software. <br/> You will then have a global "
 "overview on the different tools that are available to you.</p><p>You will be "
 "able to stop and start again this tutorial whenever you want.</p>"
 msgstr ""
-"<p>Afin de mieux découvrir Cagette.net, nous vous proposons de faire une "
+"<p>Afin de mieux découvrir Alterconso, nous vous proposons de faire une "
 "visite guidée de l’interface du logiciel.<br/> Vous aurez ainsi une vue "
 "d'ensemble sur les différents outils qui sont à votre disposition.</"
 "p><p>Vous pourrez stopper et reprendre ce tutoriel quand vous le souhaitez.</"
@@ -5360,13 +5360,13 @@ msgstr ""
 msgid ""
 "The purpose of this section is to administrate the list of your members.<br/"
 ">Every time that you register a new membrer, an account will be created for "
-"him/her. Now the member can join you at Cagette.net and order or consult the "
+"him/her. Now the member can join you at Alterconso and order or consult the "
 "planning of the deliveries.<p>Now click on a <b>member</b> in the list</p>"
 msgstr ""
 "Cette rubrique permet d'administrer la liste des membres du groupe.<br/>\n"
 "\t\t\t\t\tÀ chaque fois que vous saisissez un nouveau membre, un compte est "
 "créé à son nom. \n"
-"\t\t\t\t\tIl pourra donc se connecter à Cagette.net pour faire des commandes "
+"\t\t\t\t\tIl pourra donc se connecter à Alterconso pour faire des commandes "
 "ou consulter son planning de distribution.\n"
 "\t\t\t\t\t<p>Cliquez maintenant sur <b>un membre</b></p>"
 
@@ -5489,7 +5489,7 @@ msgstr ""
 "Ici nous pouvons gérer la liste des commandes relatives à ce producteur.<br/"
 ">\n"
 "Si vous choisissez d'\\\"ouvrir les commandes\\\" aux membres du groupe, ils "
-"pourront eux-mêmes saisir leurs commandes en se connectant à Cagette.net.<br/"
+"pourront eux-mêmes saisir leurs commandes en se connectant à Alterconso.<br/"
 ">\n"
 "Cette page centralisera automatiquement les commandes pour ce producteur. \n"
 "Sinon, en tant que coordinateur, vous pouvez saisir les commandes pour les "
@@ -5946,10 +5946,10 @@ msgstr ""
 #~ msgstr "CONTACTEZ-NOUS"
 
 #~ msgid ""
-#~ "Cagette.net is made by <a href='https://www.alilo.fr' "
+#~ "Alterconso is made by <a href='https://www.alilo.fr' "
 #~ "target='_blank'><img src='/img/alilo-trans-black.png' /></a>"
 #~ msgstr ""
-#~ "Cagette.net est réalisé par <a href='https://www.alilo.fr' "
+#~ "Alterconso est réalisé par <a href='https://www.alilo.fr' "
 #~ "target='_blank'><img src='/img/alilo-trans-black.png' /></a>"
 
 #~ msgid "Volunteers"
@@ -6123,7 +6123,7 @@ msgstr ""
 
 #~ msgid "You already subscribed to Cagette, please log in on this page"
 #~ msgstr ""
-#~ "Vous êtes déjà enregistré dans Cagette.net, connectez-vous à partir de "
+#~ "Vous êtes déjà enregistré dans Alterconso, connectez-vous à partir de "
 #~ "cette page"
 
 #~ msgid "Delivery "
@@ -6279,10 +6279,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "You may now consider <a href='/member/?select=newusersinviting'>inviting "
-#~ "them</a> to log into Cagette.net"
+#~ "them</a> to log into Alterconso"
 #~ msgstr ""
 #~ "Maintenant, pourquoi ne pas <a href='/member/?"
-#~ "select=newusersinviting'>les inviter</a> à se connecter à Cagette.net ?"
+#~ "select=newusersinviting'>les inviter</a> à se connecter à Alterconso ?"
 
 #~ msgid "The image sent is too heavy. The maximum authorized weight is 12Mb"
 #~ msgstr "Cette image est trop lourde. La taille maximale autorisée est 12 Mo"
@@ -6404,12 +6404,12 @@ msgstr ""
 #~ "In order to continue, <br/>please <a href=\"#\" onclick=\"_.loginBox('::"
 #~ "redirect::');\" >connect</a><br/>\tor <a href=\"#\" onclick=\"_."
 #~ "registerBox('::redirect::',::phoneRequired::);\">subscribe</a> if it is "
-#~ "the first time<br/>you use Cagette.net"
+#~ "the first time<br/>you use Alterconso"
 #~ msgstr ""
 #~ "Avant de continuer, <br/><a href=\"#\" onclick=\"_.loginBox('::"
 #~ "redirect::');\" >Connectez-vous</a><br/>ou <a href=\"#\" onclick=\"_."
 #~ "registerBox('::redirect::',::phoneRequired::);\">inscrivez-vous</a> si "
-#~ "c'est la première fois<br/>que vous utilisez Cagette.net"
+#~ "c'est la première fois<br/>que vous utilisez Alterconso"
 
 #~ msgid "Cash for the order of the "
 #~ msgstr "Espèces pour la commande du "
@@ -6464,8 +6464,8 @@ msgstr ""
 #~ msgid "As member of group"
 #~ msgstr "En tant que membre du groupe"
 
-#~ msgid "you have been pre-registered on the software Cagette.net"
-#~ msgstr "vous avez été pré-inscrit sur le logiciel Cagette.net"
+#~ msgid "you have been pre-registered on the software Alterconso"
+#~ msgstr "vous avez été pré-inscrit sur le logiciel Alterconso"
 
 #~ msgid "The image sent is too big. The maximum authorized size is 12Mb"
 #~ msgstr ""
@@ -6544,7 +6544,7 @@ msgstr ""
 
 #~ msgid ""
 #~ "It seems that there is no data to import. Check if data of your file are "
-#~ "valid and if products are not already saved in the database of Cagette.net"
+#~ "valid and if products are not already saved in the database of Alterconso"
 #~ msgstr ""
 #~ "On dirait qu'il n'y a rien à importer. Vérifier que votre fichier est "
 #~ "bien "
@@ -6750,11 +6750,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "It seems that there is no data to import   Check if data of your file are "
-#~ "valid and if products are not already saved in the database of Cagette.net"
+#~ "valid and if products are not already saved in the database of Alterconso"
 #~ msgstr ""
 #~ "On dirait qu'il n'y a aucune donnée à importer.    Vérifiez que les "
 #~ "données de votre fichier sont valides ou que les produits ne sont pas "
-#~ "déjà enregistrées dans la base de données de Cagette.net"
+#~ "déjà enregistrées dans la base de données d'Alterconso"
 
 #~ msgid ""
 #~ "When your file is ready, click on\"Save as\" in your Excel sheet and "
@@ -6803,8 +6803,8 @@ msgstr ""
 #~ msgid "Would you like that we configure a <b>first contract</b> together?"
 #~ msgstr "Souhaitez vous qu'on configure ensemble <b>un premier contrat</b> ?"
 
-#~ msgid "Discovery of Cagette.net"
-#~ msgstr "Découverte de Cagette.net"
+#~ msgid "Discovery of Alterconso"
+#~ msgstr "Découverte d'Alterconso"
 
 #~ msgid "Let's go!"
 #~ msgstr "C'est parti !"
@@ -6884,7 +6884,7 @@ msgstr ""
 #~ "In order to continue, <br/>   please <a href=\"#\" onclick=\"_."
 #~ "loginBox('::raw redirect::');\" >connect</a>   <br/>   or <a href=\"#\" "
 #~ "onclick=\"_.registerBox('::raw redirect::');\">subscribe</a> if it is the "
-#~ "first time<br/>   that you come on Cagette.net"
+#~ "first time<br/>   that you come on Alterconso"
 #~ msgstr ""
 #~ "Afin de pouvoir continuer, <br/>   merci de bien vouloir <a href=\"#\" "
 #~ "onclick=\"_.loginBox('::raw redirect::');\" >vous connecter</a>   <br/"
@@ -6991,10 +6991,10 @@ msgstr ""
 #~ "commandes enregistrées dans l'autre fiche"
 
 #~ msgid ""
-#~ "just modified your e-mail in your account Cagette.net.<br/>Your e-mail is "
+#~ "just modified your e-mail in your account Alterconso.<br/>Your e-mail is "
 #~ "now:"
 #~ msgstr ""
-#~ "vient de modifier votre email sur votre fiche Cagette.net.<br/>Votre "
+#~ "vient de modifier votre email sur votre fiche Alterconso.<br/>Votre "
 #~ "email est maintenant :"
 
 #~ msgid "This member has been updated"

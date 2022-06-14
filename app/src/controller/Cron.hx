@@ -120,7 +120,7 @@ class Cron extends Controller
 				if ( volunteers.length != 0 ) {
 					task.log(multidistrib.getGroup().name+" : "+multidistrib.getDate());
 					var mail = new Mail();
-					mail.setSender(App.config.get("default_email"),"Cagette.net");
+					mail.setSender(App.config.get("default_email"),"Alterconso");
 					var volunteersList = "<ul>";
 					for ( volunteer in  volunteers ) {
 
@@ -165,7 +165,7 @@ class Cron extends Controller
 			for (multidistrib  in vacantVolunteerRolesMultidistribs) {
 				task.log(multidistrib.getGroup().name+" : "+multidistrib.getDate());
 				var mail = new Mail();
-				mail.setSender(App.config.get("default_email"),"Cagette.net");
+				mail.setSender(App.config.get("default_email"),"Alterconso");
 				for ( member in multidistrib.group.getMembers() ) {
 					mail.addRecipient( member.email, member.getName() );
 					if ( member.email2 != null ) {
@@ -269,7 +269,7 @@ class Cron extends Controller
 				var admins = group.getGroupAdmins().filter(ug-> return ug.isGroupManager() );
 				try{
 					var m = new Mail();
-					m.setSender(App.config.get("default_email"), "Cagette.net");
+					m.setSender(App.config.get("default_email"), "Alterconso");
 					for ( u in admins )	m.addRecipient(u.user.email, u.user.getName());
 					m.setSubject( '[${group.name}] Créneaux horaires pour la distribution du '+Formatting.hDate(d.distribStartDate) );
 					var text = 'La commande vient de fermer, les créneaux horaires ont été attribués en fonction des choix des membres du groupe : <a href="https://${App.config.HOST}/distribution/timeSlots/${d.id}">Voir le récapitulatif des créneaux horaires</a>.';
@@ -308,7 +308,7 @@ class Cron extends Controller
 				}
 
 				var m = new Mail();
-				m.setSender(App.config.get("default_email"),"Cagette.net");
+				m.setSender(App.config.get("default_email"),"Alterconso");
 				m.addRecipient(App.config.get("webmaster_email"));
 				m.setSubject(App.config.NAME+" Errors");
 				m.setHtmlBody( app.processTemplate("mail/message.mtt", { text:report.toString() } ) );
@@ -529,7 +529,7 @@ class Cron extends Controller
 
 					try{
 						var m = new Mail();
-						m.setSender(App.config.get("default_email"), "Cagette.net");
+						m.setSender(App.config.get("default_email"), "Alterconso");
 						if(group.contact!=null) m.setReplyTo(group.contact.email, group.name);
 						m.addRecipient(u.user.email, u.user.getName());
 						if (u.user.email2 != null) m.addRecipient(u.user.email2);

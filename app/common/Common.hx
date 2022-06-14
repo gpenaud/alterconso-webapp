@@ -424,7 +424,7 @@ class TutoDatas {
 				steps:[
 					{
 						element:null,
-						text:t._("<p>In order to better discover Cagette.net, we propose to do a guided tour of the user interface of the software. <br/> You will then have a global overview on the different tools that are available to you.</p><p>You will be able to stop and start again this tutorial whenever you want.</p>"),
+						text:t._("<p>In order to better discover Alterconso, we propose to do a guided tour of the user interface of the software. <br/> You will then have a global overview on the different tools that are available to you.</p><p>You will be able to stop and start again this tutorial whenever you want.</p>"),
 						action: TANext,
 						placement : null
 					},
@@ -442,7 +442,7 @@ class TutoDatas {
 
 					},{
 						element:".article .table td",
-						text:t._("The purpose of this section is to administrate the list of your members.<br/>Every time that you register a new membrer, an account will be created for him/her. Now the member can join you at Cagette.net and order or consult the planning of the deliveries.<p>Now click on a <b>member</b> in the list</p>"),
+						text:t._("The purpose of this section is to administrate the list of your members.<br/>Every time that you register a new membrer, an account will be created for him/her. Now the member can join you at Alterconso and order or consult the planning of the deliveries.<p>Now click on a <b>member</b> in the list</p>"),
 						action: TAPage("/member/view/*"),
 						placement : TPRight
 					},{

@@ -1,4 +1,4 @@
-<img src="https://app.cagette.net/img/logo2.png" alt="Cagette.net"/>
+<img src="https://app.cagette.net/img/logo2.png" alt="Alterconso"/>
 
 https://alterconso.leportail.org
 
@@ -10,7 +10,7 @@ FAQ for developers : https://wiki.cagette.net/devfaq
 
 English : 
 
-Cagette.net is an open source web app to help people build a better and sustainable food system.
+Alterconso is an open source web app to help people build a better and sustainable food system.
 Some people call it a "foodhub" : A mix between a groupware and a marketplace, helping consumers to order food from local farmers and producers.
 
 [<img src="https://www.browserstack.com/images/mail/browserstack-logo-footer.png" width="120">](https://www.browserstack.com/)
