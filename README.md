@@ -113,7 +113,7 @@ Pour toute question relative à l'utilisation et à l'administration du site, je
 
 ## Import
 
-La fonctionnalité d'import des produits depuis l'actuel cagette (app.cagette.net) vers votre instance d'alterconso ne fonctionne **pas** depuis l'interface d'administration du site. Les bases de données n'étant pas structurées de la même façon, je n'ai pas pu rendre cette fonctionnalité disponible.
+La fonctionnalité d'import des produits depuis l'actuel cagette (alterconso.leportail.org) vers votre instance d'alterconso ne fonctionne **pas** depuis l'interface d'administration du site. Les bases de données n'étant pas structurées de la même façon, je n'ai pas pu rendre cette fonctionnalité disponible.
 
 Néanmoins, si vous êtes producteur et que ne souhaitez pas recréer à la main l'ensemble de vos catalogues produits, je peux utiliser une petit programme que j'ai conçu, qui demande un peu de travail de mon côté ; mais qui automatise néanmoins certaines étapes.
 
