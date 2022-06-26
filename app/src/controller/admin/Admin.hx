@@ -270,7 +270,7 @@ class Admin extends Controller {
 		place.insert();
 
 		//Add Alilo team members to the newly created group
-		addUserToGroup( 'admin@cagette.net', group );
+		addUserToGroup( 'alterconso@leportail.org', group );
 		addUserToGroup( 'francois@alilo.fr', group );
 		addUserToGroup( 'sebastien@alilo.fr', group );
 		addUserToGroup( 'mhelene@alilo.fr', group );

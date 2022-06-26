@@ -1,4 +1,4 @@
-<img src="https://app.cagette.net/img/logo2.png" alt="Alterconso"/>
+<img src="https://www.leportail.org/img/logo2.png" alt="Alterconso"/>
 
 https://alterconso.leportail.org
 
@@ -6,7 +6,7 @@ https://alterconso.leportail.org
 
 Documentation : https://github.com/gpenaud/cagette-webapp
 
-FAQ for developers : https://wiki.cagette.net/devfaq
+FAQ for developers : https://wiki.leportail.org/devfaq
 
 English : 
 

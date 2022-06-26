@@ -1549,10 +1549,10 @@ msgstr "Exemplo de contrato de vegetais"
 
 #: ../src/controller/Install.hx:4057
 msgid ""
-"Group and user 'admin' created. Your email is 'admin@cagette.net' and your "
+"Group and user 'admin' created. Your email is 'alterconso@leportail.org' and your "
 "password is 'admin'"
 msgstr ""
-"Grupo e usuário \"admin\" criado. Seu e-mail é \"admin@cagette.net\" e sua "
+"Grupo e usuário \"admin\" criado. Seu e-mail é \"alterconso@leportail.org\" e sua "
 "senha é \"admin\""
 
 #: ../src/controller/Install.hx:4652

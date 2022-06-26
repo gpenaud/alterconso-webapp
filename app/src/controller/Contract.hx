@@ -259,7 +259,7 @@ class Contract extends Controller
 			c.lock();
 			
 			//demo contracts
-			var isDemoContract = c.vendor.email=="galinette@cagette.net" || c.vendor.email=="jean@cagette.net";
+			var isDemoContract = c.vendor.email=="galinette@leportail.org" || c.vendor.email=="jean@leportail.org";
 
 			//check if there is orders in this contract
 			var products = c.getProducts();

@@ -115,7 +115,7 @@
 				window.setTimeout(function(){
 					var txt = "Nous avons réorganisé certains menus et certaines pages pour une meilleure compréhension d'Alterconso.<br/>";
 					txt += "La gestion des distributions a aussi été revue.";
-					txt += "<br/><br/><a href='https://wiki.cagette.net/admin:distributions' target='_blank'>Voir la vidéo pour se mettre à la page</a>";
+					txt += "<br/><br/><a href='https://wiki.leportail.org/admin:distributions' target='_blank'>Voir la vidéo pour se mettre à la page</a>";
 					_.newFeature(".row h2","Mise à jour de la rentrée",txt,"bottom");
 				},2000);
 			});*/

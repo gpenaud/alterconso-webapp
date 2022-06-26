@@ -24,7 +24,7 @@ class Main extends Controller {
 	function doDefault(?permalink:String){
 
 		if(permalink==null || permalink=="") throw Redirect("/home");
-		//if permalink is an ID , could use it for group selection ? app.cagette.net/1/contractAdmin ...
+		//if permalink is an ID , could use it for group selection ? www.leportail.org/1/contractAdmin ...
 		var p = sugoi.db.Permalink.get(permalink);
 		if(p==null) throw Error("/home",t._("The link \"::link::\" does not exists.",{link:permalink}));
 

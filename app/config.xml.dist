@@ -5,8 +5,8 @@
 
 	host="localhost"
 	name = "Alterconso"
-	default_email = "contact@cagette.net"
-	webmaster_email = "admin@cagette.net"
+	default_email = "alterconso@leportail.org"
+	webmaster_email = "alterconso@leportail.org"
 
 	database="mysql://user:password@host/db"
 	sqllog="1"

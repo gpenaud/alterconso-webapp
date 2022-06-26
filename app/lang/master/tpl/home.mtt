@@ -465,13 +465,13 @@
 	document.addEventListener("DOMContentLoaded", function(event) {
 		/*window.setTimeout(function(){
 			var txt = "Cet onglet vous permet d'avoir une vue d'ensemble sur toutes vos distributions, leurs commandes et les producteurs qui y participent.";
-			txt += "<br/><br/><a href='https://wiki.cagette.net/admin:distributions' target='_blank'>En savoir plus</a>";
+			txt += "<br/><br/><a href='https://wiki.leportail.org/admin:distributions' target='_blank'>En savoir plus</a>";
 			_.newFeature("#cagette-navbar #distributions","Nouvel onglet \"Distributions\"",txt,"bottom");
 		},2000);
 		
 		window.setTimeout(function(){
 			var txt = "Il est maintenant possible de créer des rôles afin d'avoir une gestion plus souple des permanences.";
-			txt += "<br/><br/><a href='https://wiki.cagette.net/admin:permanences' target='_blank'>En savoir plus</a>";
+			txt += "<br/><br/><a href='https://wiki.leportail.org/admin:permanences' target='_blank'>En savoir plus</a>";
 			_.newFeature("#dutyPeriodsCalendarButton","Nouveau système de gestion des permanences",txt,"bottom");
 		},3000);
 		*/

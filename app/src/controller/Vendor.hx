@@ -42,7 +42,7 @@ class Vendor extends Controller
 			throw Error("/contractAdmin",t._("You can't edit this vendor profile because he's active in more than one group. If you want him to update his profile, please ask him to do so."));
 		} */
 
-		if(vendor.email!=null && vendor.email.indexOf("@cagette.net")>-1) throw Error("/contractAdmin","Il est impossible de modifier ce producteur");
+		if(vendor.email!=null && vendor.email.indexOf("@leportail.org")>-1) throw Error("/contractAdmin","Il est impossible de modifier ce producteur");
 
 		#if plugins
 		if(pro.db.CagettePro.getFromVendor(vendor)!=null) throw Error("/contractAdmin","Vous ne pouvez pas modifier la fiche de ce producteur, car il gère lui même sa fiche depuis Cagette Pro");
@@ -68,7 +68,7 @@ class Vendor extends Controller
 			throw Error("/contractAdmin",t._("You can't edit this vendor profile because he's active in more than one group. If you want him to update his profile, please ask him to do so."));
 		} */
 
-		if(vendor.email != null && vendor.email.indexOf("@cagette.net")>-1) throw Error("/contractAdmin","Il est impossible de modifier ce producteur");
+		if(vendor.email != null && vendor.email.indexOf("@leportail.org")>-1) throw Error("/contractAdmin","Il est impossible de modifier ce producteur");
 
 		#if plugins
 		if(pro.db.CagettePro.getFromVendor(vendor)!=null) throw Error("/contractAdmin","Vous ne pouvez pas modifier la fiche de ce producteur, car il gère lui même sa fiche depuis Cagette Pro");

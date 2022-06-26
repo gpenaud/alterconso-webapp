@@ -245,13 +245,13 @@ class Group extends controller.Controller
 			place.insert();
 			
 			//contrat AMAP
-			var vendor = db.Vendor.manager.select($email=="jean@cagette.net",false);
+			var vendor = db.Vendor.manager.select($email=="jean@leportail.org",false);
 			if(vendor==null){
 				vendor = new db.Vendor();
 				vendor.name = "Jean Martin EARL";
 				vendor.zipCode = "000";
 				vendor.city = "St Martin de la Cagette";
-				vendor.email = "jean@cagette.net";
+				vendor.email = "jean@leportail.org";
 				vendor.insert();
 			}
 			
@@ -300,13 +300,13 @@ class Group extends controller.Controller
 			}
 			
 			//contrat variable
-			var vendor = db.Vendor.manager.select($email=="galinette@cagette.net",false);
+			var vendor = db.Vendor.manager.select($email=="galinette@leportail.org",false);
 			if(vendor==null){
 				vendor = new db.Vendor();
 				vendor.name = t._("Farm Galinette");
 				vendor.zipCode = "000";
 				vendor.city = "St Martin de la Cagette";
-				vendor.email = "galinette@cagette.net";
+				vendor.email = "galinette@leportail.org";
 				vendor.insert();			
 			}			
 			

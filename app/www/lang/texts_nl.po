@@ -1419,7 +1419,7 @@ msgstr ""
 
 #: src/controller/Install.hx:3586
 msgid ""
-"Group and user 'admin' created. Your email is 'admin@cagette.net' and your "
+"Group and user 'admin' created. Your email is 'alterconso@leportail.org' and your "
 "password is 'admin'"
 msgstr ""
 

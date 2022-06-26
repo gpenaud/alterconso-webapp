@@ -15,7 +15,7 @@
 	</p>
 
 	<p>
-		<a href="https://www.cagette.net">Alterconso</a> est un site web gratuit qui permet aux groupes de consommateurs 
+		<a href="https://www.leportail.org">Alterconso</a> est un site web gratuit qui permet aux groupes de consommateurs 
 		de commander des produits locaux, bio et/ou en direct de la ferme.
 	</p>
 
@@ -23,7 +23,7 @@
 		Vous avez maintenant un compte qui vous permettra de mettre à jour votre <b>fiche producteur</b>, 
 		et également de faire des commandes sur Alterconso si vous le souhaitez. <br/>
 		Cliquez sur le lien ci-dessous pour définir un mot de passe et finaliser votre inscription. <br/>
-		Vous pourrez ensuite vous connecter sur <a href="https://www.cagette.net">Alterconso</a> 
+		Vous pourrez ensuite vous connecter sur <a href="https://www.leportail.org">Alterconso</a> 
 		quand vous le souhaitez en utilisant votre email (::vendor.email::) et votre mot de passe.
 	</p>
 
@@ -31,9 +31,9 @@
 		&raquo; ::_("Finalize your subscription")::
 	</a>
 
-	::set link = 'https://www.cagette.net/producteurs?utm_source=freevendorMail'::
+	::set link = 'https://www.leportail.org/producteurs?utm_source=freevendorMail'::
 	<p>
-		<img src="https://www.cagette.net/wp-content/uploads/2017/12/photo3.jpg" style="width:380px;margin:auto;margin-bottom:12px;"/>
+		<img src="https://www.leportail.org/wp-content/uploads/2017/12/photo3.jpg" style="width:380px;margin:auto;margin-bottom:12px;"/>
 		<br/>
 
 		Si vous souhaitez devenir autonome dans la gestion de votre vente directe sur Internet, nous vous invitons 

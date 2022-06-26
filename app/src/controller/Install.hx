@@ -23,7 +23,7 @@ class Install extends controller.Controller
 			throw Redirect("/install/firstInstall");
 
 		}else {
-			//throw Error("/", "L'utilisateur admin a déjà été créé. Essayez de vous connecter avec admin@cagette.net, mot de passe : admin");
+			//throw Error("/", "L'utilisateur admin a déjà été créé. Essayez de vous connecter avec alterconso@leportail.org, mot de passe : admin");
 
 			var status = new Array<{parameter:String,valid:Bool,message:String}>();
 
@@ -69,7 +69,7 @@ class Install extends controller.Controller
         /* var user = new db.User();
 				user.firstName = f.getValueOf("userFirstName");
 				user.lastName = f.getValueOf("userLastName");
-				user.email = "admin@cagette.net";
+				user.email = "alterconso@leportail.org";
 				user.setPass("admin");
 				user.insert();
 
@@ -98,7 +98,7 @@ class Install extends controller.Controller
 
 				var vendor = new db.Vendor();
 				vendor.name = t._("Jean Martin EURL");
-				vendor.email = "jean.martin@cagette.net";
+				vendor.email = "jean.martin@leportail.org";
 				vendor.zipCode = "00000";
 				vendor.city = "Martignac";
 				vendor.insert();
@@ -156,7 +156,7 @@ class Install extends controller.Controller
 				App.current.session.setUser(user);
 				App.current.session.data.amapId  = amap.id; */
 
-				throw Ok("/", t._("Group and user 'admin' created. Your email is 'admin@cagette.net' and your password is 'admin'"));
+				throw Ok("/", t._("Group and user 'admin' created. Your email is 'alterconso@leportail.org' and your password is 'admin'"));
 			}
 
 			view.form= f;

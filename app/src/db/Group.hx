@@ -10,7 +10,7 @@ enum GroupFlags {
 	ShopMode; 		//shop mode / standard mode
 	HasPayments; 	//manage payments and user balance
 	ComputeMargin;	//compute margin instead of percentage
-	CagetteNetwork; //register in cagette.net groups directory
+	CagetteNetwork; //register in alterconso groups directory
 	CustomizedCategories;  //the custom categories are not used anymore, use product taxonomy instead
 	HidePhone; 		//Hide manager phone on group public page
 	PhoneRequired;	//phone number of members is required for this group	
@@ -457,7 +457,7 @@ class Group extends Object
 	public function deleteDemoContracts(){
 		var out = [];
 
-		for( email in ["galinette@cagette.net","jean@cagette.net"]){
+		for( email in ["galinette@leportail.org","jean@leportail.org"]){
 			var v = db.Vendor.manager.select($email == email);
 			for( c in getContracts()){
 				if( c.vendor.id==v.id) {

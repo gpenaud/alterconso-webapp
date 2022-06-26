@@ -1523,10 +1523,10 @@ msgstr "Gemüse-Vertrag Beispiel"
 
 #: src/controller/Install.hx:3586
 msgid ""
-"Group and user 'admin' created. Your email is 'admin@cagette.net' and your "
+"Group and user 'admin' created. Your email is 'alterconso@leportail.org' and your "
 "password is 'admin'"
 msgstr ""
-"Gruppe und Benutzer „admin“ angelegt. Ihre E-Mail ist „admin@cagette.net“ "
+"Gruppe und Benutzer „admin“ angelegt. Ihre E-Mail ist „alterconso@leportail.org“ "
 "und Ihr Passwort ist „admin“."
 
 #: src/controller/Install.hx:4181
@@ -5082,7 +5082,7 @@ msgstr ""
 #~ msgid "you have been pre-registered on the software Alterconso"
 #~ msgstr "Sie wurden mit der Software Lemilo.de erfolgreich vor-angemeldet"
 
-#~ msgid "www.cagette.net"
+#~ msgid "www.leportail.org"
 #~ msgstr "www.lemilo.de"
 
 #~ msgid ""

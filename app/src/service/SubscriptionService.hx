@@ -269,7 +269,7 @@ class SubscriptionService
 	  */
 	 public static function deleteSubscription( subscription : db.Subscription ) {
 
-		if ( hasPastDistribOrders( subscription ) && subscription.catalog.vendor.email != 'jean@cagette.net' && subscription.catalog.vendor.email != 'galinette@cagette.net' ) {
+		if ( hasPastDistribOrders( subscription ) && subscription.catalog.vendor.email != 'jean@leportail.org' && subscription.catalog.vendor.email != 'galinette@leportail.org' ) {
 
 			throw TypedError.typed( 'Impossible de supprimer cette souscription car il y a des distributions passées avec des commandes.', PastOrders );
 		}
