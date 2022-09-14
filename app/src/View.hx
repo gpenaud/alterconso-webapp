@@ -312,7 +312,7 @@ class View extends sugoi.BaseView {
 	}
 
 	public function getGraphqlUrl() {
-		return App.config.get("cagette_api") + "/graphql";
+		return App.config.get("alterconso_api") + "/graphql";
 	}
 	
 	/** 

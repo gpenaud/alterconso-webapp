@@ -26,16 +26,16 @@ before_install:
   - sed -e 's?langs=.*?langs="fr;de;en"?g' --in-place config.xml
   - sed -e 's?langnames=.*?langnames="Français;Deutsch;English"?g' --in-place config.xml
 install:
-  - yes | haxelib install cagette.hxml
-  - yes | haxelib install cagetteJs.hxml
+  - yes | haxelib install alterconso.hxml
+  - yes | haxelib install alterconsoJs.hxml
 before_script:
   - sudo sh -c "cd /usr/bin;haxelib run templo"
   - npm install
 script:
   - if [ ! -e www/index.n ]; then echo "File www/index.n does not exist yet, as expected"; else echo "Unexpected file www/index.n exists, but it should not exist yet" && exit 1; fi
-  - haxe cagette.hxml
+  - haxe alterconso.hxml
   - if [ -e www/index.n ]; then echo "File www/index.n now exists, as expected"; else echo "Unexpected error, file www/index.n does not exist yet, but it should" && exit 1; fi
-  - haxe cagetteJs.hxml
+  - haxe alterconsoJs.hxml
   - npm run libs:dev
   - npm run build:js
   - first_access_index_page_output=$(wget http://cagette -O-)

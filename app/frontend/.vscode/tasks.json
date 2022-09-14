@@ -15,7 +15,7 @@
         },
         {
             "type": "hxml",
-            "file": "cagetteJs.hxml",
+            "file": "alterconsoJs.hxml",
             "problemMatcher": [
                 "$haxe-absolute",
                 "$haxe",

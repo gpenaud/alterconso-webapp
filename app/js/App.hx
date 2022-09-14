@@ -81,8 +81,8 @@ class App {
         untyped js.Browser.window._ = new App();
 
         NeolithicViewsGenerator.setApiUrl("/api");
-        // NeolithicViewsGenerator.setGraphUrl(sugoi.db.Variable.get("cagette_api") + "/graphql");
-        // NeolithicViewsGenerator.setGraphUrl(App.config.get("cagette_api") + "/graphql");
+        // NeolithicViewsGenerator.setGraphUrl(sugoi.db.Variable.get("alterconso_api") + "/graphql");
+        // NeolithicViewsGenerator.setGraphUrl(App.config.get("alterconso_api") + "/graphql");
 		untyped js.Browser.window._NeolithicViewsGenerator = NeolithicViewsGenerator;
     }
 

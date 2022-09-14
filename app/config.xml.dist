@@ -25,5 +25,5 @@
 	smtp_user="mon_email@mon_domaine.fr"
 	smtp_pass="blabla"
 
-	cagette_api="http://localhost:3010"
+	alterconso_api="http://localhost:3010"
 />

@@ -25,8 +25,28 @@ class Cron extends Controller
 
 	// ------------------------------------------------------------------------ //
 
+	// INSERT INTO `User` VALUES (5,'fr','6e6c70efaf04804f3f1f04785b7bddb5',0,'Adèle','TRUEBLOOD','fermedujointout@gmail.com',NULL,NULL,NULL,NULL,NULL,'7 Rue du Portail',NULL,'71270','Torpes','1989-04-13','FR','FR','2022-04-13','2022-05-10 09:52:15',4,0,NULL,NULL);
+
+	/**
+	 *  @gpenaud
+	 *  Debug distribution notifications
+	 *  this can be locally tested with `neko index.n cron/testDistributionNotifications > cron.log`
+	 */
 	public function doTest() {
-		Sys.println("test");
+		Sys.println("Cron test");
+
+		//Distrib notifications
+		var task = new TransactionWrappedTask("Distrib notifications");
+		Sys.println("before task.setTask()");
+		Sys.println(db.User.UserFlags.HasEmailNotifOuverture);
+		task.setTask(function(){
+			distribNotif(task,this.now,4,db.User.UserFlags.HasEmailNotif4h); //4h before
+			distribNotif(task,this.now,24,db.User.UserFlags.HasEmailNotif24h); //24h before
+			distribNotif(task,this.now,0, db.User.UserFlags.HasEmailNotifOuverture); //on command open
+			Sys.println("distribNotif called");
+		});
+		task.execute(!App.config.DEBUG);
+		Sys.println("task executed");
 	}
 
 	// ------------------------------------------------------------------------ //
@@ -371,21 +391,42 @@ class Cron extends Controller
 	 */
 	function distribNotif(task:TransactionWrappedTask,now:Date,hour:Int, flag:db.User.UserFlags) {
 
+		Sys.println("start distribNotif() function");
+
 		//trouve les distrib qui commencent dans le nombre d'heures demandé
  		//on recherche celles qui commencent jusqu'à une heure avant pour ne pas en rater
- 		var from = DateTools.delta(now, 1000.0 * 60 * 60 * (hour-1));
- 		var to = DateTools.delta(now, 1000.0 * 60 * 60 * hour);
+ 		// var from = DateTools.delta(now, 1000.0 * 60 * 60 * (hour-1));
+ 		// var to = DateTools.delta(now, 1000.0 * 60 * 60 * hour);
+
+		// gpenaud enforcement
+		Sys.println("hour: " + hour);
+		var from = DateTools.delta(now, 1000.0 * 60 * 60 * (hour-30));
+		var to = DateTools.delta(now, 1000.0 * 60 * 60 * hour);
+
+		Sys.println("date now: " + now);
+		Sys.println("date from: " + from);
+		Sys.println("date to: " + to);
 
 		// dans le cas HasEmailNotifOuverture la date à prendre est le orderStartDate
 		// et non pas date qui est la date de la distribution
 		var distribs;
 		if ( db.User.UserFlags.HasEmailNotifOuverture == flag ){
+			Sys.println("We are in case HasEmailNotifOuverture");
 			task.title('$flag : Look for distribs with orderStartDate between $from to $to');
-			distribs = db.Distribution.manager.search( $orderStartDate >= from && $orderStartDate <= to , false);
-		} else {
+			distribs = db.Distribution.manager.search( $orderStartDate >= from && $orderStartDate <= to, false);
+
+			// from: 2022-08-03 19:55:01
+			// to:   2022-08-03 20:55:01
+
+			// $orderStartDate: 2022-08-01 08:00:00
+		}
+		else {
+			Sys.println("We are NOT in case HasEmailNotifOuverture - $flag is:" + flag);
 			task.title('$flag : Look for distribs happening between $from to $to');
 			distribs = db.Distribution.manager.search( $date >= from && $date < to , false);
 		}
+
+		Sys.println("distribs: " + distribs);
 
 		//on s'arrete immédiatement si aucune distibution trouvée
  		if (distribs.length == 0) return;
@@ -407,6 +448,7 @@ class Cron extends Controller
 			}
 		}
 
+		Sys.println("Nombre de distributions restantes après suppression du cache: " + distribs.length);
 
 		//toutes les distribs trouvées ont deja été traitées
 		if (distribs.length == 0) return;
@@ -464,6 +506,8 @@ class Cron extends Controller
  			}
 		}
 
+
+
 		//remove zero qt orders
 		for( k in users.keys()){
 			var x = users.get(k);
@@ -476,6 +520,7 @@ class Cron extends Controller
 		if ( db.User.UserFlags.HasEmailNotifOuverture == flag )
 		{
  			for (d in distribs) {
+				// gpenaud
 				var memberList = d.catalog.group.getMembers();
 				for (u in memberList) {
 					var x = users.get(u.id+"-"+d.catalog.group.id);
@@ -542,13 +587,15 @@ class Cron extends Controller
 						}
 
 						m.setHtmlBody( app.processTemplate("mail/orderNotif.mtt", { text:text,group:group,multiDistrib:u.distrib,user:u.user,status:status,hHour:Formatting.hHour } ) );
-						App.sendMail(m , u.distrib.group);
+						App.sendMail(m, u.distrib.group);
 
-						if(App.config.DEBUG){
+						// gpenaud
+						//if(App.config.DEBUG){
 							//task.log("distrib is "+u.distrib);
 							task.title(u.user.getName());
 							task.log(m.getHtmlBody());
-						}
+						// gpenaud
+						//}
 
 					}catch (e:Dynamic){
 						app.logError(e); //email could be invalid
