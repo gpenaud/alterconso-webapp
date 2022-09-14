@@ -44,8 +44,8 @@ COPY ./app/config.xml.dist /app/config.xml
 
 RUN chmod 777 /app/lang/master/tmp
 
-RUN cd /app/backend && haxe cagette.hxml
-RUN cd /app/frontend && haxe cagetteJs.hxml
+RUN cd /app/backend && haxe alterconso.hxml
+RUN cd /app/frontend && haxe alterconsoJs.hxml
 
 # ============================================================================ #
 #                   APPLICATION CONFIGURATION AND EXECUTION                    #
